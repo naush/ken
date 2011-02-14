@@ -4,8 +4,9 @@ import ui
 
 import models::moods
 
-control moodometer() {
-	var newMood = Mood(date=now())
+var newMood = Mood(date=now());
+
+screen addMood() {
 	<div style="margin:20px">
 	label("Do you feel...?", style=title)
 	group {
@@ -21,7 +22,18 @@ control moodometer() {
 			label("Awake", style=emphasis)
 			rangeField(newMood.awake, min=-10, max=10, style=ranger)
 		}
-		button("Save", onclick={ add(newMood); })
+		button("Save", onclick={
+			add(newMood);
+			newMood = Mood(date=now());
+			screen return;
+		})
 	}
 	</div>
+}
+
+control moodometer() {
+	button("Add", onclick={
+		newMood = Mood(date=now());
+		addMood();
+	})
 }
