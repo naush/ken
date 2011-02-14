@@ -1,0 +1,3 @@
+module controls::life
+
+control life() {}

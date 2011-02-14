@@ -1,0 +1,3 @@
+module controls::meditate
+
+control meditate() {}

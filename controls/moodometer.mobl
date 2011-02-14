@@ -1,0 +1,27 @@
+module controls::moodometer
+
+import ui
+
+import models::moods
+
+control moodometer() {
+	var newMood = Mood(date=now())
+	<div style="margin:20px">
+	label("Do you feel...?", style=title)
+	group {
+		item {
+			label("Happy", style=emphasis)
+			rangeField(newMood.happy, min=-10, max=10, style=ranger)
+		}
+		item {
+			label("Relaxed", style=emphasis)
+			rangeField(newMood.relaxed, min=-10, max=10, style=ranger)
+		}
+		item {
+			label("Awake", style=emphasis)
+			rangeField(newMood.awake, min=-10, max=10, style=ranger)
+		}
+		button("Save", onclick={ add(newMood); })
+	}
+	</div>
+}

@@ -1,0 +1,8 @@
+module models::moods
+
+entity Mood {
+  happy       : String
+  relaxed     : String
+  awake       : String
+  date        : DateTime
+}
