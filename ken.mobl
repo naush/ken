@@ -10,9 +10,9 @@ import controls::moodometer
 import controls::meditate
 
 screen root() {
-  header("Ken")
-  tabSet([("Remind Me", "", remindMe),
-  		  ("Life", "", life),
-  		  ("Moodometer", "", moodometer),
-  		  ("Meditate", "", meditate)])
+	header("Ken")
+	tabSet([("Remind Me", "", remindMe),
+  			("Life", "", life),
+  			("Moodometer", "", moodometer),
+			("Meditate", "", meditate)])
 }

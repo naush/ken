@@ -1,5 +1,4 @@
 .project
-www/*
 .cache/*
 .DS_Store
 
