@@ -3,29 +3,33 @@ module controls::moodometer
 import ui
 
 import models::moods
+import mobl::notify
 
-var newMood = Mood(date=now());
-
-screen addMood() {
+screen addMood(mood : Mood) {
 	<div style="margin:20px">
 	label("Do you feel...?", style=title)
 	group {
 		item {
 			label("Happy", style=emphasis)
-			rangeField(newMood.happy, min=-10, max=10, style=ranger)
+			rangeField(mood.happy, min=-10, max=10, style=ranger)
 		}
 		item {
 			label("Relaxed", style=emphasis)
-			rangeField(newMood.relaxed, min=-10, max=10, style=ranger)
+			rangeField(mood.relaxed, min=-10, max=10, style=ranger)
 		}
 		item {
 			label("Awake", style=emphasis)
-			rangeField(newMood.awake, min=-10, max=10, style=ranger)
+			rangeField(mood.awake, min=-10, max=10, style=ranger)
 		}
 		button("Save", onclick={
-			add(newMood);
-			newMood = Mood(date=now());
-			screen return;
+			if (mood.happy.length == 0
+			|| mood.relaxed.length == 0
+			|| mood.awake.length == 0) {
+				notify("Did you forget to rate your mood?");
+			} else {
+				add(mood);
+				screen return;
+			}
 		})
 	}
 	</div>
@@ -33,7 +37,6 @@ screen addMood() {
 
 control moodometer() {
 	button("Add", onclick={
-		newMood = Mood(date=now());
-		addMood();
+		addMood(Mood(date=now()));
 	})
 }
