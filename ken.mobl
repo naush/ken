@@ -5,14 +5,9 @@ import ui
 import models::moods
 
 import controls::remindme
-import controls::life
 import controls::moodometer
-import controls::meditate
 
 screen root() {
 	header("Ken")
 	tabSet([("Remind Me", "", remindMe),
-  			("Life", "", life),
-  			("Moodometer", "", moodometer),
-			("Meditate", "", meditate)])
-}
+  			("Moodometer", "", moodometer)])}
