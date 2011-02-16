@@ -5,42 +5,11 @@ import ui
 import models::moods
 import mobl::notify
 
-screen addMood(mood : Mood) {
-    group {
-    	item {
-    		label("Happy", style=emphasis)
-    		rangeField(mood.happy, min=-10, max=10, style=ranger)
-    	}
-    	item {
-    		label("Relaxed", style=emphasis)
-    		rangeField(mood.relaxed, min=-10, max=10, style=ranger)
-    	}
-    	item {
-    		label("Awake", style=emphasis)
-    		rangeField(mood.awake, min=-10, max=10, style=ranger)
-    	}
-    	button("Save", onclick={
-    		if (mood.happy.length == 0
-    		|| mood.relaxed.length == 0
-    		|| mood.awake.length == 0) {
-    			notify("Did you forget to rate your mood?");
-    		} else {
-    			add(mood);
-    		}
-    	})
-    }
+screen moodoScreen(mood : Mood) {
+	moodoForm(mood)
 }
 
-// screen A(count : Num = 0) {
-// 	button("Call A: " + count, onclick={ A(count + 1); })
-// }
-// 
-// control B(count : Num = 0) {
-// 	button("Call B: " + count, onclick={ B; })
-// }
-
-control moodometer() {
-	var mood = Mood(date=now())
+control moodoForm (mood : Mood) {
     group {
     	item {
     		label("Happy", style=emphasis)
@@ -62,9 +31,12 @@ control moodometer() {
     		} else {
     			notify("Your mood is saved successfully!");
     			add(mood);
-				addMood(Mood(date=now()));
+    			moodoScreen(Mood(date=now()));
     		}
     	})
-    	// moodometer()
     }
+}
+
+control moodoMeter() {
+	moodoForm(Mood(date = now()))
 }

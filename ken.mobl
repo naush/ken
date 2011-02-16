@@ -10,4 +10,5 @@ import controls::moodometer
 screen root() {
 	header("Ken")
 	tabSet([("Remind Me", "", remindMe),
-  			("Moodometer", "", moodometer)])}
+  			("Moodometer", "", moodoMeter)])
+}
