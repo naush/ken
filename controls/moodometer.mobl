@@ -13,15 +13,15 @@ control moodoForm (mood : Mood) {
     group {
     	item {
     		label("Happy", style=emphasis)
-    		rangeField(mood.happy, min=-10, max=10, style=ranger)
+    		rangeField(mood.happy, min=0, max=100, start=50, style=ranger)
     	}
     	item {
     		label("Relaxed", style=emphasis)
-    		rangeField(mood.relaxed, min=-10, max=10, style=ranger)
+    		rangeField(mood.relaxed, min=0, max=100, start=50, style=ranger)
     	}
     	item {
     		label("Awake", style=emphasis)
-    		rangeField(mood.awake, min=-10, max=10, style=ranger)
+    		rangeField(mood.awake, min=0, max=100, start=50, style=ranger)
     	}
     	button("Save", onclick={
     		if (mood.happy.length == 0

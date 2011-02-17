@@ -1,48 +1,48 @@
 mobl.provides('ken');
 
 ken.root = function(callback, screenCallback) {
-var root765 = $("<div>");
+var root4339 = $("<div>");
 var subs__ = new mobl.CompSubscription();
 
-var tmp1569 = mobl.ref("Ken");
+var tmp4128 = mobl.ref("Ken");
 
 
-var tmp1570 = mobl.ref(null);
+var tmp4129 = mobl.ref(null);
 
-var nodes677 = $("<span>");
-root765.append(nodes677);
-subs__.addSub((ui.header)(tmp1569, tmp1570, function(_, callback) {
-  var root766 = $("<span>");
+var nodes2831 = $("<span>");
+root4339.append(nodes2831);
+subs__.addSub((mobl.ui.generic.header)(tmp4128, tmp4129, function(_, callback) {
+  var root4340 = $("<span>");
   var subs__ = new mobl.CompSubscription();
-  callback(root766); return subs__;
+  callback(root4340); return subs__;
   return subs__;
 }, function(node) {
-  var oldNodes = nodes677;
-  nodes677 = node.contents();
-  oldNodes.replaceWith(nodes677);
+  var oldNodes = nodes2831;
+  nodes2831 = node.contents();
+  oldNodes.replaceWith(nodes2831);
 }));
 
-var tmp1571 = mobl.ref([new mobl.Tuple("Remind Me", "", controls.remindme.remindMe), new mobl.Tuple("Moodometer", "", controls.moodometer.moodoMeter)]);
+var tmp4130 = mobl.ref([new mobl.Tuple("Remind Me", "", controls.remindme.remindMe), new mobl.Tuple("Moodometer", "", controls.moodometer.moodoMeter)]);
 subs__.addSub(mobl.ref(controls.remindme.remindMe).addEventListener('change', function() {
-  tmp1571.set([new mobl.Tuple("Remind Me", "", controls.remindme.remindMe), new mobl.Tuple("Moodometer", "", controls.moodometer.moodoMeter)]);
+  tmp4130.set([new mobl.Tuple("Remind Me", "", controls.remindme.remindMe), new mobl.Tuple("Moodometer", "", controls.moodometer.moodoMeter)]);
 }));
 subs__.addSub(mobl.ref(controls.moodometer.moodoMeter).addEventListener('change', function() {
-  tmp1571.set([new mobl.Tuple("Remind Me", "", controls.remindme.remindMe), new mobl.Tuple("Moodometer", "", controls.moodometer.moodoMeter)]);
+  tmp4130.set([new mobl.Tuple("Remind Me", "", controls.remindme.remindMe), new mobl.Tuple("Moodometer", "", controls.moodometer.moodoMeter)]);
 }));
 
-var nodes678 = $("<span>");
-root765.append(nodes678);
-subs__.addSub((ui.tabSet)(tmp1571, function(_, callback) {
-  var root767 = $("<span>");
+var nodes2832 = $("<span>");
+root4339.append(nodes2832);
+subs__.addSub((mobl.ui.generic.tabSet)(tmp4130, function(_, callback) {
+  var root4341 = $("<span>");
   var subs__ = new mobl.CompSubscription();
-  callback(root767); return subs__;
+  callback(root4341); return subs__;
   return subs__;
 }, function(node) {
-  var oldNodes = nodes678;
-  nodes678 = node.contents();
-  oldNodes.replaceWith(nodes678);
+  var oldNodes = nodes2832;
+  nodes2832 = node.contents();
+  oldNodes.replaceWith(nodes2832);
 }));
-callback(root765); return subs__;
+callback(root4339); return subs__;
 
 
 return subs__;

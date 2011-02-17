@@ -4,4 +4,4 @@ debug
 
 title "Ken"
 
-stdlib "/Users/naush/Projects/eclipse/mobl-lib"
+lib "/Users/naush/Projects/eclipse/mobl-lib"

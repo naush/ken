@@ -3,9 +3,18 @@ module ui
 mixin mobl::ui::generic
 
 control rangeField(s : String, style : Style = null, min : Num = 0, max : Num = 10, start : Num = 0) {
-	var id = s + "-range-field"
+	// var id = s + "-range-field"
+	// <input type="hidden" databind=s value=start />
+	// <input type="range" value=start min=min max=max onchange={s = $("#" + id).val();} id=id class=style />
+	slider@<div/>
+	label(start + "%")
 	<input type="hidden" databind=s value=start />
-	<input type="range" value=start min=min max=max onchange={s = $("#" + id).val();} id=id class=style />
+	script {
+		slider.slider(Dynamic(value=start, min=min, max=max, step=1, change={
+				s = slider.slider("value");
+				start = slider.slider("value");
+			}));
+	}
 }
 
 style title {
