@@ -1,0 +1,33 @@
+module services::twitter
+
+type Trend {
+  name : String
+  url  : String
+}
+
+function trendsMapper(json : JSON) : [Trend] {
+  return json.trends;
+}
+
+type Tweet {
+  profile_image_url : String
+  created_at        : String
+  from_user         : String
+  text              : String
+}
+
+function tweetsMapper(json : JSON) : [Tweet] {
+  return json.results;
+}
+
+service Twitter {
+  resource trends() : [Trend] {
+    uri = "/_proxy/api.twitter.com/1/trends.json"
+    mapper = trendsMapper
+  }
+  resource search(query : String) : [Tweet] {
+    uri = "/_proxy/search.twitter.com/search.json?q="
+          + escape(query)
+    mapper = tweetsMapper
+  }
+}

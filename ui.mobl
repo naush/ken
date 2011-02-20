@@ -3,31 +3,44 @@ module ui
 mixin mobl::ui::generic
 
 control rangeField(s : String, style : Style = null, min : Num = 0, max : Num = 10, start : Num = 0) {
-	// var id = s + "-range-field"
-	// <input type="hidden" databind=s value=start />
-	// <input type="range" value=start min=min max=max onchange={s = $("#" + id).val();} id=id class=style />
-	slider@<div/>
-	label(start + "%")
-	script {
-		slider.slider(Dynamic(databind=s, value=start, min=min, max=max, step=1, change={
-				s = slider.slider("value");
-				start = slider.slider("value");
-			}));
-	}
+  // var id = s + "-range-field"
+  // <input type="range" databind=s value=start min=min max=max onchange={s = $("#" + id).val();} id=id class=style />
+  slider@<div/>
+  // label(start + "%")
+  script {
+    slider.slider(Dynamic(value=start, min=min, max=max, step=1, change={
+        s = slider.slider("value");
+        start = slider.slider("value");
+      }));
+  }
 }
 
 style title {
-	padding: 10px;
-	font-size: 2em;
+  padding: 10px;
+  font-size: 2em;
 }
 
 style emphasis {
-	display: block;
-	font-size: 1em;
-	margin: 10px;
-	text-align: center;
+  display: block;
+  font-size: 1em;
+  margin: 10px;
+  text-align: center;
 }
 
 style ranger {
-	width: 100%;
+  width: 100%;
+}
+
+style tweetStyle {
+  padding: 10px;
+  margin: 5px;
+  min-height: 50px;
+  background-color: white;
+  border: 1px solid #444;
+  borderRadiusMixin(10px);
+}
+
+style tweetIconStyle {
+  float: left;
+  margin: 0 10px 0 0;
 }

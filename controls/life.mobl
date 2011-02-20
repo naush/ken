@@ -1,0 +1,51 @@
+module controls::life
+
+import ui
+
+import models::lifeevents
+
+var events : [String] = Array<String>();
+var marriage = false;
+
+function cb(check : Bool, name : String) : Callback {
+  return {
+    if (check) {
+      events.push(name);
+    } else {
+      events.remove(name);
+    }
+  };
+}
+
+control life() {
+  group {
+  	item {
+      checkBox(marriage, "Marriage", onchange=cb(marriage, "Marriage"))
+  	}
+  	item {
+      checkBox(false, "Divorce")
+  	}
+  	item {
+      checkBox(false, "Death of a spouse")
+  	}
+  	item {
+      checkBox(false, "Injury or illness")
+  	}
+  	item {
+      checkBox(false, "Going back to school")
+  	}
+  	item {
+      checkBox(false, "Change in residence")
+  	}
+  	item {
+      checkBox(false, "Mortgage or loan")
+  	}
+  	button("Save", onclick={
+  		foreach (event in events) {
+  			add(LifeEvent(name=event, date=now()));
+  		}
+  		events.length = 0;
+  	})
+  }
+}
+

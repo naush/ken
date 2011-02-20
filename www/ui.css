@@ -513,3 +513,17 @@
 .ui__ranger {
   width: 100%;
 }
+.ui__tweetStyle {
+  padding: 10px;
+  margin: 5px;
+  min-height: 50px;
+  background-color: white;
+  border: 1px solid #444;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+.ui__tweetIconStyle {
+  float: left;
+  margin: 0 10px 0 0;
+}

@@ -4,9 +4,14 @@ import mobl::ui::generic
 
 import controls::remindme
 import controls::moodometer
+import controls::life
+// import controls::twittertrend
 
 load js/jquery-ui-1.8.9.custom.min.js
 load css/ui-lightness/jquery-ui-1.8.9.custom.css
+// load js/jquery-1.5.min.js
+// load js/jquery.mobile-1.0a3.min.js
+// load css/jquery.mobile-1.0a3.min.css
 
 resource css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png
 resource css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png
@@ -14,7 +19,9 @@ resource css/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png
 resource css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png
 
 screen root() {
-	header("Ken")
-	tabSet([("Remind Me", "", remindMe),
-  			("Moodometer", "", moodoMeter)])
+  header("Ken")
+  tabSet([("Remind Me", "", remindMe),
+          ("Life", "", life),
+          ("Moodometer", "", moodoMeter)])
+        // ("Twitter Trend", "", twitterTrend)
 }

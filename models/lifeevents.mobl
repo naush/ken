@@ -1,0 +1,20 @@
+module models::lifeevents
+
+entity LifeEvent {
+  name : String
+  stress : Num
+  date   : DateTime
+}
+
+// function seedLifeEvents(events : [LifeEvent] = []) {
+//   add(LifeEvent(name="Marriage"));
+//   add(LifeEvent(name="Divorce"));
+//   add(LifeEvent(name="Death of a spouse"));
+//   add(LifeEvent(name="Injury or illness"));
+//   add(LifeEvent(name="Going back to school"));
+//   add(LifeEvent(name="Change in residence"));
+//   add(LifeEvent(name="Mortgage or loan"));
+//   foreach (event in events) {
+//     add(event);
+//   }
+// }

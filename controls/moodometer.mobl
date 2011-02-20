@@ -6,37 +6,38 @@ import models::moods
 import mobl::notify
 
 screen moodoScreen(mood : Mood) {
-	moodoForm(mood)
+  moodoForm(mood)
 }
 
 control moodoForm (mood : Mood) {
-    group {
-    	item {
-    		label("Happy", style=emphasis)
-    		rangeField(mood.happy, min=0, max=100, start=50, style=ranger)
-    	}
-    	item {
-    		label("Relaxed", style=emphasis)
-    		rangeField(mood.relaxed, min=0, max=100, start=50, style=ranger)
-    	}
-    	item {
-    		label("Awake", style=emphasis)
-    		rangeField(mood.awake, min=0, max=100, start=50, style=ranger)
-    	}
-    	button("Save", onclick={
-    		if (mood.happy.length == 0
-    		|| mood.relaxed.length == 0
-    		|| mood.awake.length == 0) {
-    			notify("Did you forget to rate your mood?");
-    		} else {
-    			notify("Your mood is saved successfully!");
-    			add(mood);
-    			moodoScreen(Mood(date=now()));
-    		}
-    	})
+  group {
+    item {
+      label("Happy", style=emphasis)
+      rangeField(mood.happy, min=0, max=100, start=50, style=ranger)
     }
+    item {
+      label("Relaxed", style=emphasis)
+      rangeField(mood.relaxed, min=0, max=100, start=50, style=ranger)
+    }
+    item {
+      label("Awake", style=emphasis)
+      rangeField(mood.awake, min=0, max=100, start=50, style=ranger)
+    }
+    button("Save", onclick={
+      if (mood.happy.length == 0
+        || mood.relaxed.length == 0
+        || mood.awake.length == 0) {
+        notify("Did you forget to rate your mood?");
+      } else {
+        notify("Your mood is saved successfully!");
+        add(mood);
+        // mood = Mood(date=now());
+        moodoScreen(Mood(date=now()));
+      }
+    })
+  }
 }
 
 control moodoMeter() {
-	moodoForm(Mood(date = now()))
+  moodoForm(Mood(date = now()))
 }
