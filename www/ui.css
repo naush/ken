@@ -16,8 +16,8 @@
   z-index: 99;
 }
 .ui__headerStyle {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(72, 100, 180)), to(rgb(32, 60, 140)));
-  background: -moz-linear-gradient(top, rgb(72, 100, 180), rgb(32, 60, 140));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(150, 80, 0)), to(rgb(110, 40, -40)));
+  background: -moz-linear-gradient(top, rgb(150, 80, 0), rgb(110, 40, -40));
   padding: 0;
   height: 2.3em;
   font-size: 1.3em;
@@ -45,39 +45,39 @@
 }
 .ui__buttonStyle {
   font-family: Arial, Helvetica, sans-serif;
-  text-shadow: rgb(172, 200, 280) 0px 1px 0px;
+  text-shadow: rgb(250, 180, 100) 0px 1px 0px;
   font-weight: bold;
   text-align: center;
   padding: 0.5em 1em 0.5em 1em;
   margin: 0.3em;
   line-height: 3em;
-  color: rgb(22, 50, 130);
+  color: rgb(100, 30, -50);
   -webkit-box-shadow: 0px 0px 3px #777777;
   -moz-box-shadow: 0px 0px 3px #777777;
   box-shadow: 0px 0px 3px #777777;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(242, 270, 350)), to(rgb(192, 220, 300)));
-  background: -moz-linear-gradient(top, rgb(242, 270, 350), rgb(192, 220, 300));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(320, 250, 170)), to(rgb(270, 200, 120)));
+  background: -moz-linear-gradient(top, rgb(320, 250, 170), rgb(270, 200, 120));
 }
 .ui__buttonPushedStyle {
   font-family: Arial, Helvetica, sans-serif;
-  text-shadow: rgb(172, 200, 280) 0px 1px 0px;
+  text-shadow: rgb(250, 180, 100) 0px 1px 0px;
   font-weight: bold;
   text-align: center;
   padding: 0.5em 1em 0.5em 1em;
   margin: 0.3em;
   line-height: 3em;
-  color: rgb(22, 50, 130);
+  color: rgb(100, 30, -50);
   -webkit-box-shadow: 0px 0px 3px #777777;
   -moz-box-shadow: 0px 0px 3px #777777;
   box-shadow: 0px 0px 3px #777777;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(172, 200, 280)), to(rgb(122, 150, 230)));
-  background: -moz-linear-gradient(top, rgb(172, 200, 280), rgb(122, 150, 230));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(250, 180, 100)), to(rgb(200, 130, 50)));
+  background: -moz-linear-gradient(top, rgb(250, 180, 100), rgb(200, 130, 50));
 }
 .ui__headerStyle .ui__buttonStyle {
   float: right;
@@ -105,15 +105,15 @@
   padding: 0.3em 0.8em 0.3em 0.8em;
   margin-top: -0.2em;
   font-weight: bold;
-  color: rgb(22, 50, 130);
+  color: rgb(100, 30, -50);
   -webkit-box-shadow: 0px 0px 3px #777777;
   -moz-box-shadow: 0px 0px 3px #777777;
   box-shadow: 0px 0px 3px #777777;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(242, 270, 350)), to(rgb(192, 220, 300)));
-  background: -moz-linear-gradient(top, rgb(242, 270, 350), rgb(192, 220, 300));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(320, 250, 170)), to(rgb(270, 200, 120)));
+  background: -moz-linear-gradient(top, rgb(320, 250, 170), rgb(270, 200, 120));
 }
 .ui__sideButtonPushedStyle {
   position: absolute;
@@ -121,23 +121,23 @@
   padding: 0.3em 0.8em 0.3em 0.8em;
   margin-top: -0.2em;
   font-weight: bold;
-  color: rgb(22, 50, 130);
+  color: rgb(100, 30, -50);
   -webkit-box-shadow: 0px 0px 3px #777777;
   -moz-box-shadow: 0px 0px 3px #777777;
   box-shadow: 0px 0px 3px #777777;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(172, 200, 280)), to(rgb(122, 150, 230)));
-  background: -moz-linear-gradient(top, rgb(172, 200, 280), rgb(122, 150, 230));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(250, 180, 100)), to(rgb(200, 130, 50)));
+  background: -moz-linear-gradient(top, rgb(250, 180, 100), rgb(200, 130, 50));
 }
 .ui__backButtonStyle {
   float: left;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(242, 270, 350)), to(rgb(192, 220, 300)));
-  background: -moz-linear-gradient(top, rgb(242, 270, 350), rgb(192, 220, 300));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(320, 250, 170)), to(rgb(270, 200, 120)));
+  background: -moz-linear-gradient(top, rgb(320, 250, 170), rgb(270, 200, 120));
   -webkit-box-shadow: 0 0 3px #777777;
   -moz-box-shadow: 0 0 3px #777777;
   box-shadow: 0 0 3px #777777;
@@ -147,8 +147,8 @@
   margin-left: 0.3em;
   font-size: 0.7em;
   font-weight: bold;
-  color: rgb(22, 50, 130);
-  text-shadow: rgb(172, 200, 280) 0px 1px 0px;
+  color: rgb(100, 30, -50);
+  text-shadow: rgb(250, 180, 100) 0px 1px 0px;
   z-index: 3;
 }
 .ui__backButtonPushedStyle {
@@ -156,8 +156,8 @@
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(172, 200, 280)), to(rgb(122, 150, 230)));
-  background: -moz-linear-gradient(top, rgb(172, 200, 280), rgb(122, 150, 230));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(250, 180, 100)), to(rgb(200, 130, 50)));
+  background: -moz-linear-gradient(top, rgb(250, 180, 100), rgb(200, 130, 50));
   -webkit-box-shadow: 0 0 3px #777777;
   -moz-box-shadow: 0 0 3px #777777;
   box-shadow: 0 0 3px #777777;
@@ -167,8 +167,8 @@
   margin-left: 0.3em;
   font-size: 0.7em;
   font-weight: bold;
-  color: rgb(22, 50, 130);
-  text-shadow: rgb(172, 200, 280) 0px 1px 0px;
+  color: rgb(100, 30, -50);
+  text-shadow: rgb(250, 180, 100) 0px 1px 0px;
   z-index: 3;
 }
 .ui__backButtonStyle:before {
@@ -198,7 +198,7 @@
   text-overflow: ellipsis;
 }
 .ui__itemPushedStyle {
-  background-color: rgb(72, 100, 180);
+  background-color: rgb(150, 80, 0);
   border: 1px solid #cccccc;
   border-left: 0;
   border-right: 0;
@@ -265,7 +265,7 @@
   -moz-border-radius-topleft: 8px;
 }
 .ui__tabbarStyle .ui__activeTabButtonStyle {
-  background-color: rgb(72, 100, 180);
+  background-color: rgb(150, 80, 0);
   color: #fefefe;
   position: relative;
   top: 2px;
@@ -324,7 +324,7 @@
 }
 .ui__contextMenuStyle .ui__buttonStyle {
   font-family: Arial, Helvetica, sans-serif;
-  text-shadow: rgb(172, 200, 280) 0px 1px 0px;
+  text-shadow: rgb(250, 180, 100) 0px 1px 0px;
   font-weight: bold;
   text-align: center;
   padding: 0.5em 0.5em 0.5em 0.5em;
@@ -337,12 +337,12 @@
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(242, 270, 350)), to(rgb(192, 220, 300)));
-  background: -moz-linear-gradient(top, rgb(242, 270, 350), rgb(192, 220, 300));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(320, 250, 170)), to(rgb(270, 200, 120)));
+  background: -moz-linear-gradient(top, rgb(320, 250, 170), rgb(270, 200, 120));
 }
 .ui__contextMenuStyle .ui__buttonPushedStyle {
   font-family: Arial, Helvetica, sans-serif;
-  text-shadow: rgb(172, 200, 280) 0px 1px 0px;
+  text-shadow: rgb(250, 180, 100) 0px 1px 0px;
   font-weight: bold;
   text-align: center;
   padding: 0.5em 0.5em 0.5em 0.5em;
@@ -355,8 +355,8 @@
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(172, 200, 280)), to(rgb(122, 150, 230)));
-  background: -moz-linear-gradient(top, rgb(172, 200, 280), rgb(122, 150, 230));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(250, 180, 100)), to(rgb(200, 130, 50)));
+  background: -moz-linear-gradient(top, rgb(250, 180, 100), rgb(200, 130, 50));
 }
 .ui__selectedItemStyle {
   background-color: #ccc;

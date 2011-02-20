@@ -1,6 +1,6 @@
 application ken
 
-import mobl::ui::generic
+import ui
 
 import controls::remindme
 import controls::moodometer
