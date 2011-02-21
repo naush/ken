@@ -26,7 +26,11 @@ function cb(check : Bool, name : String) : Callback {
   };
 }
 
-control life() {
+screen lifeScreen() {
+  lifeForm()
+}
+
+control lifeForm() {
   group {
     list((check, event) in defaults) {
       item {
@@ -40,9 +44,14 @@ control life() {
       if (events.length > 0) {
         notify("Events saved!");
         events.length = 0;
+        lifeScreen();
       } else {
         notify("Please select at least one event.");
       }
     })
   }
+}
+
+control life() {
+  lifeForm()
 }
