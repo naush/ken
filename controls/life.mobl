@@ -6,35 +6,32 @@ import models::lifeevents
 import mobl::notify
 
 var events : [String] = Array<String>();
-var defaults : [(Bool, String)] = Array<(Bool, String)>();
 
-defaults.push((false, "Marriage"));
-defaults.push((false, "Divorce"));
-defaults.push((false, "Death of a spouse"));
-defaults.push((false, "Injury or illness"));
-defaults.push((false, "Going back to school"));
-defaults.push((false, "Change in residence"));
-defaults.push((false, "Mortgage or loan"));
+function loadPresets() : [(Bool, String)] {
+  var presets : [(Bool, String)] = Array<(Bool, String)>();
+  presets.push((false, "Marriage"));
+  presets.push((false, "Divorce"));
+  presets.push((false, "Death of a spouse"));
+  presets.push((false, "Injury or illness"));
+  presets.push((false, "Going back to school"));
+  presets.push((false, "Change in residence"));
+  presets.push((false, "Mortgage or loan"));
+  return presets;
+}
 
 function cb(check : Bool, name : String) : Callback {
-  return {
-    if (check) {
-      events.push(name);
-    } else {
-      events.remove(name);
-    }
-  };
+  return { check ? events.push(name) : events.remove(name); };
 }
 
 screen lifeScreen() {
-  lifeForm()
+  lifeForm(loadPresets())
 }
 
-control lifeForm() {
+control lifeForm(presets : [(Bool, String)]) {
   group {
-    list((check, event) in defaults) {
+    list((check, name) in presets) {
       item {
-      	checkBox(check, event, onchange=cb(check, event))
+      	checkBox(check, name, onchange=cb(check, name))
       }
     }
     button("Save", onclick={
@@ -53,5 +50,5 @@ control lifeForm() {
 }
 
 control life() {
-  lifeForm()
+  lifeForm(loadPresets())
 }
