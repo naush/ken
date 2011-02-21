@@ -1,4 +1,4 @@
-.ui__loadingStyle {
+.styles__ken__loadingStyle {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -15,9 +15,9 @@
   width: 80%;
   z-index: 99;
 }
-.ui__headerStyle {
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(150, 80, 0)), to(rgb(110, 40, -40)));
-  background: -moz-linear-gradient(top, rgb(150, 80, 0), rgb(110, 40, -40));
+.styles__ken__headerStyle {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(72, 100, 180)), to(rgb(32, 60, 140)));
+  background: -moz-linear-gradient(top, rgb(72, 100, 180), rgb(32, 60, 140));
   padding: 0;
   height: 2.3em;
   font-size: 1.3em;
@@ -30,12 +30,12 @@
   margin: 0;
   z-index: 2;
 }
-.ui__headerContainerStyle {
+.styles__ken__headerContainerStyle {
   width: 150px;
   position: absolute;
   left: 50%;
 }
-.ui__headerTextStyle {
+.styles__ken__headerTextStyle {
   position: absolute;
   left: -75px;
   width: 150px;
@@ -43,43 +43,43 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.ui__buttonStyle {
+.styles__ken__buttonStyle {
   font-family: Arial, Helvetica, sans-serif;
-  text-shadow: rgb(250, 180, 100) 0px 1px 0px;
+  text-shadow: rgb(172, 200, 280) 0px 1px 0px;
   font-weight: bold;
   text-align: center;
   padding: 0.5em 1em 0.5em 1em;
   margin: 0.3em;
   line-height: 3em;
-  color: rgb(100, 30, -50);
+  color: rgb(22, 50, 130);
   -webkit-box-shadow: 0px 0px 3px #777777;
   -moz-box-shadow: 0px 0px 3px #777777;
   box-shadow: 0px 0px 3px #777777;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(320, 250, 170)), to(rgb(270, 200, 120)));
-  background: -moz-linear-gradient(top, rgb(320, 250, 170), rgb(270, 200, 120));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(242, 270, 350)), to(rgb(192, 220, 300)));
+  background: -moz-linear-gradient(top, rgb(242, 270, 350), rgb(192, 220, 300));
 }
-.ui__buttonPushedStyle {
+.styles__ken__buttonPushedStyle {
   font-family: Arial, Helvetica, sans-serif;
-  text-shadow: rgb(250, 180, 100) 0px 1px 0px;
+  text-shadow: rgb(172, 200, 280) 0px 1px 0px;
   font-weight: bold;
   text-align: center;
   padding: 0.5em 1em 0.5em 1em;
   margin: 0.3em;
   line-height: 3em;
-  color: rgb(100, 30, -50);
+  color: rgb(22, 50, 130);
   -webkit-box-shadow: 0px 0px 3px #777777;
   -moz-box-shadow: 0px 0px 3px #777777;
   box-shadow: 0px 0px 3px #777777;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(250, 180, 100)), to(rgb(200, 130, 50)));
-  background: -moz-linear-gradient(top, rgb(250, 180, 100), rgb(200, 130, 50));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(172, 200, 280)), to(rgb(122, 150, 230)));
+  background: -moz-linear-gradient(top, rgb(172, 200, 280), rgb(122, 150, 230));
 }
-.ui__headerStyle .ui__buttonStyle {
+.styles__ken__headerStyle .styles__ken__buttonStyle {
   float: right;
   font-size: 0.7em;
   line-height: 2em;
@@ -89,7 +89,7 @@
   margin-right: 0.4em;
   z-index: 3;
 }
-.ui__headerStyle .ui__buttonPushedStyle {
+.styles__ken__headerStyle .styles__ken__buttonPushedStyle {
   float: right;
   font-size: 0.7em;
   line-height: 2em;
@@ -99,45 +99,45 @@
   margin-right: 0.4em;
   z-index: 3;
 }
-.ui__sideButtonStyle {
+.styles__ken__sideButtonStyle {
   position: absolute;
   right: 0.4em;
   padding: 0.3em 0.8em 0.3em 0.8em;
   margin-top: -0.2em;
   font-weight: bold;
-  color: rgb(100, 30, -50);
+  color: rgb(22, 50, 130);
   -webkit-box-shadow: 0px 0px 3px #777777;
   -moz-box-shadow: 0px 0px 3px #777777;
   box-shadow: 0px 0px 3px #777777;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(320, 250, 170)), to(rgb(270, 200, 120)));
-  background: -moz-linear-gradient(top, rgb(320, 250, 170), rgb(270, 200, 120));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(242, 270, 350)), to(rgb(192, 220, 300)));
+  background: -moz-linear-gradient(top, rgb(242, 270, 350), rgb(192, 220, 300));
 }
-.ui__sideButtonPushedStyle {
+.styles__ken__sideButtonPushedStyle {
   position: absolute;
   right: 0.4em;
   padding: 0.3em 0.8em 0.3em 0.8em;
   margin-top: -0.2em;
   font-weight: bold;
-  color: rgb(100, 30, -50);
+  color: rgb(22, 50, 130);
   -webkit-box-shadow: 0px 0px 3px #777777;
   -moz-box-shadow: 0px 0px 3px #777777;
   box-shadow: 0px 0px 3px #777777;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(250, 180, 100)), to(rgb(200, 130, 50)));
-  background: -moz-linear-gradient(top, rgb(250, 180, 100), rgb(200, 130, 50));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(172, 200, 280)), to(rgb(122, 150, 230)));
+  background: -moz-linear-gradient(top, rgb(172, 200, 280), rgb(122, 150, 230));
 }
-.ui__backButtonStyle {
+.styles__ken__backButtonStyle {
   float: left;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(320, 250, 170)), to(rgb(270, 200, 120)));
-  background: -moz-linear-gradient(top, rgb(320, 250, 170), rgb(270, 200, 120));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(242, 270, 350)), to(rgb(192, 220, 300)));
+  background: -moz-linear-gradient(top, rgb(242, 270, 350), rgb(192, 220, 300));
   -webkit-box-shadow: 0 0 3px #777777;
   -moz-box-shadow: 0 0 3px #777777;
   box-shadow: 0 0 3px #777777;
@@ -147,17 +147,17 @@
   margin-left: 0.3em;
   font-size: 0.7em;
   font-weight: bold;
-  color: rgb(100, 30, -50);
-  text-shadow: rgb(250, 180, 100) 0px 1px 0px;
+  color: rgb(22, 50, 130);
+  text-shadow: rgb(172, 200, 280) 0px 1px 0px;
   z-index: 3;
 }
-.ui__backButtonPushedStyle {
+.styles__ken__backButtonPushedStyle {
   float: left;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(250, 180, 100)), to(rgb(200, 130, 50)));
-  background: -moz-linear-gradient(top, rgb(250, 180, 100), rgb(200, 130, 50));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(172, 200, 280)), to(rgb(122, 150, 230)));
+  background: -moz-linear-gradient(top, rgb(172, 200, 280), rgb(122, 150, 230));
   -webkit-box-shadow: 0 0 3px #777777;
   -moz-box-shadow: 0 0 3px #777777;
   box-shadow: 0 0 3px #777777;
@@ -167,22 +167,22 @@
   margin-left: 0.3em;
   font-size: 0.7em;
   font-weight: bold;
-  color: rgb(100, 30, -50);
-  text-shadow: rgb(250, 180, 100) 0px 1px 0px;
+  color: rgb(22, 50, 130);
+  text-shadow: rgb(172, 200, 280) 0px 1px 0px;
   z-index: 3;
 }
-.ui__backButtonStyle:before {
+.styles__ken__backButtonStyle:before {
   content: "\00ab\00a0";
 }
-.ui__backButtonPushedStyle:before {
+.styles__ken__backButtonPushedStyle:before {
   content: "\00ab\00a0";
 }
-.ui__groupStyle {
+.styles__ken__groupStyle {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.ui__itemStyle {
+.styles__ken__itemStyle {
   background-color: #fff;
   border: 1px solid #cccccc;
   border-left: 0;
@@ -197,8 +197,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.ui__itemPushedStyle {
-  background-color: rgb(150, 80, 0);
+.styles__ken__itemPushedStyle {
+  background-color: rgb(72, 100, 180);
   border: 1px solid #cccccc;
   border-left: 0;
   border-right: 0;
@@ -212,12 +212,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.ui__itemArrowStyle {
+.styles__ken__itemArrowStyle {
   background-image: url("generic/arrow.png");
   background-position: right center;
   background-repeat: no-repeat;
 }
-.ui__textFieldStyle {
+.styles__ken__textFieldStyle {
   display: inline-block;
   -webkit-appearance: none;
   -webkit-box-flex: 100;
@@ -236,7 +236,7 @@
   margin-left: 0px;
   width: 100%;
 }
-.ui__tabbarStyle {
+.styles__ken__tabbarStyle {
   text-align: left;
   font-size: 16px;
   z-index: 3;
@@ -245,7 +245,7 @@
   margin-top: 0.3em;
   margin-bottom: 0;
 }
-.ui__tabbarStyle .ui__inActiveTabButtonStyle {
+.styles__ken__tabbarStyle .styles__ken__inActiveTabButtonStyle {
   padding-right: 15px;
   padding-left: 15px;
   padding-top: 10px;
@@ -264,8 +264,8 @@
   -webkit-border-top-left-radius: 8px;
   -moz-border-radius-topleft: 8px;
 }
-.ui__tabbarStyle .ui__activeTabButtonStyle {
-  background-color: rgb(150, 80, 0);
+.styles__ken__tabbarStyle .styles__ken__activeTabButtonStyle {
+  background-color: rgb(72, 100, 180);
   color: #fefefe;
   position: relative;
   top: 2px;
@@ -285,20 +285,20 @@
   -webkit-border-top-left-radius: 8px;
   -moz-border-radius-topleft: 8px;
 }
-.ui__inActiveTabStyle {
+.styles__ken__inActiveTabStyle {
   display: none;
 }
-.ui__activeTabStyle {
+.styles__ken__activeTabStyle {
   
 }
-.ui__searchboxStyle {
+.styles__ken__searchboxStyle {
   background-color: #FFFFFF;
   margin: 0;
   border: 1px solid #999999;
   color: #222222;
   padding: 10px 6px;
 }
-.ui__searchBoxInputStyle {
+.styles__ken__searchBoxInputStyle {
   display: inline-block;
   -webkit-appearance: none;
   -webkit-box-flex: 100;
@@ -319,12 +319,12 @@
   background-repeat: no-repeat;
   background-position: right center;
 }
-.ui__contextMenuStyle {
+.styles__ken__contextMenuStyle {
   position: absolute;
 }
-.ui__contextMenuStyle .ui__buttonStyle {
+.styles__ken__contextMenuStyle .styles__ken__buttonStyle {
   font-family: Arial, Helvetica, sans-serif;
-  text-shadow: rgb(250, 180, 100) 0px 1px 0px;
+  text-shadow: rgb(172, 200, 280) 0px 1px 0px;
   font-weight: bold;
   text-align: center;
   padding: 0.5em 0.5em 0.5em 0.5em;
@@ -337,12 +337,12 @@
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(320, 250, 170)), to(rgb(270, 200, 120)));
-  background: -moz-linear-gradient(top, rgb(320, 250, 170), rgb(270, 200, 120));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(242, 270, 350)), to(rgb(192, 220, 300)));
+  background: -moz-linear-gradient(top, rgb(242, 270, 350), rgb(192, 220, 300));
 }
-.ui__contextMenuStyle .ui__buttonPushedStyle {
+.styles__ken__contextMenuStyle .styles__ken__buttonPushedStyle {
   font-family: Arial, Helvetica, sans-serif;
-  text-shadow: rgb(250, 180, 100) 0px 1px 0px;
+  text-shadow: rgb(172, 200, 280) 0px 1px 0px;
   font-weight: bold;
   text-align: center;
   padding: 0.5em 0.5em 0.5em 0.5em;
@@ -355,10 +355,10 @@
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(250, 180, 100)), to(rgb(200, 130, 50)));
-  background: -moz-linear-gradient(top, rgb(250, 180, 100), rgb(200, 130, 50));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(172, 200, 280)), to(rgb(122, 150, 230)));
+  background: -moz-linear-gradient(top, rgb(172, 200, 280), rgb(122, 150, 230));
 }
-.ui__selectedItemStyle {
+.styles__ken__selectedItemStyle {
   background-color: #ccc;
   border: 1px solid #cccccc;
   border-left: 0;
@@ -373,7 +373,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.ui__loadMoreStyle {
+.styles__ken__loadMoreStyle {
   background-color: #ffffff;
   border: 1px solid #cccccc;
   border-left: 0;
@@ -391,7 +391,7 @@
   -webkit-border-bottom-right-radius: 20px;
   -moz-border-radius-bottomright: 20px;
 }
-.ui__progressStyle {
+.styles__ken__progressStyle {
   -webkit-border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
@@ -406,10 +406,10 @@
   width: 80%;
   z-index: 99;
 }
-.ui__accordionStyle {
+.styles__ken__accordionStyle {
   width: 100%;
 }
-.ui__accordionStyle .ui__activeSectionHeaderStyle {
+.styles__ken__accordionStyle .styles__ken__activeSectionHeaderStyle {
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#aaa));
   background: -moz-linear-gradient(top, #5c98f6, #3440e4);
   padding: 0;
@@ -425,7 +425,7 @@
   width: 100%;
   display: block;
 }
-.ui__accordionStyle .ui__inActiveSectionHeaderStyle {
+.styles__ken__accordionStyle .styles__ken__inActiveSectionHeaderStyle {
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#aaa));
   background: -moz-linear-gradient(top, #5c98f6, #3440e4);
   padding: 0;
@@ -441,138 +441,62 @@
   width: 100%;
   display: block;
 }
-.ui__accordionStyle .ui__activeSectionHeaderStyle:before {
+.styles__ken__accordionStyle .styles__ken__activeSectionHeaderStyle:before {
   content: url("generic/accordion-down.png");
 }
-.ui__accordionStyle .ui__inActiveSectionHeaderStyle:before {
+.styles__ken__accordionStyle .styles__ken__inActiveSectionHeaderStyle:before {
   content: url("generic/accordion-right.png");
 }
-.ui__accordionStyle .ui__inActiveSectionStyle {
+.styles__ken__accordionStyle .styles__ken__inActiveSectionStyle {
   display: none;
 }
-.ui__accordionStyle .ui__activeSectionStyle {
+.styles__ken__accordionStyle .styles__ken__activeSectionStyle {
   display: block;
 }
-.ui__tableStyle {
+.styles__ken__tableStyle {
   padding: 8px 10px 8px 10px;
   width: 100%;
   border-spacing: 0;
 }
-.ui__tdStyle {
+.styles__ken__tdStyle {
   padding: 8px;
 }
-.ui__trStyle {
+.styles__ken__trStyle {
   padding: 8px;
 }
-.ui__trStyle:nth-child(even) {
+.styles__ken__trStyle:nth-child(even) {
   background: #eeeeee;
 }
-.ui__trStyle:nth-child(odd) {
+.styles__ken__trStyle:nth-child(odd) {
   background: #ffffff;
 }
-.ui__trStyle:first-child .ui__tdStyle:first-child {
+.styles__ken__trStyle:first-child .styles__ken__tdStyle:first-child {
   -webkit-border-top-left-radius: 8px;
   -moz-border-radius-topleft: 8px;
   border-left: 1px solid #000;
   border-top: 1px solid #000;
 }
-.ui__trStyle:first-child .ui__tdStyle:last-child {
+.styles__ken__trStyle:first-child .styles__ken__tdStyle:last-child {
   -webkit-border-top-right-radius: 8px;
   -moz-border-radius-topright: 8px;
   border-right: 1px solid #000;
   border-top: 1px solid #000;
 }
-.ui__trStyle:last-child .ui__tdStyle:first-child {
+.styles__ken__trStyle:last-child .styles__ken__tdStyle:first-child {
   -webkit-border-bottom-left-radius: 8px;
   -moz-border-radius-bottomleft: 8px;
   border-left: 1px solid #000;
   border-bottom: 1px solid #000;
 }
-.ui__trStyle:last-child .ui__tdStyle:last-child {
+.styles__ken__trStyle:last-child .styles__ken__tdStyle:last-child {
   -webkit-border-bottom-right-radius: 8px;
   -moz-border-radius-bottomright: 8px;
   border-right: 1px solid #000;
   border-bottom: 1px solid #000;
 }
-.ui__trStyle .ui__tdStyle:first-child {
+.styles__ken__trStyle .styles__ken__tdStyle:first-child {
   border-left: 1px solid #000;
 }
-.ui__trStyle .ui__tdStyle:last-child {
+.styles__ken__trStyle .styles__ken__tdStyle:last-child {
   border-right: 1px solid #000;
-}
-.ui__title {
-  padding: 10px;
-  font-size: 2em;
-}
-.ui__emphasis {
-  display: block;
-  font-size: 1em;
-  margin: 10px;
-  text-align: center;
-}
-.ui__ranger {
-  width: 100%;
-}
-.ui__tweetStyle {
-  padding: 10px;
-  margin: 5px;
-  min-height: 50px;
-  background-color: white;
-  border: 1px solid #444;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-.ui__tweetIconStyle {
-  float: left;
-  margin: 0 10px 0 0;
-}
-.ui__tabbarStyle {
-  text-align: left;
-  font-size: 16px;
-  z-index: 3;
-  width: 100%;
-  border-bottom: 1px solid #444;
-  margin-top: 0.3em;
-  margin-bottom: 0;
-}
-.ui__tabbarStyle .ui__inActiveTabButtonStyle {
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-left: 5px;
-  line-height: 39px;
-  height: 39px;
-  margin-bottom: 0;
-  background-color: white;
-  color: black;
-  border-top: 1px solid #444;
-  border-right: 1px solid #444;
-  border-left: 1px solid #444;
-  -webkit-border-top-right-radius: 8px;
-  -moz-border-radius-topright: 8px;
-  -webkit-border-top-left-radius: 8px;
-  -moz-border-radius-topleft: 8px;
-}
-.ui__tabbarStyle .ui__activeTabButtonStyle {
-  background-color: rgb(150, 80, 0);
-  color: #fefefe;
-  position: relative;
-  top: 2px;
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-left: 5px;
-  line-height: 37px;
-  height: 39px;
-  margin-bottom: 0;
-  border-top: 1px solid #444;
-  border-right: 1px solid #444;
-  border-left: 1px solid #444;
-  -webkit-border-top-right-radius: 8px;
-  -moz-border-radius-topright: 8px;
-  -webkit-border-top-left-radius: 8px;
-  -moz-border-radius-topleft: 8px;
 }

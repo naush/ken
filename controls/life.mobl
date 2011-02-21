@@ -6,14 +6,15 @@ import models::lifeevents
 import mobl::notify
 
 var events : [String] = Array<String>();
+var defaults : [(Bool, String)] = Array<(Bool, String)>();
 
-var marriage          = false;
-var divorce           = false;
-var deathOfSpouse     = false;
-var injuryOrIllness   = false;
-var backToSchool      = false;
-var changeInResidence = false;
-var mortgageOrLoan    = false;
+defaults.push((false, "Marriage"));
+defaults.push((false, "Divorce"));
+defaults.push((false, "Death of a spouse"));
+defaults.push((false, "Injury or illness"));
+defaults.push((false, "Going back to school"));
+defaults.push((false, "Change in residence"));
+defaults.push((false, "Mortgage or loan"));
 
 function cb(check : Bool, name : String) : Callback {
   return {
@@ -27,26 +28,10 @@ function cb(check : Bool, name : String) : Callback {
 
 control life() {
   group {
-    item {
-      checkBox(marriage, "Marriage", onchange=cb(marriage, "Marriage"))
-    }
-    item {
-      checkBox(divorce, "Divorce", onchange=cb(divorce, "Divorce"))
-    }
-    item {
-      checkBox(deathOfSpouse, "Death of a spouse", onchange=cb(deathOfSpouse, "Death of a spouse"))
-    }
-    item {
-      checkBox(injuryOrIllness, "Injury or illness", onchange=cb(injuryOrIllness, "Injury or illness"))
-    }
-    item {
-      checkBox(backToSchool, "Going back to school", onchange=cb(backToSchool, "Going back to school"))
-    }
-    item {
-      checkBox(changeInResidence, "Chance in residence", onchange=cb(changeInResidence, "Change in residence"))
-    }
-    item {
-      checkBox(mortgageOrLoan, "Mortgage or loan", onchange=cb(mortgageOrLoan, "Mortgage or loan"))
+    list((check, event) in defaults) {
+      item {
+      	checkBox(check, event, onchange=cb(check, event))
+      }
     }
     button("Save", onclick={
       foreach (event in events) {

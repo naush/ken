@@ -2,108 +2,108 @@ mobl.provides('ui');
 ui.loadingStyle = 'ui__loadingStyle';
 
 ui.whenLoaded = function(value, elements, callback) {
-var root3892 = $("<span>");
+var root6300 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var node516 = $("<span>");
-root3892.append(node516);
-var condSubs77 = new mobl.CompSubscription();
-subs__.addSub(condSubs77);
-var oldValue77;
-var renderCond77 = function() {
-  var value190 = value.get();
-  if(oldValue77 === value190) return;
-  oldValue77 = value190;
-  var subs__ = condSubs77;
+var node1662 = $("<span>");
+root6300.append(node1662);
+var condSubs237 = new mobl.CompSubscription();
+subs__.addSub(condSubs237);
+var oldValue237;
+var renderCond237 = function() {
+  var value549 = value.get();
+  if(oldValue237 === value549) return;
+  oldValue237 = value549;
+  var subs__ = condSubs237;
   subs__.unsubscribe();
-  node516.empty();
-  if(value190) {
-    var nodes3308 = $("<span>");
-    node516.append(nodes3308);
+  node1662.empty();
+  if(value549) {
+    var nodes4949 = $("<span>");
+    node1662.append(nodes4949);
     subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-      renderControl254();
+      renderControl822();
     }));
     
-    function renderControl254() {
+    function renderControl822() {
       subs__.addSub((elements)(function(elements, callback) {
-        var root3893 = $("<span>");
+        var root6301 = $("<span>");
         var subs__ = new mobl.CompSubscription();
-        callback(root3893); return subs__;
+        callback(root6301); return subs__;
         return subs__;
       }, function(node) {
-        var oldNodes = nodes3308;
-        nodes3308 = node.contents();
-        oldNodes.replaceWith(nodes3308);
+        var oldNodes = nodes4949;
+        nodes4949 = node.contents();
+        oldNodes.replaceWith(nodes4949);
       }));
     }
-    renderControl254();
+    renderControl822();
     
     
   } else {
     
-    var tmp8827 = mobl.ref(null);
+    var tmp11596 = mobl.ref(null);
     
     
-    var tmp8826 = mobl.ref(null);
+    var tmp11595 = mobl.ref(null);
     
-    var nodes3309 = $("<span>");
-    node516.append(nodes3309);
-    subs__.addSub((ui.block)(mobl.ref(ui.loadingStyle), tmp8826, tmp8827, function(_, callback) {
-      var root3894 = $("<span>");
+    var nodes4950 = $("<span>");
+    node1662.append(nodes4950);
+    subs__.addSub((ui.block)(mobl.ref(ui.loadingStyle), tmp11595, tmp11596, function(_, callback) {
+      var root6302 = $("<span>");
       var subs__ = new mobl.CompSubscription();
       
-      root3894.append("Loading...");
+      root6302.append("Loading...");
       
-      var tmp8820 = mobl.ref("middle");
-      
-      
-      var tmp8819 = mobl.ref("mobl/ui/generic/loading-large.gif");
+      var tmp11589 = mobl.ref("middle");
       
       
-      var tmp8825 = mobl.ref(null);
+      var tmp11588 = mobl.ref("mobl/ui/generic/loading-large.gif");
       
       
-      var tmp8824 = mobl.ref(null);
+      var tmp11594 = mobl.ref(null);
       
       
-      var tmp8823 = mobl.ref(null);
+      var tmp11593 = mobl.ref(null);
       
       
-      var tmp8822 = mobl.ref(null);
+      var tmp11592 = mobl.ref(null);
       
       
-      var tmp8821 = mobl.ref(null);
+      var tmp11591 = mobl.ref(null);
       
-      var nodes3310 = $("<span>");
-      root3894.append(nodes3310);
-      subs__.addSub((ui.image)(tmp8819, tmp8821, tmp8822, tmp8823, tmp8824, tmp8820, tmp8825, function(_, callback) {
-        var root3895 = $("<span>");
+      
+      var tmp11590 = mobl.ref(null);
+      
+      var nodes4951 = $("<span>");
+      root6302.append(nodes4951);
+      subs__.addSub((ui.image)(tmp11588, tmp11590, tmp11591, tmp11592, tmp11593, tmp11589, tmp11594, function(_, callback) {
+        var root6303 = $("<span>");
         var subs__ = new mobl.CompSubscription();
-        callback(root3895); return subs__;
+        callback(root6303); return subs__;
         return subs__;
       }, function(node) {
-        var oldNodes = nodes3310;
-        nodes3310 = node.contents();
-        oldNodes.replaceWith(nodes3310);
+        var oldNodes = nodes4951;
+        nodes4951 = node.contents();
+        oldNodes.replaceWith(nodes4951);
       }));
-      callback(root3894); return subs__;
+      callback(root6302); return subs__;
       
       return subs__;
     }, function(node) {
-      var oldNodes = nodes3309;
-      nodes3309 = node.contents();
-      oldNodes.replaceWith(nodes3309);
+      var oldNodes = nodes4950;
+      nodes4950 = node.contents();
+      oldNodes.replaceWith(nodes4950);
     }));
     
     
   }
 };
-renderCond77();
+renderCond237();
 subs__.addSub(value.addEventListener('change', function() {
-  renderCond77();
+  renderCond237();
 }));
 
-callback(root3892); return subs__;
+callback(root6300); return subs__;
 
 return subs__;
 };
@@ -112,97 +112,97 @@ ui.headerContainerStyle = 'ui__headerContainerStyle';
 ui.headerTextStyle = 'ui__headerTextStyle';
 
 ui.header = function(text, onclick, elements, callback) {
-var root3896 = $("<span>");
+var root6304 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var node517 = $("<div>");
+var node1663 = $("<div>");
 
-var ref542 = mobl.ref(ui.headerStyle);
-if(ref542.get() !== null) {
-  node517.attr('class', ref542.get());
-  subs__.addSub(ref542.addEventListener('change', function(_, ref, val) {
-    if(ref === ref542) {
-      node517.attr('class', val);
+var ref1624 = mobl.ref(ui.headerStyle);
+if(ref1624.get() !== null) {
+  node1663.attr('class', ref1624.get());
+  subs__.addSub(ref1624.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1624) {
+      node1663.attr('class', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref542.rebind());
+subs__.addSub(ref1624.rebind());
 
-var val286 = onclick.get();
-if(val286 !== null) {
-  subs__.addSub(mobl.domBind(node517, 'tap', val286));
+var val859 = onclick.get();
+if(val859 !== null) {
+  subs__.addSub(mobl.domBind(node1663, 'tap', val859));
 }
 
 
-var node518 = $("<div>");
+var node1664 = $("<div>");
 
-var ref541 = mobl.ref(ui.headerContainerStyle);
-if(ref541.get() !== null) {
-  node518.attr('class', ref541.get());
-  subs__.addSub(ref541.addEventListener('change', function(_, ref, val) {
-    if(ref === ref541) {
-      node518.attr('class', val);
+var ref1623 = mobl.ref(ui.headerContainerStyle);
+if(ref1623.get() !== null) {
+  node1664.attr('class', ref1623.get());
+  subs__.addSub(ref1623.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1623) {
+      node1664.attr('class', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref541.rebind());
+subs__.addSub(ref1623.rebind());
 
 
-var node519 = $("<div>");
+var node1665 = $("<div>");
 
-var ref539 = text;
-node519.text(""+ref539.get());
-var ignore110 = false;
-subs__.addSub(ref539.addEventListener('change', function(_, ref, val) {
-  if(ignore110) return;
-  node519.text(""+val);
+var ref1621 = text;
+node1665.text(""+ref1621.get());
+var ignore331 = false;
+subs__.addSub(ref1621.addEventListener('change', function(_, ref, val) {
+  if(ignore331) return;
+  node1665.text(""+val);
 }));
-subs__.addSub(ref539.rebind());
+subs__.addSub(ref1621.rebind());
 
 
-var ref540 = mobl.ref(ui.headerTextStyle);
-if(ref540.get() !== null) {
-  node519.attr('class', ref540.get());
-  subs__.addSub(ref540.addEventListener('change', function(_, ref, val) {
-    if(ref === ref540) {
-      node519.attr('class', val);
+var ref1622 = mobl.ref(ui.headerTextStyle);
+if(ref1622.get() !== null) {
+  node1665.attr('class', ref1622.get());
+  subs__.addSub(ref1622.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1622) {
+      node1665.attr('class', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref540.rebind());
+subs__.addSub(ref1622.rebind());
 
-node518.append(node519);
-node517.append(node518);
-var nodes3311 = $("<span>");
-node517.append(nodes3311);
+node1664.append(node1665);
+node1663.append(node1664);
+var nodes4952 = $("<span>");
+node1663.append(nodes4952);
 subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-  renderControl255();
+  renderControl823();
 }));
 
-function renderControl255() {
+function renderControl823() {
   subs__.addSub((elements)(function(elements, callback) {
-    var root3897 = $("<span>");
+    var root6305 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root3897); return subs__;
+    callback(root6305); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes3311;
-    nodes3311 = node.contents();
-    oldNodes.replaceWith(nodes3311);
+    var oldNodes = nodes4952;
+    nodes4952 = node.contents();
+    oldNodes.replaceWith(nodes4952);
   }));
 }
-renderControl255();
-root3896.append(node517);
-callback(root3896); return subs__;
+renderControl823();
+root6304.append(node1663);
+callback(root6304); return subs__;
 
 
 
@@ -215,7 +215,7 @@ ui.buttonStyle = 'ui__buttonStyle';
 ui.buttonPushedStyle = 'ui__buttonPushedStyle';
 
 ui.button = function(text, style, pushedStyle, onclick, elements, callback) {
-var root3898 = $("<span>");
+var root6306 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
 var pushed = mobl.ref(false);
@@ -223,11 +223,11 @@ var pushed = mobl.ref(false);
 
 var sp = $("<span>");
 
-var ref543 = mobl.ref(pushed.get() ? pushedStyle.get() : style.get());
-if(ref543.get() !== null) {
-  sp.attr('class', ref543.get());
-  subs__.addSub(ref543.addEventListener('change', function(_, ref, val) {
-    if(ref === ref543) {
+var ref1625 = mobl.ref(pushed.get() ? pushedStyle.get() : style.get());
+if(ref1625.get() !== null) {
+  sp.attr('class', ref1625.get());
+  subs__.addSub(ref1625.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1625) {
       sp.attr('class', val);
     } else {
       console.log("Garbage!");
@@ -244,20 +244,20 @@ if(ref543.get() !== null) {
   }));
   
 }
-subs__.addSub(ref543.rebind());
+subs__.addSub(ref1625.rebind());
 
-var val287 = function(event, callback) {
+var val860 = function(event, callback) {
               if(event && event.stopPropagation) event.stopPropagation();
               var result__ = event.preventDefault();
               var result__ = true;
               pushed.set(result__);
               if(callback && callback.apply) callback(); return;
             };
-if(val287 !== null) {
-  subs__.addSub(mobl.domBind(sp, 'touchdown', val287));
+if(val860 !== null) {
+  subs__.addSub(mobl.domBind(sp, 'touchdown', val860));
 }
 
-var val288 = function(event, callback) {
+var val861 = function(event, callback) {
               if(event && event.stopPropagation) event.stopPropagation();
               var result__ = event.y < 0 || event.y > sp.outerHeight() || event.x < 0 || event.x > sp.outerWidth();
               if(result__) {
@@ -270,32 +270,32 @@ var val288 = function(event, callback) {
                 }
               }
             };
-if(val288 !== null) {
-  subs__.addSub(mobl.domBind(sp, 'touchdrag', val288));
+if(val861 !== null) {
+  subs__.addSub(mobl.domBind(sp, 'touchdrag', val861));
 }
 
-var val289 = function(event, callback) {
+var val862 = function(event, callback) {
               if(event && event.stopPropagation) event.stopPropagation();
               var result__ = pushed.get();
               if(result__) {
                 var result__ = false;
                 pushed.set(result__);
-                function after33(result__) {
-                  var tmp8888 = result__;
+                function after99(result__) {
+                  var tmp11657 = result__;
                   if(callback && callback.apply) callback(); return;
                 }
-                var result__ = onclick.get()(event, after33);if(result__ !== undefined) after33(result__);
+                var result__ = onclick.get()(event, after99);if(result__ !== undefined) after99(result__);
               } else {
                 {
                   if(callback && callback.apply) callback(); return;
                 }
               }
             };
-if(val289 !== null) {
-  subs__.addSub(mobl.domBind(sp, 'touchup', val289));
+if(val862 !== null) {
+  subs__.addSub(mobl.domBind(sp, 'touchup', val862));
 }
 
-var val290 = function(event, callback) {
+var val863 = function(event, callback) {
               if(event && event.stopPropagation) event.stopPropagation();
               var result__ = pushed.get();
               if(result__) {
@@ -308,22 +308,22 @@ var val290 = function(event, callback) {
                 }
               }
             };
-if(val290 !== null) {
-  subs__.addSub(mobl.domBind(sp, 'mouseout', val290));
+if(val863 !== null) {
+  subs__.addSub(mobl.domBind(sp, 'mouseout', val863));
 }
 
-var ref544 = text;
-sp.text(""+ref544.get());
-var ignore111 = false;
-subs__.addSub(ref544.addEventListener('change', function(_, ref, val) {
-  if(ignore111) return;
+var ref1626 = text;
+sp.text(""+ref1626.get());
+var ignore332 = false;
+subs__.addSub(ref1626.addEventListener('change', function(_, ref, val) {
+  if(ignore332) return;
   sp.text(""+val);
 }));
-subs__.addSub(ref544.rebind());
+subs__.addSub(ref1626.rebind());
 
 
-root3898.append(sp);
-callback(root3898); return subs__;
+root6306.append(sp);
+callback(root6306); return subs__;
 
 return subs__;
 };
@@ -331,21 +331,21 @@ ui.sideButtonStyle = 'ui__sideButtonStyle';
 ui.sideButtonPushedStyle = 'ui__sideButtonPushedStyle';
 
 ui.sideButton = function(text, style, pushedStyle, onclick, elements, callback) {
-var root3899 = $("<span>");
+var root6307 = $("<span>");
 var subs__ = new mobl.CompSubscription();
-var nodes3312 = $("<span>");
-root3899.append(nodes3312);
+var nodes4953 = $("<span>");
+root6307.append(nodes4953);
 subs__.addSub((ui.button)(text, style, pushedStyle, onclick, function(_, callback) {
-  var root3900 = $("<span>");
+  var root6308 = $("<span>");
   var subs__ = new mobl.CompSubscription();
-  callback(root3900); return subs__;
+  callback(root6308); return subs__;
   return subs__;
 }, function(node) {
-  var oldNodes = nodes3312;
-  nodes3312 = node.contents();
-  oldNodes.replaceWith(nodes3312);
+  var oldNodes = nodes4953;
+  nodes4953 = node.contents();
+  oldNodes.replaceWith(nodes4953);
 }));
-callback(root3899); return subs__;
+callback(root6307); return subs__;
 
 return subs__;
 };
@@ -355,150 +355,150 @@ ui.backButtonStyle = 'ui__backButtonStyle';
 ui.backButtonPushedStyle = 'ui__backButtonPushedStyle';
 
 ui.backButton = function(text, style, pushedStyle, onclick, elements, callback) {
-var root3901 = $("<span>");
+var root6309 = $("<span>");
 var subs__ = new mobl.CompSubscription();
-var nodes3313 = $("<span>");
-root3901.append(nodes3313);
+var nodes4954 = $("<span>");
+root6309.append(nodes4954);
 subs__.addSub((ui.button)(text, style, pushedStyle, onclick, function(_, callback) {
-  var root3902 = $("<span>");
+  var root6310 = $("<span>");
   var subs__ = new mobl.CompSubscription();
-  callback(root3902); return subs__;
+  callback(root6310); return subs__;
   return subs__;
 }, function(node) {
-  var oldNodes = nodes3313;
-  nodes3313 = node.contents();
-  oldNodes.replaceWith(nodes3313);
+  var oldNodes = nodes4954;
+  nodes4954 = node.contents();
+  oldNodes.replaceWith(nodes4954);
 }));
-callback(root3901); return subs__;
+callback(root6309); return subs__;
 
 return subs__;
 };
 
 ui.block = function(cssClass, id, onclick, elements, callback) {
-var root3903 = $("<span>");
+var root6311 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var node520 = $("<div>");
+var node1666 = $("<div>");
 
-var ref545 = id;
-if(ref545.get() !== null) {
-  node520.attr('id', ref545.get());
-  subs__.addSub(ref545.addEventListener('change', function(_, ref, val) {
-    if(ref === ref545) {
-      node520.attr('id', val);
+var ref1627 = id;
+if(ref1627.get() !== null) {
+  node1666.attr('id', ref1627.get());
+  subs__.addSub(ref1627.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1627) {
+      node1666.attr('id', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref545.rebind());
+subs__.addSub(ref1627.rebind());
 
-var ref546 = cssClass;
-if(ref546.get() !== null) {
-  node520.attr('class', ref546.get());
-  subs__.addSub(ref546.addEventListener('change', function(_, ref, val) {
-    if(ref === ref546) {
-      node520.attr('class', val);
+var ref1628 = cssClass;
+if(ref1628.get() !== null) {
+  node1666.attr('class', ref1628.get());
+  subs__.addSub(ref1628.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1628) {
+      node1666.attr('class', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref546.rebind());
+subs__.addSub(ref1628.rebind());
 
-var val291 = onclick.get();
-if(val291 !== null) {
-  subs__.addSub(mobl.domBind(node520, 'tap', val291));
+var val864 = onclick.get();
+if(val864 !== null) {
+  subs__.addSub(mobl.domBind(node1666, 'tap', val864));
 }
 
-var nodes3314 = $("<span>");
-node520.append(nodes3314);
+var nodes4955 = $("<span>");
+node1666.append(nodes4955);
 subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-  renderControl256();
+  renderControl824();
 }));
 
-function renderControl256() {
+function renderControl824() {
   subs__.addSub((elements)(function(elements, callback) {
-    var root3904 = $("<span>");
+    var root6312 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root3904); return subs__;
+    callback(root6312); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes3314;
-    nodes3314 = node.contents();
-    oldNodes.replaceWith(nodes3314);
+    var oldNodes = nodes4955;
+    nodes4955 = node.contents();
+    oldNodes.replaceWith(nodes4955);
   }));
 }
-renderControl256();
-root3903.append(node520);
-callback(root3903); return subs__;
+renderControl824();
+root6311.append(node1666);
+callback(root6311); return subs__;
 
 
 return subs__;
 };
 
 ui.span = function(cssClass, id, onclick, elements, callback) {
-var root3905 = $("<span>");
+var root6313 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var node521 = $("<span>");
+var node1667 = $("<span>");
 
-var ref547 = id;
-if(ref547.get() !== null) {
-  node521.attr('id', ref547.get());
-  subs__.addSub(ref547.addEventListener('change', function(_, ref, val) {
-    if(ref === ref547) {
-      node521.attr('id', val);
+var ref1629 = id;
+if(ref1629.get() !== null) {
+  node1667.attr('id', ref1629.get());
+  subs__.addSub(ref1629.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1629) {
+      node1667.attr('id', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref547.rebind());
+subs__.addSub(ref1629.rebind());
 
-var ref548 = cssClass;
-if(ref548.get() !== null) {
-  node521.attr('class', ref548.get());
-  subs__.addSub(ref548.addEventListener('change', function(_, ref, val) {
-    if(ref === ref548) {
-      node521.attr('class', val);
+var ref1630 = cssClass;
+if(ref1630.get() !== null) {
+  node1667.attr('class', ref1630.get());
+  subs__.addSub(ref1630.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1630) {
+      node1667.attr('class', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref548.rebind());
+subs__.addSub(ref1630.rebind());
 
-var val292 = onclick.get();
-if(val292 !== null) {
-  subs__.addSub(mobl.domBind(node521, 'tap', val292));
+var val865 = onclick.get();
+if(val865 !== null) {
+  subs__.addSub(mobl.domBind(node1667, 'tap', val865));
 }
 
-var nodes3315 = $("<span>");
-node521.append(nodes3315);
+var nodes4956 = $("<span>");
+node1667.append(nodes4956);
 subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-  renderControl257();
+  renderControl825();
 }));
 
-function renderControl257() {
+function renderControl825() {
   subs__.addSub((elements)(function(elements, callback) {
-    var root3906 = $("<span>");
+    var root6314 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root3906); return subs__;
+    callback(root6314); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes3315;
-    nodes3315 = node.contents();
-    oldNodes.replaceWith(nodes3315);
+    var oldNodes = nodes4956;
+    nodes4956 = node.contents();
+    oldNodes.replaceWith(nodes4956);
   }));
 }
-renderControl257();
-root3905.append(node521);
-callback(root3905); return subs__;
+renderControl825();
+root6313.append(node1667);
+callback(root6313); return subs__;
 
 
 return subs__;
@@ -506,148 +506,148 @@ return subs__;
 ui.groupStyle = 'ui__groupStyle';
 
 ui.group = function(elements, callback) {
-var root3907 = $("<span>");
+var root6315 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var node522 = $("<ul>");
+var node1668 = $("<ul>");
 
-var ref549 = mobl.ref(ui.groupStyle);
-if(ref549.get() !== null) {
-  node522.attr('class', ref549.get());
-  subs__.addSub(ref549.addEventListener('change', function(_, ref, val) {
-    if(ref === ref549) {
-      node522.attr('class', val);
+var ref1631 = mobl.ref(ui.groupStyle);
+if(ref1631.get() !== null) {
+  node1668.attr('class', ref1631.get());
+  subs__.addSub(ref1631.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1631) {
+      node1668.attr('class', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref549.rebind());
+subs__.addSub(ref1631.rebind());
 
-var nodes3316 = $("<span>");
-node522.append(nodes3316);
+var nodes4957 = $("<span>");
+node1668.append(nodes4957);
 subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-  renderControl258();
+  renderControl826();
 }));
 
-function renderControl258() {
+function renderControl826() {
   subs__.addSub((elements)(function(elements, callback) {
-    var root3908 = $("<span>");
+    var root6316 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root3908); return subs__;
+    callback(root6316); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes3316;
-    nodes3316 = node.contents();
-    oldNodes.replaceWith(nodes3316);
+    var oldNodes = nodes4957;
+    nodes4957 = node.contents();
+    oldNodes.replaceWith(nodes4957);
   }));
 }
-renderControl258();
-root3907.append(node522);
-callback(root3907); return subs__;
+renderControl826();
+root6315.append(node1668);
+callback(root6315); return subs__;
 
 
 return subs__;
 };
 
 ui.image = function(url, width, height, onclick, style, valign, align, elements, callback) {
-var root3909 = $("<span>");
+var root6317 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var node523 = $("<img>");
+var node1669 = $("<img>");
 
-var ref550 = url;
-if(ref550.get() !== null) {
-  node523.attr('src', ref550.get());
-  subs__.addSub(ref550.addEventListener('change', function(_, ref, val) {
-    if(ref === ref550) {
-      node523.attr('src', val);
+var ref1632 = url;
+if(ref1632.get() !== null) {
+  node1669.attr('src', ref1632.get());
+  subs__.addSub(ref1632.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1632) {
+      node1669.attr('src', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref550.rebind());
+subs__.addSub(ref1632.rebind());
 
-var ref551 = width;
-if(ref551.get() !== null) {
-  node523.attr('width', ref551.get());
-  subs__.addSub(ref551.addEventListener('change', function(_, ref, val) {
-    if(ref === ref551) {
-      node523.attr('width', val);
+var ref1633 = width;
+if(ref1633.get() !== null) {
+  node1669.attr('width', ref1633.get());
+  subs__.addSub(ref1633.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1633) {
+      node1669.attr('width', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref551.rebind());
+subs__.addSub(ref1633.rebind());
 
-var ref552 = height;
-if(ref552.get() !== null) {
-  node523.attr('height', ref552.get());
-  subs__.addSub(ref552.addEventListener('change', function(_, ref, val) {
-    if(ref === ref552) {
-      node523.attr('height', val);
+var ref1634 = height;
+if(ref1634.get() !== null) {
+  node1669.attr('height', ref1634.get());
+  subs__.addSub(ref1634.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1634) {
+      node1669.attr('height', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref552.rebind());
+subs__.addSub(ref1634.rebind());
 
-var ref553 = style;
-if(ref553.get() !== null) {
-  node523.attr('class', ref553.get());
-  subs__.addSub(ref553.addEventListener('change', function(_, ref, val) {
-    if(ref === ref553) {
-      node523.attr('class', val);
+var ref1635 = style;
+if(ref1635.get() !== null) {
+  node1669.attr('class', ref1635.get());
+  subs__.addSub(ref1635.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1635) {
+      node1669.attr('class', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref553.rebind());
+subs__.addSub(ref1635.rebind());
 
-var val293 = onclick.get();
-if(val293 !== null) {
-  subs__.addSub(mobl.domBind(node523, 'tap', val293));
+var val866 = onclick.get();
+if(val866 !== null) {
+  subs__.addSub(mobl.domBind(node1669, 'tap', val866));
 }
 
-var ref554 = valign;
-if(ref554.get() !== null) {
-  node523.attr('valign', ref554.get());
-  subs__.addSub(ref554.addEventListener('change', function(_, ref, val) {
-    if(ref === ref554) {
-      node523.attr('valign', val);
+var ref1636 = valign;
+if(ref1636.get() !== null) {
+  node1669.attr('valign', ref1636.get());
+  subs__.addSub(ref1636.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1636) {
+      node1669.attr('valign', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref554.rebind());
+subs__.addSub(ref1636.rebind());
 
-var ref555 = align;
-if(ref555.get() !== null) {
-  node523.attr('align', ref555.get());
-  subs__.addSub(ref555.addEventListener('change', function(_, ref, val) {
-    if(ref === ref555) {
-      node523.attr('align', val);
+var ref1637 = align;
+if(ref1637.get() !== null) {
+  node1669.attr('align', ref1637.get());
+  subs__.addSub(ref1637.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1637) {
+      node1669.attr('align', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref555.rebind());
+subs__.addSub(ref1637.rebind());
 
-root3909.append(node523);
-callback(root3909); return subs__;
+root6317.append(node1669);
+callback(root6317); return subs__;
 
 return subs__;
 };
@@ -656,7 +656,7 @@ ui.itemPushedStyle = 'ui__itemPushedStyle';
 ui.itemArrowStyle = 'ui__itemArrowStyle';
 
 ui.item = function(style, pushedStyle, onclick, onswipe, hideArrow, elements, callback) {
-var root3910 = $("<span>");
+var root6318 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
 var pushed = mobl.ref(false);
@@ -664,11 +664,11 @@ var pushed = mobl.ref(false);
 
 var el = $("<li>");
 
-var ref556 = mobl.ref(ui.itemStyle);
-if(ref556.get() !== null) {
-  el.attr('class', ref556.get());
-  subs__.addSub(ref556.addEventListener('change', function(_, ref, val) {
-    if(ref === ref556) {
+var ref1638 = mobl.ref(ui.itemStyle);
+if(ref1638.get() !== null) {
+  el.attr('class', ref1638.get());
+  subs__.addSub(ref1638.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1638) {
       el.attr('class', val);
     } else {
       console.log("Garbage!");
@@ -676,13 +676,13 @@ if(ref556.get() !== null) {
   }));
   
 }
-subs__.addSub(ref556.rebind());
+subs__.addSub(ref1638.rebind());
 
-var ref557 = mobl.ref(onclick.get() && hideArrow.get() == false ? mobl.mergeStyles([pushed.get() ? pushedStyle.get() : style.get(), ui.itemArrowStyle]) : (pushed.get() ? pushedStyle.get() : style.get()));
-if(ref557.get() !== null) {
-  el.attr('class', ref557.get());
-  subs__.addSub(ref557.addEventListener('change', function(_, ref, val) {
-    if(ref === ref557) {
+var ref1639 = mobl.ref(onclick.get() && hideArrow.get() == false ? mobl.mergeStyles([pushed.get() ? pushedStyle.get() : style.get(), ui.itemArrowStyle]) : (pushed.get() ? pushedStyle.get() : style.get()));
+if(ref1639.get() !== null) {
+  el.attr('class', ref1639.get());
+  subs__.addSub(ref1639.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1639) {
       el.attr('class', val);
     } else {
       console.log("Garbage!");
@@ -708,21 +708,21 @@ if(ref557.get() !== null) {
   }));
   
 }
-subs__.addSub(ref557.rebind());
+subs__.addSub(ref1639.rebind());
 
-var val294 = onclick.get() ? function(event, callback) {
+var val867 = onclick.get() ? function(event, callback) {
                                        if(event && event.stopPropagation) event.stopPropagation();
                                        var result__ = true;
                                        pushed.set(result__);
                                        mobl.sleep(100, function(result__) {
-                                         var tmp8889 = result__;
-                                         function after34(result__) {
-                                           var tmp8890 = result__;
+                                         var tmp11658 = result__;
+                                         function after100(result__) {
+                                           var tmp11659 = result__;
                                            
                                          }
-                                         var result__ = onclick.get()(event, after34);if(result__ !== undefined) after34(result__);
+                                         var result__ = onclick.get()(event, after100);if(result__ !== undefined) after100(result__);
                                          mobl.sleep(200, function(result__) {
-                                           var tmp8891 = result__;
+                                           var tmp11660 = result__;
                                            var result__ = false;
                                            pushed.set(result__);
                                            if(callback && callback.apply) callback(); return;
@@ -730,104 +730,104 @@ var val294 = onclick.get() ? function(event, callback) {
                                          
                                        });
                                      } : null;
-if(val294 !== null) {
-  subs__.addSub(mobl.domBind(el, 'tap', val294));
+if(val867 !== null) {
+  subs__.addSub(mobl.domBind(el, 'tap', val867));
 }
 
-var nodes3317 = $("<span>");
-el.append(nodes3317);
+var nodes4958 = $("<span>");
+el.append(nodes4958);
 subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-  renderControl259();
+  renderControl827();
 }));
 
-function renderControl259() {
+function renderControl827() {
   subs__.addSub((elements)(function(elements, callback) {
-    var root3911 = $("<span>");
+    var root6319 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root3911); return subs__;
+    callback(root6319); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes3317;
-    nodes3317 = node.contents();
-    oldNodes.replaceWith(nodes3317);
+    var oldNodes = nodes4958;
+    nodes4958 = node.contents();
+    oldNodes.replaceWith(nodes4958);
   }));
 }
-renderControl259();
-root3910.append(el);
-callback(root3910); return subs__;
+renderControl827();
+root6318.append(el);
+callback(root6318); return subs__;
 
 
 return subs__;
 };
 
 ui.checkBox = function(b, label, onchange, elements, callback) {
-var root3912 = $("<span>");
+var root6320 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var node524 = $("<input>");
-node524.attr('type', "checkbox");
+var node1670 = $("<input>");
+node1670.attr('type', "checkbox");
 
-var ref559 = b;
-node524.attr('checked', !!ref559.get());
-subs__.addSub(ref559.addEventListener('change', function(_, ref, val) {
-  if(ref === ref559) node524.attr('checked', !!val);
+var ref1641 = b;
+node1670.attr('checked', !!ref1641.get());
+subs__.addSub(ref1641.addEventListener('change', function(_, ref, val) {
+  if(ref === ref1641) node1670.attr('checked', !!val);
 }));
-subs__.addSub(mobl.domBind(node524, 'change', function() {
-  b.set(!!node524.attr('checked'));
+subs__.addSub(mobl.domBind(node1670, 'change', function() {
+  b.set(!!node1670.attr('checked'));
 }));
 
-var val296 = function(event, callback) {
+var val869 = function(event, callback) {
               if(event && event.stopPropagation) event.stopPropagation();
               if(callback && callback.apply) callback(); return;
             };
-if(val296 !== null) {
-  subs__.addSub(mobl.domBind(node524, 'tap', val296));
+if(val869 !== null) {
+  subs__.addSub(mobl.domBind(node1670, 'tap', val869));
 }
 
-var val297 = onchange.get();
-if(val297 !== null) {
-  subs__.addSub(mobl.domBind(node524, 'change', val297));
+var val870 = onchange.get();
+if(val870 !== null) {
+  subs__.addSub(mobl.domBind(node1670, 'change', val870));
 }
 
-root3912.append(node524);
+root6320.append(node1670);
 
-root3912.append(" ");
+root6320.append(" ");
 
-var node525 = $("<span>");
+var node1671 = $("<span>");
 
-var ref558 = label;
-node525.text(""+ref558.get());
-var ignore112 = false;
-subs__.addSub(ref558.addEventListener('change', function(_, ref, val) {
-  if(ignore112) return;
-  node525.text(""+val);
+var ref1640 = label;
+node1671.text(""+ref1640.get());
+var ignore333 = false;
+subs__.addSub(ref1640.addEventListener('change', function(_, ref, val) {
+  if(ignore333) return;
+  node1671.text(""+val);
 }));
-subs__.addSub(ref558.rebind());
+subs__.addSub(ref1640.rebind());
 
 
-var val295 = function(event, callback) {
+var val868 = function(event, callback) {
               if(event && event.stopPropagation) event.stopPropagation();
               var result__ = !b.get();
               b.set(result__);
               var result__ = onchange.get();
               if(result__) {
-                function after35(result__) {
-                  var tmp8892 = result__;
+                function after101(result__) {
+                  var tmp11661 = result__;
                   if(callback && callback.apply) callback(); return;
                 }
-                var result__ = onchange.get()(null, after35);if(result__ !== undefined) after35(result__);
+                var result__ = onchange.get()(null, after101);if(result__ !== undefined) after101(result__);
               } else {
                 {
                   if(callback && callback.apply) callback(); return;
                 }
               }
             };
-if(val295 !== null) {
-  subs__.addSub(mobl.domBind(node525, 'tap', val295));
+if(val868 !== null) {
+  subs__.addSub(mobl.domBind(node1671, 'tap', val868));
 }
 
-root3912.append(node525);
-callback(root3912); return subs__;
+root6320.append(node1671);
+callback(root6320); return subs__;
 
 
 return subs__;
@@ -835,375 +835,375 @@ return subs__;
 ui.textFieldStyle = 'ui__textFieldStyle';
 
 ui.textField = function(s, placeholder, label, onchange, onkeyup, elements, callback) {
-var root3913 = $("<span>");
+var root6321 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var node526 = $("<span>");
-root3913.append(node526);
-var condSubs78 = new mobl.CompSubscription();
-subs__.addSub(condSubs78);
-var oldValue78;
-var renderCond78 = function() {
-  var value191 = label.get();
-  if(oldValue78 === value191) return;
-  oldValue78 = value191;
-  var subs__ = condSubs78;
+var node1672 = $("<span>");
+root6321.append(node1672);
+var condSubs238 = new mobl.CompSubscription();
+subs__.addSub(condSubs238);
+var oldValue238;
+var renderCond238 = function() {
+  var value550 = label.get();
+  if(oldValue238 === value550) return;
+  oldValue238 = value550;
+  var subs__ = condSubs238;
   subs__.unsubscribe();
-  node526.empty();
-  if(value191) {
+  node1672.empty();
+  if(value550) {
     
-    var node527 = $("<span>");
-    node527.attr('style', "float: left; margin-top: 0.2em; width: 5em; color: #666;");
+    var node1673 = $("<span>");
+    node1673.attr('style', "float: left; margin-top: 0.2em; width: 5em; color: #666;");
     
-    var ref563 = label;
-    node527.text(""+ref563.get());
-    var ignore114 = false;
-    subs__.addSub(ref563.addEventListener('change', function(_, ref, val) {
-      if(ignore114) return;
-      node527.text(""+val);
+    var ref1645 = label;
+    node1673.text(""+ref1645.get());
+    var ignore335 = false;
+    subs__.addSub(ref1645.addEventListener('change', function(_, ref, val) {
+      if(ignore335) return;
+      node1673.text(""+val);
     }));
-    subs__.addSub(ref563.rebind());
+    subs__.addSub(ref1645.rebind());
     
     
-    node526.append(node527);
+    node1672.append(node1673);
     
-    var node528 = $("<span>");
-    node528.attr('style', "float: left");
+    var node1674 = $("<span>");
+    node1674.attr('style', "float: left");
     
     
-    var node529 = $("<input>");
-    node529.attr('type', "text");
+    var node1675 = $("<input>");
+    node1675.attr('type', "text");
     
-    var ref560 = mobl.ref(ui.textFieldStyle);
-    if(ref560.get() !== null) {
-      node529.attr('class', ref560.get());
-      subs__.addSub(ref560.addEventListener('change', function(_, ref, val) {
-        if(ref === ref560) {
-          node529.attr('class', val);
+    var ref1642 = mobl.ref(ui.textFieldStyle);
+    if(ref1642.get() !== null) {
+      node1675.attr('class', ref1642.get());
+      subs__.addSub(ref1642.addEventListener('change', function(_, ref, val) {
+        if(ref === ref1642) {
+          node1675.attr('class', val);
         } else {
           console.log("Garbage!");
         }
       }));
       
     }
-    subs__.addSub(ref560.rebind());
+    subs__.addSub(ref1642.rebind());
     
-    var ref561 = placeholder;
-    if(ref561.get() !== null) {
-      node529.attr('placeholder', ref561.get());
-      subs__.addSub(ref561.addEventListener('change', function(_, ref, val) {
-        if(ref === ref561) {
-          node529.attr('placeholder', val);
+    var ref1643 = placeholder;
+    if(ref1643.get() !== null) {
+      node1675.attr('placeholder', ref1643.get());
+      subs__.addSub(ref1643.addEventListener('change', function(_, ref, val) {
+        if(ref === ref1643) {
+          node1675.attr('placeholder', val);
         } else {
           console.log("Garbage!");
         }
       }));
       
     }
-    subs__.addSub(ref561.rebind());
+    subs__.addSub(ref1643.rebind());
     
-    var ref562 = s;
-    node529.val(""+ref562.get());
-    var ignore113 = false;
-    subs__.addSub(ref562.addEventListener('change', function(_, ref, val) {
-      if(ignore113) return;
-      node529.val(""+val);
+    var ref1644 = s;
+    node1675.val(""+ref1644.get());
+    var ignore334 = false;
+    subs__.addSub(ref1644.addEventListener('change', function(_, ref, val) {
+      if(ignore334) return;
+      node1675.val(""+val);
     }));
-    subs__.addSub(ref562.rebind());
+    subs__.addSub(ref1644.rebind());
     
-    subs__.addSub(mobl.domBind(node529, 'keyup change', function() {
-      ignore113 = true;
-      s.set(mobl.stringTomobl__String(node529.val()));
-      ignore113 = false;
+    subs__.addSub(mobl.domBind(node1675, 'keyup change', function() {
+      ignore334 = true;
+      s.set(mobl.stringTomobl__String(node1675.val()));
+      ignore334 = false;
     }));
     
     
-    var val298 = onchange.get();
-    if(val298 !== null) {
-      subs__.addSub(mobl.domBind(node529, 'change', val298));
+    var val871 = onchange.get();
+    if(val871 !== null) {
+      subs__.addSub(mobl.domBind(node1675, 'change', val871));
     }
     
-    var val299 = onkeyup.get();
-    if(val299 !== null) {
-      subs__.addSub(mobl.domBind(node529, 'keyup', val299));
+    var val872 = onkeyup.get();
+    if(val872 !== null) {
+      subs__.addSub(mobl.domBind(node1675, 'keyup', val872));
     }
     
-    var val300 = function(event, callback) {
+    var val873 = function(event, callback) {
                   if(event && event.stopPropagation) event.stopPropagation();
                   var result__ = ui.scrollUp();
                   if(callback && callback.apply) callback(); return;
                 };
-    if(val300 !== null) {
-      subs__.addSub(mobl.domBind(node529, 'blur', val300));
+    if(val873 !== null) {
+      subs__.addSub(mobl.domBind(node1675, 'blur', val873));
     }
     
-    node528.append(node529);
-    node526.append(node528);
+    node1674.append(node1675);
+    node1672.append(node1674);
     
     
     
     
   } else {
     
-    var node530 = $("<input>");
-    node530.attr('type', "text");
+    var node1676 = $("<input>");
+    node1676.attr('type', "text");
     
-    var ref564 = mobl.ref(ui.textFieldStyle);
-    if(ref564.get() !== null) {
-      node530.attr('class', ref564.get());
-      subs__.addSub(ref564.addEventListener('change', function(_, ref, val) {
-        if(ref === ref564) {
-          node530.attr('class', val);
+    var ref1646 = mobl.ref(ui.textFieldStyle);
+    if(ref1646.get() !== null) {
+      node1676.attr('class', ref1646.get());
+      subs__.addSub(ref1646.addEventListener('change', function(_, ref, val) {
+        if(ref === ref1646) {
+          node1676.attr('class', val);
         } else {
           console.log("Garbage!");
         }
       }));
       
     }
-    subs__.addSub(ref564.rebind());
+    subs__.addSub(ref1646.rebind());
     
-    var ref565 = placeholder;
-    if(ref565.get() !== null) {
-      node530.attr('placeholder', ref565.get());
-      subs__.addSub(ref565.addEventListener('change', function(_, ref, val) {
-        if(ref === ref565) {
-          node530.attr('placeholder', val);
+    var ref1647 = placeholder;
+    if(ref1647.get() !== null) {
+      node1676.attr('placeholder', ref1647.get());
+      subs__.addSub(ref1647.addEventListener('change', function(_, ref, val) {
+        if(ref === ref1647) {
+          node1676.attr('placeholder', val);
         } else {
           console.log("Garbage!");
         }
       }));
       
     }
-    subs__.addSub(ref565.rebind());
+    subs__.addSub(ref1647.rebind());
     
-    var ref566 = s;
-    node530.val(""+ref566.get());
-    var ignore115 = false;
-    subs__.addSub(ref566.addEventListener('change', function(_, ref, val) {
-      if(ignore115) return;
-      node530.val(""+val);
+    var ref1648 = s;
+    node1676.val(""+ref1648.get());
+    var ignore336 = false;
+    subs__.addSub(ref1648.addEventListener('change', function(_, ref, val) {
+      if(ignore336) return;
+      node1676.val(""+val);
     }));
-    subs__.addSub(ref566.rebind());
+    subs__.addSub(ref1648.rebind());
     
-    subs__.addSub(mobl.domBind(node530, 'keyup change', function() {
-      ignore115 = true;
-      s.set(mobl.stringTomobl__String(node530.val()));
-      ignore115 = false;
+    subs__.addSub(mobl.domBind(node1676, 'keyup change', function() {
+      ignore336 = true;
+      s.set(mobl.stringTomobl__String(node1676.val()));
+      ignore336 = false;
     }));
     
     
-    var val301 = onchange.get();
-    if(val301 !== null) {
-      subs__.addSub(mobl.domBind(node530, 'change', val301));
+    var val874 = onchange.get();
+    if(val874 !== null) {
+      subs__.addSub(mobl.domBind(node1676, 'change', val874));
     }
     
-    var val302 = onkeyup.get();
-    if(val302 !== null) {
-      subs__.addSub(mobl.domBind(node530, 'keyup', val302));
+    var val875 = onkeyup.get();
+    if(val875 !== null) {
+      subs__.addSub(mobl.domBind(node1676, 'keyup', val875));
     }
     
-    var val303 = function(event, callback) {
+    var val876 = function(event, callback) {
                   if(event && event.stopPropagation) event.stopPropagation();
                   var result__ = ui.scrollUp();
                   if(callback && callback.apply) callback(); return;
                 };
-    if(val303 !== null) {
-      subs__.addSub(mobl.domBind(node530, 'blur', val303));
+    if(val876 !== null) {
+      subs__.addSub(mobl.domBind(node1676, 'blur', val876));
     }
     
-    node526.append(node530);
+    node1672.append(node1676);
     
     
   }
 };
-renderCond78();
+renderCond238();
 subs__.addSub(label.addEventListener('change', function() {
-  renderCond78();
+  renderCond238();
 }));
 
-callback(root3913); return subs__;
+callback(root6321); return subs__;
 
 return subs__;
 };
 
 ui.numField = function(n, placeholder, label, onchange, elements, callback) {
-var root3914 = $("<span>");
+var root6322 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var node531 = $("<span>");
-root3914.append(node531);
-var condSubs79 = new mobl.CompSubscription();
-subs__.addSub(condSubs79);
-var oldValue79;
-var renderCond79 = function() {
-  var value192 = label.get();
-  if(oldValue79 === value192) return;
-  oldValue79 = value192;
-  var subs__ = condSubs79;
+var node1677 = $("<span>");
+root6322.append(node1677);
+var condSubs239 = new mobl.CompSubscription();
+subs__.addSub(condSubs239);
+var oldValue239;
+var renderCond239 = function() {
+  var value551 = label.get();
+  if(oldValue239 === value551) return;
+  oldValue239 = value551;
+  var subs__ = condSubs239;
   subs__.unsubscribe();
-  node531.empty();
-  if(value192) {
+  node1677.empty();
+  if(value551) {
     
-    var node532 = $("<span>");
-    node532.attr('style', "float: left; margin-top: 0.2em; width: 5em; color: #666;");
+    var node1678 = $("<span>");
+    node1678.attr('style', "float: left; margin-top: 0.2em; width: 5em; color: #666;");
     
-    var ref570 = label;
-    node532.text(""+ref570.get());
-    var ignore117 = false;
-    subs__.addSub(ref570.addEventListener('change', function(_, ref, val) {
-      if(ignore117) return;
-      node532.text(""+val);
+    var ref1652 = label;
+    node1678.text(""+ref1652.get());
+    var ignore338 = false;
+    subs__.addSub(ref1652.addEventListener('change', function(_, ref, val) {
+      if(ignore338) return;
+      node1678.text(""+val);
     }));
-    subs__.addSub(ref570.rebind());
+    subs__.addSub(ref1652.rebind());
     
     
-    node531.append(node532);
+    node1677.append(node1678);
     
-    var node533 = $("<span>");
-    node533.attr('style', "float: left");
+    var node1679 = $("<span>");
+    node1679.attr('style', "float: left");
     
     
-    var node534 = $("<input>");
-    node534.attr('type', "text");
+    var node1680 = $("<input>");
+    node1680.attr('type', "text");
     
-    var ref567 = mobl.ref(ui.textFieldStyle);
-    if(ref567.get() !== null) {
-      node534.attr('class', ref567.get());
-      subs__.addSub(ref567.addEventListener('change', function(_, ref, val) {
-        if(ref === ref567) {
-          node534.attr('class', val);
+    var ref1649 = mobl.ref(ui.textFieldStyle);
+    if(ref1649.get() !== null) {
+      node1680.attr('class', ref1649.get());
+      subs__.addSub(ref1649.addEventListener('change', function(_, ref, val) {
+        if(ref === ref1649) {
+          node1680.attr('class', val);
         } else {
           console.log("Garbage!");
         }
       }));
       
     }
-    subs__.addSub(ref567.rebind());
+    subs__.addSub(ref1649.rebind());
     
-    var ref568 = placeholder;
-    if(ref568.get() !== null) {
-      node534.attr('placeholder', ref568.get());
-      subs__.addSub(ref568.addEventListener('change', function(_, ref, val) {
-        if(ref === ref568) {
-          node534.attr('placeholder', val);
+    var ref1650 = placeholder;
+    if(ref1650.get() !== null) {
+      node1680.attr('placeholder', ref1650.get());
+      subs__.addSub(ref1650.addEventListener('change', function(_, ref, val) {
+        if(ref === ref1650) {
+          node1680.attr('placeholder', val);
         } else {
           console.log("Garbage!");
         }
       }));
       
     }
-    subs__.addSub(ref568.rebind());
+    subs__.addSub(ref1650.rebind());
     
-    var ref569 = n;
-    node534.val(""+ref569.get());
-    var ignore116 = false;
-    subs__.addSub(ref569.addEventListener('change', function(_, ref, val) {
-      if(ignore116) return;
-      node534.val(""+val);
+    var ref1651 = n;
+    node1680.val(""+ref1651.get());
+    var ignore337 = false;
+    subs__.addSub(ref1651.addEventListener('change', function(_, ref, val) {
+      if(ignore337) return;
+      node1680.val(""+val);
     }));
-    subs__.addSub(ref569.rebind());
+    subs__.addSub(ref1651.rebind());
     
-    subs__.addSub(mobl.domBind(node534, 'keyup change', function() {
-      ignore116 = true;
-      n.set(mobl.stringTomobl__Num(node534.val()));
-      ignore116 = false;
+    subs__.addSub(mobl.domBind(node1680, 'keyup change', function() {
+      ignore337 = true;
+      n.set(mobl.stringTomobl__Num(node1680.val()));
+      ignore337 = false;
     }));
     
     
-    var val304 = onchange.get();
-    if(val304 !== null) {
-      subs__.addSub(mobl.domBind(node534, 'change', val304));
+    var val877 = onchange.get();
+    if(val877 !== null) {
+      subs__.addSub(mobl.domBind(node1680, 'change', val877));
     }
     
-    var val305 = function(event, callback) {
+    var val878 = function(event, callback) {
                   if(event && event.stopPropagation) event.stopPropagation();
                   var result__ = ui.scrollUp();
                   if(callback && callback.apply) callback(); return;
                 };
-    if(val305 !== null) {
-      subs__.addSub(mobl.domBind(node534, 'blur', val305));
+    if(val878 !== null) {
+      subs__.addSub(mobl.domBind(node1680, 'blur', val878));
     }
     
-    node533.append(node534);
-    node531.append(node533);
+    node1679.append(node1680);
+    node1677.append(node1679);
     
     
     
     
   } else {
     
-    var node535 = $("<input>");
-    node535.attr('type', "text");
+    var node1681 = $("<input>");
+    node1681.attr('type', "text");
     
-    var ref571 = mobl.ref(ui.textFieldStyle);
-    if(ref571.get() !== null) {
-      node535.attr('class', ref571.get());
-      subs__.addSub(ref571.addEventListener('change', function(_, ref, val) {
-        if(ref === ref571) {
-          node535.attr('class', val);
+    var ref1653 = mobl.ref(ui.textFieldStyle);
+    if(ref1653.get() !== null) {
+      node1681.attr('class', ref1653.get());
+      subs__.addSub(ref1653.addEventListener('change', function(_, ref, val) {
+        if(ref === ref1653) {
+          node1681.attr('class', val);
         } else {
           console.log("Garbage!");
         }
       }));
       
     }
-    subs__.addSub(ref571.rebind());
+    subs__.addSub(ref1653.rebind());
     
-    var ref572 = placeholder;
-    if(ref572.get() !== null) {
-      node535.attr('placeholder', ref572.get());
-      subs__.addSub(ref572.addEventListener('change', function(_, ref, val) {
-        if(ref === ref572) {
-          node535.attr('placeholder', val);
+    var ref1654 = placeholder;
+    if(ref1654.get() !== null) {
+      node1681.attr('placeholder', ref1654.get());
+      subs__.addSub(ref1654.addEventListener('change', function(_, ref, val) {
+        if(ref === ref1654) {
+          node1681.attr('placeholder', val);
         } else {
           console.log("Garbage!");
         }
       }));
       
     }
-    subs__.addSub(ref572.rebind());
+    subs__.addSub(ref1654.rebind());
     
-    var ref573 = n;
-    node535.val(""+ref573.get());
-    var ignore118 = false;
-    subs__.addSub(ref573.addEventListener('change', function(_, ref, val) {
-      if(ignore118) return;
-      node535.val(""+val);
+    var ref1655 = n;
+    node1681.val(""+ref1655.get());
+    var ignore339 = false;
+    subs__.addSub(ref1655.addEventListener('change', function(_, ref, val) {
+      if(ignore339) return;
+      node1681.val(""+val);
     }));
-    subs__.addSub(ref573.rebind());
+    subs__.addSub(ref1655.rebind());
     
-    subs__.addSub(mobl.domBind(node535, 'keyup change', function() {
-      ignore118 = true;
-      n.set(mobl.stringTomobl__Num(node535.val()));
-      ignore118 = false;
+    subs__.addSub(mobl.domBind(node1681, 'keyup change', function() {
+      ignore339 = true;
+      n.set(mobl.stringTomobl__Num(node1681.val()));
+      ignore339 = false;
     }));
     
     
-    var val306 = onchange.get();
-    if(val306 !== null) {
-      subs__.addSub(mobl.domBind(node535, 'change', val306));
+    var val879 = onchange.get();
+    if(val879 !== null) {
+      subs__.addSub(mobl.domBind(node1681, 'change', val879));
     }
     
-    var val307 = function(event, callback) {
+    var val880 = function(event, callback) {
                   if(event && event.stopPropagation) event.stopPropagation();
                   var result__ = ui.scrollUp();
                   if(callback && callback.apply) callback(); return;
                 };
-    if(val307 !== null) {
-      subs__.addSub(mobl.domBind(node535, 'blur', val307));
+    if(val880 !== null) {
+      subs__.addSub(mobl.domBind(node1681, 'blur', val880));
     }
     
-    node531.append(node535);
+    node1677.append(node1681);
     
     
   }
 };
-renderCond79();
+renderCond239();
 subs__.addSub(label.addEventListener('change', function() {
-  renderCond79();
+  renderCond239();
 }));
 
-callback(root3914); return subs__;
+callback(root6322); return subs__;
 
 return subs__;
 };
@@ -1214,7 +1214,7 @@ ui.inActiveTabStyle = 'ui__inActiveTabStyle';
 ui.activeTabStyle = 'ui__activeTabStyle';
 
 ui.tabSet = function(tabs, elements, callback) {
-var root3915 = $("<span>");
+var root6323 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
 var activeTabName = mobl.ref(tabs.get().get(0)._1);
@@ -1222,50 +1222,50 @@ var activeTabName = mobl.ref(tabs.get().get(0)._1);
 var s = mobl.ref("");
 
 
-var tmp8834 = mobl.ref(null);
+var tmp11603 = mobl.ref(null);
 
 
-var tmp8833 = mobl.ref(null);
+var tmp11602 = mobl.ref(null);
 
-var nodes3318 = $("<span>");
-root3915.append(nodes3318);
-subs__.addSub((ui.block)(mobl.ref(ui.tabbarStyle), tmp8833, tmp8834, function(_, callback) {
-  var root3916 = $("<span>");
+var nodes4959 = $("<span>");
+root6323.append(nodes4959);
+subs__.addSub((ui.block)(mobl.ref(ui.tabbarStyle), tmp11602, tmp11603, function(_, callback) {
+  var root6324 = $("<span>");
   var subs__ = new mobl.CompSubscription();
   
-  var node536 = mobl.loadingSpan();
-  root3916.append(node536);
-  var list102;
+  var node1682 = mobl.loadingSpan();
+  root6324.append(node1682);
+  var list342;
   var listSubs__ = new mobl.CompSubscription();
   subs__.addSub(listSubs__);
-  var renderList102 = function() {
+  var renderList342 = function() {
     var subs__ = listSubs__;
-    list102 = tabs.get();
-    list102.list(function(results138) {
-      node536.empty();
-      for(var i107 = 0; i107 < results138.length; i107++) {
+    list342 = tabs.get();
+    list342.list(function(results378) {
+      node1682.empty();
+      for(var i347 = 0; i347 < results378.length; i347++) {
         (function() {
-          var iternode102 = $("<span>");
-          node536.append(iternode102);
+          var iternode342 = $("<span>");
+          node1682.append(iternode342);
           var tabName;var tabIcon;var tabControl;
-          tabName = mobl.ref(mobl.ref(mobl.ref(results138), i107), "_1");tabIcon = mobl.ref(mobl.ref(mobl.ref(results138), i107), "_2");tabControl = mobl.ref(mobl.ref(mobl.ref(results138), i107), "_3");
+          tabName = mobl.ref(mobl.ref(mobl.ref(results378), i347), "_1");tabIcon = mobl.ref(mobl.ref(mobl.ref(results378), i347), "_2");tabControl = mobl.ref(mobl.ref(mobl.ref(results378), i347), "_3");
           
-          var tmp8831 = mobl.ref(activeTabName.get() == tabName.get() ? ui.activeTabButtonStyle : ui.inActiveTabButtonStyle);
+          var tmp11600 = mobl.ref(activeTabName.get() == tabName.get() ? ui.activeTabButtonStyle : ui.inActiveTabButtonStyle);
           subs__.addSub(activeTabName.addEventListener('change', function() {
-            tmp8831.set(activeTabName.get() == tabName.get() ? ui.activeTabButtonStyle : ui.inActiveTabButtonStyle);
+            tmp11600.set(activeTabName.get() == tabName.get() ? ui.activeTabButtonStyle : ui.inActiveTabButtonStyle);
           }));
           subs__.addSub(tabName.addEventListener('change', function() {
-            tmp8831.set(activeTabName.get() == tabName.get() ? ui.activeTabButtonStyle : ui.inActiveTabButtonStyle);
+            tmp11600.set(activeTabName.get() == tabName.get() ? ui.activeTabButtonStyle : ui.inActiveTabButtonStyle);
           }));
           subs__.addSub(mobl.ref(ui.activeTabButtonStyle).addEventListener('change', function() {
-            tmp8831.set(activeTabName.get() == tabName.get() ? ui.activeTabButtonStyle : ui.inActiveTabButtonStyle);
+            tmp11600.set(activeTabName.get() == tabName.get() ? ui.activeTabButtonStyle : ui.inActiveTabButtonStyle);
           }));
           subs__.addSub(mobl.ref(ui.inActiveTabButtonStyle).addEventListener('change', function() {
-            tmp8831.set(activeTabName.get() == tabName.get() ? ui.activeTabButtonStyle : ui.inActiveTabButtonStyle);
+            tmp11600.set(activeTabName.get() == tabName.get() ? ui.activeTabButtonStyle : ui.inActiveTabButtonStyle);
           }));
           
           
-          var tmp8830 = mobl.ref(function(event, callback) {
+          var tmp11599 = mobl.ref(function(event, callback) {
                                if(event && event.stopPropagation) event.stopPropagation();
                                var result__ = tabName.get();
                                activeTabName.set(result__);
@@ -1273,161 +1273,161 @@ subs__.addSub((ui.block)(mobl.ref(ui.tabbarStyle), tmp8833, tmp8834, function(_,
                              });
           
           
-          var tmp8832 = mobl.ref(null);
+          var tmp11601 = mobl.ref(null);
           
-          var nodes3319 = $("<span>");
-          iternode102.append(nodes3319);
-          subs__.addSub((ui.span)(tmp8831, tmp8832, tmp8830, function(_, callback) {
-            var root3917 = $("<span>");
+          var nodes4960 = $("<span>");
+          iternode342.append(nodes4960);
+          subs__.addSub((ui.span)(tmp11600, tmp11601, tmp11599, function(_, callback) {
+            var root6325 = $("<span>");
             var subs__ = new mobl.CompSubscription();
             
-            var tmp8829 = mobl.ref(null);
+            var tmp11598 = mobl.ref(null);
             
             
-            var tmp8828 = mobl.ref(null);
+            var tmp11597 = mobl.ref(null);
             
-            var nodes3320 = $("<span>");
-            root3917.append(nodes3320);
-            subs__.addSub((mobl.label)(tabName, tmp8828, tmp8829, function(_, callback) {
-              var root3918 = $("<span>");
+            var nodes4961 = $("<span>");
+            root6325.append(nodes4961);
+            subs__.addSub((mobl.label)(tabName, tmp11597, tmp11598, function(_, callback) {
+              var root6326 = $("<span>");
               var subs__ = new mobl.CompSubscription();
-              callback(root3918); return subs__;
+              callback(root6326); return subs__;
               return subs__;
             }, function(node) {
-              var oldNodes = nodes3320;
-              nodes3320 = node.contents();
-              oldNodes.replaceWith(nodes3320);
+              var oldNodes = nodes4961;
+              nodes4961 = node.contents();
+              oldNodes.replaceWith(nodes4961);
             }));
-            callback(root3917); return subs__;
+            callback(root6325); return subs__;
             
             return subs__;
           }, function(node) {
-            var oldNodes = nodes3319;
-            nodes3319 = node.contents();
-            oldNodes.replaceWith(nodes3319);
+            var oldNodes = nodes4960;
+            nodes4960 = node.contents();
+            oldNodes.replaceWith(nodes4960);
           }));
           
-          var oldNodes = iternode102;
-          iternode102 = iternode102.contents();
-          oldNodes.replaceWith(iternode102);
+          var oldNodes = iternode342;
+          iternode342 = iternode342.contents();
+          oldNodes.replaceWith(iternode342);
           
           
         }());
       }
       mobl.delayedUpdateScrollers();
-      subs__.addSub(list102.addEventListener('change', function() { listSubs__.unsubscribe(); renderList102(true); }));
-      subs__.addSub(tabs.addEventListener('change', function() { listSubs__.unsubscribe(); renderList102(true); }));
+      subs__.addSub(list342.addEventListener('change', function() { listSubs__.unsubscribe(); renderList342(true); }));
+      subs__.addSub(tabs.addEventListener('change', function() { listSubs__.unsubscribe(); renderList342(true); }));
     });
   };
-  renderList102();
+  renderList342();
   
-  callback(root3916); return subs__;
+  callback(root6324); return subs__;
   
   return subs__;
 }, function(node) {
-  var oldNodes = nodes3318;
-  nodes3318 = node.contents();
-  oldNodes.replaceWith(nodes3318);
+  var oldNodes = nodes4959;
+  nodes4959 = node.contents();
+  oldNodes.replaceWith(nodes4959);
 }));
 
-var node537 = mobl.loadingSpan();
-root3915.append(node537);
-var list103;
+var node1683 = mobl.loadingSpan();
+root6323.append(node1683);
+var list343;
 var listSubs__ = new mobl.CompSubscription();
 subs__.addSub(listSubs__);
-var renderList103 = function() {
+var renderList343 = function() {
   var subs__ = listSubs__;
-  list103 = tabs.get();
-  list103.list(function(results139) {
-    node537.empty();
-    for(var i108 = 0; i108 < results139.length; i108++) {
+  list343 = tabs.get();
+  list343.list(function(results379) {
+    node1683.empty();
+    for(var i348 = 0; i348 < results379.length; i348++) {
       (function() {
-        var iternode103 = $("<span>");
-        node537.append(iternode103);
+        var iternode343 = $("<span>");
+        node1683.append(iternode343);
         var tabName;var tabIcon;var tabControl;
-        tabName = mobl.ref(mobl.ref(mobl.ref(results139), i108), "_1");tabIcon = mobl.ref(mobl.ref(mobl.ref(results139), i108), "_2");tabControl = mobl.ref(mobl.ref(mobl.ref(results139), i108), "_3");
+        tabName = mobl.ref(mobl.ref(mobl.ref(results379), i348), "_1");tabIcon = mobl.ref(mobl.ref(mobl.ref(results379), i348), "_2");tabControl = mobl.ref(mobl.ref(mobl.ref(results379), i348), "_3");
         
-        var tmp8835 = mobl.ref(activeTabName.get() == tabName.get() ? ui.activeTabStyle : ui.inActiveTabStyle);
+        var tmp11604 = mobl.ref(activeTabName.get() == tabName.get() ? ui.activeTabStyle : ui.inActiveTabStyle);
         subs__.addSub(activeTabName.addEventListener('change', function() {
-          tmp8835.set(activeTabName.get() == tabName.get() ? ui.activeTabStyle : ui.inActiveTabStyle);
+          tmp11604.set(activeTabName.get() == tabName.get() ? ui.activeTabStyle : ui.inActiveTabStyle);
         }));
         subs__.addSub(tabName.addEventListener('change', function() {
-          tmp8835.set(activeTabName.get() == tabName.get() ? ui.activeTabStyle : ui.inActiveTabStyle);
+          tmp11604.set(activeTabName.get() == tabName.get() ? ui.activeTabStyle : ui.inActiveTabStyle);
         }));
         subs__.addSub(mobl.ref(ui.activeTabStyle).addEventListener('change', function() {
-          tmp8835.set(activeTabName.get() == tabName.get() ? ui.activeTabStyle : ui.inActiveTabStyle);
+          tmp11604.set(activeTabName.get() == tabName.get() ? ui.activeTabStyle : ui.inActiveTabStyle);
         }));
         subs__.addSub(mobl.ref(ui.inActiveTabStyle).addEventListener('change', function() {
-          tmp8835.set(activeTabName.get() == tabName.get() ? ui.activeTabStyle : ui.inActiveTabStyle);
+          tmp11604.set(activeTabName.get() == tabName.get() ? ui.activeTabStyle : ui.inActiveTabStyle);
         }));
         
         
-        var tmp8837 = mobl.ref(null);
+        var tmp11606 = mobl.ref(null);
         
         
-        var tmp8836 = mobl.ref(null);
+        var tmp11605 = mobl.ref(null);
         
-        var nodes3321 = $("<span>");
-        iternode103.append(nodes3321);
-        subs__.addSub((ui.block)(tmp8835, tmp8836, tmp8837, function(_, callback) {
-          var root3919 = $("<span>");
+        var nodes4962 = $("<span>");
+        iternode343.append(nodes4962);
+        subs__.addSub((ui.block)(tmp11604, tmp11605, tmp11606, function(_, callback) {
+          var root6327 = $("<span>");
           var subs__ = new mobl.CompSubscription();
-          var nodes3322 = $("<span>");
-          root3919.append(nodes3322);
+          var nodes4963 = $("<span>");
+          root6327.append(nodes4963);
           subs__.addSub((mobl.screenContext)(function(_, callback) {
-            var root3920 = $("<span>");
+            var root6328 = $("<span>");
             var subs__ = new mobl.CompSubscription();
-            var nodes3323 = $("<span>");
-            root3920.append(nodes3323);
+            var nodes4964 = $("<span>");
+            root6328.append(nodes4964);
             subs__.addSub(tabControl.addEventListener('change', function() {
-              renderControl260();
+              renderControl828();
             }));
             
-            function renderControl260() {
+            function renderControl828() {
               subs__.addSub((tabControl.get())(function(elements, callback) {
-                var root3921 = $("<span>");
+                var root6329 = $("<span>");
                 var subs__ = new mobl.CompSubscription();
-                callback(root3921); return subs__;
+                callback(root6329); return subs__;
                 return subs__;
               }, function(node) {
-                var oldNodes = nodes3323;
-                nodes3323 = node.contents();
-                oldNodes.replaceWith(nodes3323);
+                var oldNodes = nodes4964;
+                nodes4964 = node.contents();
+                oldNodes.replaceWith(nodes4964);
               }));
             }
-            renderControl260();
-            callback(root3920); return subs__;
+            renderControl828();
+            callback(root6328); return subs__;
             
             return subs__;
           }, function(node) {
-            var oldNodes = nodes3322;
-            nodes3322 = node.contents();
-            oldNodes.replaceWith(nodes3322);
+            var oldNodes = nodes4963;
+            nodes4963 = node.contents();
+            oldNodes.replaceWith(nodes4963);
           }));
-          callback(root3919); return subs__;
+          callback(root6327); return subs__;
           
           return subs__;
         }, function(node) {
-          var oldNodes = nodes3321;
-          nodes3321 = node.contents();
-          oldNodes.replaceWith(nodes3321);
+          var oldNodes = nodes4962;
+          nodes4962 = node.contents();
+          oldNodes.replaceWith(nodes4962);
         }));
         
-        var oldNodes = iternode103;
-        iternode103 = iternode103.contents();
-        oldNodes.replaceWith(iternode103);
+        var oldNodes = iternode343;
+        iternode343 = iternode343.contents();
+        oldNodes.replaceWith(iternode343);
         
         
       }());
     }
     mobl.delayedUpdateScrollers();
-    subs__.addSub(list103.addEventListener('change', function() { listSubs__.unsubscribe(); renderList103(true); }));
-    subs__.addSub(tabs.addEventListener('change', function() { listSubs__.unsubscribe(); renderList103(true); }));
+    subs__.addSub(list343.addEventListener('change', function() { listSubs__.unsubscribe(); renderList343(true); }));
+    subs__.addSub(tabs.addEventListener('change', function() { listSubs__.unsubscribe(); renderList343(true); }));
   });
 };
-renderList103();
+renderList343();
 
-callback(root3915); return subs__;
+callback(root6323); return subs__;
 
 
 return subs__;
@@ -1436,89 +1436,89 @@ ui.searchboxStyle = 'ui__searchboxStyle';
 ui.searchBoxInputStyle = 'ui__searchBoxInputStyle';
 
 ui.searchBox = function(s, placeholder, onsearch, onkeyup, elements, callback) {
-var root3922 = $("<span>");
+var root6330 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var node538 = $("<div>");
+var node1684 = $("<div>");
 
-var ref577 = mobl.ref(ui.searchboxStyle);
-if(ref577.get() !== null) {
-  node538.attr('class', ref577.get());
-  subs__.addSub(ref577.addEventListener('change', function(_, ref, val) {
-    if(ref === ref577) {
-      node538.attr('class', val);
+var ref1659 = mobl.ref(ui.searchboxStyle);
+if(ref1659.get() !== null) {
+  node1684.attr('class', ref1659.get());
+  subs__.addSub(ref1659.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1659) {
+      node1684.attr('class', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref577.rebind());
+subs__.addSub(ref1659.rebind());
 
 
-var node539 = $("<input>");
-node539.attr('type', "text");
+var node1685 = $("<input>");
+node1685.attr('type', "text");
 
-var ref574 = mobl.ref(ui.searchBoxInputStyle);
-if(ref574.get() !== null) {
-  node539.attr('class', ref574.get());
-  subs__.addSub(ref574.addEventListener('change', function(_, ref, val) {
-    if(ref === ref574) {
-      node539.attr('class', val);
+var ref1656 = mobl.ref(ui.searchBoxInputStyle);
+if(ref1656.get() !== null) {
+  node1685.attr('class', ref1656.get());
+  subs__.addSub(ref1656.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1656) {
+      node1685.attr('class', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref574.rebind());
+subs__.addSub(ref1656.rebind());
 
-var ref575 = placeholder;
-if(ref575.get() !== null) {
-  node539.attr('placeholder', ref575.get());
-  subs__.addSub(ref575.addEventListener('change', function(_, ref, val) {
-    if(ref === ref575) {
-      node539.attr('placeholder', val);
+var ref1657 = placeholder;
+if(ref1657.get() !== null) {
+  node1685.attr('placeholder', ref1657.get());
+  subs__.addSub(ref1657.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1657) {
+      node1685.attr('placeholder', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref575.rebind());
+subs__.addSub(ref1657.rebind());
 
-var ref576 = s;
-node539.val(""+ref576.get());
-var ignore119 = false;
-subs__.addSub(ref576.addEventListener('change', function(_, ref, val) {
-  if(ignore119) return;
-  node539.val(""+val);
+var ref1658 = s;
+node1685.val(""+ref1658.get());
+var ignore340 = false;
+subs__.addSub(ref1658.addEventListener('change', function(_, ref, val) {
+  if(ignore340) return;
+  node1685.val(""+val);
 }));
-subs__.addSub(ref576.rebind());
+subs__.addSub(ref1658.rebind());
 
-subs__.addSub(mobl.domBind(node539, 'keyup change', function() {
-  ignore119 = true;
-  s.set(mobl.stringTomobl__String(node539.val()));
-  ignore119 = false;
+subs__.addSub(mobl.domBind(node1685, 'keyup change', function() {
+  ignore340 = true;
+  s.set(mobl.stringTomobl__String(node1685.val()));
+  ignore340 = false;
 }));
 
 
-var val308 = onsearch.get();
-if(val308 !== null) {
-  subs__.addSub(mobl.domBind(node539, 'change', val308));
+var val881 = onsearch.get();
+if(val881 !== null) {
+  subs__.addSub(mobl.domBind(node1685, 'change', val881));
 }
 
-var val309 = onkeyup.get();
-if(val309 !== null) {
-  subs__.addSub(mobl.domBind(node539, 'keyup', val309));
+var val882 = onkeyup.get();
+if(val882 !== null) {
+  subs__.addSub(mobl.domBind(node1685, 'keyup', val882));
 }
-node539.attr('autocorrect', "off");
-node539.attr('autocapitalize', "off");
-node539.attr('autocomplete', "off");
+node1685.attr('autocorrect', "off");
+node1685.attr('autocapitalize', "off");
+node1685.attr('autocomplete', "off");
 
-node538.append(node539);
-root3922.append(node538);
-callback(root3922); return subs__;
+node1684.append(node1685);
+root6330.append(node1684);
+callback(root6330); return subs__;
 
 
 return subs__;
@@ -1528,16 +1528,16 @@ ui.buttonStyle = 'ui__buttonStyle';
 ui.buttonPushedStyle = 'ui__buttonPushedStyle';
 
 ui.contextMenu = function(elements, callback) {
-var root3923 = $("<span>");
+var root6331 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
 var menu = $("<div>");
 
-var ref578 = mobl.ref(ui.contextMenuStyle);
-if(ref578.get() !== null) {
-  menu.attr('class', ref578.get());
-  subs__.addSub(ref578.addEventListener('change', function(_, ref, val) {
-    if(ref === ref578) {
+var ref1660 = mobl.ref(ui.contextMenuStyle);
+if(ref1660.get() !== null) {
+  menu.attr('class', ref1660.get());
+  subs__.addSub(ref1660.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1660) {
       menu.attr('class', val);
     } else {
       console.log("Garbage!");
@@ -1545,35 +1545,35 @@ if(ref578.get() !== null) {
   }));
   
 }
-subs__.addSub(ref578.rebind());
+subs__.addSub(ref1660.rebind());
 
-var nodes3324 = $("<span>");
-menu.append(nodes3324);
+var nodes4965 = $("<span>");
+menu.append(nodes4965);
 subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-  renderControl261();
+  renderControl829();
 }));
 
-function renderControl261() {
+function renderControl829() {
   subs__.addSub((elements)(function(elements, callback) {
-    var root3924 = $("<span>");
+    var root6332 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root3924); return subs__;
+    callback(root6332); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes3324;
-    nodes3324 = node.contents();
-    oldNodes.replaceWith(nodes3324);
+    var oldNodes = nodes4965;
+    nodes4965 = node.contents();
+    oldNodes.replaceWith(nodes4965);
   }));
 }
-renderControl261();
-root3923.append(menu);
+renderControl829();
+root6331.append(menu);
 var result__ = menu.hide();
 
 var img = $("<img>");
 img.attr('src', "mobl/ui/generic/contextmenu.png");
 img.attr('style', "float: right;");
 
-var val310 = function(event, callback) {
+var val883 = function(event, callback) {
               if(event && event.stopPropagation) event.stopPropagation();
               var result__ = img.parent();
               var target = result__;
@@ -1583,16 +1583,16 @@ var val310 = function(event, callback) {
               var result__ = menu.css("top", "5px");
               var result__ = menu.show();
               mobl.sleep(500, function(result__) {
-                var tmp8895 = result__;
+                var tmp11664 = result__;
                 var result__ = mobl.$("body").bind("tap", removeMenu);
                 if(callback && callback.apply) callback(); return;
               });
             };
-if(val310 !== null) {
-  subs__.addSub(mobl.domBind(img, 'tap', val310));
+if(val883 !== null) {
+  subs__.addSub(mobl.domBind(img, 'tap', val883));
 }
 
-root3923.append(img);
+root6331.append(img);
 
 var removeMenu = function(evt) {
    var __this = this;
@@ -1602,7 +1602,7 @@ var removeMenu = function(evt) {
 };
 
 
-callback(root3923); return subs__;
+callback(root6331); return subs__;
 
 
 
@@ -1610,129 +1610,129 @@ return subs__;
 };
 
 ui.masterDetail = function(items, masterItem, detail, elements, callback) {
-var root3925 = $("<span>");
+var root6333 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var tmp8887 = mobl.ref(mobl.window.get().innerWidth > 500);
+var tmp11656 = mobl.ref(mobl.window.get().innerWidth > 500);
 subs__.addSub(mobl.ref(mobl.window, 'innerWidth').addEventListener('change', function() {
-  tmp8887.set(mobl.window.get().innerWidth > 500);
+  tmp11656.set(mobl.window.get().innerWidth > 500);
 }));
 
 
-var node540 = $("<span>");
-root3925.append(node540);
-var condSubs80 = new mobl.CompSubscription();
-subs__.addSub(condSubs80);
-var oldValue80;
-var renderCond80 = function() {
-  var value193 = tmp8887.get();
-  if(oldValue80 === value193) return;
-  oldValue80 = value193;
-  var subs__ = condSubs80;
+var node1686 = $("<span>");
+root6333.append(node1686);
+var condSubs240 = new mobl.CompSubscription();
+subs__.addSub(condSubs240);
+var oldValue240;
+var renderCond240 = function() {
+  var value552 = tmp11656.get();
+  if(oldValue240 === value552) return;
+  oldValue240 = value552;
+  var subs__ = condSubs240;
   subs__.unsubscribe();
-  node540.empty();
-  if(value193) {
+  node1686.empty();
+  if(value552) {
     items.get().one(function(result__) {
       var current = mobl.ref(result__);
       
-      var node541 = $("<div>");
-      node541.attr('width', "100%");
+      var node1687 = $("<div>");
+      node1687.attr('width', "100%");
       
       
-      var node542 = $("<div>");
-      node542.attr('style', "float:left; width:33%; position:relative; border-right: solid 1px #cccccc;");
+      var node1688 = $("<div>");
+      node1688.attr('style', "float:left; width:33%; position:relative; border-right: solid 1px #cccccc;");
       
-      var nodes3326 = $("<span>");
-      node542.append(nodes3326);
+      var nodes4967 = $("<span>");
+      node1688.append(nodes4967);
       subs__.addSub((ui.group)(function(_, callback) {
-        var root3927 = $("<span>");
+        var root6335 = $("<span>");
         var subs__ = new mobl.CompSubscription();
         
-        var node544 = mobl.loadingSpan();
-        root3927.append(node544);
-        var list104;
+        var node1690 = mobl.loadingSpan();
+        root6335.append(node1690);
+        var list344;
         var listSubs__ = new mobl.CompSubscription();
         subs__.addSub(listSubs__);
-        var renderList104 = function() {
+        var renderList344 = function() {
           var subs__ = listSubs__;
-          list104 = items.get();
-          list104.list(function(results140) {
-            node544.empty();
-            for(var i109 = 0; i109 < results140.length; i109++) {
+          list344 = items.get();
+          list344.list(function(results380) {
+            node1690.empty();
+            for(var i349 = 0; i349 < results380.length; i349++) {
               (function() {
-                var iternode104 = $("<span>");
-                node544.append(iternode104);
+                var iternode344 = $("<span>");
+                node1690.append(iternode344);
                 var it;
-                it = mobl.ref(mobl.ref(results140), i109);
+                it = mobl.ref(mobl.ref(results380), i349);
                 
-                var tmp8851 = mobl.ref(it.get() == current.get());
+                var tmp11620 = mobl.ref(it.get() == current.get());
                 subs__.addSub(it.addEventListener('change', function() {
-                  tmp8851.set(it.get() == current.get());
+                  tmp11620.set(it.get() == current.get());
                 }));
                 subs__.addSub(current.addEventListener('change', function() {
-                  tmp8851.set(it.get() == current.get());
+                  tmp11620.set(it.get() == current.get());
                 }));
                 
                 
-                var node545 = $("<span>");
-                iternode104.append(node545);
-                var condSubs81 = new mobl.CompSubscription();
-                subs__.addSub(condSubs81);
-                var oldValue81;
-                var renderCond81 = function() {
-                  var value194 = tmp8851.get();
-                  if(oldValue81 === value194) return;
-                  oldValue81 = value194;
-                  var subs__ = condSubs81;
+                var node1691 = $("<span>");
+                iternode344.append(node1691);
+                var condSubs241 = new mobl.CompSubscription();
+                subs__.addSub(condSubs241);
+                var oldValue241;
+                var renderCond241 = function() {
+                  var value553 = tmp11620.get();
+                  if(oldValue241 === value553) return;
+                  oldValue241 = value553;
+                  var subs__ = condSubs241;
                   subs__.unsubscribe();
-                  node545.empty();
-                  if(value194) {
+                  node1691.empty();
+                  if(value553) {
                     
-                    var tmp8847 = mobl.ref(false);
-                    
-                    
-                    var tmp8846 = mobl.ref(null);
+                    var tmp11616 = mobl.ref(false);
                     
                     
-                    var tmp8845 = mobl.ref(null);
+                    var tmp11615 = mobl.ref(null);
                     
-                    var nodes3327 = $("<span>");
-                    node545.append(nodes3327);
-                    subs__.addSub((ui.item)(mobl.ref(ui.selectedItemStyle), mobl.ref(ui.itemPushedStyle), tmp8845, tmp8846, tmp8847, function(_, callback) {
-                      var root3928 = $("<span>");
+                    
+                    var tmp11614 = mobl.ref(null);
+                    
+                    var nodes4968 = $("<span>");
+                    node1691.append(nodes4968);
+                    subs__.addSub((ui.item)(mobl.ref(ui.selectedItemStyle), mobl.ref(ui.itemPushedStyle), tmp11614, tmp11615, tmp11616, function(_, callback) {
+                      var root6336 = $("<span>");
                       var subs__ = new mobl.CompSubscription();
-                      var nodes3328 = $("<span>");
-                      root3928.append(nodes3328);
+                      var nodes4969 = $("<span>");
+                      root6336.append(nodes4969);
                       subs__.addSub(masterItem.addEventListener('change', function() {
-                        renderControl263();
+                        renderControl831();
                       }));
                       
-                      function renderControl263() {
+                      function renderControl831() {
                         subs__.addSub((masterItem.get())(it, function(elements, callback) {
-                          var root3929 = $("<span>");
+                          var root6337 = $("<span>");
                           var subs__ = new mobl.CompSubscription();
-                          callback(root3929); return subs__;
+                          callback(root6337); return subs__;
                           return subs__;
                         }, function(node) {
-                          var oldNodes = nodes3328;
-                          nodes3328 = node.contents();
-                          oldNodes.replaceWith(nodes3328);
+                          var oldNodes = nodes4969;
+                          nodes4969 = node.contents();
+                          oldNodes.replaceWith(nodes4969);
                         }));
                       }
-                      renderControl263();
-                      callback(root3928); return subs__;
+                      renderControl831();
+                      callback(root6336); return subs__;
                       
                       return subs__;
                     }, function(node) {
-                      var oldNodes = nodes3327;
-                      nodes3327 = node.contents();
-                      oldNodes.replaceWith(nodes3327);
+                      var oldNodes = nodes4968;
+                      nodes4968 = node.contents();
+                      oldNodes.replaceWith(nodes4968);
                     }));
                     
                     
                   } else {
                     
-                    var tmp8849 = mobl.ref(function(event, callback) {
+                    var tmp11618 = mobl.ref(function(event, callback) {
                                          if(event && event.stopPropagation) event.stopPropagation();
                                          var result__ = it.get();
                                          current.set(result__);
@@ -1740,101 +1740,101 @@ var renderCond80 = function() {
                                        });
                     
                     
-                    var tmp8848 = mobl.ref(true);
+                    var tmp11617 = mobl.ref(true);
                     
                     
-                    var tmp8850 = mobl.ref(null);
+                    var tmp11619 = mobl.ref(null);
                     
-                    var nodes3329 = $("<span>");
-                    node545.append(nodes3329);
-                    subs__.addSub((ui.item)(mobl.ref(ui.itemStyle), mobl.ref(ui.itemPushedStyle), tmp8849, tmp8850, tmp8848, function(_, callback) {
-                      var root3930 = $("<span>");
+                    var nodes4970 = $("<span>");
+                    node1691.append(nodes4970);
+                    subs__.addSub((ui.item)(mobl.ref(ui.itemStyle), mobl.ref(ui.itemPushedStyle), tmp11618, tmp11619, tmp11617, function(_, callback) {
+                      var root6338 = $("<span>");
                       var subs__ = new mobl.CompSubscription();
-                      var nodes3330 = $("<span>");
-                      root3930.append(nodes3330);
+                      var nodes4971 = $("<span>");
+                      root6338.append(nodes4971);
                       subs__.addSub(masterItem.addEventListener('change', function() {
-                        renderControl264();
+                        renderControl832();
                       }));
                       
-                      function renderControl264() {
+                      function renderControl832() {
                         subs__.addSub((masterItem.get())(it, function(elements, callback) {
-                          var root3931 = $("<span>");
+                          var root6339 = $("<span>");
                           var subs__ = new mobl.CompSubscription();
-                          callback(root3931); return subs__;
+                          callback(root6339); return subs__;
                           return subs__;
                         }, function(node) {
-                          var oldNodes = nodes3330;
-                          nodes3330 = node.contents();
-                          oldNodes.replaceWith(nodes3330);
+                          var oldNodes = nodes4971;
+                          nodes4971 = node.contents();
+                          oldNodes.replaceWith(nodes4971);
                         }));
                       }
-                      renderControl264();
-                      callback(root3930); return subs__;
+                      renderControl832();
+                      callback(root6338); return subs__;
                       
                       return subs__;
                     }, function(node) {
-                      var oldNodes = nodes3329;
-                      nodes3329 = node.contents();
-                      oldNodes.replaceWith(nodes3329);
+                      var oldNodes = nodes4970;
+                      nodes4970 = node.contents();
+                      oldNodes.replaceWith(nodes4970);
                     }));
                     
                     
                   }
                 };
-                renderCond81();
-                subs__.addSub(tmp8851.addEventListener('change', function() {
-                  renderCond81();
+                renderCond241();
+                subs__.addSub(tmp11620.addEventListener('change', function() {
+                  renderCond241();
                 }));
                 
                 
-                var oldNodes = iternode104;
-                iternode104 = iternode104.contents();
-                oldNodes.replaceWith(iternode104);
+                var oldNodes = iternode344;
+                iternode344 = iternode344.contents();
+                oldNodes.replaceWith(iternode344);
                 
                 
               }());
             }
             mobl.delayedUpdateScrollers();
-            subs__.addSub(list104.addEventListener('change', function() { listSubs__.unsubscribe(); renderList104(true); }));
-            subs__.addSub(items.addEventListener('change', function() { listSubs__.unsubscribe(); renderList104(true); }));
+            subs__.addSub(list344.addEventListener('change', function() { listSubs__.unsubscribe(); renderList344(true); }));
+            subs__.addSub(items.addEventListener('change', function() { listSubs__.unsubscribe(); renderList344(true); }));
           });
         };
-        renderList104();
+        renderList344();
         
-        callback(root3927); return subs__;
+        callback(root6335); return subs__;
         
         return subs__;
       }, function(node) {
-        var oldNodes = nodes3326;
-        nodes3326 = node.contents();
-        oldNodes.replaceWith(nodes3326);
+        var oldNodes = nodes4967;
+        nodes4967 = node.contents();
+        oldNodes.replaceWith(nodes4967);
       }));
-      node541.append(node542);
+      node1687.append(node1688);
       
-      var node543 = $("<div>");
-      node543.attr('style', "float:left; width:66.5%; position:relative; margin-left: 0.5%;");
+      var node1689 = $("<div>");
+      node1689.attr('style', "float:left; width:66.5%; position:relative; margin-left: 0.5%;");
       
-      var nodes3325 = $("<span>");
-      node543.append(nodes3325);
+      var nodes4966 = $("<span>");
+      node1689.append(nodes4966);
       subs__.addSub(detail.addEventListener('change', function() {
-        renderControl262();
+        renderControl830();
       }));
       
-      function renderControl262() {
+      function renderControl830() {
         subs__.addSub((detail.get())(current, function(elements, callback) {
-          var root3926 = $("<span>");
+          var root6334 = $("<span>");
           var subs__ = new mobl.CompSubscription();
-          callback(root3926); return subs__;
+          callback(root6334); return subs__;
           return subs__;
         }, function(node) {
-          var oldNodes = nodes3325;
-          nodes3325 = node.contents();
-          oldNodes.replaceWith(nodes3325);
+          var oldNodes = nodes4966;
+          nodes4966 = node.contents();
+          oldNodes.replaceWith(nodes4966);
         }));
       }
-      renderControl262();
-      node541.append(node543);
-      node540.append(node541);
+      renderControl830();
+      node1687.append(node1689);
+      node1686.append(node1687);
       
       
       
@@ -1843,128 +1843,128 @@ var renderCond80 = function() {
       
     });
   } else {
-    var nodes3331 = $("<span>");
-    node540.append(nodes3331);
+    var nodes4972 = $("<span>");
+    node1686.append(nodes4972);
     subs__.addSub((ui.group)(function(_, callback) {
-      var root3932 = $("<span>");
+      var root6340 = $("<span>");
       var subs__ = new mobl.CompSubscription();
       
-      var node546 = mobl.loadingSpan();
-      root3932.append(node546);
-      var list105;
+      var node1692 = mobl.loadingSpan();
+      root6340.append(node1692);
+      var list345;
       var listSubs__ = new mobl.CompSubscription();
       subs__.addSub(listSubs__);
-      var renderList105 = function() {
+      var renderList345 = function() {
         var subs__ = listSubs__;
-        list105 = items.get();
-        list105.list(function(results141) {
-          node546.empty();
-          for(var i110 = 0; i110 < results141.length; i110++) {
+        list345 = items.get();
+        list345.list(function(results381) {
+          node1692.empty();
+          for(var i350 = 0; i350 < results381.length; i350++) {
             (function() {
-              var iternode105 = $("<span>");
-              node546.append(iternode105);
+              var iternode345 = $("<span>");
+              node1692.append(iternode345);
               var it;
-              it = mobl.ref(mobl.ref(results141), i110);
+              it = mobl.ref(mobl.ref(results381), i350);
               
-              var tmp8838 = mobl.ref(function(event, callback) {
+              var tmp11607 = mobl.ref(function(event, callback) {
                                    if(event && event.stopPropagation) event.stopPropagation();
                                    mobl.call('ui.detailScreen', [it, detail], function(result__) {
-                                   var tmp8896 = result__;
+                                   var tmp11665 = result__;
                                    if(callback && callback.apply) callback(); return;
                                    });
                                  });
               
               
-              var tmp8840 = mobl.ref(false);
+              var tmp11609 = mobl.ref(false);
               
               
-              var tmp8839 = mobl.ref(null);
+              var tmp11608 = mobl.ref(null);
               
-              var nodes3332 = $("<span>");
-              iternode105.append(nodes3332);
-              subs__.addSub((ui.item)(mobl.ref(ui.itemStyle), mobl.ref(ui.itemPushedStyle), tmp8838, tmp8839, tmp8840, function(_, callback) {
-                var root3933 = $("<span>");
+              var nodes4973 = $("<span>");
+              iternode345.append(nodes4973);
+              subs__.addSub((ui.item)(mobl.ref(ui.itemStyle), mobl.ref(ui.itemPushedStyle), tmp11607, tmp11608, tmp11609, function(_, callback) {
+                var root6341 = $("<span>");
                 var subs__ = new mobl.CompSubscription();
-                var nodes3333 = $("<span>");
-                root3933.append(nodes3333);
+                var nodes4974 = $("<span>");
+                root6341.append(nodes4974);
                 subs__.addSub(masterItem.addEventListener('change', function() {
-                  renderControl265();
+                  renderControl833();
                 }));
                 
-                function renderControl265() {
+                function renderControl833() {
                   subs__.addSub((masterItem.get())(it, function(elements, callback) {
-                    var root3934 = $("<span>");
+                    var root6342 = $("<span>");
                     var subs__ = new mobl.CompSubscription();
-                    callback(root3934); return subs__;
+                    callback(root6342); return subs__;
                     return subs__;
                   }, function(node) {
-                    var oldNodes = nodes3333;
-                    nodes3333 = node.contents();
-                    oldNodes.replaceWith(nodes3333);
+                    var oldNodes = nodes4974;
+                    nodes4974 = node.contents();
+                    oldNodes.replaceWith(nodes4974);
                   }));
                 }
-                renderControl265();
-                callback(root3933); return subs__;
+                renderControl833();
+                callback(root6341); return subs__;
                 
                 return subs__;
               }, function(node) {
-                var oldNodes = nodes3332;
-                nodes3332 = node.contents();
-                oldNodes.replaceWith(nodes3332);
+                var oldNodes = nodes4973;
+                nodes4973 = node.contents();
+                oldNodes.replaceWith(nodes4973);
               }));
               
-              var oldNodes = iternode105;
-              iternode105 = iternode105.contents();
-              oldNodes.replaceWith(iternode105);
+              var oldNodes = iternode345;
+              iternode345 = iternode345.contents();
+              oldNodes.replaceWith(iternode345);
               
               
             }());
           }
           mobl.delayedUpdateScrollers();
-          subs__.addSub(list105.addEventListener('change', function() { listSubs__.unsubscribe(); renderList105(true); }));
-          subs__.addSub(items.addEventListener('change', function() { listSubs__.unsubscribe(); renderList105(true); }));
+          subs__.addSub(list345.addEventListener('change', function() { listSubs__.unsubscribe(); renderList345(true); }));
+          subs__.addSub(items.addEventListener('change', function() { listSubs__.unsubscribe(); renderList345(true); }));
         });
       };
-      renderList105();
+      renderList345();
       
-      callback(root3932); return subs__;
+      callback(root6340); return subs__;
       
       return subs__;
     }, function(node) {
-      var oldNodes = nodes3331;
-      nodes3331 = node.contents();
-      oldNodes.replaceWith(nodes3331);
+      var oldNodes = nodes4972;
+      nodes4972 = node.contents();
+      oldNodes.replaceWith(nodes4972);
     }));
     
     
   }
 };
-renderCond80();
-subs__.addSub(tmp8887.addEventListener('change', function() {
-  renderCond80();
+renderCond240();
+subs__.addSub(tmp11656.addEventListener('change', function() {
+  renderCond240();
 }));
 
-callback(root3925); return subs__;
+callback(root6333); return subs__;
 
 return subs__;
 };
 
 ui.detailScreen = function(it, detail, callback, screenCallback) {
-var root3935 = $("<div>");
+var root6343 = $("<div>");
 var subs__ = new mobl.CompSubscription();
 
-var tmp8843 = mobl.ref("Detail");
+var tmp11612 = mobl.ref("Detail");
 
 
-var tmp8844 = mobl.ref(null);
+var tmp11613 = mobl.ref(null);
 
-var nodes3334 = $("<span>");
-root3935.append(nodes3334);
-subs__.addSub((ui.header)(tmp8843, tmp8844, function(_, callback) {
-  var root3936 = $("<span>");
+var nodes4975 = $("<span>");
+root6343.append(nodes4975);
+subs__.addSub((ui.header)(tmp11612, tmp11613, function(_, callback) {
+  var root6344 = $("<span>");
   var subs__ = new mobl.CompSubscription();
   
-  var tmp8842 = mobl.ref(function(event, callback) {
+  var tmp11611 = mobl.ref(function(event, callback) {
                        if(event && event.stopPropagation) event.stopPropagation();
                        if(screenCallback) screenCallback();
                        return;
@@ -1972,48 +1972,48 @@ subs__.addSub((ui.header)(tmp8843, tmp8844, function(_, callback) {
                      });
   
   
-  var tmp8841 = mobl.ref("Back");
+  var tmp11610 = mobl.ref("Back");
   
-  var nodes3335 = $("<span>");
-  root3936.append(nodes3335);
-  subs__.addSub((ui.backButton)(tmp8841, mobl.ref(ui.backButtonStyle), mobl.ref(ui.backButtonPushedStyle), tmp8842, function(_, callback) {
-    var root3937 = $("<span>");
+  var nodes4976 = $("<span>");
+  root6344.append(nodes4976);
+  subs__.addSub((ui.backButton)(tmp11610, mobl.ref(ui.backButtonStyle), mobl.ref(ui.backButtonPushedStyle), tmp11611, function(_, callback) {
+    var root6345 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root3937); return subs__;
+    callback(root6345); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes3335;
-    nodes3335 = node.contents();
-    oldNodes.replaceWith(nodes3335);
+    var oldNodes = nodes4976;
+    nodes4976 = node.contents();
+    oldNodes.replaceWith(nodes4976);
   }));
-  callback(root3936); return subs__;
+  callback(root6344); return subs__;
   
   return subs__;
 }, function(node) {
-  var oldNodes = nodes3334;
-  nodes3334 = node.contents();
-  oldNodes.replaceWith(nodes3334);
+  var oldNodes = nodes4975;
+  nodes4975 = node.contents();
+  oldNodes.replaceWith(nodes4975);
 }));
-var nodes3336 = $("<span>");
-root3935.append(nodes3336);
+var nodes4977 = $("<span>");
+root6343.append(nodes4977);
 subs__.addSub(detail.addEventListener('change', function() {
-  renderControl266();
+  renderControl834();
 }));
 
-function renderControl266() {
+function renderControl834() {
   subs__.addSub((detail.get())(it, function(elements, callback) {
-    var root3938 = $("<span>");
+    var root6346 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root3938); return subs__;
+    callback(root6346); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes3336;
-    nodes3336 = node.contents();
-    oldNodes.replaceWith(nodes3336);
+    var oldNodes = nodes4977;
+    nodes4977 = node.contents();
+    oldNodes.replaceWith(nodes4977);
   }));
 }
-renderControl266();
-callback(root3935); return subs__;
+renderControl834();
+callback(root6343); return subs__;
 
 
 return subs__;
@@ -2021,104 +2021,104 @@ return subs__;
 ui.selectedItemStyle = 'ui__selectedItemStyle';
 
 ui.zoomList = function(coll, listCtrl, zoomCtrl, elements, callback) {
-var root3939 = $("<span>");
+var root6347 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
 var selected = mobl.ref(null);
-var nodes3337 = $("<span>");
-root3939.append(nodes3337);
+var nodes4978 = $("<span>");
+root6347.append(nodes4978);
 subs__.addSub((ui.group)(function(_, callback) {
-  var root3940 = $("<span>");
+  var root6348 = $("<span>");
   var subs__ = new mobl.CompSubscription();
   
-  var node547 = mobl.loadingSpan();
-  root3940.append(node547);
-  var list106;
+  var node1693 = mobl.loadingSpan();
+  root6348.append(node1693);
+  var list346;
   var listSubs__ = new mobl.CompSubscription();
   subs__.addSub(listSubs__);
-  var renderList106 = function() {
+  var renderList346 = function() {
     var subs__ = listSubs__;
-    list106 = coll.get();
-    list106.list(function(results142) {
-      node547.empty();
-      for(var i111 = 0; i111 < results142.length; i111++) {
+    list346 = coll.get();
+    list346.list(function(results382) {
+      node1693.empty();
+      for(var i351 = 0; i351 < results382.length; i351++) {
         (function() {
-          var iternode106 = $("<span>");
-          node547.append(iternode106);
+          var iternode346 = $("<span>");
+          node1693.append(iternode346);
           var it;
-          it = mobl.ref(mobl.ref(results142), i111);
+          it = mobl.ref(mobl.ref(results382), i351);
           
-          var tmp8858 = mobl.ref(it.get() == selected.get());
+          var tmp11627 = mobl.ref(it.get() == selected.get());
           subs__.addSub(it.addEventListener('change', function() {
-            tmp8858.set(it.get() == selected.get());
+            tmp11627.set(it.get() == selected.get());
           }));
           subs__.addSub(selected.addEventListener('change', function() {
-            tmp8858.set(it.get() == selected.get());
+            tmp11627.set(it.get() == selected.get());
           }));
           
           
-          var node548 = $("<span>");
-          iternode106.append(node548);
-          var condSubs82 = new mobl.CompSubscription();
-          subs__.addSub(condSubs82);
-          var oldValue82;
-          var renderCond82 = function() {
-            var value195 = tmp8858.get();
-            if(oldValue82 === value195) return;
-            oldValue82 = value195;
-            var subs__ = condSubs82;
+          var node1694 = $("<span>");
+          iternode346.append(node1694);
+          var condSubs242 = new mobl.CompSubscription();
+          subs__.addSub(condSubs242);
+          var oldValue242;
+          var renderCond242 = function() {
+            var value554 = tmp11627.get();
+            if(oldValue242 === value554) return;
+            oldValue242 = value554;
+            var subs__ = condSubs242;
             subs__.unsubscribe();
-            node548.empty();
-            if(value195) {
+            node1694.empty();
+            if(value554) {
               
-              var tmp8854 = mobl.ref(false);
-              
-              
-              var tmp8853 = mobl.ref(null);
+              var tmp11623 = mobl.ref(false);
               
               
-              var tmp8852 = mobl.ref(null);
+              var tmp11622 = mobl.ref(null);
               
-              var nodes3338 = $("<span>");
-              node548.append(nodes3338);
-              subs__.addSub((ui.item)(mobl.ref(ui.itemStyle), mobl.ref(ui.itemPushedStyle), tmp8852, tmp8853, tmp8854, function(_, callback) {
-                var root3941 = $("<span>");
+              
+              var tmp11621 = mobl.ref(null);
+              
+              var nodes4979 = $("<span>");
+              node1694.append(nodes4979);
+              subs__.addSub((ui.item)(mobl.ref(ui.itemStyle), mobl.ref(ui.itemPushedStyle), tmp11621, tmp11622, tmp11623, function(_, callback) {
+                var root6349 = $("<span>");
                 var subs__ = new mobl.CompSubscription();
-                var nodes3339 = $("<span>");
-                root3941.append(nodes3339);
+                var nodes4980 = $("<span>");
+                root6349.append(nodes4980);
                 subs__.addSub(zoomCtrl.addEventListener('change', function() {
-                  renderControl267();
+                  renderControl835();
                 }));
                 
-                function renderControl267() {
+                function renderControl835() {
                   subs__.addSub((zoomCtrl.get())(it, function(elements, callback) {
-                    var root3942 = $("<span>");
+                    var root6350 = $("<span>");
                     var subs__ = new mobl.CompSubscription();
-                    callback(root3942); return subs__;
+                    callback(root6350); return subs__;
                     return subs__;
                   }, function(node) {
-                    var oldNodes = nodes3339;
-                    nodes3339 = node.contents();
-                    oldNodes.replaceWith(nodes3339);
+                    var oldNodes = nodes4980;
+                    nodes4980 = node.contents();
+                    oldNodes.replaceWith(nodes4980);
                   }));
                 }
-                renderControl267();
-                callback(root3941); return subs__;
+                renderControl835();
+                callback(root6349); return subs__;
                 
                 return subs__;
               }, function(node) {
-                var oldNodes = nodes3338;
-                nodes3338 = node.contents();
-                oldNodes.replaceWith(nodes3338);
+                var oldNodes = nodes4979;
+                nodes4979 = node.contents();
+                oldNodes.replaceWith(nodes4979);
               }));
               
               
             } else {
               
-              var tmp8856 = mobl.ref(true);
+              var tmp11625 = mobl.ref(true);
               
               
-              var tmp8855 = mobl.ref(function(event, callback) {
+              var tmp11624 = mobl.ref(function(event, callback) {
                                    if(event && event.stopPropagation) event.stopPropagation();
                                    var result__ = it.get();
                                    selected.set(result__);
@@ -2126,375 +2126,375 @@ subs__.addSub((ui.group)(function(_, callback) {
                                  });
               
               
-              var tmp8857 = mobl.ref(null);
+              var tmp11626 = mobl.ref(null);
               
-              var nodes3340 = $("<span>");
-              node548.append(nodes3340);
-              subs__.addSub((ui.item)(mobl.ref(ui.itemStyle), mobl.ref(ui.itemPushedStyle), tmp8855, tmp8857, tmp8856, function(_, callback) {
-                var root3943 = $("<span>");
+              var nodes4981 = $("<span>");
+              node1694.append(nodes4981);
+              subs__.addSub((ui.item)(mobl.ref(ui.itemStyle), mobl.ref(ui.itemPushedStyle), tmp11624, tmp11626, tmp11625, function(_, callback) {
+                var root6351 = $("<span>");
                 var subs__ = new mobl.CompSubscription();
-                var nodes3341 = $("<span>");
-                root3943.append(nodes3341);
+                var nodes4982 = $("<span>");
+                root6351.append(nodes4982);
                 subs__.addSub(listCtrl.addEventListener('change', function() {
-                  renderControl268();
+                  renderControl836();
                 }));
                 
-                function renderControl268() {
+                function renderControl836() {
                   subs__.addSub((listCtrl.get())(it, function(elements, callback) {
-                    var root3944 = $("<span>");
+                    var root6352 = $("<span>");
                     var subs__ = new mobl.CompSubscription();
-                    callback(root3944); return subs__;
+                    callback(root6352); return subs__;
                     return subs__;
                   }, function(node) {
-                    var oldNodes = nodes3341;
-                    nodes3341 = node.contents();
-                    oldNodes.replaceWith(nodes3341);
+                    var oldNodes = nodes4982;
+                    nodes4982 = node.contents();
+                    oldNodes.replaceWith(nodes4982);
                   }));
                 }
-                renderControl268();
-                callback(root3943); return subs__;
+                renderControl836();
+                callback(root6351); return subs__;
                 
                 return subs__;
               }, function(node) {
-                var oldNodes = nodes3340;
-                nodes3340 = node.contents();
-                oldNodes.replaceWith(nodes3340);
+                var oldNodes = nodes4981;
+                nodes4981 = node.contents();
+                oldNodes.replaceWith(nodes4981);
               }));
               
               
             }
           };
-          renderCond82();
-          subs__.addSub(tmp8858.addEventListener('change', function() {
-            renderCond82();
+          renderCond242();
+          subs__.addSub(tmp11627.addEventListener('change', function() {
+            renderCond242();
           }));
           
           
-          var oldNodes = iternode106;
-          iternode106 = iternode106.contents();
-          oldNodes.replaceWith(iternode106);
+          var oldNodes = iternode346;
+          iternode346 = iternode346.contents();
+          oldNodes.replaceWith(iternode346);
           
           
         }());
       }
       mobl.delayedUpdateScrollers();
-      subs__.addSub(list106.addEventListener('change', function() { listSubs__.unsubscribe(); renderList106(true); }));
-      subs__.addSub(coll.addEventListener('change', function() { listSubs__.unsubscribe(); renderList106(true); }));
+      subs__.addSub(list346.addEventListener('change', function() { listSubs__.unsubscribe(); renderList346(true); }));
+      subs__.addSub(coll.addEventListener('change', function() { listSubs__.unsubscribe(); renderList346(true); }));
     });
   };
-  renderList106();
+  renderList346();
   
-  callback(root3940); return subs__;
+  callback(root6348); return subs__;
   
   return subs__;
 }, function(node) {
-  var oldNodes = nodes3337;
-  nodes3337 = node.contents();
-  oldNodes.replaceWith(nodes3337);
+  var oldNodes = nodes4978;
+  nodes4978 = node.contents();
+  oldNodes.replaceWith(nodes4978);
 }));
-callback(root3939); return subs__;
+callback(root6347); return subs__;
 
 return subs__;
 };
 ui.loadMoreStyle = 'ui__loadMoreStyle';
 
 ui.stagedList = function(coll, listCtrl, initialItems, step, elements, callback) {
-var root3945 = $("<span>");
+var root6353 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
 var n = mobl.ref(initialItems.get());
 coll.get().count(function(result__) {
   var total = mobl.ref(result__);
-  var nodes3342 = $("<span>");
-  root3945.append(nodes3342);
+  var nodes4983 = $("<span>");
+  root6353.append(nodes4983);
   subs__.addSub((ui.group)(function(_, callback) {
-    var root3946 = $("<span>");
+    var root6354 = $("<span>");
     var subs__ = new mobl.CompSubscription();
     
-    var tmp8862 = mobl.ref(coll.get().limit(n.get()));
+    var tmp11631 = mobl.ref(coll.get().limit(n.get()));
     subs__.addSub(mobl.ref(coll.get().limit(n.get())).addEventListener('change', function() {
-      tmp8862.set(coll.get().limit(n.get()));
+      tmp11631.set(coll.get().limit(n.get()));
     }));
     subs__.addSub(coll.addEventListener('change', function() {
-      tmp8862.set(coll.get().limit(n.get()));
+      tmp11631.set(coll.get().limit(n.get()));
     }));
     subs__.addSub(n.addEventListener('change', function() {
-      tmp8862.set(coll.get().limit(n.get()));
+      tmp11631.set(coll.get().limit(n.get()));
     }));
     
     
-    var node549 = mobl.loadingSpan();
-    root3946.append(node549);
-    var list107;
+    var node1695 = mobl.loadingSpan();
+    root6354.append(node1695);
+    var list347;
     var listSubs__ = new mobl.CompSubscription();
     subs__.addSub(listSubs__);
-    var renderList107 = function() {
+    var renderList347 = function() {
       var subs__ = listSubs__;
-      list107 = tmp8862.get();
-      list107.list(function(results143) {
-        node549.empty();
-        for(var i112 = 0; i112 < results143.length; i112++) {
+      list347 = tmp11631.get();
+      list347.list(function(results383) {
+        node1695.empty();
+        for(var i352 = 0; i352 < results383.length; i352++) {
           (function() {
-            var iternode107 = $("<span>");
-            node549.append(iternode107);
+            var iternode347 = $("<span>");
+            node1695.append(iternode347);
             var it;
-            it = mobl.ref(mobl.ref(results143), i112);
+            it = mobl.ref(mobl.ref(results383), i352);
             
-            var tmp8859 = mobl.ref(function(event, callback) {
+            var tmp11628 = mobl.ref(function(event, callback) {
                                  if(event && event.stopPropagation) event.stopPropagation();
                                  if(callback && callback.apply) callback(); return;
                                });
             
             
-            var tmp8861 = mobl.ref(false);
+            var tmp11630 = mobl.ref(false);
             
             
-            var tmp8860 = mobl.ref(null);
+            var tmp11629 = mobl.ref(null);
             
-            var nodes3343 = $("<span>");
-            iternode107.append(nodes3343);
-            subs__.addSub((ui.item)(mobl.ref(ui.itemStyle), mobl.ref(ui.itemPushedStyle), tmp8859, tmp8860, tmp8861, function(_, callback) {
-              var root3947 = $("<span>");
+            var nodes4984 = $("<span>");
+            iternode347.append(nodes4984);
+            subs__.addSub((ui.item)(mobl.ref(ui.itemStyle), mobl.ref(ui.itemPushedStyle), tmp11628, tmp11629, tmp11630, function(_, callback) {
+              var root6355 = $("<span>");
               var subs__ = new mobl.CompSubscription();
-              var nodes3344 = $("<span>");
-              root3947.append(nodes3344);
+              var nodes4985 = $("<span>");
+              root6355.append(nodes4985);
               subs__.addSub(listCtrl.addEventListener('change', function() {
-                renderControl269();
+                renderControl837();
               }));
               
-              function renderControl269() {
+              function renderControl837() {
                 subs__.addSub((listCtrl.get())(it, function(elements, callback) {
-                  var root3948 = $("<span>");
+                  var root6356 = $("<span>");
                   var subs__ = new mobl.CompSubscription();
-                  callback(root3948); return subs__;
+                  callback(root6356); return subs__;
                   return subs__;
                 }, function(node) {
-                  var oldNodes = nodes3344;
-                  nodes3344 = node.contents();
-                  oldNodes.replaceWith(nodes3344);
+                  var oldNodes = nodes4985;
+                  nodes4985 = node.contents();
+                  oldNodes.replaceWith(nodes4985);
                 }));
               }
-              renderControl269();
-              callback(root3947); return subs__;
+              renderControl837();
+              callback(root6355); return subs__;
               
               return subs__;
             }, function(node) {
-              var oldNodes = nodes3343;
-              nodes3343 = node.contents();
-              oldNodes.replaceWith(nodes3343);
+              var oldNodes = nodes4984;
+              nodes4984 = node.contents();
+              oldNodes.replaceWith(nodes4984);
             }));
             
-            var oldNodes = iternode107;
-            iternode107 = iternode107.contents();
-            oldNodes.replaceWith(iternode107);
+            var oldNodes = iternode347;
+            iternode347 = iternode347.contents();
+            oldNodes.replaceWith(iternode347);
             
             
           }());
         }
         mobl.delayedUpdateScrollers();
-        subs__.addSub(list107.addEventListener('change', function() { listSubs__.unsubscribe(); renderList107(true); }));
-        subs__.addSub(tmp8862.addEventListener('change', function() { listSubs__.unsubscribe(); renderList107(true); }));
+        subs__.addSub(list347.addEventListener('change', function() { listSubs__.unsubscribe(); renderList347(true); }));
+        subs__.addSub(tmp11631.addEventListener('change', function() { listSubs__.unsubscribe(); renderList347(true); }));
       });
     };
-    renderList107();
+    renderList347();
     
     
-    var tmp8863 = mobl.ref(n.get() < total.get());
+    var tmp11632 = mobl.ref(n.get() < total.get());
     subs__.addSub(n.addEventListener('change', function() {
-      tmp8863.set(n.get() < total.get());
+      tmp11632.set(n.get() < total.get());
     }));
     subs__.addSub(total.addEventListener('change', function() {
-      tmp8863.set(n.get() < total.get());
+      tmp11632.set(n.get() < total.get());
     }));
     
     
-    var node550 = $("<span>");
-    root3946.append(node550);
-    var condSubs83 = new mobl.CompSubscription();
-    subs__.addSub(condSubs83);
-    var oldValue83;
-    var renderCond83 = function() {
-      var value196 = tmp8863.get();
-      if(oldValue83 === value196) return;
-      oldValue83 = value196;
-      var subs__ = condSubs83;
+    var node1696 = $("<span>");
+    root6354.append(node1696);
+    var condSubs243 = new mobl.CompSubscription();
+    subs__.addSub(condSubs243);
+    var oldValue243;
+    var renderCond243 = function() {
+      var value555 = tmp11632.get();
+      if(oldValue243 === value555) return;
+      oldValue243 = value555;
+      var subs__ = condSubs243;
       subs__.unsubscribe();
-      node550.empty();
-      if(value196) {
+      node1696.empty();
+      if(value555) {
         
-        var node551 = $("<li>");
+        var node1697 = $("<li>");
         
-        var ref579 = mobl.ref(ui.loadMoreStyle);
-        if(ref579.get() !== null) {
-          node551.attr('class', ref579.get());
-          subs__.addSub(ref579.addEventListener('change', function(_, ref, val) {
-            if(ref === ref579) {
-              node551.attr('class', val);
+        var ref1661 = mobl.ref(ui.loadMoreStyle);
+        if(ref1661.get() !== null) {
+          node1697.attr('class', ref1661.get());
+          subs__.addSub(ref1661.addEventListener('change', function(_, ref, val) {
+            if(ref === ref1661) {
+              node1697.attr('class', val);
             } else {
               console.log("Garbage!");
             }
           }));
           
         }
-        subs__.addSub(ref579.rebind());
+        subs__.addSub(ref1661.rebind());
         
-        var val311 = function(event, callback) {
+        var val884 = function(event, callback) {
                       if(event && event.stopPropagation) event.stopPropagation();
                       var result__ = n.get() + step.get();
                       n.set(result__);
                       if(callback && callback.apply) callback(); return;
                     };
-        if(val311 !== null) {
-          subs__.addSub(mobl.domBind(node551, 'tap', val311));
+        if(val884 !== null) {
+          subs__.addSub(mobl.domBind(node1697, 'tap', val884));
         }
         
         
-        node551.append("More");
-        node550.append(node551);
+        node1697.append("More");
+        node1696.append(node1697);
         
         
       } else {
         
       }
     };
-    renderCond83();
-    subs__.addSub(tmp8863.addEventListener('change', function() {
-      renderCond83();
+    renderCond243();
+    subs__.addSub(tmp11632.addEventListener('change', function() {
+      renderCond243();
     }));
     
-    callback(root3946); return subs__;
+    callback(root6354); return subs__;
     
     
     return subs__;
   }, function(node) {
-    var oldNodes = nodes3342;
-    nodes3342 = node.contents();
-    oldNodes.replaceWith(nodes3342);
+    var oldNodes = nodes4983;
+    nodes4983 = node.contents();
+    oldNodes.replaceWith(nodes4983);
   }));
-  callback(root3945); return subs__;
+  callback(root6353); return subs__;
   
 });
 return subs__;
 };
 
 ui.markableList = function(items, elements, callback) {
-var root3949 = $("<span>");
+var root6357 = $("<span>");
 var subs__ = new mobl.CompSubscription();
-var nodes3345 = $("<span>");
-root3949.append(nodes3345);
+var nodes4986 = $("<span>");
+root6357.append(nodes4986);
 subs__.addSub((ui.group)(function(_, callback) {
-  var root3950 = $("<span>");
+  var root6358 = $("<span>");
   var subs__ = new mobl.CompSubscription();
   
-  var node552 = mobl.loadingSpan();
-  root3950.append(node552);
-  var list108;
+  var node1698 = mobl.loadingSpan();
+  root6358.append(node1698);
+  var list348;
   var listSubs__ = new mobl.CompSubscription();
   subs__.addSub(listSubs__);
-  var renderList108 = function() {
+  var renderList348 = function() {
     var subs__ = listSubs__;
-    list108 = items.get();
-    list108.list(function(results144) {
-      node552.empty();
-      for(var i113 = 0; i113 < results144.length; i113++) {
+    list348 = items.get();
+    list348.list(function(results384) {
+      node1698.empty();
+      for(var i353 = 0; i353 < results384.length; i353++) {
         (function() {
-          var iternode108 = $("<span>");
-          node552.append(iternode108);
+          var iternode348 = $("<span>");
+          node1698.append(iternode348);
           var checked;var it;
-          checked = mobl.ref(mobl.ref(mobl.ref(results144), i113), "_1");it = mobl.ref(mobl.ref(mobl.ref(results144), i113), "_2");
+          checked = mobl.ref(mobl.ref(mobl.ref(results384), i353), "_1");it = mobl.ref(mobl.ref(mobl.ref(results384), i353), "_2");
           
-          var tmp8867 = mobl.ref(false);
-          
-          
-          var tmp8866 = mobl.ref(null);
+          var tmp11636 = mobl.ref(false);
           
           
-          var tmp8865 = mobl.ref(null);
+          var tmp11635 = mobl.ref(null);
           
-          var nodes3346 = $("<span>");
-          iternode108.append(nodes3346);
-          subs__.addSub((ui.item)(mobl.ref(ui.itemStyle), mobl.ref(ui.itemPushedStyle), tmp8865, tmp8866, tmp8867, function(_, callback) {
-            var root3951 = $("<span>");
+          
+          var tmp11634 = mobl.ref(null);
+          
+          var nodes4987 = $("<span>");
+          iternode348.append(nodes4987);
+          subs__.addSub((ui.item)(mobl.ref(ui.itemStyle), mobl.ref(ui.itemPushedStyle), tmp11634, tmp11635, tmp11636, function(_, callback) {
+            var root6359 = $("<span>");
             var subs__ = new mobl.CompSubscription();
             
-            var tmp8864 = mobl.ref(null);
+            var tmp11633 = mobl.ref(null);
             
-            var nodes3347 = $("<span>");
-            root3951.append(nodes3347);
-            subs__.addSub((ui.checkBox)(checked, it, tmp8864, function(_, callback) {
-              var root3952 = $("<span>");
+            var nodes4988 = $("<span>");
+            root6359.append(nodes4988);
+            subs__.addSub((ui.checkBox)(checked, it, tmp11633, function(_, callback) {
+              var root6360 = $("<span>");
               var subs__ = new mobl.CompSubscription();
-              callback(root3952); return subs__;
+              callback(root6360); return subs__;
               return subs__;
             }, function(node) {
-              var oldNodes = nodes3347;
-              nodes3347 = node.contents();
-              oldNodes.replaceWith(nodes3347);
+              var oldNodes = nodes4988;
+              nodes4988 = node.contents();
+              oldNodes.replaceWith(nodes4988);
             }));
-            callback(root3951); return subs__;
+            callback(root6359); return subs__;
             
             return subs__;
           }, function(node) {
-            var oldNodes = nodes3346;
-            nodes3346 = node.contents();
-            oldNodes.replaceWith(nodes3346);
+            var oldNodes = nodes4987;
+            nodes4987 = node.contents();
+            oldNodes.replaceWith(nodes4987);
           }));
           
-          var oldNodes = iternode108;
-          iternode108 = iternode108.contents();
-          oldNodes.replaceWith(iternode108);
+          var oldNodes = iternode348;
+          iternode348 = iternode348.contents();
+          oldNodes.replaceWith(iternode348);
           
           
         }());
       }
       mobl.delayedUpdateScrollers();
-      subs__.addSub(list108.addEventListener('change', function() { listSubs__.unsubscribe(); renderList108(true); }));
-      subs__.addSub(items.addEventListener('change', function() { listSubs__.unsubscribe(); renderList108(true); }));
+      subs__.addSub(list348.addEventListener('change', function() { listSubs__.unsubscribe(); renderList348(true); }));
+      subs__.addSub(items.addEventListener('change', function() { listSubs__.unsubscribe(); renderList348(true); }));
     });
   };
-  renderList108();
+  renderList348();
   
-  callback(root3950); return subs__;
+  callback(root6358); return subs__;
   
   return subs__;
 }, function(node) {
-  var oldNodes = nodes3345;
-  nodes3345 = node.contents();
-  oldNodes.replaceWith(nodes3345);
+  var oldNodes = nodes4986;
+  nodes4986 = node.contents();
+  oldNodes.replaceWith(nodes4986);
 }));
-callback(root3949); return subs__;
+callback(root6357); return subs__;
 
 return subs__;
 };
 
 ui.selectList = function(title, coll, callback, screenCallback) {
-var root3953 = $("<div>");
+var root6361 = $("<div>");
 var subs__ = new mobl.CompSubscription();
 
 var items = mobl.ref([]);
 
 var result__ = coll.get();
-coll.get().list(function(coll391) {
-  coll391 = coll391.reverse();
-  function processOne131() {
+coll.get().list(function(coll1052) {
+  coll1052 = coll1052.reverse();
+  function processOne195() {
     var it;
-    it = coll391.pop();
+    it = coll1052.pop();
     var result__ = items.get().push(new mobl.Tuple(false, it));
     
-    if(coll391.length > 0) processOne131(); else rest131();
+    if(coll1052.length > 0) processOne195(); else rest195();
     
   }
-  function rest131() {
+  function rest195() {
     
-    var tmp8872 = mobl.ref(null);
+    var tmp11641 = mobl.ref(null);
     
-    var nodes3348 = $("<span>");
-    root3953.append(nodes3348);
-    subs__.addSub((ui.header)(title, tmp8872, function(_, callback) {
-      var root3954 = $("<span>");
+    var nodes4989 = $("<span>");
+    root6361.append(nodes4989);
+    subs__.addSub((ui.header)(title, tmp11641, function(_, callback) {
+      var root6362 = $("<span>");
       var subs__ = new mobl.CompSubscription();
       
-      var tmp8868 = mobl.ref(function(event, callback) {
+      var tmp11637 = mobl.ref(function(event, callback) {
                            if(event && event.stopPropagation) event.stopPropagation();
                            var result__ = null;
                            if(callback && callback.apply) callback(result__);
@@ -2503,161 +2503,161 @@ coll.get().list(function(coll391) {
                          });
       
       
-      var tmp8869 = mobl.ref("Back");
+      var tmp11638 = mobl.ref("Back");
       
-      var nodes3349 = $("<span>");
-      root3954.append(nodes3349);
-      subs__.addSub((ui.backButton)(tmp8869, mobl.ref(ui.backButtonStyle), mobl.ref(ui.backButtonPushedStyle), tmp8868, function(_, callback) {
-        var root3955 = $("<span>");
+      var nodes4990 = $("<span>");
+      root6362.append(nodes4990);
+      subs__.addSub((ui.backButton)(tmp11638, mobl.ref(ui.backButtonStyle), mobl.ref(ui.backButtonPushedStyle), tmp11637, function(_, callback) {
+        var root6363 = $("<span>");
         var subs__ = new mobl.CompSubscription();
-        callback(root3955); return subs__;
+        callback(root6363); return subs__;
         return subs__;
       }, function(node) {
-        var oldNodes = nodes3349;
-        nodes3349 = node.contents();
-        oldNodes.replaceWith(nodes3349);
+        var oldNodes = nodes4990;
+        nodes4990 = node.contents();
+        oldNodes.replaceWith(nodes4990);
       }));
       
-      var tmp8871 = mobl.ref(function(event, callback) {
+      var tmp11640 = mobl.ref(function(event, callback) {
                            if(event && event.stopPropagation) event.stopPropagation();
                            var result__ = [];
                            var selected = result__;
                            var result__ = items.get();
-                           items.get().list(function(coll390) {
-                             coll390 = coll390.reverse();
-                             function processOne130() {
+                           items.get().list(function(coll1051) {
+                             coll1051 = coll1051.reverse();
+                             function processOne194() {
                                var checked;var it;
-                               var tmp8898 = coll390.pop();
-                               checked = tmp8898._1;it = tmp8898._2;
+                               var tmp11667 = coll1051.pop();
+                               checked = tmp11667._1;it = tmp11667._2;
                                var result__ = checked;
                                if(result__) {
                                  var result__ = selected.push(it);
                                  
-                                 if(coll390.length > 0) processOne130(); else rest130();
+                                 if(coll1051.length > 0) processOne194(); else rest194();
                                  
                                } else {
                                  {
                                    
-                                   if(coll390.length > 0) processOne130(); else rest130();
+                                   if(coll1051.length > 0) processOne194(); else rest194();
                                    
                                  }
                                }
                              }
-                             function rest130() {
+                             function rest194() {
                                var result__ = selected;
                                if(screenCallback) screenCallback(result__);
                                return;
                                if(callback && callback.apply) callback(); return;
                              }
-                             if(coll390.length > 0) processOne130(); else rest130();
+                             if(coll1051.length > 0) processOne194(); else rest194();
                            });
                            
                          });
       
       
-      var tmp8870 = mobl.ref("Done");
+      var tmp11639 = mobl.ref("Done");
       
-      var nodes3350 = $("<span>");
-      root3954.append(nodes3350);
-      subs__.addSub((ui.button)(tmp8870, mobl.ref(ui.buttonStyle), mobl.ref(ui.buttonPushedStyle), tmp8871, function(_, callback) {
-        var root3956 = $("<span>");
+      var nodes4991 = $("<span>");
+      root6362.append(nodes4991);
+      subs__.addSub((ui.button)(tmp11639, mobl.ref(ui.buttonStyle), mobl.ref(ui.buttonPushedStyle), tmp11640, function(_, callback) {
+        var root6364 = $("<span>");
         var subs__ = new mobl.CompSubscription();
-        callback(root3956); return subs__;
+        callback(root6364); return subs__;
         return subs__;
       }, function(node) {
-        var oldNodes = nodes3350;
-        nodes3350 = node.contents();
-        oldNodes.replaceWith(nodes3350);
+        var oldNodes = nodes4991;
+        nodes4991 = node.contents();
+        oldNodes.replaceWith(nodes4991);
       }));
-      callback(root3954); return subs__;
+      callback(root6362); return subs__;
       
       
       return subs__;
     }, function(node) {
-      var oldNodes = nodes3348;
-      nodes3348 = node.contents();
-      oldNodes.replaceWith(nodes3348);
+      var oldNodes = nodes4989;
+      nodes4989 = node.contents();
+      oldNodes.replaceWith(nodes4989);
     }));
-    var nodes3351 = $("<span>");
-    root3953.append(nodes3351);
+    var nodes4992 = $("<span>");
+    root6361.append(nodes4992);
     subs__.addSub((ui.markableList)(items, function(_, callback) {
-      var root3957 = $("<span>");
+      var root6365 = $("<span>");
       var subs__ = new mobl.CompSubscription();
-      callback(root3957); return subs__;
+      callback(root6365); return subs__;
       return subs__;
     }, function(node) {
-      var oldNodes = nodes3351;
-      nodes3351 = node.contents();
-      oldNodes.replaceWith(nodes3351);
+      var oldNodes = nodes4992;
+      nodes4992 = node.contents();
+      oldNodes.replaceWith(nodes4992);
     }));
-    callback(root3953); return subs__;
+    callback(root6361); return subs__;
     
     
   }
-  if(coll391.length > 0) processOne131(); else rest131();
+  if(coll1052.length > 0) processOne195(); else rest195();
 });
 
 return subs__;
 };
 
 ui.searchList = function(Ent, masterItem, detailItem, resultLimit, elements, callback) {
-var root3958 = $("<span>");
+var root6366 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
 var phrase = mobl.ref("");
 
 
-var tmp8873 = mobl.ref("Search term");
+var tmp11642 = mobl.ref("Search term");
 
 
-var tmp8875 = mobl.ref(null);
+var tmp11644 = mobl.ref(null);
 
 
-var tmp8874 = mobl.ref(null);
+var tmp11643 = mobl.ref(null);
 
-var nodes3352 = $("<span>");
-root3958.append(nodes3352);
-subs__.addSub((ui.searchBox)(phrase, tmp8873, tmp8874, tmp8875, function(_, callback) {
-  var root3959 = $("<span>");
+var nodes4993 = $("<span>");
+root6366.append(nodes4993);
+subs__.addSub((ui.searchBox)(phrase, tmp11642, tmp11643, tmp11644, function(_, callback) {
+  var root6367 = $("<span>");
   var subs__ = new mobl.CompSubscription();
-  callback(root3959); return subs__;
+  callback(root6367); return subs__;
   return subs__;
 }, function(node) {
-  var oldNodes = nodes3352;
-  nodes3352 = node.contents();
-  oldNodes.replaceWith(nodes3352);
+  var oldNodes = nodes4993;
+  nodes4993 = node.contents();
+  oldNodes.replaceWith(nodes4993);
 }));
 
-var tmp8876 = mobl.ref(Ent.get().searchPrefix(phrase.get()).limit(resultLimit.get()));
+var tmp11645 = mobl.ref(Ent.get().searchPrefix(phrase.get()).limit(resultLimit.get()));
 subs__.addSub(mobl.ref(Ent.get().searchPrefix(phrase.get()).limit(resultLimit.get())).addEventListener('change', function() {
-  tmp8876.set(Ent.get().searchPrefix(phrase.get()).limit(resultLimit.get()));
+  tmp11645.set(Ent.get().searchPrefix(phrase.get()).limit(resultLimit.get()));
 }));
 subs__.addSub(mobl.ref(Ent.get().searchPrefix(phrase.get())).addEventListener('change', function() {
-  tmp8876.set(Ent.get().searchPrefix(phrase.get()).limit(resultLimit.get()));
+  tmp11645.set(Ent.get().searchPrefix(phrase.get()).limit(resultLimit.get()));
 }));
 subs__.addSub(Ent.addEventListener('change', function() {
-  tmp8876.set(Ent.get().searchPrefix(phrase.get()).limit(resultLimit.get()));
+  tmp11645.set(Ent.get().searchPrefix(phrase.get()).limit(resultLimit.get()));
 }));
 subs__.addSub(phrase.addEventListener('change', function() {
-  tmp8876.set(Ent.get().searchPrefix(phrase.get()).limit(resultLimit.get()));
+  tmp11645.set(Ent.get().searchPrefix(phrase.get()).limit(resultLimit.get()));
 }));
 subs__.addSub(resultLimit.addEventListener('change', function() {
-  tmp8876.set(Ent.get().searchPrefix(phrase.get()).limit(resultLimit.get()));
+  tmp11645.set(Ent.get().searchPrefix(phrase.get()).limit(resultLimit.get()));
 }));
 
-var nodes3353 = $("<span>");
-root3958.append(nodes3353);
-subs__.addSub((ui.masterDetail)(tmp8876, masterItem, detailItem, function(_, callback) {
-  var root3960 = $("<span>");
+var nodes4994 = $("<span>");
+root6366.append(nodes4994);
+subs__.addSub((ui.masterDetail)(tmp11645, masterItem, detailItem, function(_, callback) {
+  var root6368 = $("<span>");
   var subs__ = new mobl.CompSubscription();
-  callback(root3960); return subs__;
+  callback(root6368); return subs__;
   return subs__;
 }, function(node) {
-  var oldNodes = nodes3353;
-  nodes3353 = node.contents();
-  oldNodes.replaceWith(nodes3353);
+  var oldNodes = nodes4994;
+  nodes4994 = node.contents();
+  oldNodes.replaceWith(nodes4994);
 }));
-callback(root3958); return subs__;
+callback(root6366); return subs__;
 
 
 return subs__;
@@ -2730,55 +2730,55 @@ ui.inActiveSectionStyle = 'ui__inActiveSectionStyle';
 ui.activeSectionStyle = 'ui__activeSectionStyle';
 
 ui.accordion = function(sections, elements, callback) {
-var root3961 = $("<span>");
+var root6369 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
 var activeSection = mobl.ref(sections.get().get(0)._1);
 
-var tmp8886 = mobl.ref(null);
+var tmp11655 = mobl.ref(null);
 
 
-var tmp8885 = mobl.ref(null);
+var tmp11654 = mobl.ref(null);
 
-var nodes3354 = $("<span>");
-root3961.append(nodes3354);
-subs__.addSub((ui.block)(mobl.ref(ui.accordionStyle), tmp8885, tmp8886, function(_, callback) {
-  var root3962 = $("<span>");
+var nodes4995 = $("<span>");
+root6369.append(nodes4995);
+subs__.addSub((ui.block)(mobl.ref(ui.accordionStyle), tmp11654, tmp11655, function(_, callback) {
+  var root6370 = $("<span>");
   var subs__ = new mobl.CompSubscription();
   
-  var node553 = mobl.loadingSpan();
-  root3962.append(node553);
-  var list109;
+  var node1699 = mobl.loadingSpan();
+  root6370.append(node1699);
+  var list349;
   var listSubs__ = new mobl.CompSubscription();
   subs__.addSub(listSubs__);
-  var renderList109 = function() {
+  var renderList349 = function() {
     var subs__ = listSubs__;
-    list109 = sections.get();
-    list109.list(function(results145) {
-      node553.empty();
-      for(var i114 = 0; i114 < results145.length; i114++) {
+    list349 = sections.get();
+    list349.list(function(results385) {
+      node1699.empty();
+      for(var i354 = 0; i354 < results385.length; i354++) {
         (function() {
-          var iternode109 = $("<span>");
-          node553.append(iternode109);
+          var iternode349 = $("<span>");
+          node1699.append(iternode349);
           var sectionName;var sectionControl;
-          sectionName = mobl.ref(mobl.ref(mobl.ref(results145), i114), "_1");sectionControl = mobl.ref(mobl.ref(mobl.ref(results145), i114), "_2");
+          sectionName = mobl.ref(mobl.ref(mobl.ref(results385), i354), "_1");sectionControl = mobl.ref(mobl.ref(mobl.ref(results385), i354), "_2");
           
-          var tmp8880 = mobl.ref(activeSection.get() == sectionName.get() ? ui.activeSectionHeaderStyle : ui.inActiveSectionHeaderStyle);
+          var tmp11649 = mobl.ref(activeSection.get() == sectionName.get() ? ui.activeSectionHeaderStyle : ui.inActiveSectionHeaderStyle);
           subs__.addSub(activeSection.addEventListener('change', function() {
-            tmp8880.set(activeSection.get() == sectionName.get() ? ui.activeSectionHeaderStyle : ui.inActiveSectionHeaderStyle);
+            tmp11649.set(activeSection.get() == sectionName.get() ? ui.activeSectionHeaderStyle : ui.inActiveSectionHeaderStyle);
           }));
           subs__.addSub(sectionName.addEventListener('change', function() {
-            tmp8880.set(activeSection.get() == sectionName.get() ? ui.activeSectionHeaderStyle : ui.inActiveSectionHeaderStyle);
+            tmp11649.set(activeSection.get() == sectionName.get() ? ui.activeSectionHeaderStyle : ui.inActiveSectionHeaderStyle);
           }));
           subs__.addSub(mobl.ref(ui.activeSectionHeaderStyle).addEventListener('change', function() {
-            tmp8880.set(activeSection.get() == sectionName.get() ? ui.activeSectionHeaderStyle : ui.inActiveSectionHeaderStyle);
+            tmp11649.set(activeSection.get() == sectionName.get() ? ui.activeSectionHeaderStyle : ui.inActiveSectionHeaderStyle);
           }));
           subs__.addSub(mobl.ref(ui.inActiveSectionHeaderStyle).addEventListener('change', function() {
-            tmp8880.set(activeSection.get() == sectionName.get() ? ui.activeSectionHeaderStyle : ui.inActiveSectionHeaderStyle);
+            tmp11649.set(activeSection.get() == sectionName.get() ? ui.activeSectionHeaderStyle : ui.inActiveSectionHeaderStyle);
           }));
           
           
-          var tmp8879 = mobl.ref(function(event, callback) {
+          var tmp11648 = mobl.ref(function(event, callback) {
                                if(event && event.stopPropagation) event.stopPropagation();
                                var result__ = sectionName.get();
                                activeSection.set(result__);
@@ -2786,117 +2786,117 @@ subs__.addSub((ui.block)(mobl.ref(ui.accordionStyle), tmp8885, tmp8886, function
                              });
           
           
-          var tmp8881 = mobl.ref(null);
+          var tmp11650 = mobl.ref(null);
           
-          var nodes3355 = $("<span>");
-          iternode109.append(nodes3355);
-          subs__.addSub((ui.span)(tmp8880, tmp8881, tmp8879, function(_, callback) {
-            var root3963 = $("<span>");
+          var nodes4996 = $("<span>");
+          iternode349.append(nodes4996);
+          subs__.addSub((ui.span)(tmp11649, tmp11650, tmp11648, function(_, callback) {
+            var root6371 = $("<span>");
             var subs__ = new mobl.CompSubscription();
             
-            var tmp8878 = mobl.ref(null);
+            var tmp11647 = mobl.ref(null);
             
             
-            var tmp8877 = mobl.ref(null);
+            var tmp11646 = mobl.ref(null);
             
-            var nodes3356 = $("<span>");
-            root3963.append(nodes3356);
-            subs__.addSub((mobl.label)(sectionName, tmp8877, tmp8878, function(_, callback) {
-              var root3964 = $("<span>");
+            var nodes4997 = $("<span>");
+            root6371.append(nodes4997);
+            subs__.addSub((mobl.label)(sectionName, tmp11646, tmp11647, function(_, callback) {
+              var root6372 = $("<span>");
               var subs__ = new mobl.CompSubscription();
-              callback(root3964); return subs__;
+              callback(root6372); return subs__;
               return subs__;
             }, function(node) {
-              var oldNodes = nodes3356;
-              nodes3356 = node.contents();
-              oldNodes.replaceWith(nodes3356);
+              var oldNodes = nodes4997;
+              nodes4997 = node.contents();
+              oldNodes.replaceWith(nodes4997);
             }));
-            callback(root3963); return subs__;
+            callback(root6371); return subs__;
             
             return subs__;
           }, function(node) {
-            var oldNodes = nodes3355;
-            nodes3355 = node.contents();
-            oldNodes.replaceWith(nodes3355);
+            var oldNodes = nodes4996;
+            nodes4996 = node.contents();
+            oldNodes.replaceWith(nodes4996);
           }));
           
-          var tmp8882 = mobl.ref(activeSection.get() == sectionName.get() ? ui.activeSectionStyle : ui.inActiveSectionStyle);
+          var tmp11651 = mobl.ref(activeSection.get() == sectionName.get() ? ui.activeSectionStyle : ui.inActiveSectionStyle);
           subs__.addSub(activeSection.addEventListener('change', function() {
-            tmp8882.set(activeSection.get() == sectionName.get() ? ui.activeSectionStyle : ui.inActiveSectionStyle);
+            tmp11651.set(activeSection.get() == sectionName.get() ? ui.activeSectionStyle : ui.inActiveSectionStyle);
           }));
           subs__.addSub(sectionName.addEventListener('change', function() {
-            tmp8882.set(activeSection.get() == sectionName.get() ? ui.activeSectionStyle : ui.inActiveSectionStyle);
+            tmp11651.set(activeSection.get() == sectionName.get() ? ui.activeSectionStyle : ui.inActiveSectionStyle);
           }));
           subs__.addSub(mobl.ref(ui.activeSectionStyle).addEventListener('change', function() {
-            tmp8882.set(activeSection.get() == sectionName.get() ? ui.activeSectionStyle : ui.inActiveSectionStyle);
+            tmp11651.set(activeSection.get() == sectionName.get() ? ui.activeSectionStyle : ui.inActiveSectionStyle);
           }));
           subs__.addSub(mobl.ref(ui.inActiveSectionStyle).addEventListener('change', function() {
-            tmp8882.set(activeSection.get() == sectionName.get() ? ui.activeSectionStyle : ui.inActiveSectionStyle);
+            tmp11651.set(activeSection.get() == sectionName.get() ? ui.activeSectionStyle : ui.inActiveSectionStyle);
           }));
           
           
-          var tmp8884 = mobl.ref(null);
+          var tmp11653 = mobl.ref(null);
           
           
-          var tmp8883 = mobl.ref(null);
+          var tmp11652 = mobl.ref(null);
           
-          var nodes3357 = $("<span>");
-          iternode109.append(nodes3357);
-          subs__.addSub((ui.block)(tmp8882, tmp8883, tmp8884, function(_, callback) {
-            var root3965 = $("<span>");
+          var nodes4998 = $("<span>");
+          iternode349.append(nodes4998);
+          subs__.addSub((ui.block)(tmp11651, tmp11652, tmp11653, function(_, callback) {
+            var root6373 = $("<span>");
             var subs__ = new mobl.CompSubscription();
-            var nodes3358 = $("<span>");
-            root3965.append(nodes3358);
+            var nodes4999 = $("<span>");
+            root6373.append(nodes4999);
             subs__.addSub(sectionControl.addEventListener('change', function() {
-              renderControl270();
+              renderControl838();
             }));
             
-            function renderControl270() {
+            function renderControl838() {
               subs__.addSub((sectionControl.get())(function(elements, callback) {
-                var root3966 = $("<span>");
+                var root6374 = $("<span>");
                 var subs__ = new mobl.CompSubscription();
-                callback(root3966); return subs__;
+                callback(root6374); return subs__;
                 return subs__;
               }, function(node) {
-                var oldNodes = nodes3358;
-                nodes3358 = node.contents();
-                oldNodes.replaceWith(nodes3358);
+                var oldNodes = nodes4999;
+                nodes4999 = node.contents();
+                oldNodes.replaceWith(nodes4999);
               }));
             }
-            renderControl270();
-            callback(root3965); return subs__;
+            renderControl838();
+            callback(root6373); return subs__;
             
             return subs__;
           }, function(node) {
-            var oldNodes = nodes3357;
-            nodes3357 = node.contents();
-            oldNodes.replaceWith(nodes3357);
+            var oldNodes = nodes4998;
+            nodes4998 = node.contents();
+            oldNodes.replaceWith(nodes4998);
           }));
           
-          var oldNodes = iternode109;
-          iternode109 = iternode109.contents();
-          oldNodes.replaceWith(iternode109);
+          var oldNodes = iternode349;
+          iternode349 = iternode349.contents();
+          oldNodes.replaceWith(iternode349);
           
           
           
         }());
       }
       mobl.delayedUpdateScrollers();
-      subs__.addSub(list109.addEventListener('change', function() { listSubs__.unsubscribe(); renderList109(true); }));
-      subs__.addSub(sections.addEventListener('change', function() { listSubs__.unsubscribe(); renderList109(true); }));
+      subs__.addSub(list349.addEventListener('change', function() { listSubs__.unsubscribe(); renderList349(true); }));
+      subs__.addSub(sections.addEventListener('change', function() { listSubs__.unsubscribe(); renderList349(true); }));
     });
   };
-  renderList109();
+  renderList349();
   
-  callback(root3962); return subs__;
+  callback(root6370); return subs__;
   
   return subs__;
 }, function(node) {
-  var oldNodes = nodes3354;
-  nodes3354 = node.contents();
-  oldNodes.replaceWith(nodes3354);
+  var oldNodes = nodes4995;
+  nodes4995 = node.contents();
+  oldNodes.replaceWith(nodes4995);
 }));
-callback(root3961); return subs__;
+callback(root6369); return subs__;
 
 return subs__;
 };
@@ -2913,276 +2913,276 @@ ui.tdStyle = 'ui__tdStyle';
 ui.tdStyle = 'ui__tdStyle';
 
 ui.table = function(elements, callback) {
-var root3967 = $("<span>");
+var root6375 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var node554 = $("<table>");
+var node1700 = $("<table>");
 
-var ref580 = mobl.ref(ui.tableStyle);
-if(ref580.get() !== null) {
-  node554.attr('class', ref580.get());
-  subs__.addSub(ref580.addEventListener('change', function(_, ref, val) {
-    if(ref === ref580) {
-      node554.attr('class', val);
+var ref1662 = mobl.ref(ui.tableStyle);
+if(ref1662.get() !== null) {
+  node1700.attr('class', ref1662.get());
+  subs__.addSub(ref1662.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1662) {
+      node1700.attr('class', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref580.rebind());
+subs__.addSub(ref1662.rebind());
 
-var nodes3359 = $("<span>");
-node554.append(nodes3359);
+var nodes5000 = $("<span>");
+node1700.append(nodes5000);
 subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-  renderControl271();
+  renderControl839();
 }));
 
-function renderControl271() {
+function renderControl839() {
   subs__.addSub((elements)(function(elements, callback) {
-    var root3968 = $("<span>");
+    var root6376 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root3968); return subs__;
+    callback(root6376); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes3359;
-    nodes3359 = node.contents();
-    oldNodes.replaceWith(nodes3359);
+    var oldNodes = nodes5000;
+    nodes5000 = node.contents();
+    oldNodes.replaceWith(nodes5000);
   }));
 }
-renderControl271();
-root3967.append(node554);
-callback(root3967); return subs__;
+renderControl839();
+root6375.append(node1700);
+callback(root6375); return subs__;
 
 
 return subs__;
 };
 
 ui.row = function(elements, callback) {
-var root3969 = $("<span>");
+var root6377 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var node555 = $("<tr>");
+var node1701 = $("<tr>");
 
-var ref581 = mobl.ref(ui.trStyle);
-if(ref581.get() !== null) {
-  node555.attr('class', ref581.get());
-  subs__.addSub(ref581.addEventListener('change', function(_, ref, val) {
-    if(ref === ref581) {
-      node555.attr('class', val);
+var ref1663 = mobl.ref(ui.trStyle);
+if(ref1663.get() !== null) {
+  node1701.attr('class', ref1663.get());
+  subs__.addSub(ref1663.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1663) {
+      node1701.attr('class', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref581.rebind());
+subs__.addSub(ref1663.rebind());
 
-var nodes3360 = $("<span>");
-node555.append(nodes3360);
+var nodes5001 = $("<span>");
+node1701.append(nodes5001);
 subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-  renderControl272();
+  renderControl840();
 }));
 
-function renderControl272() {
+function renderControl840() {
   subs__.addSub((elements)(function(elements, callback) {
-    var root3970 = $("<span>");
+    var root6378 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root3970); return subs__;
+    callback(root6378); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes3360;
-    nodes3360 = node.contents();
-    oldNodes.replaceWith(nodes3360);
+    var oldNodes = nodes5001;
+    nodes5001 = node.contents();
+    oldNodes.replaceWith(nodes5001);
   }));
 }
-renderControl272();
-root3969.append(node555);
-callback(root3969); return subs__;
+renderControl840();
+root6377.append(node1701);
+callback(root6377); return subs__;
 
 
 return subs__;
 };
 
 ui.cell = function(width, elements, callback) {
-var root3971 = $("<span>");
+var root6379 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var node556 = $("<td>");
+var node1702 = $("<td>");
 
-var ref582 = width;
-if(ref582.get() !== null) {
-  node556.attr('width', ref582.get());
-  subs__.addSub(ref582.addEventListener('change', function(_, ref, val) {
-    if(ref === ref582) {
-      node556.attr('width', val);
+var ref1664 = width;
+if(ref1664.get() !== null) {
+  node1702.attr('width', ref1664.get());
+  subs__.addSub(ref1664.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1664) {
+      node1702.attr('width', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref582.rebind());
+subs__.addSub(ref1664.rebind());
 
-var ref583 = mobl.ref(ui.tdStyle);
-if(ref583.get() !== null) {
-  node556.attr('class', ref583.get());
-  subs__.addSub(ref583.addEventListener('change', function(_, ref, val) {
-    if(ref === ref583) {
-      node556.attr('class', val);
+var ref1665 = mobl.ref(ui.tdStyle);
+if(ref1665.get() !== null) {
+  node1702.attr('class', ref1665.get());
+  subs__.addSub(ref1665.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1665) {
+      node1702.attr('class', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref583.rebind());
+subs__.addSub(ref1665.rebind());
 
-var nodes3361 = $("<span>");
-node556.append(nodes3361);
+var nodes5002 = $("<span>");
+node1702.append(nodes5002);
 subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-  renderControl273();
+  renderControl841();
 }));
 
-function renderControl273() {
+function renderControl841() {
   subs__.addSub((elements)(function(elements, callback) {
-    var root3972 = $("<span>");
+    var root6380 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root3972); return subs__;
+    callback(root6380); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes3361;
-    nodes3361 = node.contents();
-    oldNodes.replaceWith(nodes3361);
+    var oldNodes = nodes5002;
+    nodes5002 = node.contents();
+    oldNodes.replaceWith(nodes5002);
   }));
 }
-renderControl273();
-root3971.append(node556);
-callback(root3971); return subs__;
+renderControl841();
+root6379.append(node1702);
+callback(root6379); return subs__;
 
 
 return subs__;
 };
 
 ui.col = function(width, elements, callback) {
-var root3973 = $("<span>");
+var root6381 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var node557 = $("<td>");
+var node1703 = $("<td>");
 
-var ref584 = width;
-if(ref584.get() !== null) {
-  node557.attr('width', ref584.get());
-  subs__.addSub(ref584.addEventListener('change', function(_, ref, val) {
-    if(ref === ref584) {
-      node557.attr('width', val);
+var ref1666 = width;
+if(ref1666.get() !== null) {
+  node1703.attr('width', ref1666.get());
+  subs__.addSub(ref1666.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1666) {
+      node1703.attr('width', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref584.rebind());
+subs__.addSub(ref1666.rebind());
 
-var ref585 = mobl.ref(ui.tdStyle);
-if(ref585.get() !== null) {
-  node557.attr('class', ref585.get());
-  subs__.addSub(ref585.addEventListener('change', function(_, ref, val) {
-    if(ref === ref585) {
-      node557.attr('class', val);
+var ref1667 = mobl.ref(ui.tdStyle);
+if(ref1667.get() !== null) {
+  node1703.attr('class', ref1667.get());
+  subs__.addSub(ref1667.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1667) {
+      node1703.attr('class', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref585.rebind());
+subs__.addSub(ref1667.rebind());
 
-var nodes3362 = $("<span>");
-node557.append(nodes3362);
+var nodes5003 = $("<span>");
+node1703.append(nodes5003);
 subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-  renderControl274();
+  renderControl842();
 }));
 
-function renderControl274() {
+function renderControl842() {
   subs__.addSub((elements)(function(elements, callback) {
-    var root3974 = $("<span>");
+    var root6382 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root3974); return subs__;
+    callback(root6382); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes3362;
-    nodes3362 = node.contents();
-    oldNodes.replaceWith(nodes3362);
+    var oldNodes = nodes5003;
+    nodes5003 = node.contents();
+    oldNodes.replaceWith(nodes5003);
   }));
 }
-renderControl274();
-root3973.append(node557);
-callback(root3973); return subs__;
+renderControl842();
+root6381.append(node1703);
+callback(root6381); return subs__;
 
 
 return subs__;
 };
 
 ui.headerCol = function(width, elements, callback) {
-var root3975 = $("<span>");
+var root6383 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var node558 = $("<td>");
+var node1704 = $("<td>");
 
-var ref586 = width;
-if(ref586.get() !== null) {
-  node558.attr('width', ref586.get());
-  subs__.addSub(ref586.addEventListener('change', function(_, ref, val) {
-    if(ref === ref586) {
-      node558.attr('width', val);
+var ref1668 = width;
+if(ref1668.get() !== null) {
+  node1704.attr('width', ref1668.get());
+  subs__.addSub(ref1668.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1668) {
+      node1704.attr('width', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref586.rebind());
+subs__.addSub(ref1668.rebind());
 
-var ref587 = mobl.ref(ui.tdStyle);
-if(ref587.get() !== null) {
-  node558.attr('class', ref587.get());
-  subs__.addSub(ref587.addEventListener('change', function(_, ref, val) {
-    if(ref === ref587) {
-      node558.attr('class', val);
+var ref1669 = mobl.ref(ui.tdStyle);
+if(ref1669.get() !== null) {
+  node1704.attr('class', ref1669.get());
+  subs__.addSub(ref1669.addEventListener('change', function(_, ref, val) {
+    if(ref === ref1669) {
+      node1704.attr('class', val);
     } else {
       console.log("Garbage!");
     }
   }));
   
 }
-subs__.addSub(ref587.rebind());
+subs__.addSub(ref1669.rebind());
 
 
-var node559 = $("<strong>");
+var node1705 = $("<strong>");
 
-var nodes3363 = $("<span>");
-node559.append(nodes3363);
+var nodes5004 = $("<span>");
+node1705.append(nodes5004);
 subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-  renderControl275();
+  renderControl843();
 }));
 
-function renderControl275() {
+function renderControl843() {
   subs__.addSub((elements)(function(elements, callback) {
-    var root3976 = $("<span>");
+    var root6384 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root3976); return subs__;
+    callback(root6384); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes3363;
-    nodes3363 = node.contents();
-    oldNodes.replaceWith(nodes3363);
+    var oldNodes = nodes5004;
+    nodes5004 = node.contents();
+    oldNodes.replaceWith(nodes5004);
   }));
 }
-renderControl275();
-node558.append(node559);
-root3975.append(node558);
-callback(root3975); return subs__;
+renderControl843();
+node1704.append(node1705);
+root6383.append(node1704);
+callback(root6383); return subs__;
 
 
 
@@ -3190,34 +3190,34 @@ return subs__;
 };
 
 ui.scroller = function(height, elements, callback) {
-var root3977 = $("<span>");
+var root6385 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var node560 = $("<div>");
-node560.attr('class', "scroller");
+var node1706 = $("<div>");
+node1706.attr('class', "scroller");
 
-var nodes3364 = $("<span>");
-node560.append(nodes3364);
+var nodes5005 = $("<span>");
+node1706.append(nodes5005);
 subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-  renderControl276();
+  renderControl844();
 }));
 
-function renderControl276() {
+function renderControl844() {
   subs__.addSub((elements)(function(elements, callback) {
-    var root3978 = $("<span>");
+    var root6386 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root3978); return subs__;
+    callback(root6386); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes3364;
-    nodes3364 = node.contents();
-    oldNodes.replaceWith(nodes3364);
+    var oldNodes = nodes5005;
+    nodes5005 = node.contents();
+    oldNodes.replaceWith(nodes5005);
   }));
 }
-renderControl276();
-root3977.append(node560);
+renderControl844();
+root6385.append(node1706);
 var result__ = ui.setupScrollers();
-callback(root3977); return subs__;
+callback(root6385); return subs__;
 
 
 return subs__;
@@ -3257,12 +3257,12 @@ setInterval(function() {
             }, 1000);
 }(ui));
 ui.rangeField = function(s, style, min, max, start, elements, callback) {
-var root3979 = $("<span>");
+var root6387 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
 var slider = $("<div>");
 
-root3979.append(slider);
+root6387.append(slider);
 var result__ = slider.slider(mobl.instantiate(mobl.Dynamic, {'value': start.get(), 'min': min.get(), 'max': max.get(), 'step': 1, 'change': function(event, callback) {
                                                                       if(event && event.stopPropagation) event.stopPropagation();
                                                                       var result__ = slider.slider("value");
@@ -3271,7 +3271,7 @@ var result__ = slider.slider(mobl.instantiate(mobl.Dynamic, {'value': start.get(
                                                                       start.set(result__);
                                                                       if(callback && callback.apply) callback(); return;
                                                                     }}));
-callback(root3979); return subs__;
+callback(root6387); return subs__;
 
 return subs__;
 };
@@ -3280,3 +3280,6 @@ ui.emphasis = 'ui__emphasis';
 ui.ranger = 'ui__ranger';
 ui.tweetStyle = 'ui__tweetStyle';
 ui.tweetIconStyle = 'ui__tweetIconStyle';
+ui.tabbarStyle = 'ui__tabbarStyle';
+ui.inActiveTabButtonStyle = 'ui__inActiveTabButtonStyle';
+ui.activeTabButtonStyle = 'ui__activeTabButtonStyle';
