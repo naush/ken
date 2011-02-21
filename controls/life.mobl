@@ -23,9 +23,9 @@ function cb(check : Bool, name : String) : Callback {
   return { check ? events.push(name) : events.remove(name); };
 }
 
-screen lifeScreen() {
-  lifeForm(loadPresets())
-}
+// screen lifeScreen() {
+//   lifeForm(loadPresets())
+// }
 
 control lifeForm(presets : [(Bool, String)]) {
   group {
@@ -41,7 +41,7 @@ control lifeForm(presets : [(Bool, String)]) {
       if (events.length > 0) {
         notify("Events saved!");
         events.length = 0;
-        lifeScreen();
+        // lifeScreen();
       } else {
         notify("Please select at least one event.");
       }
