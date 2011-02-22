@@ -109,8 +109,8 @@ control lifeForm(presets : [(Bool, String, Num)]) {
       }
     }
     button("Save", onclick={
-      foreach (event in events) {
-        add(LifeEvent(name=event, date=now()));
+      foreach ((event, stress) in events) {
+        add(LifeEvent(name=event, stress=stress, date=now()));
       }
       if (events.length > 0) {
         notify("Events saved!");

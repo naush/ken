@@ -1,0 +1,7 @@
+module models::reminders
+
+entity Reminder {
+  name : String
+  stress : Num
+  date   : DateTime
+}
