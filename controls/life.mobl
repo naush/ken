@@ -5,33 +5,107 @@ import ui
 import models::lifeevents
 import mobl::notify
 
-var events : [String] = Array<String>();
+var events : [(String, Num)] = Array<(String, Num)>();
 
-function loadPresets() : [(Bool, String)] {
-  var presets : [(Bool, String)] = Array<(Bool, String)>();
-  presets.push((false, "Marriage"));
-  presets.push((false, "Divorce"));
-  presets.push((false, "Death of a spouse"));
-  presets.push((false, "Injury or illness"));
-  presets.push((false, "Going back to school"));
-  presets.push((false, "Change in residence"));
-  presets.push((false, "Mortgage or loan"));
+function loadPresets() : [(Bool, String, Num)] {
+  var presets : [(Bool, String, Num)] = Array<(Bool, String, Num)>();
+  presets.push((false, "Minor violations of the law (e.g., traffic tickets, misdemeanors)", 11));
+  presets.push((false, "Christmas", 12));
+  presets.push((false, "Change in number of family get-togethers", 15));
+  presets.push((false, "Vacation", 15));
+  presets.push((false, "Change in eating habits", 15));
+  presets.push((false, "Change in sleeping habits", 16));
+  presets.push((false, "Purchase of major items (auto, computer, etc)", 17));
+  presets.push((false, "Change in social activities", 18));
+  presets.push((false, "Change in church/spiritual activities", 19));
+  presets.push((false, "Change in recreational habits", 19));
+  presets.push((false, "Change in residence", 20));
+  presets.push((false, "Change in work hours or responsibilities", 20));
+  presets.push((false, "Change in school", 20));
+  presets.push((false, "Trouble with boss/superior", 23));
+  presets.push((false, "Revision/change of personal habits", 24));
+  presets.push((false, "Change in living condition (rebuilding, remodeling)", 25));
+  presets.push((false, "Going back to school", 26));
+  presets.push((false, "Spouse stops work outside of home", 26));
+  presets.push((false, "Outstanding Personal Achievement", 28));
+  presets.push((false, "Trouble with in-laws", 29));
+  presets.push((false, "Changes in responsibility at work", 29));
+  presets.push((false, "Son or daughter leaving home", 29));
+  presets.push((false, "Foreclosure of mortgage or loan", 30));
+  presets.push((false, "Mortgage or loan for major purchase (i.e. home, etc.)", 31));
+  presets.push((false, "Increase in number of arguments with spouse", 35));
+  presets.push((false, "Change to different line of work", 36));
+  presets.push((false, "Death of a close friend", 37));
+  presets.push((false, "Major change in finances", 38));
+  presets.push((false, "Gain of new family member thru birth, adoption, or remarriage", 39));
+  presets.push((false, "Business readjustment", 39));
+  presets.push((false, "Sexual difficulties", 40));
+  presets.push((false, "Pregnancy", 40));
+  presets.push((false, "Major change in health or behavior of a family member", 44));
+  presets.push((false, "Retirement", 45));
+  presets.push((false, "Marital reconciliation", 45));
+  presets.push((false, "Being fired from work", 47));
+  presets.push((false, "Marriage", 50));
+  presets.push((false, "Personal injury or illness", 53));
+  presets.push((false, "Death of a close family member", 63));
+  presets.push((false, "Jail term", 63));
+  presets.push((false, "Marital separation (or separation from any major intimate relationship)", 65));
+  presets.push((false, "Divorse", 73));
+  presets.push((false, "Death of a spouse", 100));
   return presets;
 }
 
-function cb(check : Bool, name : String) : Callback {
-  return { check ? events.push(name) : events.remove(name); };
+function cb(check : Bool, name : String, stress : Num) : Callback {
+  return { check ? events.push((name, stress)) : events.remove((name, stress)); };
 }
 
 // screen lifeScreen() {
 //   lifeForm(loadPresets())
 // }
 
-control lifeForm(presets : [(Bool, String)]) {
+control lifeForm(presets : [(Bool, String, Num)]) {
+  // <a class="prev browse left"></a>
+  // <div class="scrollable" style="position:relative; overflow:hidden; width: 660px; height:90px;">
+  //    <div class="items" style="width:20000em; position:absolute;">
+  //       <div style="float:left;">
+  //          <img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" />
+  //          <img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" />
+  //          <img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" />
+  //          <img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" />
+  //          <img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" />
+  //       </div>
+  //       <div style="float:left;">
+  //          <img src="http://farm1.static.flickr.com/163/399223609_db47d35b7c_t.jpg" />
+  //          <img src="http://farm1.static.flickr.com/135/321464104_c010dbf34c_t.jpg" />
+  //          <img src="http://farm1.static.flickr.com/40/117346184_9760f3aabc_t.jpg" />
+  //          <img src="http://farm1.static.flickr.com/153/399232237_6928a527c1_t.jpg" />
+  //          <img src="http://farm1.static.flickr.com/50/117346182_1fded507fa_t.jpg" />
+  //       </div>
+  //       <div style="float:left;">
+  //          <img src="http://farm4.static.flickr.com/3629/3323896446_3b87a8bf75_t.jpg" />
+  //          <img src="http://farm4.static.flickr.com/3023/3323897466_e61624f6de_t.jpg" />
+  //          <img src="http://farm4.static.flickr.com/3650/3323058611_d35c894fab_t.jpg" />
+  //          <img src="http://farm4.static.flickr.com/3635/3323893254_3183671257_t.jpg" />
+  //          <img src="http://farm4.static.flickr.com/3624/3323893148_8318838fbd_t.jpg" />
+  //       </div>
+  //    </div>
+  // </div>
+  // <a class="next browse right"></a>
+  // script {
+  //   $(".scrollable").scrollable();
+  // }
   group {
-    list((check, name) in presets) {
+    list((check, name, stress) in presets) {
+      // %a.prev.browse.left
+      // .scrollable
+      //   .items
+      //     - Position.one_hand.each do |position|
+      //       #selection
+      //         = radio_button_tag "sign_#{order}[position]", position[:id], position[:id] == 1
+      //         = label_tag nil, image_tag(position[:url]), :for => "sign_#{order}_position_#{position[:id]}"
+      // %a.next.browse.right
       item {
-      	checkBox(check, name, onchange=cb(check, name))
+        checkBox(check, name, onchange=cb(check, name, stress))
       }
     }
     button("Save", onclick={

@@ -4,124 +4,163 @@ controls.life.loadPresets = function() {
    var __this = this;
   var presets = [];
   
-  presets.push(new mobl.Tuple(false, "Marriage"));
-  presets.push(new mobl.Tuple(false, "Divorce"));
-  presets.push(new mobl.Tuple(false, "Death of a spouse"));
-  presets.push(new mobl.Tuple(false, "Injury or illness"));
-  presets.push(new mobl.Tuple(false, "Going back to school"));
-  presets.push(new mobl.Tuple(false, "Change in residence"));
-  presets.push(new mobl.Tuple(false, "Mortgage or loan"));
+  presets.push(new mobl.Tuple(false, "Minor violations of the law (e.g., traffic tickets, misdemeanors)", 11));
+  presets.push(new mobl.Tuple(false, "Christmas", 12));
+  presets.push(new mobl.Tuple(false, "Change in number of family get-togethers", 15));
+  presets.push(new mobl.Tuple(false, "Vacation", 15));
+  presets.push(new mobl.Tuple(false, "Change in eating habits", 15));
+  presets.push(new mobl.Tuple(false, "Change in sleeping habits", 16));
+  presets.push(new mobl.Tuple(false, "Purchase of major items (auto, computer, etc)", 17));
+  presets.push(new mobl.Tuple(false, "Change in social activities", 18));
+  presets.push(new mobl.Tuple(false, "Change in church/spiritual activities", 19));
+  presets.push(new mobl.Tuple(false, "Change in recreational habits", 19));
+  presets.push(new mobl.Tuple(false, "Change in residence", 20));
+  presets.push(new mobl.Tuple(false, "Change in work hours or responsibilities", 20));
+  presets.push(new mobl.Tuple(false, "Change in school", 20));
+  presets.push(new mobl.Tuple(false, "Trouble with boss/superior", 23));
+  presets.push(new mobl.Tuple(false, "Revision/change of personal habits", 24));
+  presets.push(new mobl.Tuple(false, "Change in living condition (rebuilding, remodeling)", 25));
+  presets.push(new mobl.Tuple(false, "Going back to school", 26));
+  presets.push(new mobl.Tuple(false, "Spouse stops work outside of home", 26));
+  presets.push(new mobl.Tuple(false, "Outstanding Personal Achievement", 28));
+  presets.push(new mobl.Tuple(false, "Trouble with in-laws", 29));
+  presets.push(new mobl.Tuple(false, "Changes in responsibility at work", 29));
+  presets.push(new mobl.Tuple(false, "Son or daughter leaving home", 29));
+  presets.push(new mobl.Tuple(false, "Foreclosure of mortgage or loan", 30));
+  presets.push(new mobl.Tuple(false, "Mortgage or loan for major purchase (i.e. home, etc.)", 31));
+  presets.push(new mobl.Tuple(false, "Increase in number of arguments with spouse", 35));
+  presets.push(new mobl.Tuple(false, "Change to different line of work", 36));
+  presets.push(new mobl.Tuple(false, "Death of a close friend", 37));
+  presets.push(new mobl.Tuple(false, "Major change in finances", 38));
+  presets.push(new mobl.Tuple(false, "Gain of new family member thru birth, adoption, or remarriage", 39));
+  presets.push(new mobl.Tuple(false, "Business readjustment", 39));
+  presets.push(new mobl.Tuple(false, "Sexual difficulties", 40));
+  presets.push(new mobl.Tuple(false, "Pregnancy", 40));
+  presets.push(new mobl.Tuple(false, "Major change in health or behavior of a family member", 44));
+  presets.push(new mobl.Tuple(false, "Retirement", 45));
+  presets.push(new mobl.Tuple(false, "Marital reconciliation", 45));
+  presets.push(new mobl.Tuple(false, "Being fired from work", 47));
+  presets.push(new mobl.Tuple(false, "Marriage", 50));
+  presets.push(new mobl.Tuple(false, "Personal injury or illness", 53));
+  presets.push(new mobl.Tuple(false, "Death of a close family member", 63));
+  presets.push(new mobl.Tuple(false, "Jail term", 63));
+  presets.push(new mobl.Tuple(false, "Marital separation (or separation from any major intimate relationship)", 65));
+  presets.push(new mobl.Tuple(false, "Divorse", 73));
+  presets.push(new mobl.Tuple(false, "Death of a spouse", 100));
   return presets;
 };
 
-controls.life.cb = function(check, name) {
+controls.life.cb = function(check, name, stress) {
    var __this = this;
   return function(event, callback) {
            if(event && event.stopPropagation) event.stopPropagation();
-           var result__ = check ? controls.life.events.get().push(name) : controls.life.events.get().remove(name);
+           var result__ = check ? controls.life.events.get().push(new mobl.Tuple(name, stress)) : controls.life.events.get().remove(new mobl.Tuple(name, stress));
            if(callback && callback.apply) callback(); return;
          };
 };
 
 
 controls.life.lifeForm = function(presets, elements, callback) {
-var root6564 = $("<span>");
+var root8007 = $("<span>");
 var subs__ = new mobl.CompSubscription();
-var nodes5124 = $("<span>");
-root6564.append(nodes5124);
+var nodes6100 = $("<span>");
+root8007.append(nodes6100);
 subs__.addSub((ui.group)(function(_, callback) {
-  var root6565 = $("<span>");
+  var root8008 = $("<span>");
   var subs__ = new mobl.CompSubscription();
   
-  var node1726 = mobl.loadingSpan();
-  root6565.append(node1726);
-  var list369;
+  var node2797 = mobl.loadingSpan();
+  root8008.append(node2797);
+  var list523;
   var listSubs__ = new mobl.CompSubscription();
   subs__.addSub(listSubs__);
-  var renderList369 = function() {
+  var renderList523 = function() {
     var subs__ = listSubs__;
-    list369 = presets.get();
-    list369.list(function(results405) {
-      node1726.empty();
-      for(var i374 = 0; i374 < results405.length; i374++) {
+    list523 = presets.get();
+    list523.list(function(results559) {
+      node2797.empty();
+      for(var i528 = 0; i528 < results559.length; i528++) {
         (function() {
-          var iternode369 = $("<span>");
-          node1726.append(iternode369);
-          var check;var name;
-          check = mobl.ref(mobl.ref(mobl.ref(results405), i374), "_1");name = mobl.ref(mobl.ref(mobl.ref(results405), i374), "_2");
+          var iternode523 = $("<span>");
+          node2797.append(iternode523);
+          var check;var name;var stress;
+          check = mobl.ref(mobl.ref(mobl.ref(results559), i528), "_1");name = mobl.ref(mobl.ref(mobl.ref(results559), i528), "_2");stress = mobl.ref(mobl.ref(mobl.ref(results559), i528), "_3");
           
-          var tmp11855 = mobl.ref(false);
-          
-          
-          var tmp11854 = mobl.ref(null);
+          var tmp13300 = mobl.ref(false);
           
           
-          var tmp11853 = mobl.ref(null);
+          var tmp13299 = mobl.ref(null);
           
-          var nodes5125 = $("<span>");
-          iternode369.append(nodes5125);
-          subs__.addSub((ui.item)(mobl.ref(ui.itemStyle), mobl.ref(ui.itemPushedStyle), tmp11853, tmp11854, tmp11855, function(_, callback) {
-            var root6566 = $("<span>");
+          
+          var tmp13298 = mobl.ref(null);
+          
+          var nodes6101 = $("<span>");
+          iternode523.append(nodes6101);
+          subs__.addSub((ui.item)(mobl.ref(ui.itemStyle), mobl.ref(ui.itemPushedStyle), tmp13298, tmp13299, tmp13300, function(_, callback) {
+            var root8009 = $("<span>");
             var subs__ = new mobl.CompSubscription();
             
-            var tmp11852 = mobl.ref(controls.life.cb(check.get(), name.get()));
+            var tmp13297 = mobl.ref(controls.life.cb(check.get(), name.get(), stress.get()));
             subs__.addSub(check.addEventListener('change', function() {
-              tmp11852.set(controls.life.cb(check.get(), name.get()));
+              tmp13297.set(controls.life.cb(check.get(), name.get(), stress.get()));
             }));
             subs__.addSub(name.addEventListener('change', function() {
-              tmp11852.set(controls.life.cb(check.get(), name.get()));
+              tmp13297.set(controls.life.cb(check.get(), name.get(), stress.get()));
+            }));
+            subs__.addSub(stress.addEventListener('change', function() {
+              tmp13297.set(controls.life.cb(check.get(), name.get(), stress.get()));
             }));
             
-            var nodes5126 = $("<span>");
-            root6566.append(nodes5126);
-            subs__.addSub((ui.checkBox)(check, name, tmp11852, function(_, callback) {
-              var root6567 = $("<span>");
+            var nodes6102 = $("<span>");
+            root8009.append(nodes6102);
+            subs__.addSub((ui.checkBox)(check, name, tmp13297, function(_, callback) {
+              var root8010 = $("<span>");
               var subs__ = new mobl.CompSubscription();
-              callback(root6567); return subs__;
+              callback(root8010); return subs__;
               return subs__;
             }, function(node) {
-              var oldNodes = nodes5126;
-              nodes5126 = node.contents();
-              oldNodes.replaceWith(nodes5126);
+              var oldNodes = nodes6102;
+              nodes6102 = node.contents();
+              oldNodes.replaceWith(nodes6102);
             }));
-            callback(root6566); return subs__;
+            callback(root8009); return subs__;
             
             return subs__;
           }, function(node) {
-            var oldNodes = nodes5125;
-            nodes5125 = node.contents();
-            oldNodes.replaceWith(nodes5125);
+            var oldNodes = nodes6101;
+            nodes6101 = node.contents();
+            oldNodes.replaceWith(nodes6101);
           }));
           
-          var oldNodes = iternode369;
-          iternode369 = iternode369.contents();
-          oldNodes.replaceWith(iternode369);
+          var oldNodes = iternode523;
+          iternode523 = iternode523.contents();
+          oldNodes.replaceWith(iternode523);
           
           
         }());
       }
       mobl.delayedUpdateScrollers();
-      subs__.addSub(list369.addEventListener('change', function() { listSubs__.unsubscribe(); renderList369(true); }));
-      subs__.addSub(presets.addEventListener('change', function() { listSubs__.unsubscribe(); renderList369(true); }));
+      subs__.addSub(list523.addEventListener('change', function() { listSubs__.unsubscribe(); renderList523(true); }));
+      subs__.addSub(presets.addEventListener('change', function() { listSubs__.unsubscribe(); renderList523(true); }));
     });
   };
-  renderList369();
+  renderList523();
   
   
-  var tmp11857 = mobl.ref(function(event, callback) {
+  var tmp13302 = mobl.ref(function(event, callback) {
                        if(event && event.stopPropagation) event.stopPropagation();
                        var result__ = controls.life.events.get();
-                       controls.life.events.get().list(function(coll1072) {
-                         coll1072 = coll1072.reverse();
-                         function processOne215() {
+                       controls.life.events.get().list(function(coll1256) {
+                         coll1256 = coll1256.reverse();
+                         function processOne351() {
                            var event;
-                           event = coll1072.pop();
+                           event = coll1256.pop();
                            var result__ = mobl.add(new models.lifeevents.LifeEvent({'name': event, 'date': mobl.now()}));
                            
-                           if(coll1072.length > 0) processOne215(); else rest215();
+                           if(coll1256.length > 0) processOne351(); else rest351();
                            
                          }
-                         function rest215() {
+                         function rest351() {
                            var result__ = controls.life.events.get().length > 0;
                            if(result__) {
                              var result__ = mobl.notify.notify("Events saved!", "Notification");
@@ -135,59 +174,59 @@ subs__.addSub((ui.group)(function(_, callback) {
                              }
                            }
                          }
-                         if(coll1072.length > 0) processOne215(); else rest215();
+                         if(coll1256.length > 0) processOne351(); else rest351();
                        });
                        
                      });
   
   
-  var tmp11856 = mobl.ref("Save");
+  var tmp13301 = mobl.ref("Save");
   
-  var nodes5127 = $("<span>");
-  root6565.append(nodes5127);
-  subs__.addSub((ui.button)(tmp11856, mobl.ref(ui.buttonStyle), mobl.ref(ui.buttonPushedStyle), tmp11857, function(_, callback) {
-    var root6568 = $("<span>");
+  var nodes6103 = $("<span>");
+  root8008.append(nodes6103);
+  subs__.addSub((ui.button)(tmp13301, mobl.ref(ui.buttonStyle), mobl.ref(ui.buttonPushedStyle), tmp13302, function(_, callback) {
+    var root8011 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root6568); return subs__;
+    callback(root8011); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes5127;
-    nodes5127 = node.contents();
-    oldNodes.replaceWith(nodes5127);
+    var oldNodes = nodes6103;
+    nodes6103 = node.contents();
+    oldNodes.replaceWith(nodes6103);
   }));
-  callback(root6565); return subs__;
+  callback(root8008); return subs__;
   
   
   return subs__;
 }, function(node) {
-  var oldNodes = nodes5124;
-  nodes5124 = node.contents();
-  oldNodes.replaceWith(nodes5124);
+  var oldNodes = nodes6100;
+  nodes6100 = node.contents();
+  oldNodes.replaceWith(nodes6100);
 }));
-callback(root6564); return subs__;
+callback(root8007); return subs__;
 
 return subs__;
 };
 
 controls.life.life = function(elements, callback) {
-var root6569 = $("<span>");
+var root8012 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var tmp11858 = mobl.ref(controls.life.loadPresets());
+var tmp13303 = mobl.ref(controls.life.loadPresets());
 
-var nodes5128 = $("<span>");
-root6569.append(nodes5128);
-subs__.addSub((controls.life.lifeForm)(tmp11858, function(_, callback) {
-  var root6570 = $("<span>");
+var nodes6104 = $("<span>");
+root8012.append(nodes6104);
+subs__.addSub((controls.life.lifeForm)(tmp13303, function(_, callback) {
+  var root8013 = $("<span>");
   var subs__ = new mobl.CompSubscription();
-  callback(root6570); return subs__;
+  callback(root8013); return subs__;
   return subs__;
 }, function(node) {
-  var oldNodes = nodes5128;
-  nodes5128 = node.contents();
-  oldNodes.replaceWith(nodes5128);
+  var oldNodes = nodes6104;
+  nodes6104 = node.contents();
+  oldNodes.replaceWith(nodes6104);
 }));
-callback(root6569); return subs__;
+callback(root8012); return subs__;
 
 return subs__;
 };
