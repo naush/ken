@@ -504,11 +504,23 @@
   padding: 10px;
   font-size: 2em;
 }
-.ui__emphasis {
-  display: block;
+.ui__left {
+  display: inline;
+  font-size: 0.8em;
+  margin: 0 0 10px 0;
+  float: left;
+}
+.ui__right {
+  display: inline;
+  font-size: 0.8em;
+  margin: 0 0 10px 0;
+  float: right;
+}
+.ui__center {
+  display: inline;
   font-size: 1em;
-  margin: 10px;
-  text-align: center;
+  margin: 0 0 10px 0;
+  float: center;
 }
 .ui__ranger {
   width: 100%;

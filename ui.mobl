@@ -44,11 +44,25 @@ style title {
   font-size: 2em;
 }
 
-style emphasis {
-  display: block;
+style left {
+  display: inline;
+  font-size: 0.8em;
+  margin: 0 0 10px 0;
+  float: left;
+}
+
+style right {
+  display: inline;
+  font-size: 0.8em;
+  margin: 0 0 10px 0;
+  float: right;
+}
+
+style center {
+  display: inline;
   font-size: 1em;
-  margin: 10px;
-  text-align: center;
+  margin: 0 0 10px 0;
+  float: center;
 }
 
 style ranger {
