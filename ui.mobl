@@ -2,25 +2,25 @@ module ui
 
 mixin mobl::ui::generic
 
-// control customTabSet(tabs : [(String, String, Control)]) {
-//   var activeTabName : String = tabs.get(0)._1
-//   var s = ""
-// 
-//   block(tabbarStyle) {
-//     list((tabName, tabIcon, tabControl) in tabs) {
-//       span(onclick={ activeTabName = tabName; }, cssClass=activeTabName == tabName ? activeTabButtonStyle : inActiveTabButtonStyle) {
-//         label(tabName)
-//       }
-//     }
-//   }
-//   list((tabName, tabIcon, tabControl) in tabs) {
-//     block(activeTabName == tabName ? activeTabStyle : inActiveTabStyle) {
-//       screenContext {
-//         tabControl()
-//       }
-//     }
-//   }
-// }
+control customTabSet(tabs : [(String, String, Control)]) {
+  var activeTabName : String = tabs.get(0)._1
+  var s = ""
+
+  block(tabbarStyle) {
+    list((tabName, tabIcon, tabControl) in tabs) {
+      span(onclick={ activeTabName = tabName; }, cssClass=activeTabName == tabName ? activeTabButtonStyle : inActiveTabButtonStyle) {
+        label(tabName)
+      }
+    }
+  }
+  list((tabName, tabIcon, tabControl) in tabs) {
+    block(activeTabName == tabName ? activeTabStyle : inActiveTabStyle) {
+      screenContext {
+        tabControl()
+      }
+    }
+  }
+}
 
 control rangeField(s : String, style : Style = null, min : Num = 0, max : Num = 10, start : Num = 0) {
   // var id = s + "-range-field"

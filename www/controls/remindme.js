@@ -1,5 +1,4 @@
 mobl.provides('controls.remindme');
-controls.remindme.reminders = mobl.ref([]);
 controls.remindme.loadPresets = function() {
    var __this = this;
   var presets = [];
@@ -15,168 +14,131 @@ controls.remindme.loadPresets = function() {
 
 
 controls.remindme.reminderForm = function(presets, elements, callback) {
-var root8172 = $("<span>");
+var root13817 = $("<span>");
 var subs__ = new mobl.CompSubscription();
-var nodes6207 = $("<span>");
-root8172.append(nodes6207);
+var nodes10016 = $("<span>");
+root13817.append(nodes10016);
 subs__.addSub((ui.group)(function(_, callback) {
-  var root8173 = $("<span>");
+  var root13818 = $("<span>");
   var subs__ = new mobl.CompSubscription();
   
-  var node2818 = mobl.loadingSpan();
-  root8173.append(node2818);
-  var list544;
+  var node5130 = mobl.loadingSpan();
+  root13818.append(node5130);
+  var list1025;
   var listSubs__ = new mobl.CompSubscription();
   subs__.addSub(listSubs__);
-  var renderList544 = function() {
+  var renderList1025 = function() {
     var subs__ = listSubs__;
-    list544 = presets.get();
-    list544.list(function(results580) {
-      node2818.empty();
-      for(var i549 = 0; i549 < results580.length; i549++) {
+    list1025 = presets.get();
+    list1025.list(function(results1061) {
+      node5130.empty();
+      for(var i1030 = 0; i1030 < results1061.length; i1030++) {
         (function() {
-          var iternode544 = $("<span>");
-          node2818.append(iternode544);
+          var iternode1025 = $("<span>");
+          node5130.append(iternode1025);
           var check;var name;var stress;
-          check = mobl.ref(mobl.ref(mobl.ref(results580), i549), "_1");name = mobl.ref(mobl.ref(mobl.ref(results580), i549), "_2");stress = mobl.ref(mobl.ref(mobl.ref(results580), i549), "_3");
+          check = mobl.ref(mobl.ref(mobl.ref(results1061), i1030), "_1");name = mobl.ref(mobl.ref(mobl.ref(results1061), i1030), "_2");stress = mobl.ref(mobl.ref(mobl.ref(results1061), i1030), "_3");
           
-          var tmp13483 = mobl.ref(false);
-          
-          
-          var tmp13482 = mobl.ref(null);
+          var tmp19537 = mobl.ref(false);
           
           
-          var tmp13481 = mobl.ref(null);
+          var tmp19536 = mobl.ref(null);
           
-          var nodes6208 = $("<span>");
-          iternode544.append(nodes6208);
-          subs__.addSub((ui.item)(mobl.ref(ui.itemStyle), mobl.ref(ui.itemPushedStyle), tmp13481, tmp13482, tmp13483, function(_, callback) {
-            var root8174 = $("<span>");
+          
+          var tmp19535 = mobl.ref(null);
+          
+          var nodes10017 = $("<span>");
+          iternode1025.append(nodes10017);
+          subs__.addSub((ui.item)(mobl.ref(ui.itemStyle), mobl.ref(ui.itemPushedStyle), tmp19535, tmp19536, tmp19537, function(_, callback) {
+            var root13819 = $("<span>");
             var subs__ = new mobl.CompSubscription();
             
-            var tmp13480 = mobl.ref(function(event, callback) {
+            var tmp19534 = mobl.ref(function(event, callback) {
                                  if(event && event.stopPropagation) event.stopPropagation();
-                                 var result__ = check.get() ? controls.remindme.reminders.get().push(new mobl.Tuple(name.get(), stress.get())) : controls.remindme.reminders.get().remove(new mobl.Tuple(name.get(), stress.get()));
-                                 if(callback && callback.apply) callback(); return;
+                                 var result__ = check.get();
+                                 if(result__) {
+                                   var result__ = mobl.add(new models.reminders.Reminder({'name': name.get(), 'stress': stress.get(), 'date': mobl.now()}));
+                                   if(callback && callback.apply) callback(); return;
+                                 } else {
+                                   {
+                                     models.reminders.Reminder.all().filter("name", "=", name.get()).order("date", false).one(function(result__) {
+                                       var tmp19540 = result__;
+                                       var result__ = tmp19540;
+                                       var itemToRemove = result__;
+                                       var result__ = mobl.remove(itemToRemove);
+                                       if(callback && callback.apply) callback(); return;
+                                     });
+                                   }
+                                 }
                                });
             
-            var nodes6209 = $("<span>");
-            root8174.append(nodes6209);
-            subs__.addSub((ui.checkBox)(check, name, tmp13480, function(_, callback) {
-              var root8175 = $("<span>");
+            var nodes10018 = $("<span>");
+            root13819.append(nodes10018);
+            subs__.addSub((ui.checkBox)(check, name, tmp19534, function(_, callback) {
+              var root13820 = $("<span>");
               var subs__ = new mobl.CompSubscription();
-              callback(root8175); return subs__;
+              callback(root13820); return subs__;
               return subs__;
             }, function(node) {
-              var oldNodes = nodes6209;
-              nodes6209 = node.contents();
-              oldNodes.replaceWith(nodes6209);
+              var oldNodes = nodes10018;
+              nodes10018 = node.contents();
+              oldNodes.replaceWith(nodes10018);
             }));
-            callback(root8174); return subs__;
+            callback(root13819); return subs__;
             
             return subs__;
           }, function(node) {
-            var oldNodes = nodes6208;
-            nodes6208 = node.contents();
-            oldNodes.replaceWith(nodes6208);
+            var oldNodes = nodes10017;
+            nodes10017 = node.contents();
+            oldNodes.replaceWith(nodes10017);
           }));
           
-          var oldNodes = iternode544;
-          iternode544 = iternode544.contents();
-          oldNodes.replaceWith(iternode544);
+          var oldNodes = iternode1025;
+          iternode1025 = iternode1025.contents();
+          oldNodes.replaceWith(iternode1025);
           
           
         }());
       }
       mobl.delayedUpdateScrollers();
-      subs__.addSub(list544.addEventListener('change', function() { listSubs__.unsubscribe(); renderList544(true); }));
-      subs__.addSub(presets.addEventListener('change', function() { listSubs__.unsubscribe(); renderList544(true); }));
+      subs__.addSub(list1025.addEventListener('change', function() { listSubs__.unsubscribe(); renderList1025(true); }));
+      subs__.addSub(presets.addEventListener('change', function() { listSubs__.unsubscribe(); renderList1025(true); }));
     });
   };
-  renderList544();
+  renderList1025();
   
-  
-  var tmp13485 = mobl.ref(function(event, callback) {
-                       if(event && event.stopPropagation) event.stopPropagation();
-                       var result__ = controls.remindme.reminders.get();
-                       controls.remindme.reminders.get().list(function(coll1277) {
-                         coll1277 = coll1277.reverse();
-                         function processOne372() {
-                           var reminder;var stress;
-                           var tmp13488 = coll1277.pop();
-                           reminder = tmp13488._1;stress = tmp13488._2;
-                           var result__ = mobl.add(new models.reminders.Reminder({'name': reminder, 'stress': stress, 'date': mobl.now()}));
-                           
-                           if(coll1277.length > 0) processOne372(); else rest372();
-                           
-                         }
-                         function rest372() {
-                           var result__ = controls.remindme.reminders.get().length > 0;
-                           if(result__) {
-                             var result__ = mobl.notify.notify("Reminders saved!", "Notification");
-                             var result__ = 0;
-                             controls.remindme.reminders.get().length = result__;
-                             if(callback && callback.apply) callback(); return;
-                           } else {
-                             {
-                               var result__ = mobl.notify.notify("Please select at least one reminder.", "Notification");
-                               if(callback && callback.apply) callback(); return;
-                             }
-                           }
-                         }
-                         if(coll1277.length > 0) processOne372(); else rest372();
-                       });
-                       
-                     });
-  
-  
-  var tmp13484 = mobl.ref("Save");
-  
-  var nodes6210 = $("<span>");
-  root8173.append(nodes6210);
-  subs__.addSub((ui.button)(tmp13484, mobl.ref(ui.buttonStyle), mobl.ref(ui.buttonPushedStyle), tmp13485, function(_, callback) {
-    var root8176 = $("<span>");
-    var subs__ = new mobl.CompSubscription();
-    callback(root8176); return subs__;
-    return subs__;
-  }, function(node) {
-    var oldNodes = nodes6210;
-    nodes6210 = node.contents();
-    oldNodes.replaceWith(nodes6210);
-  }));
-  callback(root8173); return subs__;
-  
+  callback(root13818); return subs__;
   
   return subs__;
 }, function(node) {
-  var oldNodes = nodes6207;
-  nodes6207 = node.contents();
-  oldNodes.replaceWith(nodes6207);
+  var oldNodes = nodes10016;
+  nodes10016 = node.contents();
+  oldNodes.replaceWith(nodes10016);
 }));
-callback(root8172); return subs__;
+callback(root13817); return subs__;
 
 return subs__;
 };
 
 controls.remindme.remindMe = function(elements, callback) {
-var root8177 = $("<span>");
+var root13821 = $("<span>");
 var subs__ = new mobl.CompSubscription();
 
-var tmp13486 = mobl.ref(controls.remindme.loadPresets());
+var tmp19538 = mobl.ref(controls.remindme.loadPresets());
 
-var nodes6211 = $("<span>");
-root8177.append(nodes6211);
-subs__.addSub((controls.remindme.reminderForm)(tmp13486, function(_, callback) {
-  var root8178 = $("<span>");
+var nodes10019 = $("<span>");
+root13821.append(nodes10019);
+subs__.addSub((controls.remindme.reminderForm)(tmp19538, function(_, callback) {
+  var root13822 = $("<span>");
   var subs__ = new mobl.CompSubscription();
-  callback(root8178); return subs__;
+  callback(root13822); return subs__;
   return subs__;
 }, function(node) {
-  var oldNodes = nodes6211;
-  nodes6211 = node.contents();
-  oldNodes.replaceWith(nodes6211);
+  var oldNodes = nodes10019;
+  nodes10019 = node.contents();
+  oldNodes.replaceWith(nodes10019);
 }));
-callback(root8177); return subs__;
+callback(root13821); return subs__;
 
 return subs__;
 };

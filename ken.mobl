@@ -23,7 +23,7 @@ resource resources/css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png
 
 screen root() {
   header("Ken")
-  tabSet([("Remind Me", "", remindMe),
+  customTabSet([("Remind Me", "", remindMe),
           ("Life", "", life),
           ("Moodometer", "", moodoMeter)])
         // ("Twitter Trend", "", twitterTrend)

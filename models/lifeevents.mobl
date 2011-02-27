@@ -6,15 +6,41 @@ entity LifeEvent {
   date   : DateTime
 }
 
-// function seedLifeEvents(events : [LifeEvent] = []) {
-//   add(LifeEvent(name="Marriage"));
-//   add(LifeEvent(name="Divorce"));
-//   add(LifeEvent(name="Death of a spouse"));
-//   add(LifeEvent(name="Injury or illness"));
-//   add(LifeEvent(name="Going back to school"));
-//   add(LifeEvent(name="Change in residence"));
-//   add(LifeEvent(name="Mortgage or loan"));
-//   foreach (event in events) {
-//     add(event);
-//   }
-// }
+  // presets.push((false, "Minor violations of the law (e.g., traffic tickets, misdemeanors)", 11));
+  // presets.push((false, "Change in number of family get-togethers", 15));
+  // presets.push((false, "Purchase of major items (auto, computer, etc)", 17));
+  // presets.push((false, "Change in social activities", 18));
+  // presets.push((false, "Change in church/spiritual activities", 19));
+  // presets.push((false, "Change in recreational habits", 19));
+  // presets.push((false, "Change in work hours or responsibilities", 20));
+  // presets.push((false, "Change in school", 20));
+  // presets.push((false, "Trouble with boss/superior", 23));
+  // presets.push((false, "Revision/change of personal habits", 24));
+  // presets.push((false, "Change in living condition (rebuilding, remodeling)", 25));
+  // presets.push((false, "Going back to school", 26));
+  // presets.push((false, "Spouse stops work outside of home", 26));
+  // presets.push((false, "Outstanding Personal Achievement", 28));
+  // presets.push((false, "Trouble with in-laws", 29));
+  // presets.push((false, "Changes in responsibility at work", 29));
+  // presets.push((false, "Son or daughter leaving home", 29));
+  // presets.push((false, "Foreclosure of mortgage or loan", 30));
+  // presets.push((false, "Mortgage or loan for major purchase (i.e. home, etc.)", 31));
+  // presets.push((false, "Increase in number of arguments with spouse", 35));
+  // presets.push((false, "Change to different line of work", 36));
+  // presets.push((false, "Death of a close friend", 37));
+  // presets.push((false, "Major change in finances", 38));
+  // presets.push((false, "Gain of new family member thru birth, adoption, or remarriage", 39));
+  // presets.push((false, "Business readjustment", 39));
+  // presets.push((false, "Sexual difficulties", 40));
+  // presets.push((false, "Pregnancy", 40));
+  // presets.push((false, "Major change in health or behavior of a family member", 44));
+  // presets.push((false, "Retirement", 45));
+  // presets.push((false, "Marital reconciliation", 45));
+  // presets.push((false, "Being fired from work", 47));
+  // presets.push((false, "Marriage", 50));
+  // presets.push((false, "Personal injury or illness", 53));
+  // presets.push((false, "Death of a close family member", 63));
+  // presets.push((false, "Jail term", 63));
+  // presets.push((false, "Marital separation (or separation from any major intimate relationship)", 65));
+  // presets.push((false, "Divorse", 73));
+  // presets.push((false, "Death of a spouse", 100));

@@ -5,8 +5,6 @@ import ui
 import models::reminders
 import mobl::notify
 
-var reminders : [(String, Num)] = Array<(String, Num)>();
-
 function loadPresets() : [(Bool, String, Num)] {
   var presets : [(Bool, String, Num)] = Array<(Bool, String, Num)>();
   presets.push((false, "Drink water", 0));
@@ -23,21 +21,15 @@ control reminderForm(presets : [(Bool, String, Num)]) {
     list((check, name, stress) in presets) {
       item {
         checkBox(check, name, onchange={
-        	check ? reminders.push((name, stress)) : reminders.remove((name, stress));
+          if (check) {
+            add(Reminder(name=name, stress=stress, date=now()));
+          } else {
+          	var itemToRemove = Reminder.all().filter("name", "=", name).order("date", false).one();
+          	remove(itemToRemove);
+          }
         })
       }
     }
-    button("Save", onclick={
-      foreach ((reminder, stress) in reminders) {
-        add(Reminder(name=reminder, stress=stress, date=now()));
-      }
-      if (reminders.length > 0) {
-        notify("Reminders saved!");
-        reminders.length = 0;
-      } else {
-        notify("Please select at least one reminder.");
-      }
-    })
   }
 }
 
