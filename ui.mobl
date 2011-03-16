@@ -2,25 +2,25 @@ module ui
 
 mixin mobl::ui::generic
 
-control customTabSet(tabs : [(String, String, Control)]) {
-  var activeTabName : String = tabs.get(0)._1
-  var s = ""
-
-  block(tabbarStyle) {
-    list((tabName, tabIcon, tabControl) in tabs) {
-      span(onclick={ activeTabName = tabName; }, cssClass=activeTabName == tabName ? activeTabButtonStyle : inActiveTabButtonStyle) {
-        label(tabName)
-      }
-    }
-  }
-  list((tabName, tabIcon, tabControl) in tabs) {
-    block(activeTabName == tabName ? activeTabStyle : inActiveTabStyle) {
-      screenContext {
-        tabControl()
-      }
-    }
-  }
-}
+// control customTabSet(tabs : [(String, String, Control)]) {
+//   var activeTabName : String = tabs.get(0)._1
+//   var s = ""
+// 
+//   item(tabbarStyle) {
+//     list((tabName, tabIcon, tabControl) in tabs) {
+//       span(onclick={ activeTabName = tabName; }, cssClass=activeTabName == tabName ? activeTabButtonStyle : inActiveTabButtonStyle) {
+//         label(tabName)
+//       }
+//     }
+//   }
+//   list((tabName, tabIcon, tabControl) in tabs) {
+//     item(activeTabName == tabName ? activeTabStyle : inActiveTabStyle) {
+//       screenContext {
+//         tabControl()
+//       }
+//     }
+//   }
+// }
 
 control rangeField(s : String, style : Style = null, min : Num = 0, max : Num = 10, start : Num = 0) {
   // var id = s + "-range-field"
@@ -68,72 +68,58 @@ style center {
 style ranger {
   width: 100%;
 }
-
-style tweetStyle {
-  padding: 10px;
-  margin: 5px;
-  min-height: 50px;
-  background-color: white;
-  border: 1px solid #444;
-  borderRadiusMixin(10px);
-}
-
-style tweetIconStyle {
-  float: left;
-  margin: 0 10px 0 0;
-}
-
-style tabbarStyle {
-  text-align: left;
-  font-size: 16px;
-  z-index: 3;
-  width: 100%;
-  border-bottom: 1px solid #444;
-  margin-top: 0.3em;
-  margin-bottom: 0;
-}
-
-style tabbarStyle inActiveTabButtonStyle {
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-left: 5px;
-  line-height: 39px;
-  height: 39px;
-  margin-bottom: 0;
-  background-color: white;
-  color: black;
-  border-top: 1px solid #444;
-  border-right: 1px solid #444;
-  border-left: 1px solid #444;
-  -webkit-border-top-right-radius: 8px;
-  -moz-border-radius-topright: 8px;
-  -webkit-border-top-left-radius: 8px;
-  -moz-border-radius-topleft: 8px;
-}
-
-// 92,152,246
-style tabbarStyle activeTabButtonStyle {
-  background-color: $baseColor;
-  color: #fefefe;
-  position: relative;
-  top: 2px;
-
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-left: 5px;
-  line-height: 37px;
-  height: 39px;
-  margin-bottom: 0;
-  border-top: 1px solid #444;
-  border-right: 1px solid #444;
-  border-left: 1px solid #444;
-  -webkit-border-top-right-radius: 8px;
-  -moz-border-radius-topright: 8px;
-  -webkit-border-top-left-radius: 8px;
-  -moz-border-radius-topleft: 8px;
-}
+// 
+// style tabbarStyle {
+//   text-align: left;
+//   font-size: 16px;
+//   z-index: 3;
+//   width: 100%;
+//   border-bottom: 1px solid #444;
+//   margin-top: 0.3em;
+//   margin-bottom: 0;
+// }
+// 
+// style tabbarStyle inActiveTabButtonStyle {
+//   padding-right: 15px;
+//   padding-left: 15px;
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+//   margin-left: 5px;
+//   line-height: 39px;
+//   height: 39px;
+//   margin-bottom: 0;
+//   background-color: white;
+//   color: black;
+//   border-top: 1px solid #444;
+//   border-right: 1px solid #444;
+//   border-left: 1px solid #444;
+//   -webkit-border-top-right-radius: 8px;
+//   -moz-border-radius-topright: 8px;
+//   -webkit-border-top-left-radius: 8px;
+//   -moz-border-radius-topleft: 8px;
+// }
+// 
+// // 92,152,246
+// style tabbarStyle activeTabButtonStyle {
+//   background-color: $baseColor;
+//   color: #fefefe;
+//   position: relative;
+//   top: 2px;
+// 
+//   padding-right: 15px;
+//   padding-left: 15px;
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+//   margin-left: 5px;
+//   line-height: 37px;
+//   height: 39px;
+//   margin-bottom: 0;
+//   border-top: 1px solid #444;
+//   border-right: 1px solid #444;
+//   border-left: 1px solid #444;
+//   -webkit-border-top-right-radius: 8px;
+//   -moz-border-radius-topright: 8px;
+//   -webkit-border-top-left-radius: 8px;
+//   -moz-border-radius-topleft: 8px;
+// }
 

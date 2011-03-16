@@ -7,6 +7,32 @@ mobl.mergeStyles = function(styles) {
 };
 
 (function(__ns) {
+__ns.LocalStorage = {
+                      setItem: function(key, value) {
+                                 window.localStorage.setItem(key, JSON.stringify(value));
+                               },
+                      getItem: function(key, defaultValue) {
+                                 var val = JSON.parse(window.localStorage.getItem(key) || "null") || defaultValue;
+                                 if(val && typeof val === 'object' && !val.addEventListener)
+                                 {
+                                   return new mobl.ObservableObject(val);
+                                 }
+                                 else
+                                 {
+                                   return val;
+                                 }
+                               },
+                      getNum: function(key, defaultValue) {
+                                return this.get(key, defaultValue);
+                              },
+                      getString: function(key, defaultValue) {
+                                   return this.get(key, defaultValue);
+                                 },
+                      getBool: function(key, defaultValue) {
+                                 return this.get(key, defaultValue);
+                               }
+                    };
+}(mobl));(function(__ns) {
 __ns.isIphone = function() {
                   return !!navigator.userAgent.match(/iPhone/i) || !!navigator.userAgent.match(/iPod/i);
                 };
@@ -25,153 +51,321 @@ __ns.isPortrait = function() {
 __ns.isTouchDevice = function() {
                        return 'ontouchstart' in document.documentElement;
                      };
+__ns.isOnline = function(callback) {
+                  var i = new Image();
+                  i.onload = function() {
+                               callback(true);
+                             };
+                  i.onerror = function() {
+                                callback(false);
+                              };
+                  i.src = 'http://gfx2.hotmail.com/mail/uxp/w4/m4/pr014/h/s7.png?d=' + escape(Date());
+                };
 }(mobl));
 mobl.label = function(s, style, onclick, elements, callback) {
-  var root4713 = $("<span>");
+  var root6 = $("<span>");
   var subs__ = new mobl.CompSubscription();
   
-  var node2026 = $("<span>");
+  var node0 = $("<span>");
   
-  var ref583 = s;
-  node2026.text(""+ref583.get());
-  var ignore172 = false;
-  subs__.addSub(ref583.addEventListener('change', function(_, ref, val) {
-    if(ignore172) return;
-    node2026.text(""+val);
+  var ref0 = s;
+  node0.text(""+ref0.get());
+  var ignore0 = false;
+  subs__.addSub(ref0.addEventListener('change', function(_, ref, val) {
+    if(ignore0) return;
+    node0.text(""+val);
   }));
-  subs__.addSub(ref583.rebind());
+  subs__.addSub(ref0.rebind());
   
   
-  var ref584 = style;
-  if(ref584.get() !== null) {
-    node2026.attr('class', ref584.get());
-    subs__.addSub(ref584.addEventListener('change', function(_, ref, val) {
-      if(ref === ref584) {
-        node2026.attr('class', val);
-      } else {
-        console.log("Garbage!");
-      }
+  var ref1 = style;
+  if(ref1.get() !== null) {
+    node0.attr('class', ref1.get());
+    subs__.addSub(ref1.addEventListener('change', function(_, ref, val) {
+      node0.attr('class', val);
     }));
     
   }
-  subs__.addSub(ref584.rebind());
+  subs__.addSub(ref1.rebind());
   
-  var val239 = onclick.get();
-  if(val239 !== null) {
-    subs__.addSub(mobl.domBind(node2026, 'tap', val239));
+  var val0 = onclick.get();
+  if(val0 !== null) {
+    subs__.addSub(mobl.domBind(node0, 'tap', val0));
   }
   
-  root4713.append(node2026);
-  callback(root4713); return subs__;
+  root6.append(node0);
+  callback(root6); return subs__;
+  
+  return subs__;
+};
+
+mobl.block = function(cssClass, id, onclick, onswipe, elements, callback) {
+  var root7 = $("<span>");
+  var subs__ = new mobl.CompSubscription();
+  
+  var node1 = $("<div>");
+  
+  var ref2 = id;
+  if(ref2.get() !== null) {
+    node1.attr('id', ref2.get());
+    subs__.addSub(ref2.addEventListener('change', function(_, ref, val) {
+      node1.attr('id', val);
+    }));
+    
+  }
+  subs__.addSub(ref2.rebind());
+  
+  var ref3 = cssClass;
+  if(ref3.get() !== null) {
+    node1.attr('class', ref3.get());
+    subs__.addSub(ref3.addEventListener('change', function(_, ref, val) {
+      node1.attr('class', val);
+    }));
+    
+  }
+  subs__.addSub(ref3.rebind());
+  
+  var val1 = onclick.get();
+  if(val1 !== null) {
+    subs__.addSub(mobl.domBind(node1, 'tap', val1));
+  }
+  
+  var val2 = onswipe.get();
+  if(val2 !== null) {
+    subs__.addSub(mobl.domBind(node1, 'swipe', val2));
+  }
+  
+  var nodes4 = $("<span>");
+  node1.append(nodes4);
+  subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
+    renderControl0();
+  }));
+  
+  function renderControl0() {
+    subs__.addSub((elements)(function(elements, callback) {
+      var root8 = $("<span>");
+      var subs__ = new mobl.CompSubscription();
+      callback(root8); return subs__;
+      return subs__;
+    }, function(node) {
+      var oldNodes = nodes4;
+      nodes4 = node.contents();
+      oldNodes.replaceWith(nodes4);
+    }));
+  }
+  renderControl0();
+  root7.append(node1);
+  callback(root7); return subs__;
+  
+  
+  return subs__;
+};
+
+mobl.span = function(cssClass, id, onclick, onswipe, elements, callback) {
+  var root9 = $("<span>");
+  var subs__ = new mobl.CompSubscription();
+  
+  var node2 = $("<span>");
+  
+  var ref4 = id;
+  if(ref4.get() !== null) {
+    node2.attr('id', ref4.get());
+    subs__.addSub(ref4.addEventListener('change', function(_, ref, val) {
+      node2.attr('id', val);
+    }));
+    
+  }
+  subs__.addSub(ref4.rebind());
+  
+  var ref5 = cssClass;
+  if(ref5.get() !== null) {
+    node2.attr('class', ref5.get());
+    subs__.addSub(ref5.addEventListener('change', function(_, ref, val) {
+      node2.attr('class', val);
+    }));
+    
+  }
+  subs__.addSub(ref5.rebind());
+  
+  var val3 = onclick.get();
+  if(val3 !== null) {
+    subs__.addSub(mobl.domBind(node2, 'tap', val3));
+  }
+  
+  var val4 = onswipe.get();
+  if(val4 !== null) {
+    subs__.addSub(mobl.domBind(node2, 'swipe', val4));
+  }
+  
+  var nodes5 = $("<span>");
+  node2.append(nodes5);
+  subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
+    renderControl1();
+  }));
+  
+  function renderControl1() {
+    subs__.addSub((elements)(function(elements, callback) {
+      var root10 = $("<span>");
+      var subs__ = new mobl.CompSubscription();
+      callback(root10); return subs__;
+      return subs__;
+    }, function(node) {
+      var oldNodes = nodes5;
+      nodes5 = node.contents();
+      oldNodes.replaceWith(nodes5);
+    }));
+  }
+  renderControl1();
+  root9.append(node2);
+  callback(root9); return subs__;
+  
   
   return subs__;
 };
 
 mobl.link = function(url, target, elements, callback) {
-  var root4714 = $("<span>");
+  var root11 = $("<span>");
   var subs__ = new mobl.CompSubscription();
   
-  var node2027 = $("<a>");
+  var l = $("<a>");
   
-  var ref585 = url;
-  if(ref585.get() !== null) {
-    node2027.attr('href', ref585.get());
-    subs__.addSub(ref585.addEventListener('change', function(_, ref, val) {
-      if(ref === ref585) {
-        node2027.attr('href', val);
-      } else {
-        console.log("Garbage!");
-      }
+  var ref6 = url;
+  if(ref6.get() !== null) {
+    l.attr('href', ref6.get());
+    subs__.addSub(ref6.addEventListener('change', function(_, ref, val) {
+      l.attr('href', val);
     }));
     
   }
-  subs__.addSub(ref585.rebind());
+  subs__.addSub(ref6.rebind());
   
-  var ref586 = target;
-  if(ref586.get() !== null) {
-    node2027.attr('target', ref586.get());
-    subs__.addSub(ref586.addEventListener('change', function(_, ref, val) {
-      if(ref === ref586) {
-        node2027.attr('target', val);
-      } else {
-        console.log("Garbage!");
-      }
+  var ref7 = target;
+  if(ref7.get() !== null) {
+    l.attr('target', ref7.get());
+    subs__.addSub(ref7.addEventListener('change', function(_, ref, val) {
+      l.attr('target', val);
     }));
     
   }
-  subs__.addSub(ref586.rebind());
+  subs__.addSub(ref7.rebind());
   
-  var nodes3800 = $("<span>");
-  node2027.append(nodes3800);
+  var nodes6 = $("<span>");
+  l.append(nodes6);
   subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-    renderControl266();
+    renderControl2();
   }));
   
-  function renderControl266() {
+  function renderControl2() {
     subs__.addSub((elements)(function(elements, callback) {
-      var root4715 = $("<span>");
+      var root12 = $("<span>");
       var subs__ = new mobl.CompSubscription();
-      callback(root4715); return subs__;
+      callback(root12); return subs__;
       return subs__;
     }, function(node) {
-      var oldNodes = nodes3800;
-      nodes3800 = node.contents();
-      oldNodes.replaceWith(nodes3800);
+      var oldNodes = nodes6;
+      nodes6 = node.contents();
+      oldNodes.replaceWith(nodes6);
     }));
   }
-  renderControl266();
-  root4714.append(node2027);
-  callback(root4714); return subs__;
+  renderControl2();
+  root11.append(l);
+  var result__ = l.contents().length == 0;
+  if(result__) {
+    var result__ = l.text(url.get());
+    callback(root11); return subs__;
+  } else {
+    {
+      callback(root11); return subs__;
+    }
+  }
   
   
   return subs__;
 };
 
-mobl.screenContext = function(elements, callback) {
-  var root4716 = $("<span>");
+mobl.nl = function(elements, callback) {
+  var root13 = $("<span>");
   var subs__ = new mobl.CompSubscription();
   
-  var node2028 = $("<div>");
-  node2028.attr('class', "screenContext");
+  var node3 = $("<br>");
+  
+  root13.append(node3);
+  callback(root13); return subs__;
+  
+  return subs__;
+};
+
+mobl.screenContext = function(elements, callback) {
+  var root14 = $("<span>");
+  var subs__ = new mobl.CompSubscription();
+  
+  var node4 = $("<div>");
+  node4.attr('class', "screenContext");
+  node4.attr('style', "position: relative;");
   
   
-  var node2029 = $("<div>");
-  node2029.attr('class', "initialElements");
+  var node5 = $("<div>");
+  node5.attr('class', "initialElements");
   
-  var nodes3801 = $("<span>");
-  node2029.append(nodes3801);
+  var nodes7 = $("<span>");
+  node5.append(nodes7);
   subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-    renderControl267();
+    renderControl3();
   }));
   
-  function renderControl267() {
+  function renderControl3() {
     subs__.addSub((elements)(function(elements, callback) {
-      var root4717 = $("<span>");
+      var root15 = $("<span>");
       var subs__ = new mobl.CompSubscription();
-      callback(root4717); return subs__;
+      callback(root15); return subs__;
       return subs__;
     }, function(node) {
-      var oldNodes = nodes3801;
-      nodes3801 = node.contents();
-      oldNodes.replaceWith(nodes3801);
+      var oldNodes = nodes7;
+      nodes7 = node.contents();
+      oldNodes.replaceWith(nodes7);
     }));
   }
-  renderControl267();
-  node2028.append(node2029);
-  root4716.append(node2028);
-  callback(root4716); return subs__;
+  renderControl3();
+  node4.append(node5);
+  root14.append(node4);
+  callback(root14); return subs__;
   
   
   
   return subs__;
 };
 (function(__ns) {
+var bundle = {
+             };
+__ns.fetchLanguageBundle = function(path, callback) {
+                             $.getJSON(path, function(json) {
+                                               bundle = json;
+                                               callback();
+                                             });
+                           };
+__ns._ = function(key, placeholders) {
+           var s = bundle[key] || key;
+           var parts = s.split('%%');
+           s = parts[0];
+           for(var i = 0; i < placeholders.length; i++)
+           {
+             s += placeholders[i];
+             if(parts[i + 1])
+             {
+               s += parts[i + 1];
+             }
+           }
+           return s;
+         };
+}(mobl));(function(__ns) {
 var argspec = persistence.argspec;
-mobl.$ = jQuery;
+__ns.$ = jQuery;
 __ns.sleep = function(time, callback) {
                setTimeout(callback, time);
              };
-mobl.repeat = function(time, callback) {
+__ns.Dynamic = {
+               };
+__ns.repeat = function(time, callback) {
                 setInterval(callback, time);
               };
 mobl.alert = function(s) {
@@ -441,7 +635,41 @@ mobl.findDeepestVisibleContext = function() {
                                      idx--;
                                    }
                                  };
-mobl.call = function(screenName, args, callback) {
+var TRANSITION_SPEED = 150;
+__ns.animations = {
+                  };
+__ns.animations.slide = function(prevNode, nextNode, forward, callback) {
+                          nextNode.show('slide', {
+                                                   direction: forward?'right':'left'
+                                                 }, TRANSITION_SPEED);
+                          prevNode.hide('slide', {
+                                                   direction: forward?'left':'right'
+                                                 }, TRANSITION_SPEED, callback);
+                        };
+__ns.animations.fade = function(prevNode, nextNode, forward, callback) {
+                         nextNode.fadeIn(300);
+                         prevNode.fadeOut(300, callback);
+                       };
+__ns.animations.none = function(prevNode, nextNode, forward, callback) {
+                         nextNode.show();
+                         prevNode.hide();
+                         callback();
+                       };
+__ns.getCurrentScreen = function() {
+                          var screenContext = mobl.findDeepestVisibleContext();
+                          for(var i = 0; i < screenContext.screens.length; i++)
+                          {
+                            if(screenContext.screens[i].dom.is(':visible'))
+                            {
+                              return screenContext.screens[i];
+                            }
+                          }
+                          return null;
+                        };
+__ns.call = function(screenName, args, callback) {
+              var replace = args[args.length - 2].get();
+              var animate = args[args.length - 1].get();
+              args.splice(args.length - 2, 2);
               var screenFrame = {
                                   name: screenName,
                                   args: args,
@@ -452,24 +680,28 @@ mobl.call = function(screenName, args, callback) {
               var screenContext = mobl.findDeepestVisibleContext();
               screenContext.screens.push(screenFrame);
               var callbackFn = function() {
-                                 subs.unsubscribe();
+                                 screenFrame.subs.unsubscribe();
                                  screenContext.screens.pop();
                                  if(screenFrame.dom.find("div.screenContext").length > 0)
                                  {
                                    mobl.contextStack.pop();
                                  }
-                                 screenFrame.dom.remove();
                                  mobl.delayedUpdateScrollers();
+                                 var domNode;
                                  if(screenContext.screens.length > 0)
                                  {
                                    var previousScreen = screenContext.screens[screenContext.screens.length - 1];
-                                   previousScreen.dom.show();
+                                   domNode = previousScreen.dom;
                                    scrollTo(0, previousScreen.pageYOffset);
                                  }
                                  else
                                  {
-                                   screenContext.initialElements.show();
+                                   domNode = screenContext.initialElements;
+                                   scrollTo(0, 0);
                                  }
+                                 __ns.animations[animate](screenFrame.dom, domNode, false, function() {
+                                                                                             screenFrame.dom.remove();
+                                                                                           });
                                  if(callback)
                                  {
                                    callback.apply(null, arguments);
@@ -482,58 +714,90 @@ mobl.call = function(screenName, args, callback) {
                 current = current[parts[i]];
               }
               var screenTemplate = current;
-              var subs = screenTemplate.apply(null, args.concat([function(node) {
-                                                                   node.attr('id', screenFrame.div);
-                                                                   screenFrame.dom = node;
-                                                                   if(screenContext.screens.length > 1)
-                                                                   {
-                                                                     var previousScreen = screenContext.screens[screenContext.screens.length - 2];
-                                                                     previousScreen.pageYOffset = window.pageYOffset;
-                                                                     previousScreen.dom.hide();
-                                                                     node.prependTo(screenContext.dom);
-                                                                     scrollTo(0, 0);
-                                                                   }
-                                                                   else
-                                                                   {
-                                                                     screenContext.initialElements = screenContext.dom.find("div.initialElements");
-                                                                     screenContext.initialElements.hide();
-                                                                     node.prependTo(screenContext.dom);
-                                                                   }
-                                                                   var localScreenContexts = node.find("div.screenContext");
-                                                                   if(localScreenContexts.length > 0)
-                                                                   {
-                                                                     var ar = [];
-                                                                     for(var i = 0; i < localScreenContexts.length; i++)
-                                                                     {
-                                                                       ar.push({
-                                                                                 screens: [],
-                                                                                 dom: localScreenContexts.eq(i)
-                                                                               });
-                                                                     }
-                                                                     mobl.contextStack.push(ar);
-                                                                   }
-                                                                   mobl.postCallHooks.forEach(function(fn) {
-                                                                                                fn(node);
-                                                                                              });
-                                                                   $(function() {
-                                                                       var scrollers = $("div#scrollwrapper div#content");
-                                                                       var i = 0;
-                                                                       if(scrollers.length > 0)
-                                                                       {
-                                                                         for(i = 0; i < scrollers.length; i++)
-                                                                         {
-                                                                           if(!scrollers.eq(i).data("scroller"))
+              screenFrame.subs = screenTemplate.apply(null, args.concat([function(node) {
+                                                                           node.attr('id', screenFrame.div);
+                                                                           node.css('position', 'absolute').css('top', '0').css('left', '0').css('width', '100%');
+                                                                           screenFrame.dom = node;
+                                                                           if(screenContext.screens.length > 1)
                                                                            {
-                                                                             scrollers.eq(i).data("scroller", new iScroll(scrollers.get(i),'y'));
+                                                                             var previousScreen = screenContext.screens[screenContext.screens.length - 2];
+                                                                             previousScreen.pageYOffset = window.pageYOffset;
+                                                                             node.hide();
+                                                                             node.prependTo(screenContext.dom);
+                                                                             __ns.animations[animate](previousScreen.dom, node, true, function() {
+                                                                                                                                      });
+                                                                             scrollTo(0, 0);
                                                                            }
-                                                                         }
-                                                                         mobl.delayedUpdateScrollers();
-                                                                       }
-                                                                     });
-                                                                 },callbackFn]));
+                                                                           else
+                                                                           {
+                                                                             if(screenContext.dom.selector === 'body')
+                                                                             {
+                                                                               screenContext.initialElements = screenContext.dom.find("div.initialElements");
+                                                                               node.prependTo(screenContext.dom);
+                                                                               node.show();
+                                                                               screenContext.initialElements.hide();
+                                                                             }
+                                                                             else
+                                                                             {
+                                                                               screenContext.initialElements = screenContext.dom.find("div.initialElements");
+                                                                               node.hide();
+                                                                               node.prependTo(screenContext.dom);
+                                                                               __ns.animations[animate](screenContext.initialElements, node, true, function() {
+                                                                                                                                                   });
+                                                                               scrollTo(0, 0);
+                                                                             }
+                                                                           }
+                                                                           var localScreenContexts = node.find("div.screenContext");
+                                                                           if(localScreenContexts.length > 0)
+                                                                           {
+                                                                             var ar = [];
+                                                                             for(var i = 0; i < localScreenContexts.length; i++)
+                                                                             {
+                                                                               ar.push({
+                                                                                         screens: [],
+                                                                                         dom: localScreenContexts.eq(i)
+                                                                                       });
+                                                                             }
+                                                                             mobl.contextStack.push(ar);
+                                                                           }
+                                                                           mobl.postCallHooks.forEach(function(fn) {
+                                                                                                        fn(node);
+                                                                                                      });
+                                                                           if(replace)
+                                                                           {
+                                                                             var screenToRemove = screenContext.screens[screenContext.screens.length - 2];
+                                                                             screenToRemove.dom.remove();
+                                                                             screenContext.screens.splice(screenContext.screens.length - 2, 1);
+                                                                           }
+                                                                           $(function() {
+                                                                               var scrollers = $("div#scrollwrapper div#content");
+                                                                               var i = 0;
+                                                                               if(scrollers.length > 0)
+                                                                               {
+                                                                                 for(i = 0; i < scrollers.length; i++)
+                                                                                 {
+                                                                                   if(!scrollers.eq(i).data("scroller"))
+                                                                                   {
+                                                                                     scrollers.eq(i).data("scroller", new iScroll(scrollers.get(i),'y'));
+                                                                                   }
+                                                                                 }
+                                                                                 mobl.delayedUpdateScrollers();
+                                                                               }
+                                                                             });
+                                                                         },callbackFn]));
             };
-mobl.ref = function(e, property) {
-             return new mobl.Reference(e,property);
+mobl.ref = function(r, prop) {
+             if(prop)
+             {
+               for(var i = 0; i < r.childRefs.length; i++)
+               {
+                 if(r.childRefs[i].prop === prop)
+                 {
+                   return r.childRefs[i];
+                 }
+               }
+             }
+             return new mobl.Reference(r,prop);
            };
 function fromScope ( that , prop ) {
   if(prop)
@@ -802,9 +1066,10 @@ mobl.implementInterface = function(sourceModule, targetModule, items) {
                                  this.ref.get()[this.prop] = value;
                                  this.triggerEvent('change', this, value);
                                }
-                               for(var i = 0; i < this.childRefs.length; i++)
+                               var childRefs = this.childRefs.slice(0);
+                               for(var i = 0; i < childRefs.length; i++)
                                {
-                                 var childRef = this.childRefs[i];
+                                 var childRef = childRefs[i];
                                  childRef.rebind();
                                  childRef.triggerEvent('change', childRef, childRef.get());
                                }
@@ -823,13 +1088,11 @@ mobl.implementInterface = function(sourceModule, targetModule, items) {
                                                                                               }
                                                                                             }));
                                     }
-                                    else
-                                    {
-                                    }
                                   }
-                                  for(var i = 0; i < this.childRefs.length; i++)
+                                  var childRefs = this.childRefs.slice(0);
+                                  for(var i = 0; i < childRefs.length; i++)
                                   {
-                                    subs.addSub(this.childRefs[i].rebind(value[this.childRefs[i].prop]));
+                                    subs.addSub(childRefs[i].rebind());
                                   }
                                   return subs;
                                 };
@@ -850,4 +1113,29 @@ window.onresize = function() {
                     mobl.window.get().innerWidth = window.innerWidth;
                     mobl.window.get().innerHeight = window.innerHeight;
                   };
+}(mobl));mobl.emailValidator = function(s) {
+   var __this = this;
+  return /^[A-Z0-9_%+.\-]+@[A-Z0-9.\-]+\.[A-Z]{2,4}$/i.test(s) ? "" : "Invalid e-mail address";
+};
+
+mobl.allInputValid = mobl.ref(true);
+(function(__ns) {
+__ns.setValidationError = function(id, ok) {
+                            var screen = mobl.getCurrentScreen();
+                            screen.validations = screen.validations || {
+                                                                       };
+                            screen.validations[id] = ok;
+                            var isValid = true;
+                            for(var p in screen.validations)
+                            {
+                              if(screen.validations.hasOwnProperty(p))
+                              {
+                                if(!screen.validations[p])
+                                {
+                                  isValid = false;
+                                }
+                              }
+                            }
+                            __ns.allInputValid.set(isValid);
+                          };
 }(mobl));

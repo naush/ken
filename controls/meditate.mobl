@@ -1,0 +1,50 @@
+module controls::meditate
+
+import ui
+import mobl::notify
+
+type Podcast {
+  // website               : String
+  // mygpo_link            : String
+  // description           : String
+  // subscribers           : String
+  title                 : String
+  url                   : String
+  // subscribers_last_week : String
+  // logo_url              : String
+}
+
+// function podcastsMapper(json : JSON) : [Podcast] {
+// 	return json.results;
+// }
+
+service QPodder {
+  resource search(query : String) : [Podcast] {
+    uri = "http://api.twitter.com/1/trends.json"
+    encoding = "jsonp"
+  }
+}
+
+screen search(query : String) {
+  var results = QPodder.search(query)
+  list (podcast in results) {
+    block {
+      item {
+        label(podcast.title)
+        label(podcast.url)
+      }
+    }
+  }
+}
+
+control meditate() {
+  var query = ""
+  group {
+    item {
+      textField(query, placeholder="Search for")
+  	}
+    button("Search", onclick={
+      search(query);
+    })
+  }
+}
