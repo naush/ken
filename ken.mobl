@@ -20,7 +20,7 @@ resource resources/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100
 resource resources/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png
 resource resources/css/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png
 resource resources/css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png
-
+ 
 screen root() {
   header("Ken")
   tabSet([("Remind Me", "", remindMe),

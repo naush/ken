@@ -1,50 +1,135 @@
 module controls::meditate
 
 import ui
-import mobl::notify
+import mobl::media
+import mobl::yql
+import models::lifeevents
 
 type Podcast {
-  // website               : String
-  // mygpo_link            : String
-  // description           : String
-  // subscribers           : String
+  website               : String
+  mygpo_link            : String
+  description           : String
+  subs                  : String
   title                 : String
   url                   : String
-  // subscribers_last_week : String
-  // logo_url              : String
-}
+  subscribers_last_week : String
+  logo_url              : String
 
-// function podcastsMapper(json : JSON) : [Podcast] {
-// 	return json.results;
-// }
-
-service QPodder {
-  resource search(query : String) : [Podcast] {
-    uri = "http://api.twitter.com/1/trends.json"
-    encoding = "jsonp"
+  function fetchEpisodes() : Collection<Episode> {
+    var results = YQL.query("select * from feednormalizer where url='" + this.url + "' and output='atom_1.0'").feed.entry;
+    var episodes = Collection<Episode>();
+    foreach (result in results) {
+      var episode = Episode(title=result.title);
+      // log(result);
+      if (result.link.href) {
+        episode.downloadUrl = result.link.href;
+      } else if (result.link.length) {
+        episode.downloadUrl = result.link.get(result.link.length-1).href;
+      }
+      episodes.add(episode);
+    }
+    return episodes;
   }
 }
 
-screen search(query : String) {
-  var results = QPodder.search(query)
-  list (podcast in results) {
-    block {
+type Episode {
+  title       : String
+  downloadUrl : String
+}
+
+var podcasts = Collection<Podcast>();
+
+function fetch(query : String) : Collection<Podcast> {
+  var resource = YQL.query("select * from json where url='http://gpodder.net/search.json?q=" + query + "'");
+  var podcasts = Collection<Podcast>();
+  if (resource) {
+    foreach(podcast in resource.json.json) {
+      podcasts.add(
+        Podcast(website = podcast.website,
+                mygpo_link = podcast.mygpo_link,
+                description = podcast.description,
+                subs = podcast.subscribers,
+                title = podcast.title,
+                url = podcast.url,
+                subscribers_last_week = podcast.subscribers_last_week,
+                logo_url = podcast.logo_url));
+    }
+  }
+  return podcasts;
+}
+
+function blank(target : String) : Bool {
+  return target == null || target.length == 0;
+}
+
+function parseTime(time : Num) : String {
+  var mins = Math.floor(time / 60);
+  var secs = Math.floor(time % 60);
+  return "" + mins + ":" + secs;
+}
+
+function prettyPlayTime(current : Num, duration : Num) : String {
+  return parseTime(current) + " (" + parseTime(duration) + ")";
+}
+
+screen listen(episode : Episode) {
+  var audio = Audio.load(episode.downloadUrl)
+  header(episode.title) {
+    backButton(onclick={
+      audio.pause();
+      audio.destroy();
+      screen return;
+    })
+  }
+  block {
+    item { link(episode.downloadUrl) }
+    when(Audio.canPlayMp3()) {
       item {
-        label(podcast.title)
-        label(podcast.url)
+        label(prettyPlayTime(audio.currentTime, audio.getDuration()))
+      }
+      item {
+        button("Play", onclick={
+          audio.play();
+        })
+        button("Pause", onclick={
+          audio.pause();
+        })
       }
     }
   }
 }
 
+control podcastDetail(podcast : Podcast) {
+  block {
+    item { image(podcast.logo_url, width=120) }
+    item { label(blank(podcast.title) ? "N/A" : podcast.title) }
+    item { label(blank(podcast.description) ? "N/A" : podcast.description) }
+    item { link(blank(podcast.website) ? "N/A" : podcast.website) }
+  }
+  block {
+    header("Episodes")
+    list(episode in podcast.fetchEpisodes()) {
+      item(onclick={ listen(episode); }) { label(episode.title) }
+    }
+  }
+}
+
+control podcastItem(podcast : Podcast) {
+  label(podcast.title.length == 0 ? "N/A" : podcast.title)
+}
+
+function selectLifeEvent() : String {
+  // var event = LifeEvent.all().order("date", false).one().name;
+  var event = "jazz";
+  return event;
+}
+
 control meditate() {
-  var query = ""
-  group {
-    item {
-      textField(query, placeholder="Search for")
-  	}
-    button("Search", onclick={
-      search(query);
-    })
+  var query = selectLifeEvent()
+  
+  var podcasts = async(fetch(query))
+
+  whenLoaded(podcasts) {
+    masterDetail(podcasts, podcastItem, podcastDetail)
   }
 }

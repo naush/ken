@@ -49,30 +49,27 @@ control lifeForm(presets : [(Bool, String, Num)]) {
 
   group {
     list((check, name, stress) in presets) {
+    	var event_name = name.replace(/\s/g, "__")
       item {
-      	<div id="item__" + name>
+      	<span id="item__" + event_name>
         checkBox(check, name, onchange={
+          $(".life_event_status_bar").fadeOut();
           if (check) {
-            add(LifeEvent(name=name, stress=stress, date=now()));
-            $(".life_event_status").html("Changes saved.");
-            $(".life_event_status").fadeIn();
-            $(".life_event_status").fadeOut();
-            $("#item__" + name).css("font-weight", "bold");
+            add(LifeEvent(name=event_name, stress=stress, date=now()));
+            $("#item__" + event_name).css("font-weight", "bold");
+            $(".life_event_status_bar").html("Changes saved.");
           } else {
-          	var itemToRemove = LifeEvent.all().filter("name", "=", name).order("date", false).one();
+          	var itemToRemove = LifeEvent.all().filter("name", "=", event_name).order("date", false).one();
           	remove(itemToRemove);
-            $(".life_event_status").fadeIn();
-            $(".life_event_status").fadeOut();
-            $("#item__" + name).css("font-weight", "normal");
+            $("#item__" + event_name).css("font-weight", "normal");
           }
+          $(".life_event_status_bar").fadeIn();
         })
-        </div>
+        </span>
       }
     }
     item {
-	    <div class="life_event_status">
-	    ""
-	    </div>
+      <span class="life_event_status_bar">"&nbsp;"</span>
     }
   }
 }
