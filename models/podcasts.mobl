@@ -1,0 +1,31 @@
+module models::podcasts
+
+import models::episodes
+import mobl::yql
+
+type Podcast {
+  website               : String
+  mygpo_link            : String
+  description           : String
+  subs                  : String
+  title                 : String
+  url                   : String
+  subscribers_last_week : String
+  logo_url              : String
+
+  function fetchEpisodes() : Collection<Episode> {
+    var results = YQL.query("select * from feednormalizer where url='" + this.url + "' and output='atom_1.0'").feed.entry;
+    var episodes = Collection<Episode>();
+    foreach (result in results) {
+      var episode = Episode(title=result.title);
+      // log(result);
+      if (result.link.href) {
+        episode.downloadUrl = result.link.href;
+      } else if (result.link.length) {
+        episode.downloadUrl = result.link.get(result.link.length-1).href;
+      }
+      episodes.add(episode);
+    }
+    return episodes;
+  }
+}

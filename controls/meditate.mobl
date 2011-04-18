@@ -2,57 +2,60 @@ module controls::meditate
 
 import ui
 import mobl::media
-import mobl::yql
 import models::lifeevents
+import models::episodes
+import models::podcasts
+import mobl::yql
 
-type Podcast {
-  website               : String
-  mygpo_link            : String
-  description           : String
-  subs                  : String
-  title                 : String
-  url                   : String
-  subscribers_last_week : String
-  logo_url              : String
+// type Podcast {
+//   website               : String
+//   mygpo_link            : String
+//   description           : String
+//   subs                  : String
+//   title                 : String
+//   url                   : String
+//   subscribers_last_week : String
+//   logo_url              : String
+// 
+//   function fetchEpisodes() : Collection<Episode> {
+//     var results = YQL.query("select * from feednormalizer where url='" + this.url + "' and output='atom_1.0'").feed.entry;
+//     var episodes = Collection<Episode>();
+//     foreach (result in results) {
+//       var episode = Episode(title=result.title);
+//       // log(result);
+//       if (result.link.href) {
+//         episode.downloadUrl = result.link.href;
+//       } else if (result.link.length) {
+//         episode.downloadUrl = result.link.get(result.link.length-1).href;
+//       }
+//       episodes.add(episode);
+//     }
+//     return episodes;
+//   }
+// }
 
-  function fetchEpisodes() : Collection<Episode> {
-    var results = YQL.query("select * from feednormalizer where url='" + this.url + "' and output='atom_1.0'").feed.entry;
-    var episodes = Collection<Episode>();
-    foreach (result in results) {
-      var episode = Episode(title=result.title);
-      // log(result);
-      if (result.link.href) {
-        episode.downloadUrl = result.link.href;
-      } else if (result.link.length) {
-        episode.downloadUrl = result.link.get(result.link.length-1).href;
-      }
-      episodes.add(episode);
-    }
-    return episodes;
-  }
-}
+// type Episode {
+//   title       : String
+//   downloadUrl : String
+// }
 
-type Episode {
-  title       : String
-  downloadUrl : String
-}
-
-var podcasts = Collection<Podcast>();
-
-function fetch(query : String) : Collection<Podcast> {
-  var resource = YQL.query("select * from json where url='http://gpodder.net/search.json?q=" + query + "'");
+function fetchPodcasts(keywords : String) : Collection<Podcast> {
+  var query = "";
   var podcasts = Collection<Podcast>();
-  if (resource) {
-    foreach(podcast in resource.json.json) {
-      podcasts.add(
-        Podcast(website = podcast.website,
-                mygpo_link = podcast.mygpo_link,
-                description = podcast.description,
-                subs = podcast.subscribers,
-                title = podcast.title,
-                url = podcast.url,
-                subscribers_last_week = podcast.subscribers_last_week,
-                logo_url = podcast.logo_url));
+  foreach (keyword in keywords.split(",")) {
+    var resource = YQL.query("select * from json where url='http://gpodder.net/search.json?q=" + keyword + "'");
+    if (resource && resource.json && resource.json.json) {
+      foreach (podcast in resource.json.json) {
+        podcasts.add(
+          Podcast(website = podcast.website,
+                  mygpo_link = podcast.mygpo_link,
+                  description = podcast.description,
+                  subs = podcast.subscribers,
+                  title = podcast.title,
+                  url = podcast.url,
+                  subscribers_last_week = podcast.subscribers_last_week,
+                  logo_url = podcast.logo_url));
+      }
     }
   }
   return podcasts;
@@ -63,6 +66,7 @@ function blank(target : String) : Bool {
 }
 
 function parseTime(time : Num) : String {
+  // alert(time.toString() == "NaN");
   var mins = Math.floor(time / 60);
   var secs = Math.floor(time % 60);
   return "" + mins + ":" + secs;
@@ -84,17 +88,21 @@ screen listen(episode : Episode) {
   block {
     item { link(episode.downloadUrl) }
     when(Audio.canPlayMp3()) {
-      item {
-        label(prettyPlayTime(audio.currentTime, audio.getDuration()))
-      }
-      item {
-        button("Play", onclick={
-          audio.play();
-        })
-        button("Pause", onclick={
-          audio.pause();
-        })
-      }
+      // var duration = async(audio.getDuration())
+      // var durationstr = duration.toString()
+      // whenLoaded(durationstr != "NaN") {
+        item {
+          label(prettyPlayTime(audio.currentTime, audio.getDuration()))
+        }
+        item {
+          button("Play", onclick={
+            audio.play();
+          })
+          button("Pause", onclick={
+            audio.pause();
+          })
+        }
+      // }
     }
   }
 }
@@ -118,16 +126,21 @@ control podcastItem(podcast : Podcast) {
   label(podcast.title.length == 0 ? "N/A" : podcast.title)
 }
 
-function selectLifeEvent() : String {
-  // var event = LifeEvent.all().order("date", false).one().name;
-  var event = "jazz";
-  return event;
+function selectLifeEvent() : LifeEvent {
+  return LifeEvent.all().order("date", false).one();
 }
 
 control meditate() {
-  var query = selectLifeEvent()
-  
-  var podcasts = async(fetch(query))
+  var event = selectLifeEvent()
+  var keywords = event ? event.keywords : "jazz"
+
+  var podcasts = async(fetchPodcasts(keywords))
+
+  button("Refresh search results", onclick={
+    startLoading();
+    podcasts = fetchPodcasts(keywords);
+    endLoading();
+  })
 
   whenLoaded(podcasts) {
     masterDetail(podcasts, podcastItem, podcastDetail)

@@ -1,9 +1,10 @@
 module models::lifeevents
 
 entity LifeEvent {
-  name : String
-  stress : Num
-  date   : DateTime
+  name     : String
+  stress   : Num
+  date     : DateTime
+  keywords : String
 }
 
   // presets.push((false, "Minor violations of the law (e.g., traffic tickets, misdemeanors)", 11));

@@ -1,0 +1,6 @@
+module models::episodes
+
+type Episode {
+  title       : String
+  downloadUrl : String
+}

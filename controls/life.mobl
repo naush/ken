@@ -5,71 +5,35 @@ import ui
 import models::lifeevents
 import mobl::notify
 
-function loadPresets() : [(Bool, String, Num)] {
-  var presets : [(Bool, String, Num)] = Array<(Bool, String, Num)>();
-  presets.push((false, "Christmas", 12));
-  presets.push((false, "Vacation", 15));
-  presets.push((false, "Change in eating habits", 15));
-  presets.push((false, "Change in sleeping habits", 16));
-  presets.push((false, "Change in residence", 20));
+function loadPresets() : [(Bool, String, Num, [String])] {
+  var presets : [(Bool, String, Num, [String])] = Array<(Bool, String, Num, [String])>();
+  presets.push((false, "Traffic Tickets", 11, ["anxiety", "mindfulness", "loosen", "obsessive thinking"]));
+  presets.push((false, "Holidays", 12, ["confidence", "forgiveness", "joy", "relationship", "gratitude", "heart", "love", "power", "affirmations", "anxiety", "breathing"]));
+  presets.push((false, "Family get-togethers", 15, ["family", "confidence", "forgiveness", "joy", "relationship", "gratitude", "heart", "love", "power", "affirmations"]));
+  presets.push((false, "Vacation", 15, ["spiritual", "awakening", "loosen", "meditation", "relax", "detox", "peace", "stillness", "balance", "cleansing"]));
+  presets.push((false, "Change in eating habits", 15, ["food", "nourishment", "excersice", "detox", "yoga", "balance", "body", "chakra", "wellness", "immunity", "immune"]));
+  presets.push((false, "Change in sleeping habits", 16, ["sleep", "relaxation", "anxiety", "breathing", "detox", "yoga", "balance", "body", "chakra", "wellness", "peace", "meditation"]));
   return presets;
 }
 
-control lifeForm(presets : [(Bool, String, Num)]) {
-
-	// events@<div onclick={ events.scrollable(); }>
-	//   <a class="prev browse left"></a>
-	//   <div class="scrollable vertical" style="position:relative; overflow:hidden; width: 660px; height:90px;">
-	//      <div class="items" style="width:20000em; position:absolute;">
-	//         <div style="float:left;">
-	//            <img src="http://farm1.static.flickr.com/143/321464099_a7cfcb95cf_t.jpg" />
-	//            <img src="http://farm4.static.flickr.com/3089/2796719087_c3ee89a730_t.jpg" />
-	//            <img src="http://farm1.static.flickr.com/79/244441862_08ec9b6b49_t.jpg" />
-	//            <img src="http://farm1.static.flickr.com/28/66523124_b468cf4978_t.jpg" />
-	//            <img src="http://farm1.static.flickr.com/164/399223606_b875ddf797_t.jpg" />
-	//         </div>
-	//         <div style="float:left;">
-	//            <img src="http://farm1.static.flickr.com/163/399223609_db47d35b7c_t.jpg" />
-	//            <img src="http://farm1.static.flickr.com/135/321464104_c010dbf34c_t.jpg" />
-	//            <img src="http://farm1.static.flickr.com/40/117346184_9760f3aabc_t.jpg" />
-	//            <img src="http://farm1.static.flickr.com/153/399232237_6928a527c1_t.jpg" />
-	//            <img src="http://farm1.static.flickr.com/50/117346182_1fded507fa_t.jpg" />
-	//         </div>
-	//         <div style="float:left;">
-	//            <img src="http://farm4.static.flickr.com/3629/3323896446_3b87a8bf75_t.jpg" />
-	//            <img src="http://farm4.static.flickr.com/3023/3323897466_e61624f6de_t.jpg" />
-	//            <img src="http://farm4.static.flickr.com/3650/3323058611_d35c894fab_t.jpg" />
-	//            <img src="http://farm4.static.flickr.com/3635/3323893254_3183671257_t.jpg" />
-	//            <img src="http://farm4.static.flickr.com/3624/3323893148_8318838fbd_t.jpg" />
-	//         </div>
-	//      </div>
-	//   </div>
-	//   <a class="next browse right"></a>
-	// </div>
-
+control lifeForm(presets : [(Bool, String, Num, [String])]) {
   group {
-    list((check, name, stress) in presets) {
+    list((check, name, stress, keywords) in presets) {
     	var event_name = name.replace(/\s/g, "__")
       item {
       	<span id="item__" + event_name>
         checkBox(check, name, onchange={
-          $(".life_event_status_bar").fadeOut();
           if (check) {
-            add(LifeEvent(name=event_name, stress=stress, date=now()));
+            add(LifeEvent(name=event_name, stress=stress, date=now(), keywords=keywords));
             $("#item__" + event_name).css("font-weight", "bold");
-            $(".life_event_status_bar").html("Changes saved.");
           } else {
           	var itemToRemove = LifeEvent.all().filter("name", "=", event_name).order("date", false).one();
           	remove(itemToRemove);
             $("#item__" + event_name).css("font-weight", "normal");
           }
-          $(".life_event_status_bar").fadeIn();
         })
         </span>
       }
-    }
-    item {
-      <span class="life_event_status_bar">"&nbsp;"</span>
     }
   }
 }

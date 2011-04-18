@@ -10,17 +10,7 @@ import controls::meditate
 load resources/js/jquery-ui-1.8.9.custom.min.js
 load resources/css/ui-lightness/jquery-ui-1.8.9.custom.css
 load resources/js/jquery.tools.min.js
-// load js/jquery-1.5.min.js
-// load js/jquery.mobile-1.0a3.min.js
-// load css/jquery.mobile-1.0a3.min.css
-load "http://flowplayer.org/tools/css/scrollable-horizontal.css"
-load "http://flowplayer.org/tools/css/scrollable-buttons.css"
 
-resource resources/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png
-resource resources/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png
-resource resources/css/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png
-resource resources/css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png
- 
 screen root() {
   header("Ken")
   tabSet([("Remind Me", "", remindMe),
