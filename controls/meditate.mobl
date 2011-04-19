@@ -174,7 +174,7 @@ control meditate() {
 
   var podcasts = async(fetchPodcasts(keywords))
 
-  button("Refresh search results", onclick={
+  button("Refresh", onclick={
     startLoading();
     podcasts = fetchPodcasts(keywords);
     endLoading();
