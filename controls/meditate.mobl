@@ -3,41 +3,41 @@ module controls::meditate
 import ui
 import mobl::media
 import models::lifeevents
-import models::episodes
-import models::podcasts
+// import models::episodes
+// import models::podcasts
 import mobl::yql
 
-// type Podcast {
-//   website               : String
-//   mygpo_link            : String
-//   description           : String
-//   subs                  : String
-//   title                 : String
-//   url                   : String
-//   subscribers_last_week : String
-//   logo_url              : String
-// 
-//   function fetchEpisodes() : Collection<Episode> {
-//     var results = YQL.query("select * from feednormalizer where url='" + this.url + "' and output='atom_1.0'").feed.entry;
-//     var episodes = Collection<Episode>();
-//     foreach (result in results) {
-//       var episode = Episode(title=result.title);
-//       // log(result);
-//       if (result.link.href) {
-//         episode.downloadUrl = result.link.href;
-//       } else if (result.link.length) {
-//         episode.downloadUrl = result.link.get(result.link.length-1).href;
-//       }
-//       episodes.add(episode);
-//     }
-//     return episodes;
-//   }
-// }
+type Episode {
+  title       : String
+  downloadUrl : String
+}
 
-// type Episode {
-//   title       : String
-//   downloadUrl : String
-// }
+type Podcast {
+  website               : String
+  mygpo_link            : String
+  description           : String
+  subs                  : String
+  title                 : String
+  url                   : String
+  subscribers_last_week : String
+  logo_url              : String
+
+  function fetchEpisodes() : Collection<Episode> {
+    var results = YQL.query("select * from feednormalizer where url='" + this.url + "' and output='atom_1.0'").feed.entry;
+    var episodes = Collection<Episode>();
+    foreach (result in results) {
+      var episode = Episode(title=result.title);
+      // log(result);
+      if (result.link.href) {
+        episode.downloadUrl = result.link.href;
+      } else if (result.link.length) {
+        episode.downloadUrl = result.link.get(result.link.length-1).href;
+      }
+      episodes.add(episode);
+    }
+    return episodes;
+  }
+}
 
 function fetchPodcasts(keywords : String) : Collection<Podcast> {
   var query = "";
@@ -57,6 +57,44 @@ function fetchPodcasts(keywords : String) : Collection<Podcast> {
                   logo_url = podcast.logo_url));
       }
     }
+  }
+  
+  if (podcasts.count() == 0) {
+    podcasts.add(Podcast(website = "http://www.anxietyslayer.com",
+                         mygpo_link = "",
+                         description = "Tips and tools to help you conquer stress and anxiety. Featuring relaxation, meditation and breathing techniques to help you relax and feel calm.",
+                         subs = "",
+                         title = "Anxiety Slayer",
+                         url = "http://anxietyslayer.podbean.com/feed/",
+                         subscribers_last_week = "",
+                         logo_url = "http://anxietyslayer.podbean.com/mf/web/i67iwi/slayer-podcast-url.jpg"));
+  
+    podcasts.add(Podcast(website = "http://www.chakra-balance.com",
+                         mygpo_link = "",
+                         description = "http://www.chakra-balance.com presents a complete chakra meditation. A mix of sound frequencies and relaxing music, all 7 chakras are healed & balanced. You will feel totally energized! There are 29 FREE mp3 audios available from this site.",
+                         subs = "",
+                         title = "Chakra Meditation",
+                         url = "http://chakra-balance.com/podcast/feed.xml",
+                         subscribers_last_week = "",
+                         logo_url = "http://chakra-balance.com/podcast/images/itunes_image.jpg"));
+  
+    podcasts.add(Podcast(website = "http://www.mythoughtcoach.com",
+                         mygpo_link = "",
+                         description = "The first guided meditation in a series of regular podcasts by Stin. Daily use will invite stillness, joy and abundance to your life. Stressed? Wanting more? Put on your headphones.",
+                         subs = "",
+                         title = "Meditation Station",
+                         url = "http://fitmindbody.audioblog.com/rss/creation_station.xml",
+                         subscribers_last_week = "",
+                         logo_url = "http://fitmindbody.hipcast.com/albumart/1004_1303192999.jpg"));
+  
+    podcasts.add(Podcast(website = "http://www.mythoughtcoach.com",
+                         mygpo_link = "",
+                         description = "These guided affirmations will help the law of attraction work for you and help you think in a way that will bring you what you WANT, not what you fear! The most listened to affirmation MP3 from mythoughtcoach.com will be posted every month, along with other great stuff.",
+                         subs = "",
+                         title = "My Thought Coach",
+                         url = "http://fitmindbody.hipcast.com/rss/mythoughtcoach.xml",
+                         subscribers_last_week = "",
+                         logo_url = "http://fitmindbody.hipcast.com/albumart/1008_1303192751.jpg"));
   }
   return podcasts;
 }
@@ -145,4 +183,11 @@ control meditate() {
   whenLoaded(podcasts) {
     masterDetail(podcasts, podcastItem, podcastDetail)
   }
+}
+
+function join(front : Collection<Podcast>, back : Collection<Podcast>) : Collection<Podcast> {
+  foreach (podcast in back) {
+    front.add(podcast);
+  }
+  return front;
 }
