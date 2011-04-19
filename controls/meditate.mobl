@@ -170,7 +170,7 @@ function selectLifeEvent() : LifeEvent {
 
 control meditate() {
   var event = selectLifeEvent()
-  var keywords = event ? event.keywords : "jazz"
+  var keywords = event ? event.keywords : ""
 
   var podcasts = async(fetchPodcasts(keywords))
 
