@@ -46,7 +46,7 @@ function fetchPodcasts(keywords : String) : Collection<Podcast> {
     var resource = YQL.query("select * from json where url='http://gpodder.net/search.json?q=" + keyword + "'");
     if (resource && resource.json && resource.json.json) {
       foreach (podcast in resource.json.json) {
-        if (podcast.title != "") {
+        if (podcast.title != "" && podcast.url != "") {
           podcasts.add(
             Podcast(website = podcast.website,
                     mygpo_link = podcast.mygpo_link,
@@ -105,11 +105,23 @@ function blank(target : String) : Bool {
   return target == null || target.length == 0;
 }
 
+function toTimeDisplay(time : Num) : String {
+  var timeDisplay = time.toString();
+  if (time < 10) {
+    timeDisplay = "0" + time;
+  }
+  return timeDisplay;
+}
+
 function parseTime(time : Num) : String {
-  // alert(time.toString() == "NaN");
   var mins = Math.floor(time / 60);
   var secs = Math.floor(time % 60);
-  return "" + mins + ":" + secs;
+  if (mins.toString() == "NaN"
+  ||  secs.toString() == "NaN") {
+    return "Unknown";
+  } else {
+    return toTimeDisplay(mins) + ":" + toTimeDisplay(secs);
+  }
 }
 
 function prettyPlayTime(current : Num, duration : Num) : String {
@@ -118,31 +130,28 @@ function prettyPlayTime(current : Num, duration : Num) : String {
 
 screen listen(episode : Episode) {
   var audio = Audio.load(episode.downloadUrl)
-  header(episode.title) {
-    backButton(onclick={
-      audio.pause();
-      audio.destroy();
-      screen return;
-    })
+  when(Audio.canPlayMp3()) {
+    header(prettyPlayTime(audio.currentTime, audio.getDuration())) {
+      backButton(onclick={
+        audio.pause();
+        audio.destroy();
+        screen return;
+      })
+    }
   }
   block {
-    item { link(episode.downloadUrl) }
     when(Audio.canPlayMp3()) {
-      // var duration = async(audio.getDuration())
-      // var durationstr = duration.toString()
-      // whenLoaded(durationstr != "NaN") {
-        item {
-          label(prettyPlayTime(audio.currentTime, audio.getDuration()))
-        }
-        item {
-          button("Play", onclick={
-            audio.play();
-          })
-          button("Pause", onclick={
-            audio.pause();
-          })
-        }
-      // }
+      item {
+        button("Play", onclick={
+          audio.play();
+        })
+        button("Pause", onclick={
+          audio.pause();
+        })
+      }
+      item {
+        link(episode.downloadUrl) { "Download MP3" }
+      }
     }
   }
 }
@@ -150,9 +159,9 @@ screen listen(episode : Episode) {
 control podcastDetail(podcast : Podcast) {
   block {
     item { image(podcast.logo_url, width=120) }
-    item { label(blank(podcast.title) ? "N/A" : podcast.title) }
-    item { label(blank(podcast.description) ? "N/A" : podcast.description) }
-    item { link(blank(podcast.website) ? "N/A" : podcast.website) }
+    item { label(blank(podcast.title) ? "Unknown" : podcast.title) }
+    item { label(blank(podcast.description) ? "Unknown" : podcast.description) }
+    item { link(blank(podcast.website) ? "Unknown" : podcast.website) }
   }
   block {
     header("Episodes")
@@ -163,7 +172,7 @@ control podcastDetail(podcast : Podcast) {
 }
 
 control podcastItem(podcast : Podcast) {
-  label(podcast.title.length == 0 ? "N/A" : podcast.title)
+  label(podcast.title)
 }
 
 function selectLifeEvent() : LifeEvent {
