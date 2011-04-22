@@ -16,7 +16,7 @@ load resources/images/life_off.png
 screen root() {
   header("Ken")
   customTabSet([("Remind Me", "", remindMe),
-                ("Life", "resources/imges/life_on.png", life),
+                ("Life", "", life),
                 ("Moodometer", "", moodoMeter),
                 ("Meditate", "", meditate)])
 }

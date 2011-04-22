@@ -24,15 +24,19 @@ control lifeForm(presets : [(Bool, String, Num, [String])]) {
       	<span id="item__" + event_name>
         checkBox(check, name, onchange={
           if (check) {
-            add(LifeEvent(name=event_name, stress=stress, date=now(), keywords=keywords));
+            var lifeEvent = LifeEvent(name=event_name, stress=stress, date=now(), keywords=keywords);
+            add(lifeEvent);
             $("#item__" + event_name).css("font-weight", "bold");
+            $("#timestamp__" + event_name).html(" saved on " + lifeEvent.date.toString());
           } else {
           	var itemToRemove = LifeEvent.all().filter("name", "=", event_name).order("date", false).one();
           	remove(itemToRemove);
             $("#item__" + event_name).css("font-weight", "normal");
+            $("#timestamp__" + event_name).html("");
           }
         })
         </span>
+        <span id="timestamp__" + event_name></span>
       }
     }
   }
