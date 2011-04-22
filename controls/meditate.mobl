@@ -167,7 +167,6 @@ control podcastItem(podcast : Podcast) {
 }
 
 function selectLifeEvent() : LifeEvent {
-  alert(LifeEvent.all().order("date", false).one().name);
   return LifeEvent.all().order("date", false).one();
 }
 
