@@ -142,12 +142,8 @@ screen listen(episode : Episode) {
   block {
     when(Audio.canPlayMp3()) {
       item {
-        button("Play", onclick={
-          audio.play();
-        })
-        button("Pause", onclick={
-          audio.pause();
-        })
+        button("Play", onclick={ audio.play(); })
+        button("Pause", onclick={ audio.pause(); })
       }
       item {
         link(episode.downloadUrl) { "Download MP3" }
