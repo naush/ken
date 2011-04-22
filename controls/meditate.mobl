@@ -46,15 +46,17 @@ function fetchPodcasts(keywords : String) : Collection<Podcast> {
     var resource = YQL.query("select * from json where url='http://gpodder.net/search.json?q=" + keyword + "'");
     if (resource && resource.json && resource.json.json) {
       foreach (podcast in resource.json.json) {
-        podcasts.add(
-          Podcast(website = podcast.website,
-                  mygpo_link = podcast.mygpo_link,
-                  description = podcast.description,
-                  subs = podcast.subscribers,
-                  title = podcast.title,
-                  url = podcast.url,
-                  subscribers_last_week = podcast.subscribers_last_week,
-                  logo_url = podcast.logo_url));
+        if (podcast.title != "") {
+          podcasts.add(
+            Podcast(website = podcast.website,
+                    mygpo_link = podcast.mygpo_link,
+                    description = podcast.description,
+                    subs = podcast.subscribers,
+                    title = podcast.title,
+                    url = podcast.url,
+                    subscribers_last_week = podcast.subscribers_last_week,
+                    logo_url = podcast.logo_url));
+        }
       }
     }
   }
@@ -165,19 +167,22 @@ control podcastItem(podcast : Podcast) {
 }
 
 function selectLifeEvent() : LifeEvent {
+  alert(LifeEvent.all().order("date", false).one().name);
   return LifeEvent.all().order("date", false).one();
 }
 
 control meditate() {
-  var event = selectLifeEvent()
-  var keywords = event ? event.keywords : ""
-
-  var podcasts = async(fetchPodcasts(keywords))
+  var lifeEvent = selectLifeEvent()
+  var keywords = lifeEvent ? lifeEvent.keywords : ""
+  var podcasts = async(fetchPodcasts(keywords.toString()))
 
   button("Refresh", onclick={
-    startLoading();
-    podcasts = fetchPodcasts(keywords);
-    endLoading();
+    lifeEvent = selectLifeEvent();
+    if (event) {
+      startLoading();
+      podcasts = fetchPodcasts(lifeEvent.keywords.toString());
+      endLoading();
+    }
   })
 
   whenLoaded(podcasts) {
