@@ -14,21 +14,21 @@ models.podcasts.Podcast = {
   fetchEpisodes: function(callback) {
          var __this = this;
          mobl.yql.YQL.query("select * from feednormalizer where url='" + __this.url + "' and output='atom_1.0'", function(result__) {
-           var tmp1163 = result__;
-           var result__ = tmp1163.feed;
-           var tmp1162 = result__;
-           var result__ = tmp1162.entry;
-           var tmp1161 = result__;
-           var result__ = tmp1161;
+           var tmp3585 = result__;
+           var result__ = tmp3585.feed;
+           var tmp3584 = result__;
+           var result__ = tmp3584.entry;
+           var tmp3583 = result__;
+           var result__ = tmp3583;
            var results = result__;
            var result__ = new persistence.LocalQueryCollection([]);
            var episodes = result__;
            var result__ = results;
-           results.list(function(coll135) {
-             coll135 = coll135.reverse();
-             function processOne30() {
+           results.list(function(coll255) {
+             coll255 = coll255.reverse();
+             function processOne138() {
                var result;
-               result = coll135.pop();
+               result = coll255.pop();
                var result__ = mobl.instantiate(models.episodes.Episode, {'title': result.title});
                var episode = result__;
                var result__ = result.link.href;
@@ -37,7 +37,7 @@ models.podcasts.Podcast = {
                  episode.downloadUrl = result__;
                  var result__ = episodes.add(episode);
                  
-                 if(coll135.length > 0) processOne30(); else rest30();
+                 if(coll255.length > 0) processOne138(); else rest138();
                  
                } else {
                  var result__ = result.link.length;
@@ -46,25 +46,25 @@ models.podcasts.Podcast = {
                    episode.downloadUrl = result__;
                    var result__ = episodes.add(episode);
                    
-                   if(coll135.length > 0) processOne30(); else rest30();
+                   if(coll255.length > 0) processOne138(); else rest138();
                    
                  } else {
                    {
                      var result__ = episodes.add(episode);
                      
-                     if(coll135.length > 0) processOne30(); else rest30();
+                     if(coll255.length > 0) processOne138(); else rest138();
                      
                    }
                  }
                }
              }
-             function rest30() {
+             function rest138() {
                var result__ = episodes;
                if(callback && callback.apply) callback(result__);
                return;
                if(callback && callback.apply) callback(); return;
              }
-             if(coll135.length > 0) processOne30(); else rest30();
+             if(coll255.length > 0) processOne138(); else rest138();
            });
            
          });

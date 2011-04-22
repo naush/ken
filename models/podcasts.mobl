@@ -18,7 +18,6 @@ type Podcast {
     var episodes = Collection<Episode>();
     foreach (result in results) {
       var episode = Episode(title=result.title);
-      // log(result);
       if (result.link.href) {
         episode.downloadUrl = result.link.href;
       } else if (result.link.length) {
