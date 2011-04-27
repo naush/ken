@@ -145,15 +145,16 @@ style customTabbarStyle customActiveTabButtonStyle {
   // color: black;
   // color: #fefefe;
   // position: relative;
-  // top: 2px;
+  top: 2px;
   color: white;
   padding-right: 5px;
   padding-left: 5px;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-left: 5px;
+  margin-right: 5px;
   margin-bottom: 0;
-  line-height: 37px;
+  line-height: 39px;
   height: 39px;
   // border-top: 1px solid #444;
   // border-right: 1px solid #444;
@@ -162,6 +163,8 @@ style customTabbarStyle customActiveTabButtonStyle {
   // -moz-border-radius-topright: 8px;
   // -webkit-border-top-left-radius: 8px;
   // -moz-border-radius-topleft: 8px;
+  // position: absolute;
+  // top: 450px;
 }
 
 style customTabbarStyle customInActiveTabButtonStyle {
@@ -174,6 +177,7 @@ style customTabbarStyle customInActiveTabButtonStyle {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-left: 5px;
+  margin-right: 5px;
   margin-bottom: 0;
   line-height: 39px;
   height: 39px;
@@ -188,7 +192,7 @@ style customTabbarStyle customInActiveTabButtonStyle {
 
 style customTabbarStyle {
   text-align: left;
-  font-size: 13px;
+  font-size: 8px;
   z-index: 3;
   width: 100%;
   // border-bottom: 1px solid #444;
@@ -201,7 +205,7 @@ control customTabSet(tabs : [(String, String, Control)]) {
   var activeTabName : String = tabs.get(0)._1
   var s = ""
 
-  <div style="height: 345px; margin-left: 25px; margin-top: 10px">
+  <div style="height: 340px; margin-left: 25px; margin-top: 10px">
   list((tabName, tabIcon, tabControl) in tabs) {
     block(activeTabName == tabName ? customActiveTabStyle : inActiveTabStyle) {
       screenContext {

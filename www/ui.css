@@ -604,14 +604,16 @@
   background-image: url("resources/images/background.png");
 }
 .ui__customTabbarStyle .ui__customActiveTabButtonStyle {
+  top: 2px;
   color: white;
   padding-right: 5px;
   padding-left: 5px;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-left: 5px;
+  margin-right: 5px;
   margin-bottom: 0;
-  line-height: 37px;
+  line-height: 39px;
   height: 39px;
 }
 .ui__customTabbarStyle .ui__customInActiveTabButtonStyle {
@@ -621,13 +623,14 @@
   padding-top: 10px;
   padding-bottom: 10px;
   margin-left: 5px;
+  margin-right: 5px;
   margin-bottom: 0;
   line-height: 39px;
   height: 39px;
 }
 .ui__customTabbarStyle {
   text-align: left;
-  font-size: 13px;
+  font-size: 8px;
   z-index: 3;
   width: 100%;
   margin-top: 0.3em;

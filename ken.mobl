@@ -13,13 +13,69 @@ load resources/js/jquery.tools.min.js
 load resources/images/background.png
 load resources/images/life_on.png
 load resources/images/life_off.png
+load resources/images/meditate_on_text.png
+load resources/images/meditate_off_text.png
+load resources/images/moodometer_on_text.png
+load resources/images/moodometer_off_text.png
+load resources/images/reminder_on_text.png
+load resources/images/reminder_off_text.png
 
 screen root() {
   <div style="background-image: url(\"resources/images/background.png\"); background-repeat: no-repeat; height: 500px; width: 315px; position: absolute;">
   customHeader("Ken")
-  customTabSet([("Reminder", "", remindMe),
-                ("Life", "", life),
-                ("Moodometer", "", moodoMeter),
-                ("Meditate", "", meditate)])
+
+  // customTabSet([("Reminder", "", remindMe),
+  //               ("Life", "", life),
+  //               ("Moodometer", "", moodoMeter),
+  //               ("Meditate", "", meditate)])
+
+  var activeTabName : String = "Reminder"
+  var s = ""
+
+  <div style="height: 332px; margin-left: 25px; margin-top: 10px">
+  block(activeTabName == "Reminder" ? customActiveTabStyle : inActiveTabStyle) {
+    screenContext {
+      remindMe()
+    }
+  }
+
+  block(activeTabName == "Life" ? customActiveTabStyle : inActiveTabStyle) {
+    screenContext {
+      life()
+    }
+  }
+
+  block(activeTabName == "Moodometer" ? customActiveTabStyle : inActiveTabStyle) {
+    screenContext {
+      moodoMeter()
+    }
+  }
+
+  block(activeTabName == "Meditate" ? customActiveTabStyle : inActiveTabStyle) {
+    screenContext {
+      meditate()
+    }
+  }
+
+  </div>
+
+  block(customTabbarStyle) {
+    span(onclick={ activeTabName = "Reminder"; }, cssClass=activeTabName == "Reminder" ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
+      image(activeTabName == "Reminder" ? "resources/images/reminder_on_text.png" : "resources/images/reminder_off_text.png")
+    }
+
+    span(onclick={ activeTabName = "Life"; }, cssClass=activeTabName == "Life" ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
+    	image(activeTabName == "Life" ? "resources/images/life_on.png" : "resources/images/life_off.png")
+    }
+
+    span(onclick={ activeTabName = "Moodometer"; }, cssClass=activeTabName == "Moodometer" ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
+      image(activeTabName == "Moodometer" ? "resources/images/moodometer_on_text.png" : "resources/images/moodometer_off_text.png")
+    }
+
+    span(onclick={ activeTabName = "Meditate"; }, cssClass=activeTabName == "Meditate" ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
+      image(activeTabName == "Meditate" ? "resources/images/meditate_on_text.png" : "resources/images/meditate_off_text.png")
+    }
+  }
+
   </div>
 }
