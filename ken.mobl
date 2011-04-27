@@ -56,7 +56,6 @@ screen root() {
       meditate()
     }
   }
-
   </div>
 
   block(customTabbarStyle) {
