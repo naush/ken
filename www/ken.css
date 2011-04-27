@@ -1,0 +1,26 @@
+.ken__customHeaderStyle {
+  padding: 0;
+  height: 2.3em;
+  font-size: 1.3em;
+  line-height: 2.3em;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: #477 0px 1px 1px;
+  color: white;
+  font-weight: bold;
+  margin: 0;
+  z-index: 2;
+}
+.ken__customHeaderContainerStyle {
+  width: 150px;
+  position: absolute;
+  left: 50%;
+}
+.ken__customHeaderTextStyle {
+  position: absolute;
+  left: -75px;
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -11,7 +11,7 @@ screen moodoScreen(mood : Mood) {
 
 control moodoForm (mood : Mood) {
   group {
-    item {
+    customItem {
       <div style="margin:0 0 10px 0; text-align: center">
         label("Not at all", style=left)
         label("Happy", style=center)
@@ -19,7 +19,7 @@ control moodoForm (mood : Mood) {
       </div>
       rangeField(mood.happy, min=0, max=100, start=50, style=ranger)
     }
-    item {
+    customItem {
       <div style="margin:0 0 10px 0; text-align: center">
         label("Not at all", style=left)
         label("Relaxed", style=center)
@@ -27,7 +27,7 @@ control moodoForm (mood : Mood) {
       </div>
       rangeField(mood.relaxed, min=0, max=100, start=50, style=ranger)
     }
-    item {
+    customItem {
       <div style="margin:0 0 10px 0; text-align: center">
         label("Not at all", style=left)
         label("Awake", style=center)

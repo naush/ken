@@ -2,77 +2,227 @@ module ui
 
 mixin mobl::ui::generic
 
-// 92,152,246
-style tabbarStyle customActiveTabButtonStyle {
-  background-color: $baseColor;
-  background-image: url("resources/images/life_on.png");
-  color: #fefefe;
-  position: relative;
-  top: 2px;
-
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-left: 5px;
-  line-height: 37px;
-  height: 39px;
-  margin-bottom: 0;
-  border-top: 1px solid #444;
-  border-right: 1px solid #444;
-  border-left: 1px solid #444;
-  -webkit-border-top-right-radius: 8px;
-  -moz-border-radius-topright: 8px;
-  -webkit-border-top-left-radius: 8px;
-  -moz-border-radius-topleft: 8px;
+control customMasterDetail(items : Collection<Dynamic>, masterItem : Control1<Dynamic>, detail : Control1<Dynamic>) {
+  group {
+    list(it in items) {
+      customItem(onclick={ customDetailScreen(it, detail); }) {
+        masterItem(it)
+      }
+    }
+  }
 }
 
-style tabbarStyle customInActiveTabButtonStyle {
-  padding-right: 15px;
-  padding-left: 15px;
+screen customDetailScreen(it : Dynamic, detail : Control1<Dynamic>) {
+  // customHeader("Detail") {
+    backButton("Back", onclick={ screen return; })
+  // }
+  detail(it)
+}
+
+// @when window.innerWidth > 500
+// control masterDetail(items : Collection<Dynamic>, masterItem : Control1<Dynamic>, detail : Control1<Dynamic>) {
+//   var current : Dynamic = items.one()
+//   <div width="100%">
+//     <div style="float:left; width:33%; position:relative; border-right: solid 1px #cccccc;">
+//       group {
+//         list(it in items) {
+//           when(it == current) {
+//             item(style=selectedItemStyle) {
+//               masterItem(it)
+//             }
+//           } else {
+//             item(hideArrow=true, onclick={ current = it; }) {
+//               masterItem(it)
+//             }
+//           }
+//         }
+//       }
+//     </div>
+//     <div style="float:left; width:66.5%; position:relative; margin-left: 0.5%;">
+//       detail(current)
+//     </div>
+//   </div>
+// }
+
+style customHeaderStyle {
+  padding: 0;
+  height: 3.3em;
+  font-size: 1.3em;
+  line-height: 3.3em;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: #477 0px 1px 1px;
+  color: white;
+  font-weight: bold;
+  margin: 0;
+  z-index: 2;
+}
+
+style customHeaderContainerStyle {
+  width: 150px;
+  position: absolute;
+  left: 50%;
+}
+
+style customHeaderTextStyle {
+  position: absolute;
+  left: -75px;
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+control customHeader(text : String, onclick : Callback = null) {
+  <div class=customHeaderStyle onclick=onclick>
+    <div class=customHeaderContainerStyle><div databind=text class=customHeaderTextStyle/></div>
+    elements()
+  </div>
+}
+
+style mixin customItemMixin($fontColor, $backgroundColor) {
+  // background-color: $backgroundColor;
+  // color: $fontColor;
+  border-bottom: 1px solid #cccccc;
+  border-left: 0;
+  border-right: 0;
+  display: block;
+  font-size: 17px;
+  margin-bottom: -1px;
+  padding: 12px 10px;
+  text-decoration: none;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+style customItemStyle {
+  customItemMixin(#000, #fff);
+}
+
+style customItemPushedStyle {
+  customItemMixin(#eee, $baseColor);
+}
+
+style customItemArrowStyle {
+  background-image: url("generic/arrow.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+control customItem(itemStyle : Style = customItemStyle, pushedStyle : Style = customItemPushedStyle, onclick : Callback = null, onswipe : Callback = null, hideArrow : Bool = false) {
+  var pushed = false
+  el@<li class=customItemStyle class=onclick && hideArrow == false ? mergeStyles([pushed ? pushedStyle : customItemStyle, customItemArrowStyle]) : (pushed ? customItemPushedStyle : customItemStyle)
+  onclick=onclick ? {
+    pushed = true;
+    sleep(100);
+    async {
+      onclick(event);
+    }
+    sleep(200);
+    pushed = false;
+  } : null>
+    elements()
+  </li>
+}
+
+style customTabbarStyle customActiveTabStyle {
+  width: auto;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  // border: 1px solid #444;
+  margin-top: 0.3em;
+  background-image: url("resources/images/background.png");
+}
+
+style customTabbarStyle customActiveTabButtonStyle {
+  // background-color: $baseColor;
+  // background-image: url("resources/images/life_on.png");
+  // color: black;
+  // color: #fefefe;
+  // position: relative;
+  // top: 2px;
+  color: white;
+  padding-right: 5px;
+  padding-left: 5px;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-left: 5px;
+  margin-bottom: 0;
+  line-height: 37px;
+  height: 39px;
+  // border-top: 1px solid #444;
+  // border-right: 1px solid #444;
+  // border-left: 1px solid #444;
+  // -webkit-border-top-right-radius: 8px;
+  // -moz-border-radius-topright: 8px;
+  // -webkit-border-top-left-radius: 8px;
+  // -moz-border-radius-topleft: 8px;
+}
+
+style customTabbarStyle customInActiveTabButtonStyle {
+  // background-image: url("resources/images/life_off.png");
+  // color: black;
+  // background-color: white;
+  color: white;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 5px;
+  margin-bottom: 0;
   line-height: 39px;
   height: 39px;
+  // border-top: 1px solid #444;
+  // border-right: 1px solid #444;
+  // border-left: 1px solid #444;
+  // -webkit-border-top-right-radius: 8px;
+  // -moz-border-radius-topright: 8px;
+  // -webkit-border-top-left-radius: 8px;
+  // -moz-border-radius-topleft: 8px;
+}
+
+style customTabbarStyle {
+  text-align: left;
+  font-size: 13px;
+  z-index: 3;
+  width: 100%;
+  // border-bottom: 1px solid #444;
+  margin-top: 0.3em;
   margin-bottom: 0;
-  background-color: white;
-  // background-image: url("resources/images/life_off.png");
-  color: black;
-  border-top: 1px solid #444;
-  border-right: 1px solid #444;
-  border-left: 1px solid #444;
-  -webkit-border-top-right-radius: 8px;
-  -moz-border-radius-topright: 8px;
-  -webkit-border-top-left-radius: 8px;
-  -moz-border-radius-topleft: 8px;
+  margin-left: 20px;
 }
 
 control customTabSet(tabs : [(String, String, Control)]) {
   var activeTabName : String = tabs.get(0)._1
   var s = ""
 
-  block(tabbarStyle) {
+  <div style="height: 345px; margin-left: 25px; margin-top: 10px">
+  list((tabName, tabIcon, tabControl) in tabs) {
+    block(activeTabName == tabName ? customActiveTabStyle : inActiveTabStyle) {
+      screenContext {
+        tabControl()
+      }
+    }
+  }
+  </div>
+
+  block(customTabbarStyle) {
     list((tabName, tabIcon, tabControl) in tabs) {
       span(onclick={ activeTabName = tabName; }, cssClass=activeTabName == tabName ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
         label(tabName)
       }
     }
   }
-  list((tabName, tabIcon, tabControl) in tabs) {
-    block(activeTabName == tabName ? activeTabStyle : inActiveTabStyle) {
-      screenContext {
-        tabControl()
-      }
-    }
-  }
+
 }
 
 control rangeField(s : String, style : Style = null, min : Num = 0, max : Num = 10, start : Num = 0) {
-  // var id = s + "-range-field"
-  // <input type="range" databind=s value=start min=min max=max onchange={s = $("#" + id).val();} id=id class=style />
   slider@<div/>
-  // label(start + "%")
   script {
     slider.slider(Dynamic(value=start, min=min, max=max, step=1, change={
         s = slider.slider("value");
@@ -80,8 +230,6 @@ control rangeField(s : String, style : Style = null, min : Num = 0, max : Num = 
       }));
   }
 }
-
-// STYLES
 
 style $baseColor = rgb(150, 80, 0)
 
@@ -114,58 +262,3 @@ style center {
 style ranger {
   width: 100%;
 }
-// 
-// style tabbarStyle {
-//   text-align: left;
-//   font-size: 16px;
-//   z-index: 3;
-//   width: 100%;
-//   border-bottom: 1px solid #444;
-//   margin-top: 0.3em;
-//   margin-bottom: 0;
-// }
-// 
-// style tabbarStyle inActiveTabButtonStyle {
-//   padding-right: 15px;
-//   padding-left: 15px;
-//   padding-top: 10px;
-//   padding-bottom: 10px;
-//   margin-left: 5px;
-//   line-height: 39px;
-//   height: 39px;
-//   margin-bottom: 0;
-//   background-color: white;
-//   color: black;
-//   border-top: 1px solid #444;
-//   border-right: 1px solid #444;
-//   border-left: 1px solid #444;
-//   -webkit-border-top-right-radius: 8px;
-//   -moz-border-radius-topright: 8px;
-//   -webkit-border-top-left-radius: 8px;
-//   -moz-border-radius-topleft: 8px;
-// }
-// 
-// // 92,152,246
-// style tabbarStyle activeTabButtonStyle {
-//   background-color: $baseColor;
-//   color: #fefefe;
-//   position: relative;
-//   top: 2px;
-// 
-//   padding-right: 15px;
-//   padding-left: 15px;
-//   padding-top: 10px;
-//   padding-bottom: 10px;
-//   margin-left: 5px;
-//   line-height: 37px;
-//   height: 39px;
-//   margin-bottom: 0;
-//   border-top: 1px solid #444;
-//   border-right: 1px solid #444;
-//   border-left: 1px solid #444;
-//   -webkit-border-top-right-radius: 8px;
-//   -moz-border-radius-topright: 8px;
-//   -webkit-border-top-left-radius: 8px;
-//   -moz-border-radius-topleft: 8px;
-// }
-

@@ -19,7 +19,7 @@ function loadPresets() : [(Bool, String, Num)] {
 control reminderForm(presets : [(Bool, String, Num)]) {
   group {
     list((check, name, stress) in presets) {
-      item {
+      customItem {
         checkBox(check, name, onchange={
           if (check) {
             add(Reminder(name=name, stress=stress, date=now()));

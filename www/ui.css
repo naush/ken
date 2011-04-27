@@ -538,46 +538,103 @@
 .ui__trStyle .ui__tdStyle:last-child {
   border-right: 1px solid #000;
 }
-.ui__tabbarStyle .ui__customActiveTabButtonStyle {
-  background-color: rgb(150, 80, 0);
-  background-image: url("resources/images/life_on.png");
-  color: #fefefe;
-  position: relative;
-  top: 2px;
-  padding-right: 15px;
-  padding-left: 15px;
+.ui__customHeaderStyle {
+  padding: 0;
+  height: 3.3em;
+  font-size: 1.3em;
+  line-height: 3.3em;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: #477 0px 1px 1px;
+  color: white;
+  font-weight: bold;
+  margin: 0;
+  z-index: 2;
+}
+.ui__customHeaderContainerStyle {
+  width: 150px;
+  position: absolute;
+  left: 50%;
+}
+.ui__customHeaderTextStyle {
+  position: absolute;
+  left: -75px;
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ui__customItemStyle {
+  border-bottom: 1px solid #cccccc;
+  border-left: 0;
+  border-right: 0;
+  display: block;
+  font-size: 17px;
+  margin-bottom: -1px;
+  padding: 12px 10px;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ui__customItemPushedStyle {
+  border-bottom: 1px solid #cccccc;
+  border-left: 0;
+  border-right: 0;
+  display: block;
+  font-size: 17px;
+  margin-bottom: -1px;
+  padding: 12px 10px;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ui__customItemArrowStyle {
+  background-image: url("generic/arrow.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+.ui__customTabbarStyle .ui__customActiveTabStyle {
+  width: auto;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.3em;
+  background-image: url("resources/images/background.png");
+}
+.ui__customTabbarStyle .ui__customActiveTabButtonStyle {
+  color: white;
+  padding-right: 5px;
+  padding-left: 5px;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-left: 5px;
+  margin-bottom: 0;
   line-height: 37px;
   height: 39px;
-  margin-bottom: 0;
-  border-top: 1px solid #444;
-  border-right: 1px solid #444;
-  border-left: 1px solid #444;
-  -webkit-border-top-right-radius: 8px;
-  -moz-border-radius-topright: 8px;
-  -webkit-border-top-left-radius: 8px;
-  -moz-border-radius-topleft: 8px;
 }
-.ui__tabbarStyle .ui__customInActiveTabButtonStyle {
-  padding-right: 15px;
-  padding-left: 15px;
+.ui__customTabbarStyle .ui__customInActiveTabButtonStyle {
+  color: white;
+  padding-right: 5px;
+  padding-left: 5px;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-left: 5px;
+  margin-bottom: 0;
   line-height: 39px;
   height: 39px;
+}
+.ui__customTabbarStyle {
+  text-align: left;
+  font-size: 13px;
+  z-index: 3;
+  width: 100%;
+  margin-top: 0.3em;
   margin-bottom: 0;
-  background-color: white;
-  color: black;
-  border-top: 1px solid #444;
-  border-right: 1px solid #444;
-  border-left: 1px solid #444;
-  -webkit-border-top-right-radius: 8px;
-  -moz-border-radius-topright: 8px;
-  -webkit-border-top-left-radius: 8px;
-  -moz-border-radius-topleft: 8px;
+  margin-left: 20px;
 }
 .ui__title {
   padding: 10px;

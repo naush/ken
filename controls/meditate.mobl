@@ -34,7 +34,7 @@ type Podcast {
       }
       episodes.add(episode);
     }
-    return episodes;
+    return episodes.limit(5);
   }
 }
 
@@ -97,7 +97,7 @@ function fetchPodcasts(keywords : String) : Collection<Podcast> {
                          subscribers_last_week = "",
                          logo_url = "http://fitmindbody.hipcast.com/albumart/1008_1303192751.jpg"));
   }
-  return podcasts;
+  return podcasts.limit(5);
 }
 
 function blank(target : String) : Bool {
@@ -130,38 +130,37 @@ function prettyPlayTime(current : Num, duration : Num) : String {
 screen listen(episode : Episode) {
   var audio = Audio.load(episode.downloadUrl)
   when(Audio.canPlayMp3()) {
-    header(prettyPlayTime(audio.currentTime, audio.getDuration())) {
-      backButton(onclick={
-        audio.pause();
-        audio.destroy();
-        screen return;
-      })
+    customItem {
+	    backButton(onclick={
+	      audio.pause();
+	      audio.destroy();
+	      screen return;
+	    })
     }
-  }
-  block {
-    when(Audio.canPlayMp3()) {
-      item {
-        button("Play", onclick={ audio.play(); })
-        button("Pause", onclick={ audio.pause(); })
-      }
-      item {
-        link(episode.downloadUrl) { "Download MP3" }
-      }
+    customItem {
+      label(prettyPlayTime(audio.currentTime, audio.getDuration()))
+    }
+    customItem {
+      button("Play", onclick={ audio.play(); })
+      button("Pause", onclick={ audio.pause(); })
+    }
+    customItem {
+      link(episode.downloadUrl) { "Download MP3" }
     }
   }
 }
 
 control podcastDetail(podcast : Podcast) {
   block {
-    item { image(podcast.logo_url, width=120) }
-    item { label(blank(podcast.title) ? "Unknown" : podcast.title) }
-    item { label(blank(podcast.description) ? "Unknown" : podcast.description) }
-    item { link(blank(podcast.website) ? "Unknown" : podcast.website) }
+    // customItem { image(podcast.logo_url, width=120) }
+    customItem { label(blank(podcast.title) ? "Unknown" : podcast.title) }
+    // customItem { label(blank(podcast.description) ? "Unknown" : podcast.description) }
+    customItem { link(blank(podcast.website) ? "Unknown" : podcast.website) }
   }
   block {
-    header("Episodes")
+    // header("Episodes")
     list(episode in podcast.fetchEpisodes()) {
-      item(onclick={ listen(episode); }) { label(episode.title) }
+      customItem(onclick={ listen(episode); }) { label(episode.title) }
     }
   }
 }
@@ -179,6 +178,10 @@ control meditate() {
   var keywords = lifeEvent ? lifeEvent.keywords : ""
   var podcasts = async(fetchPodcasts(keywords.toString()))
 
+  whenLoaded(podcasts) {
+    customMasterDetail(podcasts, podcastItem, podcastDetail)
+  }
+
   button("Refresh", onclick={
     lifeEvent = selectLifeEvent();
     if (event) {
@@ -187,10 +190,6 @@ control meditate() {
       endLoading();
     }
   })
-
-  whenLoaded(podcasts) {
-    masterDetail(podcasts, podcastItem, podcastDetail)
-  }
 }
 
 function join(front : Collection<Podcast>, back : Collection<Podcast>) : Collection<Podcast> {

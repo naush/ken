@@ -16,29 +16,45 @@ function loadPresets() : [(Bool, String, Num, [String])] {
   return presets;
 }
 
+var eventsToSave : [LifeEvent] = Array<LifeEvent>();
+
 control lifeForm(presets : [(Bool, String, Num, [String])]) {
   group {
     list((check, name, stress, keywords) in presets) {
     	var event_name = name.replace(/\s/g, "__")
-      item {
+      customItem {
       	<span id="item__" + event_name>
         checkBox(check, name, onchange={
           if (check) {
             var lifeEvent = LifeEvent(name=event_name, stress=stress, date=now(), keywords=keywords);
-            add(lifeEvent);
+            // add(lifeEvent);
+            eventsToSave.push(lifeEvent);
             $("#item__" + event_name).css("font-weight", "bold");
-            $("#timestamp__" + event_name).html(" saved on " + lifeEvent.date.toString());
+            // $("#timestamp__" + event_name).html(" saved on " + lifeEvent.date.toString());
           } else {
-          	var itemToRemove = LifeEvent.all().filter("name", "=", event_name).order("date", false).one();
-          	remove(itemToRemove);
+          	// var eventToRemove = eventsToSave.filter("name", "=", event_name).order("date", false).one();
+          	// remove(itemToRemove);
+          	var eventToRemove : LifeEvent = null;
+          	foreach (event in eventsToSave) {
+          		if (event.name == event_name) {
+          			eventToRemove = event;
+          		}
+          	}
+          	eventsToSave.remove(eventToRemove);
             $("#item__" + event_name).css("font-weight", "normal");
-            $("#timestamp__" + event_name).html("");
+            // $("#timestamp__" + event_name).html("");
           }
         })
         </span>
         <span id="timestamp__" + event_name></span>
       }
     }
+    customItem { button("Update", onclick={
+      foreach (event in eventsToSave) {
+        add(event);
+      }
+      eventsToSave.length = 0;
+    }) }
   }
 }
 
