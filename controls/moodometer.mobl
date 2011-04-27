@@ -12,28 +12,28 @@ screen moodoScreen(mood : Mood) {
 control moodoForm (mood : Mood) {
   group {
     customItem {
-      <div style="margin:0 0 10px 0; text-align: center">
+      <div style="margin:0 0 10px 0; text-align: center; width: 250px">
         label("Not at all", style=left)
         label("Happy", style=center)
         label("Extremely", style=right)
       </div>
-      rangeField(mood.happy, min=0, max=100, start=50, style=ranger)
+      rangeField(mood.happy, min=0, max=100, start=50)
     }
     customItem {
-      <div style="margin:0 0 10px 0; text-align: center">
+      <div style="margin:0 0 10px 0; text-align: center; width: 250px">
         label("Not at all", style=left)
         label("Relaxed", style=center)
         label("Extremely", style=right)
       </div>
-      rangeField(mood.relaxed, min=0, max=100, start=50, style=ranger)
+      rangeField(mood.relaxed, min=0, max=100, start=50)
     }
     customItem {
-      <div style="margin:0 0 10px 0; text-align: center">
+      <div style="margin:0 0 10px 0; text-align: center; width: 250px">
         label("Not at all", style=left)
         label("Awake", style=center)
         label("Extremely", style=right)
       </div>
-      rangeField(mood.awake, min=0, max=100, start=50, style=ranger)
+      rangeField(mood.awake, min=0, max=100, start=50)
     }
     button("Save", onclick={
       if (mood.happy.length == 0

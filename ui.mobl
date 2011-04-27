@@ -222,13 +222,15 @@ control customTabSet(tabs : [(String, String, Control)]) {
 }
 
 control rangeField(s : String, style : Style = null, min : Num = 0, max : Num = 10, start : Num = 0) {
-  slider@<div/>
-  script {
-    slider.slider(Dynamic(value=start, min=min, max=max, step=1, change={
-        s = slider.slider("value");
-        start = slider.slider("value");
-      }));
-  }
+	<div style="width: 250px;">
+	  slider@<div/>
+	  script {
+	    slider.slider(Dynamic(value=start, min=min, max=max, step=1, change={
+	        s = slider.slider("value");
+	        start = slider.slider("value");
+	      }));
+	  }
+  </div>
 }
 
 style $baseColor = rgb(150, 80, 0)
@@ -260,5 +262,5 @@ style center {
 }
 
 style ranger {
-  width: 100%;
+  width: 250px;
 }
