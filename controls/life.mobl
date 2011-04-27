@@ -49,12 +49,12 @@ control lifeForm(presets : [(Bool, String, Num, [String])]) {
         <span id="timestamp__" + event_name></span>
       }
     }
-    customItem { button("Update", onclick={
+    button("Update", onclick={
       foreach (event in eventsToSave) {
         add(event);
       }
       eventsToSave.length = 0;
-    }) }
+    })
   }
 }
 

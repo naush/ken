@@ -565,7 +565,6 @@
   text-overflow: ellipsis;
 }
 .ui__customItemStyle {
-  border-bottom: 1px solid #cccccc;
   border-left: 0;
   border-right: 0;
   display: block;
@@ -578,7 +577,6 @@
   text-overflow: ellipsis;
 }
 .ui__customItemPushedStyle {
-  border-bottom: 1px solid #cccccc;
   border-left: 0;
   border-right: 0;
   display: block;

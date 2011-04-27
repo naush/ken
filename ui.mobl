@@ -83,7 +83,7 @@ control customHeader(text : String, onclick : Callback = null) {
 style mixin customItemMixin($fontColor, $backgroundColor) {
   // background-color: $backgroundColor;
   // color: $fontColor;
-  border-bottom: 1px solid #cccccc;
+  // border-bottom: 1px solid #cccccc;
   border-left: 0;
   border-right: 0;
   display: block;
