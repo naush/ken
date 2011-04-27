@@ -15,7 +15,7 @@ load resources/images/life_on.png
 load resources/images/life_off.png
 
 screen root() {
-  <div style="background-image: url(\"resources/images/background.png\"); background-repeat: no-repeat; height: 500px;">
+  <div style="background-image: url(\"resources/images/background.png\"); background-repeat: no-repeat; height: 500px; width: 315px; position: absolute;">
   customHeader("Ken")
   customTabSet([("Reminder", "", remindMe),
                 ("Life", "", life),

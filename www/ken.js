@@ -2,59 +2,59 @@ mobl.provides('ken');
 mobl.provides('controls');
 
 ken.root = function(callback, screenCallback) {
-  var root25632 = $("<div>");
+  var root27073 = $("<div>");
   var subs__ = new mobl.CompSubscription();
   
-  var node12086 = $("<div>");
-  node12086.attr('style', "background-image: url(\"resources/images/background.png\"); background-repeat: no-repeat; height: 500px;");
+  var node12640 = $("<div>");
+  node12640.attr('style', "background-image: url(\"resources/images/background.png\"); background-repeat: no-repeat; height: 500px; width: 315px; position: absolute;");
   
   
-  var tmp30085 = mobl.ref("Ken");
+  var tmp32216 = mobl.ref("Ken");
   
   
-  var tmp30086 = mobl.ref(null);
+  var tmp32217 = mobl.ref(null);
   
-  var nodes17246 = $("<span>");
-  node12086.append(nodes17246);
-  subs__.addSub((ui.customHeader)(tmp30085, tmp30086, function(_, callback) {
-    var root25633 = $("<span>");
+  var nodes18271 = $("<span>");
+  node12640.append(nodes18271);
+  subs__.addSub((ui.customHeader)(tmp32216, tmp32217, function(_, callback) {
+    var root27074 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root25633); return subs__;
+    callback(root27074); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes17246;
-    nodes17246 = node.contents();
-    oldNodes.replaceWith(nodes17246);
+    var oldNodes = nodes18271;
+    nodes18271 = node.contents();
+    oldNodes.replaceWith(nodes18271);
   }));
   
-  var tmp30087 = mobl.ref([new mobl.Tuple("Reminder", "", controls.remindme.remindMe), new mobl.Tuple("Life", "", controls.life.life), new mobl.Tuple("Moodometer", "", controls.moodometer.moodoMeter), new mobl.Tuple("Meditate", "", controls.meditate.meditate)]);
+  var tmp32218 = mobl.ref([new mobl.Tuple("Reminder", "", controls.remindme.remindMe), new mobl.Tuple("Life", "", controls.life.life), new mobl.Tuple("Moodometer", "", controls.moodometer.moodoMeter), new mobl.Tuple("Meditate", "", controls.meditate.meditate)]);
   subs__.addSub(mobl.ref(controls.remindme.remindMe).addEventListener('change', function() {
-    tmp30087.set([new mobl.Tuple("Reminder", "", controls.remindme.remindMe), new mobl.Tuple("Life", "", controls.life.life), new mobl.Tuple("Moodometer", "", controls.moodometer.moodoMeter), new mobl.Tuple("Meditate", "", controls.meditate.meditate)]);
+    tmp32218.set([new mobl.Tuple("Reminder", "", controls.remindme.remindMe), new mobl.Tuple("Life", "", controls.life.life), new mobl.Tuple("Moodometer", "", controls.moodometer.moodoMeter), new mobl.Tuple("Meditate", "", controls.meditate.meditate)]);
   }));
   subs__.addSub(mobl.ref(controls.life.life).addEventListener('change', function() {
-    tmp30087.set([new mobl.Tuple("Reminder", "", controls.remindme.remindMe), new mobl.Tuple("Life", "", controls.life.life), new mobl.Tuple("Moodometer", "", controls.moodometer.moodoMeter), new mobl.Tuple("Meditate", "", controls.meditate.meditate)]);
+    tmp32218.set([new mobl.Tuple("Reminder", "", controls.remindme.remindMe), new mobl.Tuple("Life", "", controls.life.life), new mobl.Tuple("Moodometer", "", controls.moodometer.moodoMeter), new mobl.Tuple("Meditate", "", controls.meditate.meditate)]);
   }));
   subs__.addSub(mobl.ref(controls.moodometer.moodoMeter).addEventListener('change', function() {
-    tmp30087.set([new mobl.Tuple("Reminder", "", controls.remindme.remindMe), new mobl.Tuple("Life", "", controls.life.life), new mobl.Tuple("Moodometer", "", controls.moodometer.moodoMeter), new mobl.Tuple("Meditate", "", controls.meditate.meditate)]);
+    tmp32218.set([new mobl.Tuple("Reminder", "", controls.remindme.remindMe), new mobl.Tuple("Life", "", controls.life.life), new mobl.Tuple("Moodometer", "", controls.moodometer.moodoMeter), new mobl.Tuple("Meditate", "", controls.meditate.meditate)]);
   }));
   subs__.addSub(mobl.ref(controls.meditate.meditate).addEventListener('change', function() {
-    tmp30087.set([new mobl.Tuple("Reminder", "", controls.remindme.remindMe), new mobl.Tuple("Life", "", controls.life.life), new mobl.Tuple("Moodometer", "", controls.moodometer.moodoMeter), new mobl.Tuple("Meditate", "", controls.meditate.meditate)]);
+    tmp32218.set([new mobl.Tuple("Reminder", "", controls.remindme.remindMe), new mobl.Tuple("Life", "", controls.life.life), new mobl.Tuple("Moodometer", "", controls.moodometer.moodoMeter), new mobl.Tuple("Meditate", "", controls.meditate.meditate)]);
   }));
   
-  var nodes17247 = $("<span>");
-  node12086.append(nodes17247);
-  subs__.addSub((ui.customTabSet)(tmp30087, function(_, callback) {
-    var root25634 = $("<span>");
+  var nodes18272 = $("<span>");
+  node12640.append(nodes18272);
+  subs__.addSub((ui.customTabSet)(tmp32218, function(_, callback) {
+    var root27075 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root25634); return subs__;
+    callback(root27075); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes17247;
-    nodes17247 = node.contents();
-    oldNodes.replaceWith(nodes17247);
+    var oldNodes = nodes18272;
+    nodes18272 = node.contents();
+    oldNodes.replaceWith(nodes18272);
   }));
-  root25632.append(node12086);
-  callback(root25632); return subs__;
+  root27073.append(node12640);
+  callback(root27073); return subs__;
   
   
   
