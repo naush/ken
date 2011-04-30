@@ -594,37 +594,19 @@
   background-repeat: no-repeat;
 }
 .ui__customTabbarStyle .ui__customActiveTabStyle {
-  width: auto;
-  display: inline-block;
-  margin-top: 10px;
-  margin-bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0.3em;
-  background-image: url("resources/images/background.png");
+  
 }
 .ui__customTabbarStyle .ui__customActiveTabButtonStyle {
-  top: 2px;
-  color: white;
-  padding-right: 5px;
-  padding-left: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 0px;
   line-height: 39px;
   height: 39px;
 }
 .ui__customTabbarStyle .ui__customInActiveTabButtonStyle {
-  color: white;
-  padding-right: 5px;
-  padding-left: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 0px;
   line-height: 39px;
   height: 39px;
 }
@@ -633,9 +615,10 @@
   font-size: 8px;
   z-index: 3;
   width: 100%;
-  margin-top: 0.3em;
+  margin-top: 0em;
   margin-bottom: 0;
   margin-left: 20px;
+  height: 48px;
 }
 .ui__title {
   padding: 10px;
@@ -661,4 +644,13 @@
 }
 .ui__ranger {
   width: 250px;
+}
+.ui__action {
+  margin-left: 109px;
+}
+.ui__main {
+  height: 280px;
+}
+.ui__navigator {
+  margin-left: 30px;
 }

@@ -128,66 +128,29 @@ control customItem(itemStyle : Style = customItemStyle, pushedStyle : Style = cu
 }
 
 style customTabbarStyle customActiveTabStyle {
-  width: auto;
-  display: inline-block;
-  margin-top: 10px;
-  margin-bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-  // border: 1px solid #444;
-  margin-top: 0.3em;
-  background-image: url("resources/images/background.png");
+  // width: auto;
+  // display: inline-block;
+  // margin-top: 10px;
+  // margin-bottom: 0;
+  // margin-left: auto;
+  // margin-right: auto;
+  // margin-top: 0.3em;
 }
 
 style customTabbarStyle customActiveTabButtonStyle {
-  // background-color: $baseColor;
-  // background-image: url("resources/images/life_on.png");
-  // color: black;
-  // color: #fefefe;
-  // position: relative;
-  top: 2px;
-  color: white;
-  padding-right: 5px;
-  padding-left: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 0px;
   line-height: 39px;
   height: 39px;
-  // border-top: 1px solid #444;
-  // border-right: 1px solid #444;
-  // border-left: 1px solid #444;
-  // -webkit-border-top-right-radius: 8px;
-  // -moz-border-radius-topright: 8px;
-  // -webkit-border-top-left-radius: 8px;
-  // -moz-border-radius-topleft: 8px;
-  // position: absolute;
-  // top: 450px;
 }
 
 style customTabbarStyle customInActiveTabButtonStyle {
-  // background-image: url("resources/images/life_off.png");
-  // color: black;
-  // background-color: white;
-  color: white;
-  padding-right: 5px;
-  padding-left: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 0px;
   line-height: 39px;
   height: 39px;
-  // border-top: 1px solid #444;
-  // border-right: 1px solid #444;
-  // border-left: 1px solid #444;
-  // -webkit-border-top-right-radius: 8px;
-  // -moz-border-radius-topright: 8px;
-  // -webkit-border-top-left-radius: 8px;
-  // -moz-border-radius-topleft: 8px;
 }
 
 style customTabbarStyle {
@@ -195,10 +158,10 @@ style customTabbarStyle {
   font-size: 8px;
   z-index: 3;
   width: 100%;
-  // border-bottom: 1px solid #444;
-  margin-top: 0.3em;
+  margin-top: 0em;
   margin-bottom: 0;
   margin-left: 20px;
+  height: 48px;
 }
 
 control customTabSet(tabs : [(String, String, Control)]) {
@@ -206,13 +169,13 @@ control customTabSet(tabs : [(String, String, Control)]) {
   var s = ""
 
   <div style="height: 340px; margin-left: 25px; margin-top: 10px">
-  list((tabName, tabIcon, tabControl) in tabs) {
-    block(activeTabName == tabName ? customActiveTabStyle : inActiveTabStyle) {
-      screenContext {
-        tabControl()
-      }
-    }
-  }
+	  list((tabName, tabIcon, tabControl) in tabs) {
+	    block(activeTabName == tabName ? customActiveTabStyle : inActiveTabStyle) {
+	      screenContext {
+	        tabControl()
+	      }
+	    }
+	  }
   </div>
 
   block(customTabbarStyle) {
@@ -267,4 +230,16 @@ style center {
 
 style ranger {
   width: 250px;
+}
+
+style action {
+  margin-left: 109px;
+}
+
+style main {
+  height: 280px;
+}
+
+style navigator {
+  margin-left: 30px;
 }

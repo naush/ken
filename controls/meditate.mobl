@@ -86,18 +86,22 @@ control meditate() {
   var keywords = lifeEvent ? lifeEvent.keywords : ""
   var podcasts = async(fetchPodcasts(keywords.toString()))
 
-  whenLoaded(podcasts) {
-    customMasterDetail(podcasts, podcastItem, podcastDetail)
+  block(main) {
+	  whenLoaded(podcasts) {
+	    customMasterDetail(podcasts, podcastItem, podcastDetail)
+	  }
   }
 
-  button("Refresh", onclick={
-    lifeEvent = selectLifeEvent();
-    if (event) {
-      startLoading();
-      podcasts = fetchPodcasts(lifeEvent.keywords.toString());
-      endLoading();
-    }
-  })
+  block(action) {
+    image("resources/images/save.png", onclick={
+	    lifeEvent = selectLifeEvent();
+	    if (event) {
+	      startLoading();
+	      podcasts = fetchPodcasts(lifeEvent.keywords.toString());
+	      endLoading();
+	    }
+    })
+  }
 }
 
 function join(front : Collection<Podcast>, back : Collection<Podcast>) : Collection<Podcast> {

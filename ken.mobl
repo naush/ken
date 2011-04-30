@@ -19,6 +19,30 @@ load resources/images/moodometer_on_text.png
 load resources/images/moodometer_off_text.png
 load resources/images/reminder_on_text.png
 load resources/images/reminder_off_text.png
+load resources/images/save.png
+load resources/images/back.png
+load resources/images/next.png
+load resources/images/view_stressgraph_on.png
+load resources/images/view_stressgraph_off.png
+
+var nextTabs = ["Reminder", "Life", "Moodometer", "Meditate", "Reminder"];
+var prevTabs = ["Reminder", "Meditate", "Moodometer", "Life", "Reminder"];
+
+function navigateTab(currentTab : String, tabs : [String]) : String {
+  foreach (index in range(0, tabs.length)) {
+    if (tabs.get(index) == currentTab) {
+      return tabs.get(index + 1);
+    }
+  }
+}
+
+function next(currentTab : String) : String {
+  return navigateTab(currentTab, nextTabs);
+}
+
+function prev(currentTab : String) : String {
+  return navigateTab(currentTab, prevTabs);
+}
 
 screen root() {
   <div style="background-image: url(\"resources/images/background.png\"); background-repeat: no-repeat; height: 500px; width: 315px; position: absolute;">
@@ -32,7 +56,7 @@ screen root() {
   var activeTabName : String = "Reminder"
   var s = ""
 
-  <div style="height: 332px; margin-left: 25px; margin-top: 10px">
+  <div style="height: 292px; margin-left: 25px; margin-top: 10px">
   block(activeTabName == "Reminder" ? customActiveTabStyle : inActiveTabStyle) {
     screenContext {
       remindMe()
@@ -58,22 +82,45 @@ screen root() {
   }
   </div>
 
+  block(navigator) {
+    customItem {
+      image("resources/images/back.png", onclick={
+        activeTabName = prev(activeTabName);
+      })
+      <span style="margin-left: 5px; margin-right: 5px;">
+      image("resources/images/view_stressgraph_off.png", onclick={
+      })
+      </span>
+      image("resources/images/next.png", onclick={
+        activeTabName = next(activeTabName);
+      })
+    }
+  }
+
   block(customTabbarStyle) {
+    <span style="position: absolute; margin-left: 0px; margin-top: 2px; vertical-align-bottom;">
     span(onclick={ activeTabName = "Reminder"; }, cssClass=activeTabName == "Reminder" ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
       image(activeTabName == "Reminder" ? "resources/images/reminder_on_text.png" : "resources/images/reminder_off_text.png")
     }
+    </span>
 
+    <span style="position: absolute; margin-left: 70px;">
     span(onclick={ activeTabName = "Life"; }, cssClass=activeTabName == "Life" ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
     	image(activeTabName == "Life" ? "resources/images/life_on.png" : "resources/images/life_off.png")
     }
+    </span>
 
+    <span style="position: absolute; margin-left: 120px; margin-top: 1px;">
     span(onclick={ activeTabName = "Moodometer"; }, cssClass=activeTabName == "Moodometer" ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
       image(activeTabName == "Moodometer" ? "resources/images/moodometer_on_text.png" : "resources/images/moodometer_off_text.png")
     }
+    </span>
 
+    <span style="position: absolute; margin-left: 200px; margin-top: -2px;">
     span(onclick={ activeTabName = "Meditate"; }, cssClass=activeTabName == "Meditate" ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
       image(activeTabName == "Meditate" ? "resources/images/meditate_on_text.png" : "resources/images/meditate_off_text.png")
     }
+    </span>
   }
 
   </div>

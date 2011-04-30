@@ -10,7 +10,7 @@ screen moodoScreen(mood : Mood) {
 }
 
 control moodoForm (mood : Mood) {
-  group {
+  block(main) {
     customItem {
       <div style="margin:0 0 10px 0; text-align: center; width: 250px">
         label("Not at all", style=left)
@@ -35,7 +35,9 @@ control moodoForm (mood : Mood) {
       </div>
       rangeField(mood.awake, min=0, max=100, start=50)
     }
-    button("Save", onclick={
+  }
+  block(action) {
+    image("resources/images/save.png", onclick={
       if (mood.happy.length == 0
         || mood.relaxed.length == 0
         || mood.awake.length == 0) {
@@ -43,7 +45,6 @@ control moodoForm (mood : Mood) {
       } else {
         notify("Your mood is saved successfully!");
         add(mood);
-        // mood = Mood(date=now());
         moodoScreen(Mood(date=now()));
       }
     })

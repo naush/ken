@@ -8,60 +8,60 @@ models.podcasts.fetchPodcasts = function(keywords, callback) {
   var result__ = new persistence.LocalQueryCollection([]);
   var podcasts = result__;
   var result__ = keywords.split(",", 1000);
-  keywords.split(",", 1000).list(function(coll6636) {
-    coll6636 = coll6636.reverse();
-    function processOne960() {
+  keywords.split(",", 1000).list(function(coll12) {
+    coll12 = coll12.reverse();
+    function processOne0() {
       var keyword;
-      keyword = coll6636.pop();
+      keyword = coll12.pop();
       mobl.yql.YQL.query("select * from json where url='http://gpodder.net/search.json?q=" + keyword + "'", function(result__) {
-        var tmp46635 = result__;
-        var result__ = tmp46635;
+        var tmp0 = result__;
+        var result__ = tmp0;
         var resource = result__;
         var result__ = resource && resource.json && resource.json.json;
         if(result__) {
           var result__ = resource.json.json;
-          resource.json.json.list(function(coll6637) {
-            coll6637 = coll6637.reverse();
-            function processOne961() {
+          resource.json.json.list(function(coll13) {
+            coll13 = coll13.reverse();
+            function processOne1() {
               var podcast;
-              podcast = coll6637.pop();
+              podcast = coll13.pop();
               var result__ = podcast.title != "" && podcast.url != "";
               if(result__) {
                 var result__ = podcasts.add(new models.podcasts.Podcast({'website': podcast.website, 'mygpo_link': podcast.mygpo_link, 'description': podcast.description, 'subs': podcast.subscribers, 'title': podcast.title, 'url': podcast.url, 'subscribers_last_week': podcast.subscribers_last_week, 'logo_url': podcast.logo_url}));
                 
-                if(coll6637.length > 0) processOne961(); else rest961();
+                if(coll13.length > 0) processOne1(); else rest1();
                 
               } else {
                 {
                   
-                  if(coll6637.length > 0) processOne961(); else rest961();
+                  if(coll13.length > 0) processOne1(); else rest1();
                   
                 }
               }
             }
-            function rest961() {
+            function rest1() {
               
-              if(coll6636.length > 0) processOne960(); else rest960();
+              if(coll12.length > 0) processOne0(); else rest0();
               
             }
-            if(coll6637.length > 0) processOne961(); else rest961();
+            if(coll13.length > 0) processOne1(); else rest1();
           });
           
         } else {
           {
             
-            if(coll6636.length > 0) processOne960(); else rest960();
+            if(coll12.length > 0) processOne0(); else rest0();
             
           }
         }
       });
     }
-    function rest960() {
+    function rest0() {
       podcasts.count(function(result__) {
-        var tmp46637 = result__;
-        var result__ = tmp46637 == 0;
-        var tmp46636 = result__;
-        var result__ = tmp46636;
+        var tmp2 = result__;
+        var result__ = tmp2 == 0;
+        var tmp1 = result__;
+        var result__ = tmp1;
         if(result__) {
           {
             var result__ = podcasts.add(new models.podcasts.Podcast({'website': "http://www.anxietyslayer.com", 'mygpo_link': "", 'description': "Tips and tools to help you conquer stress and anxiety. Featuring relaxation, meditation and breathing techniques to help you relax and feel calm.", 'subs': "", 'title': "Anxiety Slayer", 'url': "http://anxietyslayer.podbean.com/feed/", 'subscribers_last_week': "", 'logo_url': "http://anxietyslayer.podbean.com/mf/web/i67iwi/slayer-podcast-url.jpg"}));
@@ -83,7 +83,7 @@ models.podcasts.fetchPodcasts = function(keywords, callback) {
         }
       });
     }
-    if(coll6636.length > 0) processOne960(); else rest960();
+    if(coll12.length > 0) processOne0(); else rest0();
   });
   
 };
@@ -103,21 +103,21 @@ models.podcasts.Podcast = persistence.define('models__podcasts__Podcast', {
 models.podcasts.Podcast.prototype.fetchEpisodes = function(callback) {
                                     var __this = this;
                                     mobl.yql.YQL.query("select * from feednormalizer where url='" + __this.url + "' and output='atom_1.0'", function(result__) {
-                                      var tmp46640 = result__;
-                                      var result__ = tmp46640.feed;
-                                      var tmp46639 = result__;
-                                      var result__ = tmp46639.entry;
-                                      var tmp46638 = result__;
-                                      var result__ = tmp46638;
+                                      var tmp5 = result__;
+                                      var result__ = tmp5.feed;
+                                      var tmp4 = result__;
+                                      var result__ = tmp4.entry;
+                                      var tmp3 = result__;
+                                      var result__ = tmp3;
                                       var results = result__;
                                       var result__ = new persistence.LocalQueryCollection([]);
                                       var episodes = result__;
                                       var result__ = results;
-                                      results.list(function(coll6638) {
-                                        coll6638 = coll6638.reverse();
-                                        function processOne962() {
+                                      results.list(function(coll14) {
+                                        coll14 = coll14.reverse();
+                                        function processOne2() {
                                           var result;
-                                          result = coll6638.pop();
+                                          result = coll14.pop();
                                           var result__ = new models.episodes.Episode({'title': result.title});
                                           var episode = result__;
                                           var result__ = result.link.href;
@@ -126,7 +126,7 @@ models.podcasts.Podcast.prototype.fetchEpisodes = function(callback) {
                                             episode.downloadUrl = result__;
                                             var result__ = episodes.add(episode);
                                             
-                                            if(coll6638.length > 0) processOne962(); else rest962();
+                                            if(coll14.length > 0) processOne2(); else rest2();
                                             
                                           } else {
                                             var result__ = result.link.length;
@@ -135,25 +135,25 @@ models.podcasts.Podcast.prototype.fetchEpisodes = function(callback) {
                                               episode.downloadUrl = result__;
                                               var result__ = episodes.add(episode);
                                               
-                                              if(coll6638.length > 0) processOne962(); else rest962();
+                                              if(coll14.length > 0) processOne2(); else rest2();
                                               
                                             } else {
                                               {
                                                 var result__ = episodes.add(episode);
                                                 
-                                                if(coll6638.length > 0) processOne962(); else rest962();
+                                                if(coll14.length > 0) processOne2(); else rest2();
                                                 
                                               }
                                             }
                                           }
                                         }
-                                        function rest962() {
+                                        function rest2() {
                                           var result__ = episodes.limit(10);
                                           if(callback && callback.apply) callback(result__);
                                           return;
                                           if(callback && callback.apply) callback(); return;
                                         }
-                                        if(coll6638.length > 0) processOne962(); else rest962();
+                                        if(coll14.length > 0) processOne2(); else rest2();
                                       });
                                       
                                     });

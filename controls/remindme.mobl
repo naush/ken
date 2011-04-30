@@ -17,7 +17,7 @@ function loadPresets() : [(Bool, String, Num)] {
 }
 
 control reminderForm(presets : [(Bool, String, Num)]) {
-  group {
+  block(main) {
     list((check, name, stress) in presets) {
       customItem {
         checkBox(check, name, onchange={
@@ -31,6 +31,10 @@ control reminderForm(presets : [(Bool, String, Num)]) {
       }
     }
   }
+  block(action) {
+    image("resources/images/save.png", onclick={
+    })
+	}
 }
 
 control remindMe() {
