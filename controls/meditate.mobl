@@ -91,16 +91,22 @@ control meditate() {
 	    customMasterDetail(podcasts, podcastItem, podcastDetail)
 	  }
   }
-
+  var saveButtonImage = "resources/images/save.png"
   block(action) {
-    image("resources/images/save.png", onclick={
-	    lifeEvent = selectLifeEvent();
-	    if (event) {
-	      startLoading();
-	      podcasts = fetchPodcasts(lifeEvent.keywords.toString());
-	      endLoading();
-	    }
+    <span onmousedown={
+      saveButtonImage = "resources/images/save_pressed.png";
+    } onmouseup={
+      saveButtonImage = "resources/images/save.png";
+    }>
+    image(saveButtonImage, onclick={
+      lifeEvent = selectLifeEvent();
+      if (event) {
+        startLoading();
+        podcasts = fetchPodcasts(lifeEvent.keywords.toString());
+        endLoading();
+      }
     })
+    </span>
   }
 }
 

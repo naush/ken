@@ -36,18 +36,25 @@ control moodoForm (mood : Mood) {
       rangeField(mood.awake, min=0, max=100, start=50)
     }
   }
+  var saveButtonImage = "resources/images/save.png"
   block(action) {
-    image("resources/images/save.png", onclick={
+    <span onmousedown={
+      saveButtonImage = "resources/images/save_pressed.png";
+    } onmouseup={
+      saveButtonImage = "resources/images/save.png";
+    }>
+    image(saveButtonImage, onclick={
       if (mood.happy.length == 0
         || mood.relaxed.length == 0
         || mood.awake.length == 0) {
-        notify("Did you forget to rate your mood?");
+        // notify("Did you forget to rate your mood?");
       } else {
-        notify("Your mood is saved successfully!");
+        // notify("Your mood is saved successfully!");
         add(mood);
         moodoScreen(Mood(date=now()));
       }
     })
+    </span>
   }
 }
 

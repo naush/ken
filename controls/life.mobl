@@ -44,13 +44,20 @@ control lifeForm(presets : [(Bool, String, Num, [String])]) {
       }
     }
   }
+  var saveButtonImage = "resources/images/save.png"
   block(action) {
-    image("resources/images/save.png", onclick={
+    <span onmousedown={
+      saveButtonImage = "resources/images/save_pressed.png";
+    } onmouseup={
+      saveButtonImage = "resources/images/save.png";
+    }>
+    image(saveButtonImage, onclick={
       foreach (event in eventsToSave) {
         add(event);
       }
       eventsToSave.length = 0;
     })
+    </span
   }
 }
 

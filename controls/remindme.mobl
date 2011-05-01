@@ -31,9 +31,17 @@ control reminderForm(presets : [(Bool, String, Num)]) {
       }
     }
   }
+
+  var saveButtonImage = "resources/images/save.png"
   block(action) {
-    image("resources/images/save.png", onclick={
+    <span onmousedown={
+      saveButtonImage = "resources/images/save_pressed.png";
+    } onmouseup={
+      saveButtonImage = "resources/images/save.png";
+    }>
+    image(saveButtonImage, onclick={
     })
+    </span>
 	}
 }
 
