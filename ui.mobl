@@ -149,8 +149,9 @@ style customTabbarStyle customInActiveTabButtonStyle {
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 0px;
-  line-height: 39px;
-  height: 39px;
+  line-height: 48px;
+  height: 48px;
+  vertical-align: bottom;
 }
 
 style customTabbarStyle {

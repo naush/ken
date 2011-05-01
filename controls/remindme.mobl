@@ -53,6 +53,7 @@ control reminderForm(presets : [(Bool, String, Num)]) {
       saveButtonImage = "resources/images/save.png";
     }>
     image(saveButtonImage, onclick={
+      $("#flash").show();
       foreach (reminder in remindersToSave) {
         add(reminder);
       }

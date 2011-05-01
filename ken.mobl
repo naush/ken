@@ -29,6 +29,7 @@ load resources/images/next_pressed.png
 load resources/images/view_stressgraph_on.png
 load resources/images/view_stressgraph_off.png
 load resources/images/view_stressgraph_pressed.png
+load resources/images/transition_screen.png
 
 var nextTabs = ["Reminder", "Life", "Moodometer", "Meditate", "Reminder"];
 var prevTabs = ["Reminder", "Meditate", "Moodometer", "Life", "Reminder"];
@@ -51,6 +52,10 @@ function prev(currentTab : String) : String {
 
 screen root() {
   block(root) {
+	  <div id="flash" style="display:none; float:left; clear:both; position:absolute; margin-left:66px; margin-top:193px;">
+	    image("resources/images/transition_screen.png")
+	  </div>
+
 	  customHeader("Ken")
 	
 	  // customTabSet([("Reminder", "", remindMe),
