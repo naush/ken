@@ -16,18 +16,31 @@ function loadPresets() : [(Bool, String, Num)] {
   return presets;
 }
 
+var remindersToSave : [Reminder] = Array<Reminder>();
+
 control reminderForm(presets : [(Bool, String, Num)]) {
   block(main) {
     list((check, name, stress) in presets) {
+      var reminder_name = name.replace(/\s/g, "__")
       customItem {
+        <span id="item__" + reminder_name>
         checkBox(check, name, onchange={
           if (check) {
-            add(Reminder(name=name, stress=stress, date=now()));
+            $("#item__" + reminder_name).css("font-weight", "bold");
+            var reminder = Reminder(name=name, stress=stress, date=now());
+            remindersToSave.push(reminder);
           } else {
-          	var itemToRemove = Reminder.all().filter("name", "=", name).order("date", false).one();
-          	remove(itemToRemove);
+            $("#item__" + reminder_name).css("font-weight", "normal");
+            var reminderToRemove : Reminder = null;
+            foreach (reminder in remindersToSave) {
+              if (reminder.name == reminder_name) {
+                reminderToRemove = reminder;
+              }
+            }
+            remindersToSave.remove(reminderToRemove);
           }
         })
+        </span>
       }
     }
   }
@@ -40,6 +53,10 @@ control reminderForm(presets : [(Bool, String, Num)]) {
       saveButtonImage = "resources/images/save.png";
     }>
     image(saveButtonImage, onclick={
+      foreach (reminder in remindersToSave) {
+        add(reminder);
+      }
+      remindersToSave.length = 0;
     })
     </span>
 	}

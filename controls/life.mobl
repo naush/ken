@@ -26,10 +26,11 @@ control lifeForm(presets : [(Bool, String, Num, [String])]) {
       	<span id="item__" + event_name>
         checkBox(check, name, onchange={
           if (check) {
+            $("#item__" + event_name).css("font-weight", "bold");
             var lifeEvent = LifeEvent(name=event_name, stress=stress, date=now(), keywords=keywords);
             eventsToSave.push(lifeEvent);
-            $("#item__" + event_name).css("font-weight", "bold");
           } else {
+            $("#item__" + event_name).css("font-weight", "normal");
           	var eventToRemove : LifeEvent = null;
           	foreach (event in eventsToSave) {
           		if (event.name == event_name) {
@@ -37,7 +38,6 @@ control lifeForm(presets : [(Bool, String, Num, [String])]) {
           		}
           	}
           	eventsToSave.remove(eventToRemove);
-            $("#item__" + event_name).css("font-weight", "normal");
           }
         })
         </span>
@@ -57,7 +57,7 @@ control lifeForm(presets : [(Bool, String, Num, [String])]) {
       }
       eventsToSave.length = 0;
     })
-    </span
+    </span>
   }
 }
 
