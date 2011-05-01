@@ -11,6 +11,7 @@ load resources/js/jquery-ui-1.8.9.custom.min.js
 load resources/css/ui-lightness/jquery-ui-1.8.9.custom.css
 load resources/js/jquery.tools.min.js
 load resources/images/background.png
+load resources/images/background_test2.png
 load resources/images/life_on.png
 load resources/images/life_off.png
 load resources/images/meditate_on_text.png
@@ -45,7 +46,7 @@ function prev(currentTab : String) : String {
 }
 
 screen root() {
-  <div style="background-image: url(\"resources/images/background.png\"); background-repeat: no-repeat; height: 500px; width: 315px; position: absolute;">
+  <div style="background-image: url(\"resources/images/background_test2.png\"); background-repeat: no-repeat; height: 500px; width: 315px; position: absolute;">
   customHeader("Ken")
 
   // customTabSet([("Reminder", "", remindMe),
@@ -56,7 +57,7 @@ screen root() {
   var activeTabName : String = "Reminder"
   var s = ""
 
-  <div style="height: 292px; margin-left: 25px; margin-top: 10px">
+  <div style="height: 284px; margin-left: 25px; margin-top: 10px">
   block(activeTabName == "Reminder" ? customActiveTabStyle : inActiveTabStyle) {
     screenContext {
       remindMe()
