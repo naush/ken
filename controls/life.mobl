@@ -52,6 +52,7 @@ control lifeForm(presets : [(Bool, String, Num, [String])]) {
       saveButtonImage = "resources/images/save.png";
     }>
     image(saveButtonImage, onclick={
+      $("#flash__Life").show();
       foreach (event in eventsToSave) {
         add(event);
       }

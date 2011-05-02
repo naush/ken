@@ -99,6 +99,7 @@ control meditate() {
       saveButtonImage = "resources/images/save.png";
     }>
     image(saveButtonImage, onclick={
+      // $("#flash__Meditate").show();
       lifeEvent = selectLifeEvent();
       if (event) {
         startLoading();

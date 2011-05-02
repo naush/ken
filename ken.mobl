@@ -6,12 +6,14 @@ import controls::remindme
 import controls::moodometer
 import controls::life
 import controls::meditate
+import models::moods
 
 load resources/js/jquery-ui-1.8.9.custom.min.js
 load resources/css/ui-lightness/jquery-ui-1.8.9.custom.css
 load resources/js/jquery.tools.min.js
 load resources/images/background.png
 load resources/images/background_test2.png
+load resources/images/background_lastscreen.png
 load resources/images/life_on.png
 load resources/images/life_off.png
 load resources/images/meditate_on_text.png
@@ -30,6 +32,7 @@ load resources/images/view_stressgraph_on.png
 load resources/images/view_stressgraph_off.png
 load resources/images/view_stressgraph_pressed.png
 load resources/images/transition_screen.png
+load resources/images/transition_screen_pressed.png
 
 var nextTabs = ["Reminder", "Life", "Moodometer", "Meditate", "Reminder"];
 var prevTabs = ["Reminder", "Meditate", "Moodometer", "Life", "Reminder"];
@@ -52,10 +55,6 @@ function prev(currentTab : String) : String {
 
 screen root() {
   block(root) {
-	  <div id="flash" style="display:none; float:left; clear:both; position:absolute; margin-left:66px; margin-top:193px;">
-	    image("resources/images/transition_screen.png")
-	  </div>
-
 	  customHeader("Ken")
 	
 	  // customTabSet([("Reminder", "", remindMe),
@@ -63,24 +62,89 @@ screen root() {
 	  //               ("Moodometer", "", moodoMeter),
 	  //               ("Meditate", "", meditate)])
 	
+    var stressGraphImage = "resources/images/view_stressgraph_off.png"
+    var stressGraphImageOn = "resources/images/view_stressgraph_on.png"
+    var backButtonImage = "resources/images/back.png"
+    var nextButtonImage = "resources/images/next.png"
+    var transitionImage = "resources/images/transition_screen.png"
+    var moods = ""
+
 	  var activeTabName : String = "Reminder"
+	  var lastTabName : String = ""
 	  var s = ""
 	
 	  <div style="height: 284px; margin-left: 25px; margin-top: 10px">
+	  
+    block(activeTabName == "StressGraph" ? customActiveTabStyle : inActiveTabStyle) {
+      screenContext {
+        image("http://chart.apis.google.com/chart?chf=bg,s,67676700&chxl=0:|Mon|Tue|Wed|Thu|Fri|Sat|Sun|1:|Low|Med|High&chxp=0,0.2,1.1,2,2.9,3.8,4.7,5.6|1,0.5,1.5,2.5&chxr=0,0,6|1,0,3&chxs=0,676767,11.5,0,_,676767|1,676767,11.5,0,_,676767&chxt=t,y&chs=274x269&cht=lxy&chco=DDF8CC&chds=0,6,0,100&chd=t:0,1,2,3,4,5,6|" + moods + "&chdlp=t&chls=1&chma=0,25,45,15&chm=r,3399CCCE,0,0,0.333|r,49188FCE,0,0.333,0.666|r,FF0000CC,0,0.666,1")
+      }
+    }
+
 	  block(activeTabName == "Reminder" ? customActiveTabStyle : inActiveTabStyle) {
 	    screenContext {
+        <div id="flash__Reminder" class=flash>
+          image("resources/images/background_lastscreen.png", onclick={
+            $("#flash__Reminder").hide();
+          }) 
+
+          <span class=transition onmousedown={
+            transitionImage = "resources/images/transition_screen_pressed.png";
+          } onmouseup={
+            transitionImage = "resources/images/transition_screen.png";
+          }>
+            image(transitionImage)
+          </span>
+
+          <span style="position: absolute; color: white; margin-left: -221px; margin-top: 202px;">
+            "Reminders saved"
+          </span>
+        </div>
 	      remindMe()
 	    }
 	  }
 	
 	  block(activeTabName == "Life" ? customActiveTabStyle : inActiveTabStyle) {
 	    screenContext {
+        <div id="flash__Life" class=flash>
+          image("resources/images/background_lastscreen.png", onclick={
+            $("#flash__Life").hide();
+          })
+          <span class=transition onmousedown={
+            transitionImage = "resources/images/transition_screen_pressed.png";
+          } onmouseup={
+            transitionImage = "resources/images/transition_screen.png";
+          }>
+            image(transitionImage)
+          </span>
+
+          <span style="position: absolute; color: white; margin-left: -210px; margin-top: 202px;">
+            "Events saved"
+          </span>
+        </div>
 	      life()
 	    }
 	  }
 	
 	  block(activeTabName == "Moodometer" ? customActiveTabStyle : inActiveTabStyle) {
 	    screenContext {
+        <div id="flash__Moodometer" class=flash>
+          image("resources/images/background_lastscreen.png", onclick={
+            $("#sliders").show();
+            $("#flash__Moodometer").hide();
+          })
+          <span class=transition onmousedown={
+            transitionImage = "resources/images/transition_screen_pressed.png";
+          } onmouseup={
+            transitionImage = "resources/images/transition_screen.png";
+          }>
+            image(transitionImage)
+          </span>
+
+          <span style="position: absolute; color: white; margin-left: -203px; margin-top: 202px;">
+            "Mood saved"
+          </span>
+        </div>
 	      moodoMeter()
 	    }
 	  }
@@ -92,11 +156,25 @@ screen root() {
 	  }
 	  </div>
 	  
-	  var stressGraphImage = "resources/images/view_stressgraph_off.png"
-	  var backButtonImage = "resources/images/back.png"
-	  var nextButtonImage = "resources/images/next.png"
-
 	  block(navigator) {
+
+	    <span id="placeholder" style="display: none;">
+	      customItem {
+          <span style="margin-left: 57px;" onmousedown={
+	          stressGraphImageOn = "resources/images/view_stressgraph_pressed.png";
+	        } onmouseout={
+            stressGraphImageOn = "resources/images/view_stressgraph_on.png";
+          }>
+	          image(stressGraphImageOn, onclick={
+              $("#placeholder").hide();
+              $("#navigators").show();
+              activeTabName = lastTabName;
+            })
+	        </span>
+	      }
+	    </span>
+
+	    <span id="navigators">
 	    customItem {
 	      <span onmousedown={
 	        backButtonImage = "resources/images/back_pressed.png";
@@ -104,6 +182,8 @@ screen root() {
           backButtonImage = "resources/images/back.png";
 	      }>
 	      image(backButtonImage, onclick={
+          $("#flash__" + activeTabName).hide();
+          $("#sliders").show();
 	        activeTabName = prev(activeTabName);
 	      })
 	      </span>
@@ -116,7 +196,18 @@ screen root() {
 	      } onmouseup={
           stressGraphImage = "resources/images/view_stressgraph_on.png";
 	      }>
-	      image(stressGraphImage)
+	      image(stressGraphImage, onclick={
+          $("#navigators").hide();
+          $("#placeholder").show();
+          lastTabName = activeTabName;
+	        activeTabName = "StressGraph";
+	        stressGraphImage = "resources/images/view_stressgraph_on.png";
+	        var data = "";
+          foreach (mood in Mood.all().order("date", false).limit(7).reverse()) {
+            data = data + mood.happy + ",";
+          }
+          moods = data.substring(0, data.length - 1 < 0 ? 0 : data.length - 1);
+	      })
 	      </span>
         <span onmousedown={
           nextButtonImage = "resources/images/next_pressed.png";
@@ -124,33 +215,59 @@ screen root() {
           nextButtonImage = "resources/images/next.png";
         }>
 	      image(nextButtonImage, onclick={
+          $("#flash__" + activeTabName).hide();
+          $("#sliders").show();
 	        activeTabName = next(activeTabName);
 	      })
 	      </span>
 	    }
+	    </span>
 	  }
-	
+
 	  block(customTabbarStyle) {
 	    <span style="position: absolute; margin-left: 0px; margin-top: 2px; vertical-align-bottom;">
-	    span(onclick={ activeTabName = "Reminder"; }, cssClass=activeTabName == "Reminder" ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
+	    span(onclick={
+	        activeTabName = "Reminder";
+	        $("#flash__" + activeTabName).hide();
+          $("#sliders").show();
+          $("#placeholder").hide();
+          $("#navigators").show();
+	      }, cssClass=activeTabName == "Reminder" ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
 	      image(activeTabName == "Reminder" ? "resources/images/reminder_on_text.png" : "resources/images/reminder_off_text.png")
 	    }
 	    </span>
 	
 	    <span style="position: absolute; margin-left: 70px;">
-	    span(onclick={ activeTabName = "Life"; }, cssClass=activeTabName == "Life" ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
+	    span(onclick={
+	        activeTabName = "Life";
+          $("#flash__" + activeTabName).hide();
+          $("#sliders").show();
+          $("#placeholder").hide();
+          $("#navigators").show();
+	      }, cssClass=activeTabName == "Life" ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
 	    	image(activeTabName == "Life" ? "resources/images/life_on.png" : "resources/images/life_off.png")
 	    }
 	    </span>
 	
 	    <span style="position: absolute; margin-left: 120px; margin-top: 1px;">
-	    span(onclick={ activeTabName = "Moodometer"; }, cssClass=activeTabName == "Moodometer" ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
+	    span(onclick={
+	        activeTabName = "Moodometer";
+          $("#flash__" + activeTabName).hide();
+          $("#sliders").show();
+          $("#placeholder").hide();
+          $("#navigators").show();
+	      }, cssClass=activeTabName == "Moodometer" ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
 	      image(activeTabName == "Moodometer" ? "resources/images/moodometer_on_text.png" : "resources/images/moodometer_off_text.png")
 	    }
 	    </span>
 	
 	    <span style="position: absolute; margin-left: 200px; margin-top: -2px;">
-	    span(onclick={ activeTabName = "Meditate"; }, cssClass=activeTabName == "Meditate" ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
+	    span(onclick={
+	        activeTabName = "Meditate";
+          $("#sliders").show();
+          $("#placeholder").hide();
+          $("#navigators").show();
+	      }, cssClass=activeTabName == "Meditate" ? customActiveTabButtonStyle : customInActiveTabButtonStyle) {
 	      image(activeTabName == "Meditate" ? "resources/images/meditate_on_text.png" : "resources/images/meditate_off_text.png")
 	    }
 	    </span>

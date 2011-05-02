@@ -11,6 +11,7 @@ screen moodoScreen(mood : Mood) {
 
 control moodoForm (mood : Mood) {
   block(main) {
+  <span id="sliders">
     customItem {
       <div style="margin:0 0 10px 0; text-align: center; width: 250px">
         label("Not at all", style=left)
@@ -35,6 +36,7 @@ control moodoForm (mood : Mood) {
       </div>
       rangeField(mood.awake, min=0, max=100, start=50)
     }
+    </span>
   }
   var saveButtonImage = "resources/images/save.png"
   block(action) {
@@ -44,15 +46,13 @@ control moodoForm (mood : Mood) {
       saveButtonImage = "resources/images/save.png";
     }>
     image(saveButtonImage, onclick={
-      if (mood.happy.length == 0
-        || mood.relaxed.length == 0
-        || mood.awake.length == 0) {
-        // notify("Did you forget to rate your mood?");
-      } else {
-        // notify("Your mood is saved successfully!");
-        add(mood);
-        moodoScreen(Mood(date=now()));
-      }
+      $("#sliders").hide();
+      $("#flash__Moodometer").show();
+      mood.happy = mood.happy == "" ? "50" : mood.happy;
+      mood.relaxed = mood.relaxed == "" ? "50" : mood.relaxed;
+      mood.awake = mood.awake == "" ? "50" : mood.awake;
+      add(mood);
+      mood = Mood(date = now());
     })
     </span>
   }

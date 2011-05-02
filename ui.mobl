@@ -239,6 +239,7 @@ style action {
 
 style main {
   height: 274px;
+  width: 269px;
 }
 
 style navigator {
@@ -255,5 +256,21 @@ style root {
   background-repeat: no-repeat;
   height: 500px;
   width: 315px;
+  position: absolute;
+}
+
+style flash {
+  display: none;
+  float: left;
+  clear: both;
+  position:absolute;
+  margin-left:-25px;
+  margin-top:-79px;
+}
+
+style transition {
+  margin-left: -252px;
+  margin-top: 185px;
+  float: left;
   position: absolute;
 }
