@@ -55,15 +55,23 @@ function prev(currentTab : String) : String {
   return navigateTab(currentTab, prevTabs);
 }
 
+function header(activeTabName : String) : String {
+  if (activeTabName == "Reminder") {
+    return "Select the activities you would like to include in your daily life.";
+  } else if (activeTabName == "Life") {
+    return "Select the recent changes that have occurred in your life.";
+  } else if (activeTabName == "Moodometer") {
+    return "How do you feel right now? Tap on the slider to rate your mood.";
+  } else if (activeTabName == "Meditate") {
+    return "Select a podcast to listen.";
+  } else if (activeTabName == "StressGraph") {
+    return "Trace your mood.";
+  }
+  return "Ken";
+}
+
 screen root() {
   block(root) {
-	  customHeader("Ken")
-	
-	  // customTabSet([("Reminder", "", remindMe),
-	  //               ("Life", "", life),
-	  //               ("Moodometer", "", moodoMeter),
-	  //               ("Meditate", "", meditate)])
-	
     var stressGraphImage = "resources/images/view_stressgraph_off.png"
     var stressGraphImageOn = "resources/images/view_stressgraph_on.png"
     var backButtonImage = "resources/images/back.png"
@@ -71,11 +79,18 @@ screen root() {
     var transitionImage = "resources/images/transition_screen.png"
     var moods = ""
 
-	  var activeTabName : String = "Reminder"
-	  var lastTabName : String = ""
-	  var s = ""
+    var activeTabName : String = "Reminder"
+    var lastTabName : String = ""
+    var s = ""
+
+	  customHeader(header(activeTabName))
 	
-	  <div style="height: 284px; margin-left: 25px; margin-top: 10px">
+	  // customTabSet([("Reminder", "", remindMe),
+	  //               ("Life", "", life),
+	  //               ("Moodometer", "", moodoMeter),
+	  //               ("Meditate", "", meditate)])
+		
+	  <div style="height: 300px; margin-left: 25px;">
 	  
     block(activeTabName == "StressGraph" ? customActiveTabStyle : inActiveTabStyle) {
       screenContext {

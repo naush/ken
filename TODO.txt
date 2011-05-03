@@ -5,8 +5,9 @@
 	Life - Select the recent changes that have occurred in your life.
 	Moodometer - How do you feel right now? Tap on the slider to rate your mood.
 	Meditate - Select a podcast to listen.
+	Stress Graph - ?
 
-3. Update buttons attached
+*** 3. Update buttons attached.
 
 4. I like the stressgraph, can u default the stress graph button on the last section (meditate) in the "on" state? right now it appears "off" throughout. I think it would be help if the last section - meditate had it in "on" state.
 

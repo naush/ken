@@ -46,9 +46,9 @@ screen customDetailScreen(it : Dynamic, detail : Control1<Dynamic>) {
 
 style customHeaderStyle {
   padding: 0;
-  height: 3.3em;
-  font-size: 1.3em;
-  line-height: 3.3em;
+  height: 4.3em;
+  font-size: 0.9em;
+  line-height: 1.3em;
   font-weight: bold;
   text-align: center;
   text-shadow: #477 0px 1px 1px;
@@ -66,11 +66,13 @@ style customHeaderContainerStyle {
 
 style customHeaderTextStyle {
   position: absolute;
-  left: -75px;
-  width: 150px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  left: -115px;
+  width: 240px;
+  margin-top: 14px;
+  vertical-align: middle;
+  // white-space: nowrap;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
 }
 
 control customHeader(text : String, onclick : Callback = null) {
@@ -234,6 +236,7 @@ style ranger {
 }
 
 style action {
+  margin-top: 14px;
   margin-left: 109px;
 }
 

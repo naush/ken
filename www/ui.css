@@ -540,9 +540,9 @@
 }
 .ui__customHeaderStyle {
   padding: 0;
-  height: 3.3em;
-  font-size: 1.3em;
-  line-height: 3.3em;
+  height: 4.3em;
+  font-size: 0.9em;
+  line-height: 1.3em;
   font-weight: bold;
   text-align: center;
   text-shadow: #477 0px 1px 1px;
@@ -558,11 +558,10 @@
 }
 .ui__customHeaderTextStyle {
   position: absolute;
-  left: -75px;
-  width: 150px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  left: -115px;
+  width: 240px;
+  margin-top: 14px;
+  vertical-align: middle;
 }
 .ui__customItemStyle {
   border-left: 0;
@@ -647,6 +646,7 @@
   width: 250px;
 }
 .ui__action {
+  margin-top: 14px;
   margin-left: 109px;
 }
 .ui__main {
