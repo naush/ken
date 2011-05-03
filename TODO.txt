@@ -1,15 +1,15 @@
 1. The application needs to open on the screen -welcome.png (attached) [this is for user to get introduced to the application or else they wont know what to do next.]
 
-2. Every section has a descriptive instruction on the top green bar (attached "top_green.jpg"). We need to put that in because - again the user would not know what to do with the section if there is not instruction, right now it says "ken" all through. Here is the text for every section - 
+*** 2. Every section has a descriptive instruction on the top green bar (attached "top_green.jpg"). We need to put that in because - again the user would not know what to do with the section if there is not instruction, right now it says "ken" all through. Here is the text for every section - 
 	Reminder - Select the activities you would like to include in your daily life 
 	Life - Select the recent changes that have occurred in your life.
 	Moodometer - How do you feel right now? Tap on the slider to rate your mood.
 	Meditate - Select a podcast to listen.
-	Stress Graph - ?
+	Stress Graph - This chart shows your stress graph over the last one week.
 
 *** 3. Update buttons attached.
 
-4. I like the stressgraph, can u default the stress graph button on the last section (meditate) in the "on" state? right now it appears "off" throughout. I think it would be help if the last section - meditate had it in "on" state.
+4. I like the stressgraph, can you default the stress graph button on the last section (meditate) in the "on" state? right now it appears "off" throughout. I think it would be help if the last section - meditate had it in "on" state.
 
 5. The meditate section is pulling podcasts like - stripper podcast ect. can we limit the podcasts to the ones i sent before? i am worried that when i am presenting it will show inappropriate podcasts like the one i mentioned above.
 

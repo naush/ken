@@ -65,7 +65,7 @@ function header(activeTabName : String) : String {
   } else if (activeTabName == "Meditate") {
     return "Select a podcast to listen.";
   } else if (activeTabName == "StressGraph") {
-    return "Trace your mood.";
+    return "This chart shows your stress graph over the last one week.";
   }
   return "Ken";
 }
