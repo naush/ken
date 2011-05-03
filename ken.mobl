@@ -35,6 +35,9 @@ load resources/images/view_stressgraph_off.png
 load resources/images/view_stressgraph_pressed.png
 load resources/images/transition_screen.png
 load resources/images/transition_screen_pressed.png
+load resources/images/begin_setup.png
+load resources/images/begin_setup_pressed.png
+load resources/images/welcome.png
 
 var nextTabs = ["Reminder", "Life", "Moodometer", "Meditate", "Reminder"];
 var prevTabs = ["Reminder", "Meditate", "Moodometer", "Life", "Reminder"];
@@ -78,8 +81,10 @@ screen root() {
     var nextButtonImage = "resources/images/next.png"
     var transitionImage = "resources/images/transition_screen.png"
     var moods = ""
+    var backgroundImage = "resources/images/background_lastscreen.png"
+    var beginSetupImage = "resources/images/begin_setup.png"
 
-    var activeTabName : String = "Reminder"
+    var activeTabName : String = "Welcome"
     var lastTabName : String = ""
     var s = ""
 
@@ -92,6 +97,21 @@ screen root() {
 		
 	  <div style="height: 300px; margin-left: 25px;">
 	  
+	  block(activeTabName == "Welcome" ? customActiveTabStyle : inActiveTabStyle) {
+      <span style="position: absolute; color: white; margin-left: -25px; margin-top: -61px;">
+	      image("resources/images/welcome.png")
+	      <span style="float:left; position:absolute; margin-top:286px; margin-left:-289px;" onmousedown={
+            beginSetupImage = "resources/images/begin_setup_pressed.png";
+          } onmouseup={
+            beginSetupImage = "resources/images/begin_setup.png";
+          }>
+	      image(beginSetupImage, onclick={
+          activeTabName = "Reminder";
+        })
+        </span>
+      </span>
+	  }
+	  
     block(activeTabName == "StressGraph" ? customActiveTabStyle : inActiveTabStyle) {
       screenContext {
         image("http://chart.apis.google.com/chart?chf=bg,s,67676700&chxl=0:|Mon|Tue|Wed|Thu|Fri|Sat|Sun|1:|Low|Med|High&chxp=0,0.2,1.1,2,2.9,3.8,4.7,5.6|1,0.5,1.5,2.5&chxr=0,0,6|1,0,3&chxs=0,676767,11.5,0,_,676767|1,676767,11.5,0,_,676767&chxt=t,y&chs=274x269&cht=lxy&chco=DDF8CC&chds=0,6,0,100&chd=t:0,1,2,3,4,5,6|" + moods + "&chdlp=t&chls=1&chma=0,25,45,15&chm=r,3399CCCE,0,0,0.333|r,49188FCE,0,0.333,0.666|r,FF0000CC,0,0.666,1")
@@ -101,7 +121,7 @@ screen root() {
 	  block(activeTabName == "Reminder" ? customActiveTabStyle : inActiveTabStyle) {
 	    screenContext {
         <div id="flash__Reminder" class=flash>
-          image("resources/images/background_lastscreen.png", onclick={
+          image(backgroundImage, onclick={
             $("#flash__Reminder").hide();
           }) 
 
@@ -124,7 +144,7 @@ screen root() {
 	  block(activeTabName == "Life" ? customActiveTabStyle : inActiveTabStyle) {
 	    screenContext {
         <div id="flash__Life" class=flash>
-          image("resources/images/background_lastscreen.png", onclick={
+          image(backgroundImage, onclick={
             $("#flash__Life").hide();
           })
           <span class=transition onmousedown={
@@ -146,7 +166,7 @@ screen root() {
 	  block(activeTabName == "Moodometer" ? customActiveTabStyle : inActiveTabStyle) {
 	    screenContext {
         <div id="flash__Moodometer" class=flash>
-          image("resources/images/background_lastscreen.png", onclick={
+          image(backgroundImage, onclick={
             $("#sliders").show();
             $("#flash__Moodometer").hide();
           })
