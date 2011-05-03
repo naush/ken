@@ -63,7 +63,7 @@ control podcastDetail(podcast : Podcast) {
     // customItem { label(blank(podcast.description) ? "Unknown" : podcast.description) }
     customItem { link(blank(podcast.website) ? "Unknown" : podcast.website) { "Podcast Website" } }
   }
-  <div style="height: 215px; overflow-y: auto; width: 270px;">
+  <div style="height: 200px; overflow-y: auto; width: 270px;">
   block {
     // header("Episodes")
     list(episode in podcast.fetchEpisodes()) {
@@ -91,14 +91,14 @@ control meditate() {
 	    customMasterDetail(podcasts, podcastItem, podcastDetail)
 	  }
   }
-  var saveButtonImage = "resources/images/save.png"
+  var updateButtonImage = "resources/images/update_on.png"
   block(action) {
     <span onmousedown={
-      saveButtonImage = "resources/images/save_pressed.png";
+      updateButtonImage = "resources/images/update_pressed.png";
     } onmouseup={
-      saveButtonImage = "resources/images/save.png";
+      updateButtonImage = "resources/images/update_on.png";
     }>
-    image(saveButtonImage, onclick={
+    image(updateButtonImage, onclick={
       // $("#flash__Meditate").show();
       lifeEvent = selectLifeEvent();
       if (event) {

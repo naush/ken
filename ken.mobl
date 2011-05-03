@@ -24,6 +24,8 @@ load resources/images/reminder_on_text.png
 load resources/images/reminder_off_text.png
 load resources/images/save.png
 load resources/images/save_pressed.png
+load resources/images/update_on.png
+load resources/images/update_pressed.png
 load resources/images/back.png
 load resources/images/back_pressed.png
 load resources/images/next.png
