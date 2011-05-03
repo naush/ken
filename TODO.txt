@@ -1,0 +1,34 @@
+1. The application needs to open on the screen -welcome.png (attached) [this is for user to get introduced to the application or else they wont know what to do next.]
+
+2. Every section has a descriptive instruction on the top green bar (attached "top_green.jpg"). We need to put that in because - again the user would not know what to do with the section if there is not instruction, right now it says "ken" all through. Here is the text for every section - 
+	Reminder - Select the activities you would like to include in your daily life 
+	Life - Select the recent changes that have occurred in your life.
+	Moodometer - How do you feel right now? Tap on the slider to rate your mood.
+	Meditate - Select a podcast to listen.
+
+3. Update buttons attached
+
+4. I like the stressgraph, can u default the stress graph button on the last section (meditate) in the "on" state? right now it appears "off" throughout. I think it would be help if the last section - meditate had it in "on" state.
+
+5. The meditate section is pulling podcasts like - stripper podcast ect. can we limit the podcasts to the ones i sent before? i am worried that when i am presenting it will show inappropriate podcasts like the one i mentioned above.
+
+6. Is it possible that when I save the bookmark to my screen, the icon shown could be customized? (ken_icon.png)
+
+7. The content in two of the sections also needs a little tweaking
+
+Reminder
+  4th bullet - Change to Relax shoulders. Remove by rotating them because it's not showing.
+
+Life - change to the following 
+	Holidays
+	Parents visiting
+	Many family get-togethers 
+	Vacation 
+	Change in eating habits 
+	Change in sleeping hours
+
+8. The little "i" on the top left corner - can it be linked to an external website? i wanted to link this to my online website which gives more information about the app. I will send you the link if it is doable.
+
+9. There was a settings button. (see attached settings.jpg) This can link to another jpeg that looks like the user can set how many times the application can contact them. (setting_demo.jpg) I have written - Only for Demo. Not Activated. so that my professor knows that this section is not working right now. touching the screen again or the back button can take the user back to the application. ? doable? 
+
+10. How long do you think it will take for the edit and next buttons on transition screens to work? Like I said before, this is the last week so we can give it a few finishing touches if u have time. 
