@@ -7,9 +7,9 @@ import mobl::notify
 
 function loadPresets() : [(Bool, String, Num, [String])] {
   var presets : [(Bool, String, Num, [String])] = Array<(Bool, String, Num, [String])>();
-  presets.push((false, "Traffic Tickets", 11, ["anxiety", "mindfulness", "loosen", "obsessive thinking"]));
   presets.push((false, "Holidays", 12, ["confidence", "forgiveness", "joy", "relationship", "gratitude", "heart", "love", "power", "affirmations", "anxiety", "breathing"]));
-  presets.push((false, "Family get-togethers", 15, ["family", "confidence", "forgiveness", "joy", "relationship", "gratitude", "heart", "love", "power", "affirmations"]));
+  presets.push((false, "Parents visiting", 11, ["anxiety", "mindfulness", "loosen", "obsessive thinking"]));
+  presets.push((false, "Many family get-togethers", 15, ["family", "confidence", "forgiveness", "joy", "relationship", "gratitude", "heart", "love", "power", "affirmations"]));
   presets.push((false, "Vacation", 15, ["spiritual", "awakening", "loosen", "meditation", "relax", "detox", "peace", "stillness", "balance", "cleansing"]));
   presets.push((false, "Change in eating habits", 15, ["food", "nourishment", "excersice", "detox", "yoga", "balance", "body", "chakra", "wellness", "immunity", "immune"]));
   presets.push((false, "Change in sleeping habits", 16, ["sleep", "relaxation", "anxiety", "breathing", "detox", "yoga", "balance", "body", "chakra", "wellness", "peace", "meditation"]));

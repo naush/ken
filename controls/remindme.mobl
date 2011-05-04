@@ -10,7 +10,7 @@ function loadPresets() : [(Bool, String, Num)] {
   presets.push((false, "Drink water", 0));
   presets.push((false, "Stop frowning", 0));
   presets.push((false, "Take few deep breaths", 0));
-  presets.push((false, "Relax shoulders by rotating them", 0));
+  presets.push((false, "Relax shoulders", 0));
   presets.push((false, "Close eyes and count till 20", 0));
   presets.push((false, "Stretch", 0));
   return presets;

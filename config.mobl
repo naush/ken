@@ -1,7 +1,8 @@
 configuration
 
-title "Ken"
-
+title    "Ken"
+database "ken"
+output   "www"
+version  "0.7"
+icon     "resources/images/ken_icon.png"
 // lib "/Users/naush/Projects/eclipse/mobl-lib"
-
-icon resources/images/ken_icon.png
