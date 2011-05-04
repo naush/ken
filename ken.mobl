@@ -231,10 +231,12 @@ screen root() {
           stressGraphImage = "resources/images/view_stressgraph_off.png";
 	      } onmousedown={
 	        stressGraphImage = "resources/images/view_stressgraph_pressed.png";
+          stressGraphImageOn = "resources/images/view_stressgraph_pressed.png";
 	      } onmouseup={
           stressGraphImage = "resources/images/view_stressgraph_on.png";
+          stressGraphImageOn = "resources/images/view_stressgraph_on.png";
 	      }>
-	      image(stressGraphImage, onclick={
+	      image(activeTabName == "Meditate" ? stressGraphImageOn : stressGraphImage, onclick={
           $("#navigators").hide();
           $("#placeholder").show();
           lastTabName = activeTabName;
