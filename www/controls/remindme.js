@@ -1,6 +1,9 @@
 mobl.provides('controls.remindme');
 mobl.provides('models');
+mobl.provides('models.reminders');
+mobl.provides('ui');
 mobl.provides('mobl');
+mobl.provides('controls.remindme');
 controls.remindme.loadPresets = function() {
    var __this = this;
   var presets = [];
@@ -17,289 +20,289 @@ controls.remindme.loadPresets = function() {
 controls.remindme.remindersToSave = mobl.ref([]);
 
 controls.remindme.reminderForm = function(presets, elements, callback) {
-  var root2361 = $("<span>");
+  var root444 = $("<span>");
   var subs__ = new mobl.CompSubscription();
+  var result__ = null;
+  var tmp1452 = mobl.ref(result__);
   
-  var tmp5214 = mobl.ref(null);
+  var result__ = null;
+  var tmp1451 = mobl.ref(result__);
   
+  var result__ = null;
+  var tmp1450 = mobl.ref(result__);
   
-  var tmp5213 = mobl.ref(null);
-  
-  
-  var tmp5212 = mobl.ref(null);
-  
-  var nodes1914 = $("<span>");
-  root2361.append(nodes1914);
-  subs__.addSub((mobl.block)(mobl.ref(ui.main), tmp5212, tmp5213, tmp5214, function(_, callback) {
-    var root2362 = $("<span>");
+  var nodes387 = $("<span>");
+  root444.append(nodes387);
+  subs__.addSub((mobl.block)(mobl.ref(ui.main), tmp1450, tmp1451, tmp1452, function(_, callback) {
+    var root445 = $("<span>");
     var subs__ = new mobl.CompSubscription();
     
-    var node899 = mobl.loadingSpan();
-    root2362.append(node899);
-    var list140;
+    var node229 = mobl.loadingSpan();
+    root445.append(node229);
+    var list12;
     var listSubs__ = new mobl.CompSubscription();
     subs__.addSub(listSubs__);
-    var renderList140 = function() {
+    var renderList12 = function() {
       var subs__ = listSubs__;
-      list140 = presets.get();
-      list140.list(function(results140) {
-        node899.empty();
-        for(var i172 = 0; i172 < results140.length; i172++) {
+      list12 = presets.get();
+      list12.list(function(results12) {
+        node229.empty();
+        for(var i20 = 0; i20 < results12.length; i20++) {
           (function() {
-            var iternode140 = $("<span>");
-            node899.append(iternode140);
+            var iternode12 = $("<span>");
+            node229.append(iternode12);
             var check;var name;var stress;
-            check = mobl.ref(mobl.ref(mobl.ref(results140), i172), "_1");name = mobl.ref(mobl.ref(mobl.ref(results140), i172), "_2");stress = mobl.ref(mobl.ref(mobl.ref(results140), i172), "_3");
+            check = mobl.ref(mobl.ref(mobl.ref(results12), i20), "_1");name = mobl.ref(mobl.ref(mobl.ref(results12), i20), "_2");stress = mobl.ref(mobl.ref(mobl.ref(results12), i20), "_3");
             
             var reminder_name = mobl.ref(name.get().replace(/\s/g, "__"));
+            var result__ = false;
+            var tmp1449 = mobl.ref(result__);
             
-            var tmp5211 = mobl.ref(false);
+            var result__ = null;
+            var tmp1448 = mobl.ref(result__);
             
+            var result__ = null;
+            var tmp1447 = mobl.ref(result__);
             
-            var tmp5210 = mobl.ref(null);
-            
-            
-            var tmp5209 = mobl.ref(null);
-            
-            var nodes1915 = $("<span>");
-            iternode140.append(nodes1915);
-            subs__.addSub((ui.customItem)(mobl.ref(ui.customItemStyle), mobl.ref(ui.customItemPushedStyle), tmp5209, tmp5210, tmp5211, function(_, callback) {
-              var root2363 = $("<span>");
+            var nodes388 = $("<span>");
+            iternode12.append(nodes388);
+            subs__.addSub((ui.customItem)(mobl.ref(ui.customItemStyle), mobl.ref(ui.customItemPushedStyle), tmp1447, tmp1448, tmp1449, function(_, callback) {
+              var root446 = $("<span>");
               var subs__ = new mobl.CompSubscription();
               
-              var node900 = $("<span>");
+              var node230 = $("<span>");
               
-              var ref632 = mobl.ref("item__" + reminder_name.get());
-              if(ref632.get() !== null) {
-                node900.attr('id', ref632.get());
-                subs__.addSub(ref632.addEventListener('change', function(_, ref, val) {
-                  node900.attr('id', val);
+              var ref121 = mobl.ref("item__" + reminder_name.get());
+              if(ref121.get() !== null) {
+                node230.attr('id', ref121.get());
+                subs__.addSub(ref121.addEventListener('change', function(_, ref, val) {
+                  node230.attr('id', val);
                 }));
                 subs__.addSub(reminder_name.addEventListener('change', function() {
-                  node900.attr('id', "item__" + reminder_name.get());
+                  node230.attr('id', "item__" + reminder_name.get());
                 }));
                 
               }
-              subs__.addSub(ref632.rebind());
+              subs__.addSub(ref121.rebind());
               
-              
-              var tmp5208 = mobl.ref(function(event, callback) {
-                                   if(event && event.stopPropagation) event.stopPropagation();
-                                   var result__ = check.get();
-                                   if(result__) {
-                                     var result__ = mobl.$("#item__" + reminder_name.get()).css("font-weight", "bold");
-                                     var result__ = new models.reminders.Reminder({'name': name.get(), 'stress': stress.get(), 'date': mobl.now()});
-                                     var reminder = result__;
-                                     var result__ = controls.remindme.remindersToSave.get().push(reminder);
-                                     if(callback && callback.apply) callback(); return;
-                                   } else {
-                                     {
-                                       var result__ = mobl.$("#item__" + reminder_name.get()).css("font-weight", "normal");
-                                       var result__ = null;
-                                       var reminderToRemove = result__;
-                                       var result__ = controls.remindme.remindersToSave.get();
-                                       controls.remindme.remindersToSave.get().list(function(coll371) {
-                                         coll371 = coll371.reverse();
-                                         function processOne57() {
-                                           var reminder;
-                                           reminder = coll371.pop();
-                                           var result__ = reminder.name == reminder_name.get();
-                                           if(result__) {
-                                             var result__ = reminder;
-                                             reminderToRemove = result__;
-                                             
-                                             if(coll371.length > 0) processOne57(); else rest57();
-                                             
-                                           } else {
-                                             {
-                                               
-                                               if(coll371.length > 0) processOne57(); else rest57();
-                                               
-                                             }
-                                           }
+              var result__ = function(event, callback) {
+                               if(event && event.stopPropagation) event.stopPropagation();
+                               var result__ = check.get();
+                               if(result__) {
+                                 var result__ = mobl.$("#item__" + reminder_name.get()).css("font-weight", "bold");
+                                 var result__ = new models.reminders.Reminder({'name': name.get(), 'stress': stress.get(), 'date': mobl.now()});
+                                 var reminder = result__;
+                                 var result__ = controls.remindme.remindersToSave.get().push(reminder);
+                                 if(callback && callback.apply) callback(); return;
+                               } else {
+                                 {
+                                   var result__ = mobl.$("#item__" + reminder_name.get()).css("font-weight", "normal");
+                                   var result__ = null;
+                                   var reminderToRemove = result__;
+                                   var result__ = controls.remindme.remindersToSave.get();
+                                   controls.remindme.remindersToSave.get().list(function(coll36) {
+                                     coll36 = coll36.reverse();
+                                     function processOne10() {
+                                       var reminder;
+                                       reminder = coll36.pop();
+                                       var result__ = reminder.name == reminder_name.get();
+                                       if(result__) {
+                                         var result__ = reminder;
+                                         reminderToRemove = result__;
+                                         
+                                         if(coll36.length > 0) processOne10(); else rest10();
+                                         
+                                       } else {
+                                         {
+                                           
+                                           if(coll36.length > 0) processOne10(); else rest10();
+                                           
                                          }
-                                         function rest57() {
-                                           var result__ = controls.remindme.remindersToSave.get().remove(reminderToRemove);
-                                           if(callback && callback.apply) callback(); return;
-                                         }
-                                         if(coll371.length > 0) processOne57(); else rest57();
-                                       });
-                                       
+                                       }
                                      }
-                                   }
-                                 });
+                                     function rest10() {
+                                       var result__ = controls.remindme.remindersToSave.get().remove(reminderToRemove);
+                                       if(callback && callback.apply) callback(); return;
+                                     }
+                                     if(coll36.length > 0) processOne10(); else rest10();
+                                   });
+                                   
+                                 }
+                               }
+                             };
+              var tmp1446 = mobl.ref(result__);
               
-              var nodes1916 = $("<span>");
-              node900.append(nodes1916);
-              subs__.addSub((ui.checkBox)(check, name, tmp5208, function(_, callback) {
-                var root2364 = $("<span>");
+              var nodes389 = $("<span>");
+              node230.append(nodes389);
+              subs__.addSub((ui.checkBox)(check, name, tmp1446, function(_, callback) {
+                var root447 = $("<span>");
                 var subs__ = new mobl.CompSubscription();
-                callback(root2364); return subs__;
+                callback(root447); return subs__;
                 return subs__;
               }, function(node) {
-                var oldNodes = nodes1916;
-                nodes1916 = node.contents();
-                oldNodes.replaceWith(nodes1916);
+                var oldNodes = nodes389;
+                nodes389 = node.contents();
+                oldNodes.replaceWith(nodes389);
               }));
-              root2363.append(node900);
-              callback(root2363); return subs__;
+              root446.append(node230);
+              callback(root446); return subs__;
               
               
               return subs__;
             }, function(node) {
-              var oldNodes = nodes1915;
-              nodes1915 = node.contents();
-              oldNodes.replaceWith(nodes1915);
+              var oldNodes = nodes388;
+              nodes388 = node.contents();
+              oldNodes.replaceWith(nodes388);
             }));
             
-            var oldNodes = iternode140;
-            iternode140 = iternode140.contents();
-            oldNodes.replaceWith(iternode140);
+            var oldNodes = iternode12;
+            iternode12 = iternode12.contents();
+            oldNodes.replaceWith(iternode12);
             
             
           }());
         }
         mobl.delayedUpdateScrollers();
-        subs__.addSub(list140.addEventListener('change', function() { listSubs__.unsubscribe(); renderList140(true); }));
-        subs__.addSub(presets.addEventListener('change', function() { listSubs__.unsubscribe(); renderList140(true); }));
+        subs__.addSub(list12.addEventListener('change', function() { listSubs__.unsubscribe(); renderList12(true); }));
+        subs__.addSub(presets.addEventListener('change', function() { listSubs__.unsubscribe(); renderList12(true); }));
       });
     };
-    renderList140();
+    renderList12();
     
-    callback(root2362); return subs__;
+    callback(root445); return subs__;
     
     return subs__;
   }, function(node) {
-    var oldNodes = nodes1914;
-    nodes1914 = node.contents();
-    oldNodes.replaceWith(nodes1914);
+    var oldNodes = nodes387;
+    nodes387 = node.contents();
+    oldNodes.replaceWith(nodes387);
   }));
   
   var saveButtonImage = mobl.ref("resources/images/save.png");
+  var result__ = null;
+  var tmp1461 = mobl.ref(result__);
   
-  var tmp5223 = mobl.ref(null);
+  var result__ = null;
+  var tmp1460 = mobl.ref(result__);
   
+  var result__ = null;
+  var tmp1459 = mobl.ref(result__);
   
-  var tmp5222 = mobl.ref(null);
-  
-  
-  var tmp5221 = mobl.ref(null);
-  
-  var nodes1917 = $("<span>");
-  root2361.append(nodes1917);
-  subs__.addSub((mobl.block)(mobl.ref(ui.action), tmp5221, tmp5222, tmp5223, function(_, callback) {
-    var root2365 = $("<span>");
+  var nodes390 = $("<span>");
+  root444.append(nodes390);
+  subs__.addSub((mobl.block)(mobl.ref(ui.action), tmp1459, tmp1460, tmp1461, function(_, callback) {
+    var root448 = $("<span>");
     var subs__ = new mobl.CompSubscription();
     
-    var node901 = $("<span>");
+    var node231 = $("<span>");
     
-    var val602 = function(event, callback) {
+    var val175 = function(event, callback) {
                   if(event && event.stopPropagation) event.stopPropagation();
                   var result__ = "resources/images/save_pressed.png";
                   saveButtonImage.set(result__);
                   if(callback && callback.apply) callback(); return;
                 };
-    if(val602 !== null) {
-      subs__.addSub(mobl.domBind(node901, 'mousedown', val602));
+    if(val175 !== null) {
+      subs__.addSub(mobl.domBind(node231, 'mousedown', val175));
     }
     
-    var val603 = function(event, callback) {
+    var val176 = function(event, callback) {
                   if(event && event.stopPropagation) event.stopPropagation();
                   var result__ = "resources/images/save.png";
                   saveButtonImage.set(result__);
                   if(callback && callback.apply) callback(); return;
                 };
-    if(val603 !== null) {
-      subs__.addSub(mobl.domBind(node901, 'mouseup', val603));
+    if(val176 !== null) {
+      subs__.addSub(mobl.domBind(node231, 'mouseup', val176));
     }
     
-    
-    var tmp5215 = mobl.ref(function(event, callback) {
-                         if(event && event.stopPropagation) event.stopPropagation();
-                         var result__ = mobl.$("#flash__Reminder").show();
-                         var result__ = controls.remindme.remindersToSave.get();
-                         controls.remindme.remindersToSave.get().list(function(coll372) {
-                           coll372 = coll372.reverse();
-                           function processOne58() {
-                             var reminder;
-                             reminder = coll372.pop();
-                             var result__ = mobl.add(reminder);
-                             
-                             if(coll372.length > 0) processOne58(); else rest58();
-                             
-                           }
-                           function rest58() {
-                             var result__ = 0;
-                             controls.remindme.remindersToSave.get().length = result__;
-                             if(callback && callback.apply) callback(); return;
-                           }
-                           if(coll372.length > 0) processOne58(); else rest58();
-                         });
+    var result__ = function(event, callback) {
+                     if(event && event.stopPropagation) event.stopPropagation();
+                     var result__ = mobl.$("#flash__Reminder").show();
+                     var result__ = controls.remindme.remindersToSave.get();
+                     controls.remindme.remindersToSave.get().list(function(coll37) {
+                       coll37 = coll37.reverse();
+                       function processOne11() {
+                         var reminder;
+                         reminder = coll37.pop();
+                         var result__ = mobl.add(reminder);
                          
-                       });
+                         if(coll37.length > 0) processOne11(); else rest11();
+                         
+                       }
+                       function rest11() {
+                         var result__ = 0;
+                         controls.remindme.remindersToSave.get().length = result__;
+                         if(callback && callback.apply) callback(); return;
+                       }
+                       if(coll37.length > 0) processOne11(); else rest11();
+                     });
+                     
+                   };
+    var tmp1453 = mobl.ref(result__);
     
+    var result__ = null;
+    var tmp1458 = mobl.ref(result__);
     
-    var tmp5220 = mobl.ref(null);
+    var result__ = null;
+    var tmp1457 = mobl.ref(result__);
     
+    var result__ = null;
+    var tmp1456 = mobl.ref(result__);
     
-    var tmp5219 = mobl.ref(null);
+    var result__ = null;
+    var tmp1455 = mobl.ref(result__);
     
+    var result__ = null;
+    var tmp1454 = mobl.ref(result__);
     
-    var tmp5218 = mobl.ref(null);
-    
-    
-    var tmp5217 = mobl.ref(null);
-    
-    
-    var tmp5216 = mobl.ref(null);
-    
-    var nodes1918 = $("<span>");
-    node901.append(nodes1918);
-    subs__.addSub((ui.image)(saveButtonImage, tmp5216, tmp5217, tmp5215, tmp5218, tmp5219, tmp5220, function(_, callback) {
-      var root2366 = $("<span>");
+    var nodes391 = $("<span>");
+    node231.append(nodes391);
+    subs__.addSub((ui.image)(saveButtonImage, tmp1454, tmp1455, tmp1453, tmp1456, tmp1457, tmp1458, function(_, callback) {
+      var root449 = $("<span>");
       var subs__ = new mobl.CompSubscription();
-      callback(root2366); return subs__;
+      callback(root449); return subs__;
       return subs__;
     }, function(node) {
-      var oldNodes = nodes1918;
-      nodes1918 = node.contents();
-      oldNodes.replaceWith(nodes1918);
+      var oldNodes = nodes391;
+      nodes391 = node.contents();
+      oldNodes.replaceWith(nodes391);
     }));
-    root2365.append(node901);
-    callback(root2365); return subs__;
+    root448.append(node231);
+    callback(root448); return subs__;
     
     
     return subs__;
   }, function(node) {
-    var oldNodes = nodes1917;
-    nodes1917 = node.contents();
-    oldNodes.replaceWith(nodes1917);
+    var oldNodes = nodes390;
+    nodes390 = node.contents();
+    oldNodes.replaceWith(nodes390);
   }));
-  callback(root2361); return subs__;
+  callback(root444); return subs__;
   
   
   return subs__;
 };
 
 controls.remindme.remindMe = function(elements, callback) {
-  var root2367 = $("<span>");
+  var root450 = $("<span>");
   var subs__ = new mobl.CompSubscription();
+  var result__ = controls.remindme.loadPresets();
+  var tmp1462 = mobl.ref(result__);
   
-  var tmp5224 = mobl.ref(controls.remindme.loadPresets());
-  
-  var nodes1919 = $("<span>");
-  root2367.append(nodes1919);
-  subs__.addSub((controls.remindme.reminderForm)(tmp5224, function(_, callback) {
-    var root2368 = $("<span>");
+  var nodes392 = $("<span>");
+  root450.append(nodes392);
+  subs__.addSub((controls.remindme.reminderForm)(tmp1462, function(_, callback) {
+    var root451 = $("<span>");
     var subs__ = new mobl.CompSubscription();
-    callback(root2368); return subs__;
+    callback(root451); return subs__;
     return subs__;
   }, function(node) {
-    var oldNodes = nodes1919;
-    nodes1919 = node.contents();
-    oldNodes.replaceWith(nodes1919);
+    var oldNodes = nodes392;
+    nodes392 = node.contents();
+    oldNodes.replaceWith(nodes392);
   }));
-  callback(root2367); return subs__;
+  callback(root450); return subs__;
   
   return subs__;
 };

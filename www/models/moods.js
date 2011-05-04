@@ -1,4 +1,6 @@
 mobl.provides('models.moods');
+mobl.provides('models.moods');
+mobl.provides('mobl');
 
 models.moods.Mood = persistence.define('models__moods__Mood', {
   'happy': 'VARCHAR(255)',

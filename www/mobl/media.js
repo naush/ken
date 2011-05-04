@@ -1,4 +1,6 @@
 mobl.provides('mobl.media');
+mobl.provides('mobl');
+mobl.provides('mobl.media');
 (function(__ns) {
 function AudioPlayer ( el ) {
   this.el = el;

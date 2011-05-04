@@ -1,4 +1,5 @@
 mobl.provides('mobl');
+mobl.provides('mobl');
 mobl.mergeStyles = function(styles) {
    var __this = this;
   var styleString = styles.join(" ");
@@ -61,221 +62,225 @@ __ns.isOnline = function(callback) {
                               };
                   i.src = 'http://gfx2.hotmail.com/mail/uxp/w4/m4/pr014/h/s7.png?d=' + escape(Date());
                 };
+}(mobl));(function(__ns) {
+__ns.dyn = function(o) {
+             return o;
+           };
 }(mobl));
 mobl.label = function(s, style, onclick, elements, callback) {
-  var root717 = $("<span>");
+  var root325 = $("<span>");
   var subs__ = new mobl.CompSubscription();
   
-  var node50 = $("<span>");
+  var node171 = $("<span>");
   
-  var ref0 = s;
-  node50.text(""+ref0.get());
-  var ignore0 = false;
-  subs__.addSub(ref0.addEventListener('change', function(_, ref, val) {
-    if(ignore0) return;
-    node50.text(""+val);
+  var ref58 = s;
+  node171.text(""+ref58.get());
+  var ignore1 = false;
+  subs__.addSub(ref58.addEventListener('change', function(_, ref, val) {
+    if(ignore1) return;
+    node171.text(""+val);
   }));
-  subs__.addSub(ref0.rebind());
+  subs__.addSub(ref58.rebind());
   
   
-  var ref1 = style;
-  if(ref1.get() !== null) {
-    node50.attr('class', ref1.get());
-    subs__.addSub(ref1.addEventListener('change', function(_, ref, val) {
-      node50.attr('class', val);
+  var ref59 = style;
+  if(ref59.get() !== null) {
+    node171.attr('class', ref59.get());
+    subs__.addSub(ref59.addEventListener('change', function(_, ref, val) {
+      node171.attr('class', val);
     }));
     
   }
-  subs__.addSub(ref1.rebind());
+  subs__.addSub(ref59.rebind());
   
-  var val0 = onclick.get();
-  if(val0 !== null) {
-    subs__.addSub(mobl.domBind(node50, 'tap', val0));
+  var val141 = onclick.get();
+  if(val141 !== null) {
+    subs__.addSub(mobl.domBind(node171, 'tap', val141));
   }
   
-  root717.append(node50);
-  callback(root717); return subs__;
+  root325.append(node171);
+  callback(root325); return subs__;
   
   return subs__;
 };
 
 mobl.block = function(cssClass, id, onclick, onswipe, elements, callback) {
-  var root718 = $("<span>");
+  var root326 = $("<span>");
   var subs__ = new mobl.CompSubscription();
   
-  var node51 = $("<div>");
+  var node172 = $("<div>");
   
-  var ref2 = id;
-  if(ref2.get() !== null) {
-    node51.attr('id', ref2.get());
-    subs__.addSub(ref2.addEventListener('change', function(_, ref, val) {
-      node51.attr('id', val);
+  var ref60 = id;
+  if(ref60.get() !== null) {
+    node172.attr('id', ref60.get());
+    subs__.addSub(ref60.addEventListener('change', function(_, ref, val) {
+      node172.attr('id', val);
     }));
     
   }
-  subs__.addSub(ref2.rebind());
+  subs__.addSub(ref60.rebind());
   
-  var ref3 = cssClass;
-  if(ref3.get() !== null) {
-    node51.attr('class', ref3.get());
-    subs__.addSub(ref3.addEventListener('change', function(_, ref, val) {
-      node51.attr('class', val);
+  var ref61 = cssClass;
+  if(ref61.get() !== null) {
+    node172.attr('class', ref61.get());
+    subs__.addSub(ref61.addEventListener('change', function(_, ref, val) {
+      node172.attr('class', val);
     }));
     
   }
-  subs__.addSub(ref3.rebind());
+  subs__.addSub(ref61.rebind());
   
-  var val1 = onclick.get();
-  if(val1 !== null) {
-    subs__.addSub(mobl.domBind(node51, 'tap', val1));
+  var val142 = onclick.get();
+  if(val142 !== null) {
+    subs__.addSub(mobl.domBind(node172, 'tap', val142));
   }
   
-  var val2 = onswipe.get();
-  if(val2 !== null) {
-    subs__.addSub(mobl.domBind(node51, 'swipe', val2));
+  var val143 = onswipe.get();
+  if(val143 !== null) {
+    subs__.addSub(mobl.domBind(node172, 'swipe', val143));
   }
   
-  var nodes628 = $("<span>");
-  node51.append(nodes628);
+  var nodes310 = $("<span>");
+  node172.append(nodes310);
   subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-    renderControl0();
+    renderControl8();
   }));
   
-  function renderControl0() {
+  function renderControl8() {
     subs__.addSub((elements)(function(elements, callback) {
-      var root719 = $("<span>");
+      var root327 = $("<span>");
       var subs__ = new mobl.CompSubscription();
-      callback(root719); return subs__;
+      callback(root327); return subs__;
       return subs__;
     }, function(node) {
-      var oldNodes = nodes628;
-      nodes628 = node.contents();
-      oldNodes.replaceWith(nodes628);
+      var oldNodes = nodes310;
+      nodes310 = node.contents();
+      oldNodes.replaceWith(nodes310);
     }));
   }
-  renderControl0();
-  root718.append(node51);
-  callback(root718); return subs__;
+  renderControl8();
+  root326.append(node172);
+  callback(root326); return subs__;
   
   
   return subs__;
 };
 
 mobl.span = function(cssClass, id, onclick, onswipe, elements, callback) {
-  var root720 = $("<span>");
+  var root328 = $("<span>");
   var subs__ = new mobl.CompSubscription();
   
-  var node52 = $("<span>");
+  var node173 = $("<span>");
   
-  var ref4 = id;
-  if(ref4.get() !== null) {
-    node52.attr('id', ref4.get());
-    subs__.addSub(ref4.addEventListener('change', function(_, ref, val) {
-      node52.attr('id', val);
+  var ref62 = id;
+  if(ref62.get() !== null) {
+    node173.attr('id', ref62.get());
+    subs__.addSub(ref62.addEventListener('change', function(_, ref, val) {
+      node173.attr('id', val);
     }));
     
   }
-  subs__.addSub(ref4.rebind());
+  subs__.addSub(ref62.rebind());
   
-  var ref5 = cssClass;
-  if(ref5.get() !== null) {
-    node52.attr('class', ref5.get());
-    subs__.addSub(ref5.addEventListener('change', function(_, ref, val) {
-      node52.attr('class', val);
+  var ref63 = cssClass;
+  if(ref63.get() !== null) {
+    node173.attr('class', ref63.get());
+    subs__.addSub(ref63.addEventListener('change', function(_, ref, val) {
+      node173.attr('class', val);
     }));
     
   }
-  subs__.addSub(ref5.rebind());
+  subs__.addSub(ref63.rebind());
   
-  var val3 = onclick.get();
-  if(val3 !== null) {
-    subs__.addSub(mobl.domBind(node52, 'tap', val3));
+  var val144 = onclick.get();
+  if(val144 !== null) {
+    subs__.addSub(mobl.domBind(node173, 'tap', val144));
   }
   
-  var val4 = onswipe.get();
-  if(val4 !== null) {
-    subs__.addSub(mobl.domBind(node52, 'swipe', val4));
+  var val145 = onswipe.get();
+  if(val145 !== null) {
+    subs__.addSub(mobl.domBind(node173, 'swipe', val145));
   }
   
-  var nodes629 = $("<span>");
-  node52.append(nodes629);
+  var nodes311 = $("<span>");
+  node173.append(nodes311);
   subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-    renderControl1();
+    renderControl9();
   }));
   
-  function renderControl1() {
+  function renderControl9() {
     subs__.addSub((elements)(function(elements, callback) {
-      var root721 = $("<span>");
+      var root329 = $("<span>");
       var subs__ = new mobl.CompSubscription();
-      callback(root721); return subs__;
+      callback(root329); return subs__;
       return subs__;
     }, function(node) {
-      var oldNodes = nodes629;
-      nodes629 = node.contents();
-      oldNodes.replaceWith(nodes629);
+      var oldNodes = nodes311;
+      nodes311 = node.contents();
+      oldNodes.replaceWith(nodes311);
     }));
   }
-  renderControl1();
-  root720.append(node52);
-  callback(root720); return subs__;
+  renderControl9();
+  root328.append(node173);
+  callback(root328); return subs__;
   
   
   return subs__;
 };
 
 mobl.link = function(url, target, elements, callback) {
-  var root722 = $("<span>");
+  var root330 = $("<span>");
   var subs__ = new mobl.CompSubscription();
   
   var l = $("<a>");
   
-  var ref6 = url;
-  if(ref6.get() !== null) {
-    l.attr('href', ref6.get());
-    subs__.addSub(ref6.addEventListener('change', function(_, ref, val) {
+  var ref64 = url;
+  if(ref64.get() !== null) {
+    l.attr('href', ref64.get());
+    subs__.addSub(ref64.addEventListener('change', function(_, ref, val) {
       l.attr('href', val);
     }));
     
   }
-  subs__.addSub(ref6.rebind());
+  subs__.addSub(ref64.rebind());
   
-  var ref7 = target;
-  if(ref7.get() !== null) {
-    l.attr('target', ref7.get());
-    subs__.addSub(ref7.addEventListener('change', function(_, ref, val) {
+  var ref65 = target;
+  if(ref65.get() !== null) {
+    l.attr('target', ref65.get());
+    subs__.addSub(ref65.addEventListener('change', function(_, ref, val) {
       l.attr('target', val);
     }));
     
   }
-  subs__.addSub(ref7.rebind());
+  subs__.addSub(ref65.rebind());
   
-  var nodes630 = $("<span>");
-  l.append(nodes630);
+  var nodes312 = $("<span>");
+  l.append(nodes312);
   subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-    renderControl2();
+    renderControl10();
   }));
   
-  function renderControl2() {
+  function renderControl10() {
     subs__.addSub((elements)(function(elements, callback) {
-      var root723 = $("<span>");
+      var root331 = $("<span>");
       var subs__ = new mobl.CompSubscription();
-      callback(root723); return subs__;
+      callback(root331); return subs__;
       return subs__;
     }, function(node) {
-      var oldNodes = nodes630;
-      nodes630 = node.contents();
-      oldNodes.replaceWith(nodes630);
+      var oldNodes = nodes312;
+      nodes312 = node.contents();
+      oldNodes.replaceWith(nodes312);
     }));
   }
-  renderControl2();
-  root722.append(l);
+  renderControl10();
+  root330.append(l);
   var result__ = l.contents().length == 0;
   if(result__) {
     var result__ = l.text(url.get());
-    callback(root722); return subs__;
+    callback(root330); return subs__;
   } else {
     {
-      callback(root722); return subs__;
+      callback(root330); return subs__;
     }
   }
   
@@ -284,51 +289,51 @@ mobl.link = function(url, target, elements, callback) {
 };
 
 mobl.nl = function(elements, callback) {
-  var root724 = $("<span>");
+  var root332 = $("<span>");
   var subs__ = new mobl.CompSubscription();
   
-  var node53 = $("<br>");
+  var node174 = $("<br>");
   
-  root724.append(node53);
-  callback(root724); return subs__;
+  root332.append(node174);
+  callback(root332); return subs__;
   
   return subs__;
 };
 
 mobl.screenContext = function(elements, callback) {
-  var root725 = $("<span>");
+  var root333 = $("<span>");
   var subs__ = new mobl.CompSubscription();
   
-  var node54 = $("<div>");
-  node54.attr('class', "screenContext");
-  node54.attr('style', "position: relative;");
+  var node175 = $("<div>");
+  node175.attr('class', "screenContext");
+  node175.attr('style', "position: relative;");
   
   
-  var node55 = $("<div>");
-  node55.attr('class', "initialElements");
+  var node176 = $("<div>");
+  node176.attr('class', "initialElements");
   
-  var nodes631 = $("<span>");
-  node55.append(nodes631);
+  var nodes313 = $("<span>");
+  node176.append(nodes313);
   subs__.addSub(mobl.ref(elements).addEventListener('change', function() {
-    renderControl3();
+    renderControl11();
   }));
   
-  function renderControl3() {
+  function renderControl11() {
     subs__.addSub((elements)(function(elements, callback) {
-      var root726 = $("<span>");
+      var root334 = $("<span>");
       var subs__ = new mobl.CompSubscription();
-      callback(root726); return subs__;
+      callback(root334); return subs__;
       return subs__;
     }, function(node) {
-      var oldNodes = nodes631;
-      nodes631 = node.contents();
-      oldNodes.replaceWith(nodes631);
+      var oldNodes = nodes313;
+      nodes313 = node.contents();
+      oldNodes.replaceWith(nodes313);
     }));
   }
-  renderControl3();
-  node54.append(node55);
-  root725.append(node54);
-  callback(root725); return subs__;
+  renderControl11();
+  node175.append(node176);
+  root333.append(node175);
+  callback(root333); return subs__;
   
   
   
@@ -358,12 +363,40 @@ __ns._ = function(key, placeholders) {
            return s;
          };
 }(mobl));(function(__ns) {
+__ns.httpRequest = function(url, method, encoding, data, mapper, callback) {
+                     $.ajax({
+                              url: url,
+                              dataType: encoding,
+                              type: method,
+                              data: data,
+                              error: function(_, message, error) {
+                                       console.error(message);
+                                       console.error(error);
+                                       callback(null);
+                                     },
+                              success: function(data) {
+                                         var result = mapper(data, callback);
+                                         if(result !== undefined)
+                                         {
+                                           callback(result);
+                                         }
+                                       }
+                            });
+                   };
+}(mobl));(function(__ns) {
 var argspec = persistence.argspec;
 __ns.$ = jQuery;
 __ns.sleep = function(time, callback) {
                setTimeout(callback, time);
              };
-__ns.Dynamic = {
+__ns.Dynamic = function(props) {
+                 for(var p in props)
+                 {
+                   if(props.hasOwnProperty(p))
+                   {
+                     this[p] = props[p];
+                   }
+                 }
                };
 __ns.repeat = function(time, callback) {
                 setInterval(callback, time);
@@ -377,7 +410,7 @@ mobl.log = function(s, _, callback) {
              callback();
            };
 __ns.parseNum = function(s) {
-                  return parseInt(s, 10);
+                  return parseFloat(s, 10);
                 };
 __ns.escape = function(s) {
                 return escape(s);
@@ -448,9 +481,19 @@ mobl.formatDate = function(date) {
                   };
 mobl.range = function(from, to) {
                var ar = [];
-               for(var i = from; i < to; i++)
+               if(from <= to)
                {
-                 ar.push(i);
+                 for(var i = from; i < to; i++)
+                 {
+                   ar.push(i);
+                 }
+               }
+               else
+               {
+                 for(var i = from; i > to; i--)
+                 {
+                   ar.push(i);
+                 }
                }
                return ar;
              };
@@ -473,6 +516,51 @@ mobl.html = function(html, elements, callback) {
               callback(root192);
               return;
             };
+mobl.defineType = function(qid, SuperType, fields) {
+                    function Type ( obj ) {
+                      this._data = {
+                                   };
+                      if(this.initialize)
+                      {
+                        this.initialize();
+                      }
+                      for(var p in obj)
+                      {
+                        if(obj.hasOwnProperty(p))
+                        {
+                          this[p] = obj[p];
+                        }
+                      }
+                    }
+                    Type.prototype = SuperType ? new SuperType ( ) : new persistence.Observable ( );
+                    for(var prop in fields)
+                    {
+                      if(fields.hasOwnProperty(prop))
+                      {
+                        (function() {
+                           var p = prop;
+                           if(fields[p] === null)
+                           {
+                             Type.prototype.__defineGetter__(p, function() {
+                                                                  return this._data[p];
+                                                                });
+                             Type.prototype.__defineSetter__(p, function(val) {
+                                                                  this._data[p] = val;
+                                                                  this.triggerEvent('change', this, p, val);
+                                                                });
+                           }
+                           else
+                           if(fields[p][0] === '[')
+                           {
+                           }
+                         }());
+                      }
+                    }
+                    Type.fromJSON = function(json) {
+                                      return new Type(json);
+                                    };
+                    return Type;
+                  };
 persistence.entityDecoratorHooks.push(function(Entity) {
                                         Entity.searchPrefix = function(query) {
                                                                 return Entity.search(query, true);
@@ -666,6 +754,22 @@ __ns.getCurrentScreen = function() {
                           }
                           return null;
                         };
+var oldHash = null;
+setInterval(function() {
+              if(location.hash !== oldHash)
+              {
+                oldHash = location.hash;
+                var screenContext = mobl.findDeepestVisibleContext();
+                if(screenContext && screenContext.initialElements)
+                {
+                  var screens = screenContext.screens;
+                  if(screens.length > 1 || ( screenContext.initialElements.length > 0 && screens.length > 0 ))
+                  {
+                    screens[screens.length - 1].callbackFn(null);
+                  }
+                }
+              }
+            }, 250);
 __ns.call = function(screenName, args, callback) {
               var replace = args[args.length - 2].get();
               var animate = args[args.length - 1].get();
@@ -675,8 +779,13 @@ __ns.call = function(screenName, args, callback) {
                                   args: args,
                                   callback: callback,
                                   div: screenName.replace(/\./g, '__'),
-                                  dom: null
+                                  dom: $("<div>")
                                 };
+              if(!screenName.match(/\.root$/))
+              {
+                location.hash = "" + Math.round(Math.random() * 99999);
+              }
+              oldHash = location.hash;
               var screenContext = mobl.findDeepestVisibleContext();
               screenContext.screens.push(screenFrame);
               var callbackFn = function() {
@@ -707,6 +816,7 @@ __ns.call = function(screenName, args, callback) {
                                    callback.apply(null, arguments);
                                  }
                                };
+              screenFrame.callbackFn = callbackFn;
               var parts = screenName.split('.');
               var current = window;
               for(var i = 0; i < parts.length; i++)
@@ -890,25 +1000,6 @@ mobl.remoteCollection = function(uri, datatype, processor) {
                                          }
                                  };
                         };
-mobl.instantiate = function(sup, props) {
-                     var obj = {
-                               };
-                     for(var p in sup)
-                     {
-                       if(sup.hasOwnProperty(p))
-                       {
-                         obj[p] = sup[p];
-                       }
-                     }
-                     for(var p in props)
-                     {
-                       if(props.hasOwnProperty(p))
-                       {
-                         obj[p] = props[p];
-                       }
-                     }
-                     return new mobl.ObservableObject(obj);
-                   };
 mobl.ObservableObject = function(props) {
                           this._data = props;
                           this.subscribers = {
@@ -921,11 +1012,11 @@ mobl.ObservableObject = function(props) {
                               (function() {
                                  var p = property;
                                  that.__defineGetter__(p, function() {
-                                                            return that._data[p];
+                                                            return this._data[p];
                                                           });
                                  that.__defineSetter__(p, function(val) {
-                                                            that._data[p] = val;
-                                                            that.triggerEvent('change', that, p, val);
+                                                            this._data[p] = val;
+                                                            this.triggerEvent('change', this, p, val);
                                                           });
                                }());
                             }
@@ -1100,12 +1191,9 @@ mobl.implementInterface = function(sourceModule, targetModule, items) {
    mobl.Reference = Reference;
    mobl.CompSubscription = CompSubscription;
  }());
-}(mobl));
-mobl.Window = {
-  innerWidth: null,
-  innerHeight: null
-};
-mobl.window = mobl.ref(mobl.instantiate(mobl.Window, {}));
+}(mobl));mobl.Window = mobl.defineType('mobl.Window', null, {innerWidth: null,innerHeight: null});
+
+mobl.window = mobl.ref(new mobl.Window({}));
 (function(__ns) {
 __ns.window.get().innerWidth = window.innerWidth;
 __ns.window.get().innerHeight = window.innerHeight;

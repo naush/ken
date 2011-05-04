@@ -100,10 +100,11 @@
   z-index: 3;
 }
 .ui__sideButtonStyle {
-  position: absolute;
-  right: 0.4em;
-  padding: 0.3em 0.8em 0.3em 0.8em;
+  float: right;
+  padding: 0.25em 0.8em 0.25em 0.8em;
   margin-top: -0.2em;
+  margin-bottom: -0.2em;
+  margin-left: 0.5em;
   font-weight: bold;
   color: rgb(100, 30, -50);
   -webkit-box-shadow: 0px 0px 3px #777777;
@@ -116,10 +117,11 @@
   background: -moz-linear-gradient(top, rgb(320, 250, 170), rgb(270, 200, 120));
 }
 .ui__sideButtonPushedStyle {
-  position: absolute;
-  right: 0.4em;
-  padding: 0.3em 0.8em 0.3em 0.8em;
+  float: right;
+  padding: 0.25em 0.8em 0.25em 0.8em;
   margin-top: -0.2em;
+  margin-bottom: -0.2em;
+  margin-left: 0.5em;
   font-weight: bold;
   color: rgb(100, 30, -50);
   -webkit-box-shadow: 0px 0px 3px #777777;
@@ -537,6 +539,12 @@
 }
 .ui__trStyle .ui__tdStyle:last-child {
   border-right: 1px solid #000;
+}
+.ui__trStyle:first-child .ui__tdStyle {
+  border-top: 1px solid #000;
+}
+.ui__trStyle:last-child .ui__tdStyle {
+  border-bottom: 1px solid #000;
 }
 .ui__customHeaderStyle {
   padding: 0;

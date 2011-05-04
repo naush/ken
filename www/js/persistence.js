@@ -334,13 +334,14 @@ persistence.get = function(arg1, arg2) {
      */
     persistence.asyncParForEach = function(array, fn, callback) {
       var completed = 0;
-      if(array.length === 0) {
+      var arLength = array.length;
+      if(arLength === 0) {
         callback();
       }
-      for(var i = 0; i < array.length; i++) {
+      for(var i = 0; i < arLength; i++) {
         fn(array[i], function(result, err) {
             completed++;
-            if(completed === array.length) {
+            if(completed === arLength) {
               callback(result, err);
             }
           });
@@ -513,6 +514,10 @@ persistence.get = function(arg1, arg2) {
                 }
               }());
           }
+        }
+
+        if(this.initialize) {
+          this.initialize();
         }
 
         for ( var f in obj) {
@@ -991,7 +996,11 @@ persistence.get = function(arg1, arg2) {
       if(type) {
         switch(type) {
         case 'DATE':
-          return new Date(value * 1000);
+          if(typeof value === 'number') {
+            return new Date(value * 1000);
+          } else {
+            return null;
+          }
           break;
         default:
           return value;
@@ -1795,6 +1804,20 @@ persistence.get = function(arg1, arg2) {
       this.triggerEvent('add', this, obj);
       this.triggerEvent('change', this, obj);
     }
+    
+    /**
+     * Adds an an array of objects to a collection
+     * @param obj the object to add
+     */
+    QueryCollection.prototype.addAll = function(objs) {
+      for(var i = 0; i < objs.length; i++) {
+        var obj = objs[i];
+        this._session.add(obj);
+        this._filter.makeFit(obj);
+        this.triggerEvent('add', this, obj);
+      }
+      this.triggerEvent('change', this);
+    }
 
     /**
      * Removes an object from a collection
@@ -1913,6 +1936,18 @@ persistence.get = function(arg1, arg2) {
       }
     };
 
+    ManyToManyDbQueryCollection.prototype.addAll = function(objs) {
+      for(var i = 0; i < objs.length; i++) {
+        var obj = objs[i];
+        if(!arrayContains(this._localAdded, obj)) {
+          this._session.add(obj);
+          this._localAdded.push(obj);
+          this.triggerEvent('add', this, obj);
+        }
+      }
+      this.triggerEvent('change', this);
+    }
+
     ManyToManyDbQueryCollection.prototype.clone = function() {
       var c = DbQueryCollection.prototype.clone.call(this);
       c._localAdded = this._localAdded;
@@ -1955,6 +1990,18 @@ persistence.get = function(arg1, arg2) {
         this.triggerEvent('change', this, obj);
       }
     };
+
+    LocalQueryCollection.prototype.addAll = function(objs) {
+      for(var i = 0; i < objs.length; i++) {
+        var obj = objs[i];
+        if(!arrayContains(this._items, obj)) {
+          this._session.add(obj);
+          this._items.push(obj);
+          this.triggerEvent('add', this, obj);
+        }
+      }
+      this.triggerEvent('change', this);
+    }
 
     LocalQueryCollection.prototype.remove = function(obj) {
       var items = this._items;

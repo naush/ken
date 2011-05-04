@@ -1,4 +1,6 @@
 mobl.provides('mobl.yql');
+mobl.provides('mobl.yql');
+mobl.provides('mobl');
 
 mobl.yql.YQL = {
   query: function(q, callback) {

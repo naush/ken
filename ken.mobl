@@ -38,6 +38,7 @@ load resources/images/transition_screen_pressed.png
 load resources/images/begin_setup.png
 load resources/images/begin_setup_pressed.png
 load resources/images/welcome.png
+load resources/images/ken_icon.png
 
 var nextTabs = ["Reminder", "Life", "Moodometer", "Meditate", "Reminder"];
 var prevTabs = ["Reminder", "Meditate", "Moodometer", "Life", "Reminder"];

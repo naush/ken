@@ -1,7 +1,7 @@
 configuration
 
-debug
-
 title "Ken"
 
 // lib "/Users/naush/Projects/eclipse/mobl-lib"
+
+icon resources/images/ken_icon.png

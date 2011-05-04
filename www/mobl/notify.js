@@ -1,4 +1,6 @@
 mobl.provides('mobl.notify');
+mobl.provides('mobl.notify');
+mobl.provides('mobl');
 (function(__ns) {
 mobl.notify.notify = function(message, title) {
                        function requestPermission ( callback ) {
