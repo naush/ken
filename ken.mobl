@@ -39,6 +39,8 @@ load resources/images/begin_setup.png
 load resources/images/begin_setup_pressed.png
 load resources/images/welcome.png
 load resources/images/ken_icon.png
+load resources/images/next_trans.png
+load resources/images/edit_trans.png
 
 var nextTabs = ["Reminder", "Life", "Moodometer", "Meditate", "Reminder"];
 var prevTabs = ["Reminder", "Meditate", "Moodometer", "Life", "Reminder"];
@@ -76,6 +78,7 @@ function header(activeTabName : String) : String {
 
 screen root() {
   block(root) {
+
     var stressGraphImage = "resources/images/view_stressgraph_off.png"
     var stressGraphImageOn = "resources/images/view_stressgraph_on.png"
     var backButtonImage = "resources/images/back.png"
@@ -122,15 +125,29 @@ screen root() {
 	  block(activeTabName == "Reminder" ? customActiveTabStyle : inActiveTabStyle) {
 	    screenContext {
         <div id="flash__Reminder" class=flash>
-          image(backgroundImage, onclick={
-            $("#flash__Reminder").hide();
-          }) 
+          image(backgroundImage)
 
-          <span class=transition onmousedown={
+          <span class=transition>
+	          <span style="float: left; position: absolute; margin-top: 57px; margin-left: 101px;" onmousedown={
             transitionImage = "resources/images/transition_screen_pressed.png";
-          } onmouseup={
-            transitionImage = "resources/images/transition_screen.png";
-          }>
+		          } onmouseup={
+		            transitionImage = "resources/images/transition_screen.png";
+		          }>
+	            image("resources/images/next_trans.png", onclick={
+	              activeTabName = next(activeTabName);
+	            })
+	          </span>
+	  
+	          <span style="float: left; position: absolute; margin-top: 57px; margin-left: 20px;" onmousedown={
+            transitionImage = "resources/images/transition_screen_pressed.png";
+		          } onmouseup={
+		            transitionImage = "resources/images/transition_screen.png";
+		          }>
+	            image("resources/images/edit_trans.png", onclick={
+	              $("#flash__Reminder").hide();
+	            })
+	          </span>
+
             image(transitionImage)
           </span>
 
@@ -144,22 +161,39 @@ screen root() {
 	
 	  block(activeTabName == "Life" ? customActiveTabStyle : inActiveTabStyle) {
 	    screenContext {
+
         <div id="flash__Life" class=flash>
-          image(backgroundImage, onclick={
-            $("#flash__Life").hide();
-          })
-          <span class=transition onmousedown={
+          image(backgroundImage)
+
+          <span class=transition>
+            <span style="float: left; position: absolute; margin-top: 57px; margin-left: 101px;" onmousedown={
             transitionImage = "resources/images/transition_screen_pressed.png";
-          } onmouseup={
-            transitionImage = "resources/images/transition_screen.png";
-          }>
+              } onmouseup={
+                transitionImage = "resources/images/transition_screen.png";
+              }>
+              image("resources/images/next_trans.png", onclick={
+                activeTabName = next(activeTabName);
+              })
+            </span>
+    
+            <span style="float: left; position: absolute; margin-top: 57px; margin-left: 20px;" onmousedown={
+            transitionImage = "resources/images/transition_screen_pressed.png";
+              } onmouseup={
+                transitionImage = "resources/images/transition_screen.png";
+              }>
+              image("resources/images/edit_trans.png", onclick={
+                $("#flash__Life").hide();
+              })
+            </span>
+
             image(transitionImage)
           </span>
 
-          <span style="position: absolute; color: white; margin-left: -210px; margin-top: 202px;">
+          <span style="position: absolute; color: white; margin-left: -221px; margin-top: 202px;">
             "Events saved"
           </span>
         </div>
+
 	      life()
 	    }
 	  }
@@ -167,22 +201,38 @@ screen root() {
 	  block(activeTabName == "Moodometer" ? customActiveTabStyle : inActiveTabStyle) {
 	    screenContext {
         <div id="flash__Moodometer" class=flash>
-          image(backgroundImage, onclick={
-            $("#sliders").show();
-            $("#flash__Moodometer").hide();
-          })
-          <span class=transition onmousedown={
+          image(backgroundImage)
+
+          <span class=transition>
+            <span style="float: left; position: absolute; margin-top: 57px; margin-left: 101px;" onmousedown={
             transitionImage = "resources/images/transition_screen_pressed.png";
-          } onmouseup={
-            transitionImage = "resources/images/transition_screen.png";
-          }>
+              } onmouseup={
+                transitionImage = "resources/images/transition_screen.png";
+              }>
+              image("resources/images/next_trans.png", onclick={
+                activeTabName = next(activeTabName);
+              })
+            </span>
+    
+            <span style="float: left; position: absolute; margin-top: 57px; margin-left: 20px;" onmousedown={
+            transitionImage = "resources/images/transition_screen_pressed.png";
+              } onmouseup={
+                transitionImage = "resources/images/transition_screen.png";
+              }>
+              image("resources/images/edit_trans.png", onclick={
+                $("#sliders").show();
+                $("#flash__Moodometer").hide();
+              })
+            </span>
+
             image(transitionImage)
           </span>
 
-          <span style="position: absolute; color: white; margin-left: -203px; margin-top: 202px;">
+          <span style="position: absolute; color: white; margin-left: -221px; margin-top: 202px;">
             "Mood saved"
           </span>
         </div>
+
 	      moodoMeter()
 	    }
 	  }
