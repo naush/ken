@@ -12,12 +12,15 @@
 *** 4. I like the stress graph, can you default the stress graph button on the last section (meditate) in the "on" state? right now it appears "off" throughout. I think it would be help if the last section - meditate had it in "on" state.
 
 *** 5. The meditate section is pulling podcasts like - stripper podcast etc. can we limit the podcasts to the ones i sent before? i am worried that when i am presenting it will show inappropriate podcasts like the one i mentioned above.
+
 TODO: This one is tricky because I can't guarantee what's going to show up in the search results. My suggestion would be to clear the cache on your phone, reload Ken, and only choose life events that return clean results. If you're really worried about it, we can try to identify and remove the keyword that takes you to stripper podcast.
 
 *** 6. Is it possible that when I save the bookmark to my screen, the icon shown could be customized? (ken_icon.png)
+
 TODO: Confirm visible on iPhone.
 
 *** 7. The content in two of the sections also needs a little tweaking
+
 TODO: Update stress level and keywords.
 
 Reminder
@@ -35,4 +38,4 @@ Life - change to the following
 
 9. There was a settings button. (see attached settings.jpg) This can link to another jpeg that looks like the user can set how many times the application can contact them. (setting_demo.jpg) I have written - Only for Demo. Not Activated. so that my professor knows that this section is not working right now. touching the screen again or the back button can take the user back to the application. ? doable? 
 
-10. How long do you think it will take for the edit and next buttons on transition screens to work? Like I said before, this is the last week so we can give it a few finishing touches if u have time. 
+*** 10. How long do you think it will take for the edit and next buttons on transition screens to work? Like I said before, this is the last week so we can give it a few finishing touches if u have time. 

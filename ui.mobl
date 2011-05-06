@@ -236,11 +236,12 @@ style ranger {
 }
 
 style action {
-  margin-top: 14px;
+  margin-top: -10px;
   margin-left: 109px;
 }
 
 style main {
+  padding-top: 27px;
   height: 274px;
   width: 269px;
 }

@@ -41,6 +41,9 @@ load resources/images/welcome.png
 load resources/images/ken_icon.png
 load resources/images/next_trans.png
 load resources/images/edit_trans.png
+load resources/images/i.png
+load resources/images/settings.png
+load resources/images/settings_demo.png
 
 var nextTabs = ["Reminder", "Life", "Moodometer", "Meditate", "Reminder"];
 var prevTabs = ["Reminder", "Meditate", "Moodometer", "Life", "Reminder"];
@@ -116,9 +119,19 @@ screen root() {
       </span>
 	  }
 	  
+    block(activeTabName == "Settings" ? customActiveTabStyle : inActiveTabStyle) {
+	  	<span style="position: absolute; float: left; margin-top: -56px; margin-left: -24px; z-index: 1;">
+	  	  image("resources/images/settings_demo.png", onclick={
+	  	  	activeTabName = lastTabName;
+	  	  })
+	  	</span>
+	  }
+	  
     block(activeTabName == "StressGraph" ? customActiveTabStyle : inActiveTabStyle) {
       screenContext {
-        image("http://chart.apis.google.com/chart?chf=bg,s,67676700&chxl=0:|Mon|Tue|Wed|Thu|Fri|Sat|Sun|1:|Low|Med|High&chxp=0,0.2,1.1,2,2.9,3.8,4.7,5.6|1,0.5,1.5,2.5&chxr=0,0,6|1,0,3&chxs=0,676767,11.5,0,_,676767|1,676767,11.5,0,_,676767&chxt=t,y&chs=274x269&cht=lxy&chco=DDF8CC&chds=0,6,0,100&chd=t:0,1,2,3,4,5,6|" + moods + "&chdlp=t&chls=1&chma=0,25,45,15&chm=r,3399CCCE,0,0,0.333|r,49188FCE,0,0.333,0.666|r,FF0000CC,0,0.666,1")
+      	<span style="">
+          image("http://chart.apis.google.com/chart?chf=bg,s,67676700&chxl=0:|Mon|Tue|Wed|Thu|Fri|Sat|Sun|1:|Low|Med|High&chxp=0,0.2,1.1,2,2.9,3.8,4.7,5.6|1,0.5,1.5,2.5&chxr=0,0,6|1,0,3&chxs=0,676767,11.5,0,_,676767|1,676767,11.5,0,_,676767&chxt=t,y&chs=274x269&cht=lxy&chco=DDF8CC&chds=0,6,0,100&chd=t:0,1,2,3,4,5,6|" + moods + "&chdlp=t&chls=1&chma=0,25,45,15&chm=r,3399CCCE,0,0,0.333|r,49188FCE,0,0.333,0.666|r,FF0000CC,0,0.666,1")
+        </span>
       }
     }
 
@@ -246,6 +259,19 @@ screen root() {
 	  
 	  block(navigator) {
 
+	    <span style="float: left; position: absolute; margin-left: -26px; margin-top: -355px;">
+	      image("resources/images/i.png", onclick={
+	        openUrl("http://www.itsneh.com");
+	      })
+	    </span>
+
+	    <span id="settings" style="float: left; position: absolute; margin-left: 184px; margin-top: -291px;">
+	      image("resources/images/settings.png", onclick={
+	      	lastTabName = activeTabName.toString();
+	      	activeTabName = "Settings";
+	      })
+	    </span>
+
 	    <span id="placeholder" style="display: none;">
 	      customItem {
           <span style="margin-left: 57px;" onmousedown={
@@ -256,6 +282,7 @@ screen root() {
 	          image(stressGraphImageOn, onclick={
               $("#placeholder").hide();
               $("#navigators").show();
+              // $("#settings").hide();
               activeTabName = lastTabName;
             })
 	        </span>

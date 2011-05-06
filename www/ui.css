@@ -654,10 +654,11 @@
   width: 250px;
 }
 .ui__action {
-  margin-top: 14px;
+  margin-top: -10px;
   margin-left: 109px;
 }
 .ui__main {
+  padding-top: 27px;
   height: 274px;
   width: 269px;
 }
