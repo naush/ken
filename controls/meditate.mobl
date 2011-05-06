@@ -58,10 +58,9 @@ screen listen(episode : Episode) {
 
 control podcastDetail(podcast : Podcast) {
   block {
-    // customItem { image(podcast.logo_url, width=120) }
-    customItem { label(blank(podcast.title) ? "Unknown" : podcast.title) }
-    // customItem { label(blank(podcast.description) ? "Unknown" : podcast.description) }
-    customItem { link(blank(podcast.website) ? "Unknown" : podcast.website) { "Podcast Website" } }
+    customItem { link(blank(podcast.website) ? "Unknown" : podcast.website) {
+      label(blank(podcast.title) ? "Unknown" : podcast.title)
+    } }
   }
   <div style="height: 200px; overflow-y: auto; width: 270px;">
   block {

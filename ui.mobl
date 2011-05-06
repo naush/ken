@@ -14,7 +14,9 @@ control customMasterDetail(items : Collection<Dynamic>, masterItem : Control1<Dy
 
 screen customDetailScreen(it : Dynamic, detail : Control1<Dynamic>) {
   // customHeader("Detail") {
+  customItem {
     backButton("Back", onclick={ screen return; })
+  }
   // }
   detail(it)
 }
